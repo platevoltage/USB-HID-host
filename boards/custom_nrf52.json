@@ -1,20 +1,52 @@
 {
     "build": {
-      "core": "nordicnrf52",
+      "arduino":{
+        "ldscript": "nrf52_xxaa.ld"
+      },
+      "core": "nRF5",
       "cpu": "cortex-m4",
+      "extra_flags": "-DARDUINO_NRF52_DK",
       "f_cpu": "64000000L",
       "mcu": "nrf52832",
-      "variant": "custom_variant"
+      "variant": "custom_variant",
+      "zephyr": {
+         "variant": "nrf52dk_nrf52832"
+      }
+    },
+    "connectivity": [
+      "bluetooth"
+    ],
+    "debug": {
+      "default_tools": [
+        "jlink"
+      ],
+      "jlink_device": "nRF52832_xxAA",
+      "onboard_tools": [
+        "cmsis-dap",
+        "jlink"
+      ],
+      "svd_path": "nrf52.svd"
     },
     "frameworks": [
-      "arduino"
+      "arduino",
+      "mbed",
+      "zephyr"
     ],
-    "name": "Custom nRF52 Board",
+    "name": "Nordic nRF52-DK",
     "upload": {
       "maximum_ram_size": 65536,
       "maximum_size": 524288,
-      "protocol": "jlink"
+      "protocol": "jlink",
+      "protocols": [
+        "jlink",
+        "nrfjprog",
+        "stlink",
+        "blackmagic",
+        "cmsis-dap",
+        "mbed"
+      ]
     },
-    "url": "https://www.example.com",
-    "vendor": "Custom"
+    "url": "https://developer.mbed.org/platforms/Nordic-nRF52-DK/",
+    "vendor": "Nordic"
   }
+  
