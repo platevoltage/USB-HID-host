@@ -4,7 +4,7 @@
 #include <usbhid.h>
 
 struct GamePadEventData {
-        uint8_t X, Y, Z1, Z2, Rz;
+        uint8_t A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X;
 };
 
 class JoystickEvents {
@@ -13,6 +13,7 @@ public:
         virtual void OnHatSwitch(uint8_t hat);
         virtual void OnButtonUp(uint8_t but_id);
         virtual void OnButtonDn(uint8_t but_id);
+        virtual void OnAcceleratorChange(uint8_t but_id);
 };
 
 #define RPT_GEMEPAD_LEN		23
@@ -21,7 +22,7 @@ class JoystickReportParser : public HIDReportParser {
         JoystickEvents *joyEvents;
 
         uint8_t oldPad[RPT_GEMEPAD_LEN];
-        uint8_t oldHat;
+        uint8_t oldAccelerator;
         uint16_t oldButtons;
 
 public:
