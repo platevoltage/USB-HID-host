@@ -38,12 +38,16 @@ void JoystickReportParser::Parse(USBHID *hid, bool is_rpt_id, uint8_t len, uint8
         }
 
         uint8_t accelerator = (buf[6]);
-
-        // Calling Accelerator event handler
         if (accelerator != oldAccelerator && joyEvents) {
                 // Serial.println(buf[5], HEX);
                 joyEvents->OnAcceleratorChange(accelerator);
                 oldAccelerator = accelerator;
+        }
+
+        uint8_t brake = (buf[12]);
+        if (brake != oldBrake && joyEvents) {
+                joyEvents->OnBrakeChange(brake);
+                oldBrake = brake;
         }
 
         // uint16_t buttons = (0x0000 | buf[6]);
@@ -137,6 +141,13 @@ void JoystickEvents::OnButtonDn(uint8_t but_id) {
 
 void JoystickEvents::OnAcceleratorChange(uint8_t but_id) {
         Serial.print("Accelerator: ");
+        if (but_id >= 128) but_id -= 128;
+        else but_id+=128;
+        Serial.println(but_id, DEC); 
+}
+
+void JoystickEvents::OnBrakeChange(uint8_t but_id) {
+        Serial.print("Brake: ");
         if (but_id >= 128) but_id -= 128;
         else but_id+=128;
         Serial.println(but_id, DEC); 
