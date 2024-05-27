@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VPR HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VPR HALY" href="haly.html" />
+    <link rel="prev" title="VPR" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">VPR</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">VPR HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">VPR HALY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vevif/driver.html">VEVIF driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="clic/hal.html">VPR CLIC HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csr/hal.html">VPR CSR HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csr/vio/hal.html">VPR CSR VIO HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csr/vtim/hal.html">VPR CSR VTIM HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="csr/vevif/hal.html">VPR CSR VEVIF HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">VPR</a></li>
+      <li class="breadcrumb-item active">VPR HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/vpr/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vpr-hal">
+<h1>VPR HAL<a class="headerlink" href="#vpr-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__vpr__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_vpr_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the VPR RISC-V CPU unit (VPR). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_EVENTS_TRIGGERED_COUNT">
+<span class="target" id="group__nrf__vpr__hal_1ga2cf1a86ea52ea334c7dfdc37683e3b69"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENTS_TRIGGERED_COUNT</span></span></span><a class="headerlink" href="#c.NRF_VPR_EVENTS_TRIGGERED_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying maximum number of available events triggered. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_ALL_CHANNELS_INT_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gaf3d5edb244b799223665a9d4c9abb989"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_ALL_CHANNELS_INT_MASK</span></span></span><a class="headerlink" href="#c.NRF_VPR_ALL_CHANNELS_INT_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for creating the interrupt bitmask for all event channels. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_TASK_TRIGGER_ALL_MASK">
+<span class="target" id="group__nrf__vpr__hal_1ga89809bd4ac1e84322d00528e4295b51d"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_ALL_MASK</span></span></span><a class="headerlink" href="#c.NRF_VPR_TASK_TRIGGER_ALL_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro used as an mask to clear all triggered interrupts within CSR. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_EVENTS_TRIGGERED_MIN">
+<span class="target" id="group__nrf__vpr__hal_1ga3eb8273a1de1c8ca2e83cfcd46dc7f9a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENTS_TRIGGERED_MIN</span></span></span><a class="headerlink" href="#c.NRF_VPR_EVENTS_TRIGGERED_MIN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying minimal index of TRIGGERED events array that is implemented. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_EVENTS_TRIGGERED_MAX">
+<span class="target" id="group__nrf__vpr__hal_1ga0ff1807b2be95a18e5b0b48c0d60fddd"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENTS_TRIGGERED_MAX</span></span></span><a class="headerlink" href="#c.NRF_VPR_EVENTS_TRIGGERED_MAX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying maximal index of TRIGGERED events array that is implemented. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_TASKS_TRIGGER_MIN">
+<span class="target" id="group__nrf__vpr__hal_1ga3930c28a3b298d080fa13859da8100c1"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASKS_TRIGGER_MIN</span></span></span><a class="headerlink" href="#c.NRF_VPR_TASKS_TRIGGER_MIN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying minimal index of TRIGGER tasks array that is implemented. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_TASKS_TRIGGER_MAX">
+<span class="target" id="group__nrf__vpr__hal_1gadf1cc490aaaf9c25aae3b1049c4070f9"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASKS_TRIGGER_MAX</span></span></span><a class="headerlink" href="#c.NRF_VPR_TASKS_TRIGGER_MAX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying maximal index of TRIGGER tasks array that is implemented. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t">
+<span class="target" id="group__nrf__vpr__hal_1gaefccc60dc0d11472c75c898826ea04af"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_event_t</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>VPR events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_0">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afaebf1d35d66aa1cc5488d5968fb2afc53"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_0</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 0 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_1">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afaf3284ad6a341ec5e9fd9ea912273bbfc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_1</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 1 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_2">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa2d1c14aa197044fc074e0f72dcc9ad83"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_2</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 2 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_3">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa70e8fe05f00c5348dd2ac115eef4fc29"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_3</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 3 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_4">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa08fe110c1b3296726f1e07fd210ba0b2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_4</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 4 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_5">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa878f611e5d084a768bf256107a3c40dd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_5</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 5 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_6">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa5c853ebf24283874e2aff1b5833bad64"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_6</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 6 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_7">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa58d031aacd89ad06567415e3be78d5e9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_7</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 7 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_8">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa03f0429025abd3f72620b4cc9a3f8c7f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_8</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 8 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_9">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa67ba0a90fce97bb0b9e73f0da6b68dfc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_9</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 9 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_10">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afadc6efd887188d21d62d982e5aee58a68"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_10</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 10 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_11">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afaa0c20a435947814b7e12e89fc2c6f9ea"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_11</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 11 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_12">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afafd2116ad66ddd6cfc0df3e0ba44086ef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_12</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 12 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_13">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afadde0574bf5cb8b436b0b08b4d0bf52d0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_13</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 13 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_14">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa96a0a6df5b06885836f2f9014b65caac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_14</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 14 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_15">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa9b27f175da1c114dd2f4c72485d58475"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_15</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 15 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_16">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afaa4cb1d80993dd549ebc625e5ed242434"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_16</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 16 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_17">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa2d7051f95f16fce21ffefee6b720432b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_17</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_17" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 17 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_18">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa7c112f67a15216b68bc53751176eaaac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_18</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_18" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 18 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_19">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa40941e912b41798bac0d8bacbff82daf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_19</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_19" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 19 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_20">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa4d4191c342ef8b50e7caa7760d9bfe0c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_20</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_20" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 20 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_21">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afab5d05119370035cf64d1ae4048a90cb2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_21</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 21 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_22">
+<span class="target" id="group__nrf__vpr__hal_1ggaefccc60dc0d11472c75c898826ea04afa7177d2356b180025a5bd607784cabdb1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_EVENT_TRIGGERED_22</span></span></span><a class="headerlink" href="#c.nrf_vpr_event_t.NRF_VPR_EVENT_TRIGGERED_22" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 22 event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t">
+<span class="target" id="group__nrf__vpr__hal_1ga6350a68d561921ac32788547cce356a3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>VPR interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_0_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a29ec38ed780e085f8ff94e159c8581a3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_0_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 0 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_1_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a27b0e08428bdbf49853ccd033e530cd9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_1_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 1 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_2_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3acb871908d5e4238d8df3a55297dc3f96"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_2_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 2 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_3_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3ab9da7ed54f5d621984a5646472b73d8a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_3_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 3 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_4_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a649a156a79069e252f03781ee3a45eef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_4_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 4 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_5_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a7b81ccd85a12e069027dcd8b15151f81"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_5_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 5 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_6_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a1d64a2bda9db1a95136853866d3f17d3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_6_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 6 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_7_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a932dcc79572769c9e215dd2a38f0d407"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_7_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 7 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_8_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3aca61706b22d81ee2742e23d0bfeca0e0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_8_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_8_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 8 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_9_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a981df14f82787a8a098d1b748db11522"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_9_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_9_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 9 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_10_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3ade381c22b1367e26fa287a5014a4c5dd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_10_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_10_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 10 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_11_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3afe4feb13f2bc9078ddf353f030f0561e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_11_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_11_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 11 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_12_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a7bd4ee3237c948b3e9d6a7a68c40c622"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_12_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_12_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 12 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_13_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a2fbe5d9390c7f65b5f6b3999c6a5a1c1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_13_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_13_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 13 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_14_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a085bad0d6a483c5679c5ff5850f47e1d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_14_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_14_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 14 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_15_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3af0b6fc8b0c1002c66ccc0ce17eb6ae19"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_15_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_15_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 15 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_16_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3af9ab402ddac30c4effcfb2c528684e2e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_16_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_16_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 16 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_17_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a4ff53b969135a75d282f9fd5d70dacbd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_17_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_17_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 17 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_18_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3ac015b6296424d8d12995099cec6b8f5a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_18_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_18_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 18 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_19_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a2d413d2175ed5ba00ba1aa434148b52b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_19_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_19_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 19 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_20_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3aa55b1cd35780881b93a0b7d76f46849e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_20_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_20_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 20 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_21_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3afcfb846137ed5dd223d99f1b23df5f46"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_21_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_21_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 21 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_22_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga6350a68d561921ac32788547cce356a3a93131f1ca629e93631273ed3545b06cf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_INT_TRIGGERED_22_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_int_mask_t.NRF_VPR_INT_TRIGGERED_22_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 22 interrupt mask. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t">
+<span class="target" id="group__nrf__vpr__hal_1ga83abf42553e30dad0a6c8e89145a3381"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_task_t</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>VPR tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_0">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a6761a3b0b62e2aa411c57eea482d8df0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_0</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 0 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_1">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a843553794eee086f6c8ce5abb1ea7407"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_1</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 1 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_2">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a2b5dac9b63cab0aeb632246c2589cec2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_2</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 2 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_3">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a9252edbf1dcfe01981578847111dce00"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_3</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 3 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_4">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a54c1a5037ff62c4e27dc868ceef6175b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_4</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 4 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_5">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381aef73fdf07668fe311d9cf3fcca3a4a89"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_5</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 5 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_6">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a35a995bc32f1ce6231cec5c0e16fe1ad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_6</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 6 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_7">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a0d324d866cf4b0c530070560cd34437f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_7</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 7 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_8">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a6a224a153e7a93dfd0d485549b9bfabe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_8</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 8 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_9">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381aedc3bdff5d510b46476c996fef8d2c80"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_9</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 9 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_10">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a4953fd619f4cd0c4c73a5d7d1f7bda53"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_10</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 10 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_11">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a1b409dabb36840b21402869d38178202"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_11</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 11 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_12">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381abe60a721222d3a30b24679dd38eadfba"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_12</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 12 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_13">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a2ec4e1ebe69bde12eb61b70a6bc8a295"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_13</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 13 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_14">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a2abf8fc6b532460f81447febbb338788"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_14</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 14 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_15">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a5df2d2d95bab6696ca5eb9510812eb29"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_15</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 15 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_16">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a69dbb16e9e51f7b433fcd1c3edbfa6cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_16</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 16 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_17">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381ac6e96e85e95180b17aab11d8ab39de70"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_17</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_17" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 17 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_18">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a63e9facd5733bcbe5eaa10d31d586d75"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_18</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_18" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 18 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_19">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a714717cc943f238cb544126df03df29a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_19</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_19" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 19 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_20">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a128181a4ab8faff94f8ba4ed073c7dc1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_20</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_20" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 20 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_21">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381aa273e4ac4fc3062e825e079821ba8056"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_21</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 21 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_22">
+<span class="target" id="group__nrf__vpr__hal_1gga83abf42553e30dad0a6c8e89145a3381a847a392f4b9e0f6380188b59c0279d10"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_TASK_TRIGGER_22</span></span></span><a class="headerlink" href="#c.nrf_vpr_task_t.NRF_VPR_TASK_TRIGGER_22" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 22 task. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vpr_dmcontrol_t">
+<span class="target" id="group__nrf__vpr__hal_1ga35190f0b82c676e4d73b3f56f2ece9ff"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_dmcontrol_t</span></span></span><a class="headerlink" href="#c.nrf_vpr_dmcontrol_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Debug Mode Control signals. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_dmcontrol_t.NRF_VPR_DMCONTROL_DMACTIVE">
+<span class="target" id="group__nrf__vpr__hal_1gga35190f0b82c676e4d73b3f56f2ece9ffafe98fa08f4a6b1327d4485b1614ca7b9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_DMCONTROL_DMACTIVE</span></span></span><a class="headerlink" href="#c.nrf_vpr_dmcontrol_t.NRF_VPR_DMCONTROL_DMACTIVE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_dmcontrol_t.NRF_VPR_DMCONTROL_NDMRESET">
+<span class="target" id="group__nrf__vpr__hal_1gga35190f0b82c676e4d73b3f56f2ece9ffa71646dcd2e74eb8eefc70ec886a6af2c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_DMCONTROL_NDMRESET</span></span></span><a class="headerlink" href="#c.nrf_vpr_dmcontrol_t.NRF_VPR_DMCONTROL_NDMRESET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Debug module active. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vpr_dmcontrol_mask_t">
+<span class="target" id="group__nrf__vpr__hal_1ga120514d158e254bb0e94a1d683f05de6"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_dmcontrol_mask_t</span></span></span><a class="headerlink" href="#c.nrf_vpr_dmcontrol_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Debug Mode Control signal masks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_dmcontrol_mask_t.NRF_VPR_DMCONTROL_DMACTIVE_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga120514d158e254bb0e94a1d683f05de6a7410678fe05ac178d48048e6d6e37b37"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_DMCONTROL_DMACTIVE_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_dmcontrol_mask_t.NRF_VPR_DMCONTROL_DMACTIVE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vpr_dmcontrol_mask_t.NRF_VPR_DMCONTROL_NDMRESET_MASK">
+<span class="target" id="group__nrf__vpr__hal_1gga120514d158e254bb0e94a1d683f05de6a0ac6af5d08248f6798d0ae292b59dcb2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_DMCONTROL_NDMRESET_MASK</span></span></span><a class="headerlink" href="#c.nrf_vpr_dmcontrol_mask_t.NRF_VPR_DMCONTROL_NDMRESET_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Debug module active mask. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_trigger">
+<span class="target" id="group__nrf__vpr__hal_1ga907c3749057d799427e19910a19c3d78"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_vpr_task_t" title="nrf_vpr_task_t"><span class="n"><span class="pre">nrf_vpr_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for triggering the specified VPR task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_task_address_get">
+<span class="target" id="group__nrf__vpr__hal_1ga01815ed892820f3ecd7f7b2581061213"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_vpr_task_t" title="nrf_vpr_task_t"><span class="n"><span class="pre">nrf_vpr_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified VPR task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Specified task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_trigger_task_get">
+<span class="target" id="group__nrf__vpr__hal_1gaa2da678a2b9a3737b0ec4b8a0f82bc67"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_vpr_task_t" title="nrf_vpr_task_t"><span class="n"><span class="pre">nrf_vpr_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_trigger_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_trigger_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the specified VPR TRIGGER task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Task index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified VPR TRIGGER task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_clear">
+<span class="target" id="group__nrf__vpr__hal_1gad961b33210d4937bd0c7075f8c25cc5a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_vpr_event_t" title="nrf_vpr_event_t"><span class="n"><span class="pre">nrf_vpr_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified VPR event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_check">
+<span class="target" id="group__nrf__vpr__hal_1ga978f5d9abfae2e413c84334b291b407a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_vpr_event_t" title="nrf_vpr_event_t"><span class="n"><span class="pre">nrf_vpr_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the VPR event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_event_address_get">
+<span class="target" id="group__nrf__vpr__hal_1ga46d1cac15ba0cb54eafc067aca7d6ec8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_vpr_event_t" title="nrf_vpr_event_t"><span class="n"><span class="pre">nrf_vpr_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified VPR event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_triggered_event_get">
+<span class="target" id="group__nrf__vpr__hal_1ga72b26e3e399d99b3fb484307a8c6c7e8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_vpr_event_t" title="nrf_vpr_event_t"><span class="n"><span class="pre">nrf_vpr_event_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_triggered_event_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_triggered_event_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the specified VPR TRIGGERED event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Event index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified VPR TRIGGERED event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_enable">
+<span class="target" id="group__nrf__vpr__hal_1ga7398319240c3fe8efd7b5df8aa3b1c56"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__vpr__hal_1ga6350a68d561921ac32788547cce356a3"><span class="std std-ref">nrf_vpr_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_disable">
+<span class="target" id="group__nrf__vpr__hal_1ga9d4752073b984bcd01e269d426939f88"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__vpr__hal_1ga6350a68d561921ac32788547cce356a3"><span class="std std-ref">nrf_vpr_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_int_enable_check">
+<span class="target" id="group__nrf__vpr__hal_1ga438dab7243ef940d2dce027b7786a4af"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__vpr__hal_1ga6350a68d561921ac32788547cce356a3"><span class="std std-ref">nrf_vpr_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_cpurun_set">
+<span class="target" id="group__nrf__vpr__hal_1ga012a27945c573679f902f2e345fc7792"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_cpurun_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_cpurun_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the state of the CPU after core reset. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if CPU is to be running, false if stopped. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_cpurun_get">
+<span class="target" id="group__nrf__vpr__hal_1ga87c5af83ac3f0680747f8949cf9dfb4d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_cpurun_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_cpurun_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the state of the CPU after core reset. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – CPU is to be running after core reset. </p></li>
+<li><p><strong>false</strong> – CPU is to be stopped after core reset. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_initpc_set">
+<span class="target" id="group__nrf__vpr__hal_1ga274fb49feaa99361a3f996131d8beb0e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_initpc_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_initpc_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the initial value of the program counter after CPU reset. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This address value must be 64-bit aligned.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>pc</strong> – <strong>[in]</strong> Initial value of the program counter to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_initpc_get">
+<span class="target" id="group__nrf__vpr__hal_1ga18503be618285e03dfcdbcaa8d1070be"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_initpc_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_initpc_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the initial value of the program counter after CPU reset. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initial value of the program counter. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_debugif_dmcontrol_set">
+<span class="target" id="group__nrf__vpr__hal_1gaba0ea17e2364214ca0a36705e094a67e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_debugif_dmcontrol_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_vpr_dmcontrol_t" title="nrf_vpr_dmcontrol_t"><span class="n"><span class="pre">nrf_vpr_dmcontrol_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">signal</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_debugif_dmcontrol_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the specified debug mode control signal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>signal</strong> – <strong>[in]</strong> Signal to be set. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if signal is to be 1, false if 0. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_debugif_dmcontrol_mask_set">
+<span class="target" id="group__nrf__vpr__hal_1ga13c4059a6d45a65e9bb7d369f3755f48"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_debugif_dmcontrol_mask_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_debugif_dmcontrol_mask_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the mask of debug mode control signals. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of signals to be set. Use <a class="reference internal" href="#group__nrf__vpr__hal_1ga120514d158e254bb0e94a1d683f05de6"><span class="std std-ref">nrf_vpr_dmcontrol_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_debugif_dmcontrol_get">
+<span class="target" id="group__nrf__vpr__hal_1ga9300eb8dd279fffc9434d6ddae7e60c5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_debugif_dmcontrol_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VPR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_vpr_dmcontrol_t" title="nrf_vpr_dmcontrol_t"><span class="n"><span class="pre">nrf_vpr_dmcontrol_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">signal</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_debugif_dmcontrol_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the debug mode control signals. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>signal</strong> – <strong>[in]</strong> Signal to be retrieved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Signal is logical 1. </p></li>
+<li><p><strong>false</strong> – Signal is logical 0. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="haly.html" class="btn btn-neutral float-right" title="VPR HALY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="VPR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

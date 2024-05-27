@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPIS HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SPU" href="../spu/index.html" />
+    <link rel="prev" title="SPIS driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">SPIS</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">SPIS driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SPIS HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">SPIS</a></li>
+      <li class="breadcrumb-item active">SPIS HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/spis/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spis-hal">
+<h1>SPIS HAL<a class="headerlink" href="#spis-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__spis__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_spis_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the SPIS peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SPIS_HAS_DMA_REG">
+<span class="target" id="group__nrf__spis__hal_1gac9009691817f3143f93cc9fc24b2b101"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_HAS_DMA_REG</span></span></span><a class="headerlink" href="#c.NRF_SPIS_HAS_DMA_REG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether dedicated DMA register is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SPIS_HAS_DMA_TASKS_EVENTS">
+<span class="target" id="group__nrf__spis__hal_1gaa3b2986ca058e972864dd7540907c9f4"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_HAS_DMA_TASKS_EVENTS</span></span></span><a class="headerlink" href="#c.NRF_SPIS_HAS_DMA_TASKS_EVENTS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether SPIS DMA tasks and events are present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SPIS_DMA_RX_PATTERN_MAX_COUNT">
+<span class="target" id="group__nrf__spis__hal_1gaf3cfc9cb240f89ea8e1118d476633033"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_DMA_RX_PATTERN_MAX_COUNT</span></span></span><a class="headerlink" href="#c.NRF_SPIS_DMA_RX_PATTERN_MAX_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Maximum number of RX patterns. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SPIS_INST_GET">
+<span class="target" id="group__nrf__spis__hal_1ga77aebc7776593b90fd53e86b04b55e46"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INST_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_SPIS_INST_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro getting pointer to the structure of registers of the SPIS peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idx</strong> – <strong>[in]</strong> SPIS instance index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the structure of registers of the SPIS peripheral. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SPIS_PIN_NOT_CONNECTED">
+<span class="target" id="group__nrf__spis__hal_1gacb5fedfd2641e3d94b70cb0981a6ae59"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_PIN_NOT_CONNECTED</span></span></span><a class="headerlink" href="#c.NRF_SPIS_PIN_NOT_CONNECTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This value can be used as a parameter for the <a class="reference internal" href="#group__nrf__spis__hal_1gae9c6ef2cf55a287cd4d4dadc5d86af9b"><span class="std std-ref">nrf_spis_pins_set</span></a> function to specify that a given SPI signal (SCK, MOSI, or MISO) shall not be connected to a physical pin. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t">
+<span class="target" id="group__nrf__spis__hal_1ga1efe3bf5da314ab27af84b33941e62eb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_task_t</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPIS tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_ACQUIRE">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62eba088ac4bf4328dcc120151a8d22f03ba3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_ACQUIRE</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_ACQUIRE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Acquire SPI semaphore. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_RELEASE">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62ebaa845613836457fc5c6c1707d3b7ba545"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_RELEASE</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_RELEASE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Release SPI semaphore, enabling the SPI slave to acquire it. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH0">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62eba5c443c2826b58510ee71c5099aef8d10"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_ENABLERXMATCH0</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable SPI pattern matching functionality for pattern 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH1">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62eba7dd1d73163b8e1a4e879e772a370bdbe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_ENABLERXMATCH1</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable SPI pattern matching functionality for pattern 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH2">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62eba01f9eab2bd09a662bb6df885a5b59de6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_ENABLERXMATCH2</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable SPI pattern matching functionality for pattern 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH3">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62eba77785947849146663df5920c2e74a72b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_ENABLERXMATCH3</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_ENABLERXMATCH3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable SPI pattern matching functionality for pattern 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH0">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62ebab3f510d7d6ba1158219792cbb3d6ec29"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_DISABLERXMATCH0</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disable SPI pattern matching functionality for pattern 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH1">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62eba6f63f866d6c802ae640ddd42aa93c385"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_DISABLERXMATCH1</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disable SPI pattern matching functionality for pattern 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH2">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62eba9796420e2ca94f6fab8997120e96f953"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_DISABLERXMATCH2</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disable SPI pattern matching functionality for pattern 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH3">
+<span class="target" id="group__nrf__spis__hal_1gga1efe3bf5da314ab27af84b33941e62ebac2c5dd1806fa514d0ab8758c9b47fb94"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_TASK_DISABLERXMATCH3</span></span></span><a class="headerlink" href="#c.nrf_spis_task_t.NRF_SPIS_TASK_DISABLERXMATCH3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disable SPI pattern matching functionality for pattern 3. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t">
+<span class="target" id="group__nrf__spis__hal_1ga6d8f5c9cf2777e030f97792f09dc9994"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_event_t</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPIS events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_RXSTARTED">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994a5a9da458d7e87562ae44c5a58f3cd111"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_RXSTARTED</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_RXSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive sequence started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_RXBUSERROR">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994a78bc0593ec85de702992f002105eb29d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_RXBUSERROR</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_RXBUSERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Memory bus error occurred during the RX transfer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH0">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994a78769f6211712688c42830accc117611"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_RXMATCH0</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pattern match for pattern 0 detected. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH1">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994a2a1a9938215a091c636d3e7de571d347"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_RXMATCH1</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pattern match for pattern 1 detected. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH2">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994ae911dbe436deaf088e1a2bb9caa1c52d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_RXMATCH2</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pattern match for pattern 2 detected. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH3">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994aaaccca49d039d1a5aff45a06606e612e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_RXMATCH3</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_RXMATCH3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pattern match for pattern 3 detected. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_TXSTARTED">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994a4464c9bc5c56880903a3543df31912ec"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_TXSTARTED</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_TXSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Transmit sequence started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_TXBUSERROR">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994aa3672fac328cc0594e0d1ad862b5f850"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_TXBUSERROR</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_TXBUSERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Memory bus error occurred during the TX transfer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_ENDRX">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994ade011613d62d6785c1ed22cdb8fb20b6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_ENDRX</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_ENDRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>End of RXD buffer reached. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_ENDTX">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994a7c084a16ac8273d1981b57bd5b7ad7ab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_ENDTX</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_ENDTX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>End of TXD buffer reached. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_END">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994a2530f94800ff5bac39640242b17d6d42"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_END</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_END" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Granted transaction completed. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_event_t.NRF_SPIS_EVENT_ACQUIRED">
+<span class="target" id="group__nrf__spis__hal_1gga6d8f5c9cf2777e030f97792f09dc9994ac886f6e0ce7503def700cb4a7fdbfbe8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_EVENT_ACQUIRED</span></span></span><a class="headerlink" href="#c.nrf_spis_event_t.NRF_SPIS_EVENT_ACQUIRED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Semaphore acquired. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t">
+<span class="target" id="group__nrf__spis__hal_1ga12e7018a7e25e50cf65e1a3317006978"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_short_mask_t</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPIS shortcuts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_END_ACQUIRE">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978a0a3db07907b733bbb4ea324a867cda30"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_END_ACQUIRE</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_END_ACQUIRE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between END event and ACQUIRE task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH0_ENABLERXMATCH1_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978ad76130c0bed7e88e0c04074a3f20f298"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH0_ENABLERXMATCH1_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH0_ENABLERXMATCH1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH0 event and DMA.RX.ENABLEMATCH1 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH1_ENABLERXMATCH2_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978ab3c8d84e63f3c270220ab776f9967028"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH1_ENABLERXMATCH2_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH1_ENABLERXMATCH2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH1 event and DMA.RX.ENABLEMATCH2 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH2_ENABLERXMATCH3_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978afcc3d27c97cf6275a90ba7b56a45a6c3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH2_ENABLERXMATCH3_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH2_ENABLERXMATCH3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH2 event and DMA.RX.ENABLEMATCH3 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH3_ENABLERXMATCH0_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978a07c7fda4808f6afd6879867036787a21"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH3_ENABLERXMATCH0_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH3_ENABLERXMATCH0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH3 event and DMA.RX.ENABLEMATCH0 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH0_DISABLERXMATCH0_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978ae18293608f195b184c55ef02e29b9017"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH0_DISABLERXMATCH0_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH0_DISABLERXMATCH0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH0 event and DMA.RX.DISABLEMATCH0 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH1_DISABLERXMATCH1_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978a5f8021aa78f7a064225958a893af8811"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH1_DISABLERXMATCH1_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH1_DISABLERXMATCH1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH1 event and DMA.RX.DISABLEMATCH1 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH2_DISABLERXMATCH2_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978a4e2db6f88e9601fa4166608002398661"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH2_DISABLERXMATCH2_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH2_DISABLERXMATCH2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH2 event and DMA.RX.DISABLEMATCH2 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH3_DISABLERXMATCH3_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978a02caf25f2bd8567791a906f8b8d7355e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SHORT_RXMATCH3_DISABLERXMATCH3_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_SHORT_RXMATCH3_DISABLERXMATCH3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between DMA.RX.MATCH3 event and DMA.RX.DISABLEMATCH3 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_short_mask_t.NRF_SPIS_ALL_SHORTS_MASK">
+<span class="target" id="group__nrf__spis__hal_1gga12e7018a7e25e50cf65e1a3317006978aae2cccd94d277d93a92938cfa3743033"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_ALL_SHORTS_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_short_mask_t.NRF_SPIS_ALL_SHORTS_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>All SPIS shortcuts. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t">
+<span class="target" id="group__nrf__spis__hal_1gadb4640353785b50122bc2098c316d712"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPIS interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_END_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a82002d6960c1d86f727ba8538e9861d6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_END_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_END_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on END event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_ACQUIRED_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712ab97e121bc56b8bb5d728747ad1b29e9b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_ACQUIRED_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_ACQUIRED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ACQUIRED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXREADY_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712aaefc53d4929619e8736f570c64daff0c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_RXREADY_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXREADY_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.RX.READY event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXBUSERROR_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712ab412248d8514c3c6024deb0ad52ff20d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_RXBUSERROR_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXBUSERROR_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.RX.BUSERROR event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH0_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a472d2ac9533749cbd96858f85cc950a2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_RXMATCH0_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.RX.MATCH0 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH1_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a3570ac4a73a388d117ac81d34de3a738"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_RXMATCH1_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.RX.MATCH1 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH2_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a2b2f63bf028d155bb520cd9e03376adb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_RXMATCH2_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.RX.MATCH2 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH3_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712ae05328a9b0beda9cbc43807f3e51cbe0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_RXMATCH3_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_RXMATCH3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.RX.MATCH3 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_TXREADY_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a998b1b541893511e92e7f91d98edb2c5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_TXREADY_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_TXREADY_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.TX.READY event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_TXBUSERROR_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a286fc478728b9856fc9c058e1dce519b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_TXBUSERROR_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_TXBUSERROR_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DMA.TX.BUSERROR event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_ENDRX_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a2fe06075051e66e48b066337cc46c79a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_ENDRX_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_ENDRX_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ENDRX event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_INT_ENDTX_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712a2481beeb106dd4746dda38d9ca1c90ba"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_INT_ENDTX_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_INT_ENDTX_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ENDTX event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_int_mask_t.NRF_SPIS_ALL_INTS_MASK">
+<span class="target" id="group__nrf__spis__hal_1ggadb4640353785b50122bc2098c316d712aa55aea76c655b26fb55c05c95747d91e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_ALL_INTS_MASK</span></span></span><a class="headerlink" href="#c.nrf_spis_int_mask_t.NRF_SPIS_ALL_INTS_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>All SPIS interrupts. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_mode_t">
+<span class="target" id="group__nrf__spis__hal_1gabdceacd5f5f545e35342fe117adf57d8"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_mode_t</span></span></span><a class="headerlink" href="#c.nrf_spis_mode_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPI modes. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_mode_t.NRF_SPIS_MODE_0">
+<span class="target" id="group__nrf__spis__hal_1ggabdceacd5f5f545e35342fe117adf57d8ae8847dcb4746aebce69827f05ae8063b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_MODE_0</span></span></span><a class="headerlink" href="#c.nrf_spis_mode_t.NRF_SPIS_MODE_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK active high, sample on leading edge of clock. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_mode_t.NRF_SPIS_MODE_1">
+<span class="target" id="group__nrf__spis__hal_1ggabdceacd5f5f545e35342fe117adf57d8ad8ad67126c2df0e63e4e33ff88c96dc3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_MODE_1</span></span></span><a class="headerlink" href="#c.nrf_spis_mode_t.NRF_SPIS_MODE_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK active high, sample on trailing edge of clock. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_mode_t.NRF_SPIS_MODE_2">
+<span class="target" id="group__nrf__spis__hal_1ggabdceacd5f5f545e35342fe117adf57d8a79bb0d16600dc650db523db073619e8c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_MODE_2</span></span></span><a class="headerlink" href="#c.nrf_spis_mode_t.NRF_SPIS_MODE_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK active low, sample on leading edge of clock. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_mode_t.NRF_SPIS_MODE_3">
+<span class="target" id="group__nrf__spis__hal_1ggabdceacd5f5f545e35342fe117adf57d8a6ce9e0b63adf5b7aba24b783aec27af0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_MODE_3</span></span></span><a class="headerlink" href="#c.nrf_spis_mode_t.NRF_SPIS_MODE_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK active low, sample on trailing edge of clock. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_bit_order_t">
+<span class="target" id="group__nrf__spis__hal_1ga45fe2b8b4074fdffa1afc5d4da0baacc"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_bit_order_t</span></span></span><a class="headerlink" href="#c.nrf_spis_bit_order_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPI bit orders. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_bit_order_t.NRF_SPIS_BIT_ORDER_MSB_FIRST">
+<span class="target" id="group__nrf__spis__hal_1gga45fe2b8b4074fdffa1afc5d4da0baacca710fa90e8fc75221f6a019666e2b56c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_BIT_ORDER_MSB_FIRST</span></span></span><a class="headerlink" href="#c.nrf_spis_bit_order_t.NRF_SPIS_BIT_ORDER_MSB_FIRST" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Most significant bit shifted out first. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_bit_order_t.NRF_SPIS_BIT_ORDER_LSB_FIRST">
+<span class="target" id="group__nrf__spis__hal_1gga45fe2b8b4074fdffa1afc5d4da0baacca5a0f1182a58df9489e8a1771ef65047a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_BIT_ORDER_LSB_FIRST</span></span></span><a class="headerlink" href="#c.nrf_spis_bit_order_t.NRF_SPIS_BIT_ORDER_LSB_FIRST" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Least significant bit shifted out first. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_semstat_t">
+<span class="target" id="group__nrf__spis__hal_1ga975a3f646017a75d1644e84d18b39925"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_semstat_t</span></span></span><a class="headerlink" href="#c.nrf_spis_semstat_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPI semaphore status. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_FREE">
+<span class="target" id="group__nrf__spis__hal_1gga975a3f646017a75d1644e84d18b39925a64b5f229d3696fdce2eeacc069196c6a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SEMSTAT_FREE</span></span></span><a class="headerlink" href="#c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_FREE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Semaphore is free. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_CPU">
+<span class="target" id="group__nrf__spis__hal_1gga975a3f646017a75d1644e84d18b39925a0657f67153a7f2a59539aba1259b0dea"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SEMSTAT_CPU</span></span></span><a class="headerlink" href="#c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_CPU" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Semaphore is assigned to the CPU. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_SPIS">
+<span class="target" id="group__nrf__spis__hal_1gga975a3f646017a75d1644e84d18b39925a37cc3d4e768479f6310a4aff2de9f99c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SEMSTAT_SPIS</span></span></span><a class="headerlink" href="#c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_SPIS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Semaphore is assigned to the SPI slave. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_CPUPENDING">
+<span class="target" id="group__nrf__spis__hal_1gga975a3f646017a75d1644e84d18b39925aa91d8f884ace35f86ef95b24ceda68bb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_SEMSTAT_CPUPENDING</span></span></span><a class="headerlink" href="#c.nrf_spis_semstat_t.NRF_SPIS_SEMSTAT_CPUPENDING" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Semaphore is assigned to the SPI, but a handover to the CPU is pending. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_spis_status_mask_t">
+<span class="target" id="group__nrf__spis__hal_1gab9def61d7198f840bebee496dd51ec50"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_status_mask_t</span></span></span><a class="headerlink" href="#c.nrf_spis_status_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SPIS status. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_status_mask_t.NRF_SPIS_STATUS_OVERREAD">
+<span class="target" id="group__nrf__spis__hal_1ggab9def61d7198f840bebee496dd51ec50a2a21e3b425bac272deb707927e3bdfef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_STATUS_OVERREAD</span></span></span><a class="headerlink" href="#c.nrf_spis_status_mask_t.NRF_SPIS_STATUS_OVERREAD" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TX buffer over-read detected and prevented. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_spis_status_mask_t.NRF_SPIS_STATUS_OVERFLOW">
+<span class="target" id="group__nrf__spis__hal_1ggab9def61d7198f840bebee496dd51ec50a0f3bdf85c7553679dba370da244d29e7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SPIS_STATUS_OVERFLOW</span></span></span><a class="headerlink" href="#c.nrf_spis_status_mask_t.NRF_SPIS_STATUS_OVERFLOW" title="Permalink to this definition"></a><br /></dt>
+<dd><p>RX buffer overflow detected and prevented. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_task_trigger">
+<span class="target" id="group__nrf__spis__hal_1ga12255b4e10b6df3aef7c33dcbb7e53e3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_task_t" title="nrf_spis_task_t"><span class="n"><span class="pre">nrf_spis_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for activating the specified SPIS task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_task_address_get">
+<span class="target" id="group__nrf__spis__hal_1ga43a0b18176df4752cceb043c6c98dbff"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_task_t" title="nrf_spis_task_t"><span class="n"><span class="pre">nrf_spis_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified SPIS task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> The specified task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_event_clear">
+<span class="target" id="group__nrf__spis__hal_1ga20d37e83bbb50b7bc428c266467217e9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_event_t" title="nrf_spis_event_t"><span class="n"><span class="pre">nrf_spis_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified SPIS event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be cleared. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_event_check">
+<span class="target" id="group__nrf__spis__hal_1ga0f5628fe5d0b75a3fcdfdb66c8ddd33c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_event_t" title="nrf_spis_event_t"><span class="n"><span class="pre">nrf_spis_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the SPIS event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_event_address_get">
+<span class="target" id="group__nrf__spis__hal_1ga6dc6dd86fd3b452bdd20b95de2fa728f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_event_t" title="nrf_spis_event_t"><span class="n"><span class="pre">nrf_spis_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified SPIS event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> The specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_shorts_enable">
+<span class="target" id="group__nrf__spis__hal_1ga730f7a0e156952af4b86007863972d53"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_shorts_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_shorts_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified shortcuts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Shortcuts to be enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_shorts_disable">
+<span class="target" id="group__nrf__spis__hal_1gac805ae076f3405fecd31d53f66785542"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_shorts_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_shorts_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified shortcuts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Shortcuts to be disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_int_enable">
+<span class="target" id="group__nrf__spis__hal_1ga9a4dae413afbdc7e2d33d7450c5b0edd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__spis__hal_1gadb4640353785b50122bc2098c316d712"><span class="std std-ref">nrf_spis_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_int_disable">
+<span class="target" id="group__nrf__spis__hal_1ga4f1c111b9e60d033b7d7dd560bbff316"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__spis__hal_1gadb4640353785b50122bc2098c316d712"><span class="std std-ref">nrf_spis_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_int_enable_check">
+<span class="target" id="group__nrf__spis__hal_1ga66ed394f602119cd6b1bd8e3bc7fcd72"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__spis__hal_1gadb4640353785b50122bc2098c316d712"><span class="std std-ref">nrf_spis_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_subscribe_set">
+<span class="target" id="group__nrf__spis__hal_1ga3effaff924a28c57479ccb4de3eefc52"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_task_t" title="nrf_spis_task_t"><span class="n"><span class="pre">nrf_spis_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given SPIS task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_subscribe_clear">
+<span class="target" id="group__nrf__spis__hal_1ga20bc57578d44b8e5dfe14a143e073e4f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_task_t" title="nrf_spis_task_t"><span class="n"><span class="pre">nrf_spis_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given SPIS task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_publish_set">
+<span class="target" id="group__nrf__spis__hal_1gaa6b1b94233852d47e91478a0693b7f3b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_event_t" title="nrf_spis_event_t"><span class="n"><span class="pre">nrf_spis_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given SPIS event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_publish_clear">
+<span class="target" id="group__nrf__spis__hal_1ga519213f835ebad3ed753aedb6ee2cb5d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_event_t" title="nrf_spis_event_t"><span class="n"><span class="pre">nrf_spis_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given SPIS event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_enable">
+<span class="target" id="group__nrf__spis__hal_1ga63e5e7dcdbcc799e3935a280b0899414"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the SPIS peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_disable">
+<span class="target" id="group__nrf__spis__hal_1gaf4b63a301304908e94840cabb919c5fe"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the SPIS peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_enable_check">
+<span class="target" id="group__nrf__spis__hal_1ga7fb7b6210fe5c0a9043fb45d3aaf5e8d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the SPIS peripheral is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The SPIS is enabled. </p></li>
+<li><p><strong>false</strong> – The SPIS is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_semaphore_status_get">
+<span class="target" id="group__nrf__spis__hal_1gaeef8d8e99f32e9b59b1e73679d80095d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_spis_semstat_t" title="nrf_spis_semstat_t"><span class="n"><span class="pre">nrf_spis_semstat_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_semaphore_status_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_semaphore_status_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the SPIS semaphore status. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Current semaphore status. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_status_get">
+<span class="target" id="group__nrf__spis__hal_1gacc7d1fd7a0069d45ef26317eebf03bce"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_spis_status_mask_t" title="nrf_spis_status_mask_t"><span class="n"><span class="pre">nrf_spis_status_mask_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_status_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_status_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the SPIS status. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Current SPIS status. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_pins_set">
+<span class="target" id="group__nrf__spis__hal_1gae9c6ef2cf55a287cd4d4dadc5d86af9b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_pins_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">sck_pin</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mosi_pin</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">miso_pin</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">csn_pin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_pins_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring SPIS pins. </p>
+<p>If a given signal is not needed, pass the <a class="reference internal" href="#group__nrf__spis__hal_1gacb5fedfd2641e3d94b70cb0981a6ae59"><span class="std std-ref">NRF_SPIS_PIN_NOT_CONNECTED</span></a> value instead of its pin number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>sck_pin</strong> – <strong>[in]</strong> SCK pin number. </p></li>
+<li><p><strong>mosi_pin</strong> – <strong>[in]</strong> MOSI pin number. </p></li>
+<li><p><strong>miso_pin</strong> – <strong>[in]</strong> MISO pin number. </p></li>
+<li><p><strong>csn_pin</strong> – <strong>[in]</strong> CSN pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_sck_pin_get">
+<span class="target" id="group__nrf__spis__hal_1ga02f8510cc967a8e85b4f2479ed6fdf0e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_sck_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_sck_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SCK pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SCK pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_mosi_pin_get">
+<span class="target" id="group__nrf__spis__hal_1ga18a0ee9e743e415f7271937cda50e118"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_mosi_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_mosi_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the MOSI pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MOSI pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_miso_pin_get">
+<span class="target" id="group__nrf__spis__hal_1gaf767a185d395f8005180fcc9c9332b1d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_miso_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_miso_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the MISO pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MISO pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_csn_pin_get">
+<span class="target" id="group__nrf__spis__hal_1ga42e68684e28a076b96f618dc19ff488c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_csn_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_csn_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the CSN pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CSN pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_tx_buffer_set">
+<span class="target" id="group__nrf__spis__hal_1ga5650f142b9201323a9139f553f69cdb4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_tx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_tx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the transmit buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the buffer that contains the data to send. </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Maximum number of data bytes to transmit. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_buffer_set">
+<span class="target" id="group__nrf__spis__hal_1ga2c54e780277cb8eefada45a1aa32a82a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the receive buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the buffer for received data. </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Maximum number of data bytes to receive. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_tx_amount_get">
+<span class="target" id="group__nrf__spis__hal_1gaf5e65a1a12a1f67a15d3aa54cfe1f80d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_tx_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_tx_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the number of bytes transmitted in the last granted transaction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes transmitted. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_amount_get">
+<span class="target" id="group__nrf__spis__hal_1ga2fc76cac3a50a357cd4358e04a236f82"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the number of bytes received in the last granted transaction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes received. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_configure">
+<span class="target" id="group__nrf__spis__hal_1ga14df219a457669168356017a698069ea"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_spis_mode_t" title="nrf_spis_mode_t"><span class="n"><span class="pre">nrf_spis_mode_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">spi_mode</span></span>, <a class="reference internal" href="#c.nrf_spis_bit_order_t" title="nrf_spis_bit_order_t"><span class="n"><span class="pre">nrf_spis_bit_order_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">spi_bit_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the SPI configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>spi_mode</strong> – <strong>[in]</strong> SPI mode. </p></li>
+<li><p><strong>spi_bit_order</strong> – <strong>[in]</strong> SPI bit order. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_def_set">
+<span class="target" id="group__nrf__spis__hal_1gab4fa594751d1c5778e4a581d95b1ece5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_def_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">def</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_def_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the default character. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>def</strong> – <strong>[in]</strong> Default character that is clocked out in case of an overflow of the RXD buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_orc_set">
+<span class="target" id="group__nrf__spis__hal_1gab2ea6cc75d3ef4e4a84f6092e2d1ebf0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_orc_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">orc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_orc_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the over-read character. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>orc</strong> – <strong>[in]</strong> Over-read character that is clocked out in case of an over-read of the TXD buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_tx_list_enable">
+<span class="target" id="group__nrf__spis__hal_1ga7a370739915623984418734718fa682d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_tx_list_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_tx_list_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the TX list feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_tx_list_disable">
+<span class="target" id="group__nrf__spis__hal_1ga9749f3ecfdb8a5176d0cd21322875244"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_tx_list_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_tx_list_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the TX list feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_list_enable">
+<span class="target" id="group__nrf__spis__hal_1ga7e886b4c414d7a7c0b1111f4252a7d8e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_list_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_list_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the RX list feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_list_disable">
+<span class="target" id="group__nrf__spis__hal_1gacc1aace7f963393905e12f328038ba41"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_list_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_list_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the RX list feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_pattern_match_enable_set">
+<span class="target" id="group__nrf__spis__hal_1ga1c3660dafd8fca2c92d45dd1ff50aed4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_pattern_match_enable_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_pattern_match_enable_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling individual pattern match filters. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of pattern match filter. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if pattern match filter is to be enabled, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_pattern_match_enable_check">
+<span class="target" id="group__nrf__spis__hal_1gaf2c9042e0ce66ff8b947bf5571b00013"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_pattern_match_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_pattern_match_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified pattern match filter is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of pattern match filter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Pattern match filter is enabled. </p></li>
+<li><p><strong>false</strong> – Pattern match filter is disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_pattern_match_one_shot_enable">
+<span class="target" id="group__nrf__spis__hal_1ga8ae798708c20465b6f3d658d8acf7ea7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_pattern_match_one_shot_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_pattern_match_one_shot_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling one-shot operation for the specified match filter. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of pattern match filter. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_pattern_match_one_shot_disable">
+<span class="target" id="group__nrf__spis__hal_1ga1a0cf4001ebfdef77b338e24c9e4a6f7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_pattern_match_one_shot_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_pattern_match_one_shot_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling one-shot operation for the specified match filter. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of pattern match filter. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_pattern_match_one_shot_check">
+<span class="target" id="group__nrf__spis__hal_1gae7e362063a90b178ca344bda1ae0399d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_pattern_match_one_shot_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_pattern_match_one_shot_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if specified pattern match filter is configured as one-shot. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of pattern match filter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Pattern match filter is configured as one-shot. </p></li>
+<li><p><strong>false</strong> – Pattern match filter is configured as continuous. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_pattern_match_candidate_set">
+<span class="target" id="group__nrf__spis__hal_1gab7b277eb71d7fad3658afc9a5ec3868f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_pattern_match_candidate_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pattern</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_pattern_match_candidate_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pattern to be looked for by the specified match filter. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of pattern match filter. </p></li>
+<li><p><strong>pattern</strong> – <strong>[in]</strong> Pattern to be looked for. Match will trigger the corresponding event, if enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_pattern_match_candidate_get">
+<span class="target" id="group__nrf__spis__hal_1gaa71c188db4afd17bbcab6c0ae01089c4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_pattern_match_candidate_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_pattern_match_candidate_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pattern that the specified match filter is looking for. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of pattern match filter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pattern that the specified match filter is looking for. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_terminate_on_bus_error_enable">
+<span class="target" id="group__nrf__spis__hal_1gaaf75523c892bfacda1a2112ac9b0a00b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_terminate_on_bus_error_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_terminate_on_bus_error_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the termination of the RX transaction after detecting the BUSERROR event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_terminate_on_bus_error_disable">
+<span class="target" id="group__nrf__spis__hal_1gabbc312664f1c9a05287b240147f30a45"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_terminate_on_bus_error_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_terminate_on_bus_error_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the termination of the RX transaction after detecting the BUSERROR event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_rx_terminate_on_bus_error_check">
+<span class="target" id="group__nrf__spis__hal_1ga83728829600243a0d9d1a6837dcb59c1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_rx_terminate_on_bus_error_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_rx_terminate_on_bus_error_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if RX transaction termination after detecting the BUSERROR event is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – RX transaction termination after detecting a BUSERROR event is enabled. </p></li>
+<li><p><strong>false</strong> – RX transaction termination after detecting a BUSERROR event is disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_tx_terminate_on_bus_error_enable">
+<span class="target" id="group__nrf__spis__hal_1ga4d780eefdf77bbb1f769a5024098ad4e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_tx_terminate_on_bus_error_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_tx_terminate_on_bus_error_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the termination of the TX transaction after detecting the BUSERROR event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_tx_terminate_on_bus_error_disable">
+<span class="target" id="group__nrf__spis__hal_1ga28417a94fc1fe6a8ce2c86235a236828"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_tx_terminate_on_bus_error_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_tx_terminate_on_bus_error_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the termination of the TX transaction after detecting the BUSERROR event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_spis_tx_terminate_on_bus_error_check">
+<span class="target" id="group__nrf__spis__hal_1ga26663baf6c9c605ac5c58a7d78274393"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_spis_tx_terminate_on_bus_error_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SPIS_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_spis_tx_terminate_on_bus_error_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if TX transaction termination after detecting the BUSERROR event is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – TX transaction termination after detecting a BUSERROR event is enabled. </p></li>
+<li><p><strong>false</strong> – TX transaction termination after detecting a BUSERROR event is disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../spu/index.html" class="btn btn-neutral float-right" title="SPU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="SPIS driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

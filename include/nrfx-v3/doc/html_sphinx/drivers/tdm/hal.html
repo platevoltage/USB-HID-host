@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TDM HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TEMP" href="../temp/index.html" />
+    <link rel="prev" title="TDM" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">TDM</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">TDM HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TDM</a></li>
+      <li class="breadcrumb-item active">TDM HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/tdm/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tdm-hal">
+<h1>TDM HAL<a class="headerlink" href="#tdm-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__tdm__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_tdm_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the Time Division Multiplexed Audio Interface (TDM) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_TDM_PIN_NOT_CONNECTED">
+<span class="target" id="group__nrf__tdm__hal_1ga01dee3a0830499e4ca89c454da681860"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_PIN_NOT_CONNECTED</span></span></span><a class="headerlink" href="#c.NRF_TDM_PIN_NOT_CONNECTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This value can be provided as a parameter for the <a class="reference internal" href="#group__nrf__tdm__hal_1ga1d9b942da033f0a8fc354b8037a3c650"><span class="std std-ref">nrf_tdm_pins_set</span></a> function call to specify that the given TDM signal (SDOUT, SDIN, or MCK) shall not be connected to a physical pin. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_task_t">
+<span class="target" id="group__nrf__tdm__hal_1ga7498a75f976fa503f2d6cd26a565bf08"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_task_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_task_t.NRF_TDM_TASK_START">
+<span class="target" id="group__nrf__tdm__hal_1gga7498a75f976fa503f2d6cd26a565bf08a9052c720c7d48db982836f23fdc317a5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_TASK_START</span></span></span><a class="headerlink" href="#c.nrf_tdm_task_t.NRF_TDM_TASK_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Starts continuous TDM transfer. Also starts the MCK generator if this is enabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_task_t.NRF_TDM_TASK_STOP">
+<span class="target" id="group__nrf__tdm__hal_1gga7498a75f976fa503f2d6cd26a565bf08a8b4ee3da2384d525f31107bd89bd8b7a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_TASK_STOP</span></span></span><a class="headerlink" href="#c.nrf_tdm_task_t.NRF_TDM_TASK_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stops TDM transfer after completion of MAXCNT words. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_task_t.NRF_TDM_TASK_ABORT">
+<span class="target" id="group__nrf__tdm__hal_1gga7498a75f976fa503f2d6cd26a565bf08a26a138fadb8a545426835e67c943b9be"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_TASK_ABORT</span></span></span><a class="headerlink" href="#c.nrf_tdm_task_t.NRF_TDM_TASK_ABORT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Aborts TDM transfer without completing MAXCNT words. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_t">
+<span class="target" id="group__nrf__tdm__hal_1gae1e00de3fd636c7da27d1a94564fdef3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_event_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_t.NRF_TDM_EVENT_RXPTRUPD">
+<span class="target" id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3a6e701a11298b48d44dbc4dfa41d3dc6b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_EVENT_RXPTRUPD</span></span></span><a class="headerlink" href="#c.nrf_tdm_event_t.NRF_TDM_EVENT_RXPTRUPD" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The RXD.PTR register has been copied to internal double buffers. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_t.NRF_TDM_EVENT_STOPPED">
+<span class="target" id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3a35adca94a2257909f4881e0b99de21ac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_EVENT_STOPPED</span></span></span><a class="headerlink" href="#c.nrf_tdm_event_t.NRF_TDM_EVENT_STOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM transfer stopped. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_t.NRF_TDM_EVENT_ABORTED">
+<span class="target" id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3af75e6a221449f505996b5e216d74e3a0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_EVENT_ABORTED</span></span></span><a class="headerlink" href="#c.nrf_tdm_event_t.NRF_TDM_EVENT_ABORTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM transfer aborted. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_t.NRF_TDM_EVENT_TXPTRUPD">
+<span class="target" id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3ae394c5200a02833b0c297fada45f34ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_EVENT_TXPTRUPD</span></span></span><a class="headerlink" href="#c.nrf_tdm_event_t.NRF_TDM_EVENT_TXPTRUPD" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The TXD.PTR register has been copied to internal double buffers. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_t.NRF_TDM_EVENT_MAXCNT">
+<span class="target" id="group__nrf__tdm__hal_1ggae1e00de3fd636c7da27d1a94564fdef3a48210f2f09cc86f2ac5f7d5a573bf96a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_EVENT_MAXCNT</span></span></span><a class="headerlink" href="#c.nrf_tdm_event_t.NRF_TDM_EVENT_MAXCNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MAXCNT block event, generated on the active edge of FSYNC of every MAXCNT block. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_mask_t">
+<span class="target" id="group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_mask_t.NRF_TDM_INT_RXPTRUPD_MASK_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80eac2e39023d369367c170867b127193d19"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_INT_RXPTRUPD_MASK_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_int_mask_t.NRF_TDM_INT_RXPTRUPD_MASK_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on RXPTRUPD event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_mask_t.NRF_TDM_INT_STOPPED_MASK_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80ea1dacdfbea6cc5bffaa9b80fa6f973129"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_INT_STOPPED_MASK_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_int_mask_t.NRF_TDM_INT_STOPPED_MASK_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on STOPPED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_mask_t.NRF_TDM_INT_ABORTED_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80ea027ab8a65ac2a725f0eac9619238904e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_INT_ABORTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_int_mask_t.NRF_TDM_INT_ABORTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_ABORTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_mask_t.NRF_TDM_INT_TXPTRUPD_MASK_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80ead298da2c4dc4de89c22b3a54d144a6c0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_INT_TXPTRUPD_MASK_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_int_mask_t.NRF_TDM_INT_TXPTRUPD_MASK_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on TXPTRUPD event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_mask_t.NRF_TDM_INT_MAXCNT_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga93635032c2231276feb85ba9880fd80eaf93a4dc0ea0af6c23a56619684cfd16d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_INT_MAXCNT_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_int_mask_t.NRF_TDM_INT_MAXCNT_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_MAXCNT event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_mode_t">
+<span class="target" id="group__nrf__tdm__hal_1ga3be5f370705bf71041cda43df0b53bb5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_mode_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_mode_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM modes of operation. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mode_t.NRF_TDM_MODE_MASTER">
+<span class="target" id="group__nrf__tdm__hal_1gga3be5f370705bf71041cda43df0b53bb5ac5bd0e872a719775b9b8a30855f9f3d2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MODE_MASTER</span></span></span><a class="headerlink" href="#c.nrf_tdm_mode_t.NRF_TDM_MODE_MASTER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Master mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mode_t.NRF_TDM_MODE_SLAVE">
+<span class="target" id="group__nrf__tdm__hal_1gga3be5f370705bf71041cda43df0b53bb5ab1a1b15d0d8a8ec15fab5529500b2668"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MODE_SLAVE</span></span></span><a class="headerlink" href="#c.nrf_tdm_mode_t.NRF_TDM_MODE_SLAVE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Slave mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_rxtxen_t">
+<span class="target" id="group__nrf__tdm__hal_1gac4e15273a65acc1dc5b177913d1ff10f"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_rxtxen_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_rxtxen_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM Reception and transmission settings. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_rxtxen_t.NRF_TDM_RXTXEN_DUPLEX">
+<span class="target" id="group__nrf__tdm__hal_1ggac4e15273a65acc1dc5b177913d1ff10fae15e37dfc0b9d42ab1c7722df5260b41"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_RXTXEN_DUPLEX</span></span></span><a class="headerlink" href="#c.nrf_tdm_rxtxen_t.NRF_TDM_RXTXEN_DUPLEX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable reception and transmission. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_rxtxen_t.NRF_TDM_RXTXEN_RX">
+<span class="target" id="group__nrf__tdm__hal_1ggac4e15273a65acc1dc5b177913d1ff10fa41fa172f8cd73989314b5bde8f9b4f11"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_RXTXEN_RX</span></span></span><a class="headerlink" href="#c.nrf_tdm_rxtxen_t.NRF_TDM_RXTXEN_RX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable reception, disable transmission. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_rxtxen_t.NRF_TDM_RXTXEN_TX">
+<span class="target" id="group__nrf__tdm__hal_1ggac4e15273a65acc1dc5b177913d1ff10fa69531ed690f5735bfb64269ee40fb745"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_RXTXEN_TX</span></span></span><a class="headerlink" href="#c.nrf_tdm_rxtxen_t.NRF_TDM_RXTXEN_TX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable transmission, disable reception. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t">
+<span class="target" id="group__nrf__tdm__hal_1gac8697e2b3c59454bdad94348043b9832"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_mck_div_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM master clock divider settings. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_2">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832af6d9be1126d471251a809414dd7f0f49"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_2</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_3">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a30612a410c8903499fe9a30f84132c59"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_3</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_4">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832ad02a6c0f9d92cfe01fdd3a08799f50b1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_4</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_5">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832adb08bd844538732f1ed2c10da92bb01f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_5</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_6">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a218a84604f642081896b645d16958c44"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_6</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_8">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a5a16a6bf41de2cc0f4d77dd47594a716"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_8</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 8. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_10">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a840664479cdc8caa174d8acf39f0f9c0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_10</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 10. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_11">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a5277d814f47d204c9f068e40e8f8f7f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_11</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 11. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_15">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832acb4fbbb0d5ae5a684d95bfea0335a27b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_15</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 15. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_16">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a9dc5d823cae17a07f453d6e1cbfb2114"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_16</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 16. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_21">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832adc2ac62fb9e8a79d69027862eb8489ce"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_21</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 21. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_23">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a0b954b97f4b087d5cdefb5f0f68162bd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_23</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_23" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 23. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_30">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a3b4459eebdac8393edf68a1016f5e762"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_30</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_30" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 30. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_31">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a174b1ec40b544dfe170e76fbd22b5a45"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_31</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_31" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 31. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_32">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832a97d5f2204c5102d10dbfcdc175e6d571"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_32</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_32" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 32. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_42">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832ae85cae1002c797bd24ad3dbd2fb55348"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_42</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_42" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 42. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_63">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832abb36700d688527e060a7009443a44112"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_63</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_63" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 63. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_125">
+<span class="target" id="group__nrf__tdm__hal_1ggac8697e2b3c59454bdad94348043b9832ae863f29af1ee2d82695c1656f5fca2a6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_MCK_DIV_125</span></span></span><a class="headerlink" href="#c.nrf_tdm_mck_div_t.NRF_TDM_MCK_DIV_125" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK divided by 125. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t">
+<span class="target" id="group__nrf__tdm__hal_1gaf87a9bb7adc4ad5789a5b078ce59d9c1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_sck_div_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM serial clock divider settings. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_2">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a6997c9c0f45d649c9716264a89086ecc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_2</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_3">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a0ab2f19f5258d26641f2c3703c200db0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_3</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_4">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aff13738c460638853b73c441884d2001"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_4</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_5">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a2491e195620e726303a22b75f4cdc583"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_5</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_6">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a1e5c13d7baa82426ea9b52985a825e5a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_6</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_8">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aee37b23f50695606e1d834d70576e031"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_8</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 8. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_10">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1ae416559183fb24ba9c583bf71373f4e4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_10</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 10. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_11">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aa8137f698f5e5e0891a01beb8269cf75"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_11</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 11. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_15">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a833578830ef4a74ca20a6681e6826173"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_15</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 15. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_16">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a9191fb689497cd5346a8ee7b91201826"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_16</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 16. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_21">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1ad95846dc804651ff3eafe3e4f230c203"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_21</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 21. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_23">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a19d1522960afc5ba4150ddcce3a64d00"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_23</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_23" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 23. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_30">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a325ef83e328b44ba9b3caeadc2697564"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_30</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_30" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 30. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_31">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a8ae1d138ad7e864f741533dfeb60c1e6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_31</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_31" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 31. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_32">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1af0cd39af9ee3958915c62c46396165a4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_32</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_32" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 32. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_42">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1aca307b76d17a32f9c8e1263a674e51a7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_42</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_42" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 42. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_63">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a68db60baed9cf4843bddddfefe1e400b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_63</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_63" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 63. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_125">
+<span class="target" id="group__nrf__tdm__hal_1ggaf87a9bb7adc4ad5789a5b078ce59d9c1a750a26e1f0dc58b79c0907037af7e846"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SCK_DIV_125</span></span></span><a class="headerlink" href="#c.nrf_tdm_sck_div_t.NRF_TDM_SCK_DIV_125" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK divided by 125. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_src_t">
+<span class="target" id="group__nrf__tdm__hal_1ga2e637b0d1773e5c4652fcdbd7236dc18"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_src_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_src_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM clock source selection. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_src_t.NRF_TDM_SRC_PCLK32M">
+<span class="target" id="group__nrf__tdm__hal_1gga2e637b0d1773e5c4652fcdbd7236dc18a7d5f0e760d90c85a340a1c78b63d4384"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SRC_PCLK32M</span></span></span><a class="headerlink" href="#c.nrf_tdm_src_t.NRF_TDM_SRC_PCLK32M" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32MHz peripheral clock. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_src_t.NRF_TDM_SRC_ACLK">
+<span class="target" id="group__nrf__tdm__hal_1gga2e637b0d1773e5c4652fcdbd7236dc18af413764b4a20c8e13e0b7e2dbd10211e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SRC_ACLK</span></span></span><a class="headerlink" href="#c.nrf_tdm_src_t.NRF_TDM_SRC_ACLK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Audio PLL clock. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t">
+<span class="target" id="group__nrf__tdm__hal_1ga645baf7e40c3ea2bd03f17e0a4e8dd9b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_swidth_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM sample widths. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_8BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9ba1734a0000f7ef76a63f47a4bf6b96fb6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_8BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_8BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_16BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9bace087fbba5de0b5d269efd6506052fab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_16BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_16BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>16 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_24BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9bad3ed49fc2ca05010736a33aa16f929df"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_24BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_24BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>24 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_32BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9babae97faaf52aa52f6de6788c9c30817a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_32BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_8BIT_IN16BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9ba9dff678c29a45df7f1638bcac4182a0c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_8BIT_IN16BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_8BIT_IN16BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 bit sample in a 16-bit half-frame. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_8BIT_IN32BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9baf438af7cf58d8cad0f6d1588d222192c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_8BIT_IN32BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_8BIT_IN32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 bit sample in a 32-bit half-frame. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_16BIT_IN32BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9badccc15afaf26cb9af4e7bc3b07d69a53"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_16BIT_IN32BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_16BIT_IN32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>16 bit sample in a 32-bit half-frame. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_24BIT_IN32BIT">
+<span class="target" id="group__nrf__tdm__hal_1gga645baf7e40c3ea2bd03f17e0a4e8dd9ba23457139a97e16161172170102e2f965"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_SWIDTH_24BIT_IN32BIT</span></span></span><a class="headerlink" href="#c.nrf_tdm_swidth_t.NRF_TDM_SWIDTH_24BIT_IN32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>24 bit sample in a 32-bit half-frame. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_align_t">
+<span class="target" id="group__nrf__tdm__hal_1ga75960ff2f5a41a6708af0ca30849c2eb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_align_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_align_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM alignments of sample within a frame. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_align_t.NRF_TDM_ALIGN_LEFT">
+<span class="target" id="group__nrf__tdm__hal_1gga75960ff2f5a41a6708af0ca30849c2eba6c8a3cdc6ab878d64c857d10dabbcb70"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_ALIGN_LEFT</span></span></span><a class="headerlink" href="#c.nrf_tdm_align_t.NRF_TDM_ALIGN_LEFT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Left-aligned. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_align_t.NRF_TDM_ALIGN_RIGHT">
+<span class="target" id="group__nrf__tdm__hal_1gga75960ff2f5a41a6708af0ca30849c2ebaa72def14bba086fd88fbe1bdf94a89cd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_ALIGN_RIGHT</span></span></span><a class="headerlink" href="#c.nrf_tdm_align_t.NRF_TDM_ALIGN_RIGHT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Right-aligned. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t">
+<span class="target" id="group__nrf__tdm__hal_1ga9747ea0cc20eb5817c55d1e72b683bc5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_channel_mask_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM channel mask. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX0_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a1f824edf8aed1257131d4347df74e081"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX0_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 0 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX1_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5aee3b894bb51275ee6ce688edfe2f1bc8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX1_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 1 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX2_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a062ae730e687dbd0aafe224722385a3f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX2_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 2 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX3_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a03811d571543f6a9a56ed7b6339e5761"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX3_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 3 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX4_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5acb9374c841a796a630011d98c831dff0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX4_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 4 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX5_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5ad7fd6067050fce807591d5ce6b553150"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX5_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 5 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX6_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5acdd5a65ccd1c616d16a1470455f469e6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX6_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 6 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX7_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5ad55ab60f02368b13c3a2c711cc4abef1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_RX7_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_RX7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable RX channel 7 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX0_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a5f5e4fd1c1bb1bb51d4110d3470600f1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX0_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 0 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX1_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5adec73f33e0ed9c6565438665ee672f4e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX1_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 1 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX2_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a62cb03c57150d9d6f562141c09a730da"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX2_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 2 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX3_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a90eab4ee34cb20eacdb8d56f424a6fed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX3_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 3 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX4_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a9760b9e905c6469b3e57d45724e94d9f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX4_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 4 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX5_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a120e84b3f901a728c01f13f1fbab9a53"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX5_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 5 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX6_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5aed181f038b96ad667b48f1c9180610d9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX6_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 6 data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX7_MASK">
+<span class="target" id="group__nrf__tdm__hal_1gga9747ea0cc20eb5817c55d1e72b683bc5a7dfea12c649a0a57ef0532a87544218c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_TX7_MASK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_mask_t.NRF_TDM_CHANNEL_TX7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable TX channel 7 data. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t">
+<span class="target" id="group__nrf__tdm__hal_1ga926563f9b64a577da2834d00fc4bf895"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_channels_count_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM number of channels. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_1">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a16d516854fed150710855fad54720bb7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_1</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>1 channel audio (mono). </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_2">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a15b3e0d83e2488aa47eb723a20fd995c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_2</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>2 channels audio (stereo). </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_3">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895aa5ed271455f26e2b2ab3836315ab97f9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_3</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>3 channels audio. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_4">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a0d296b34095b6cf0c338c8960751ae4f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_4</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>4 channels audio. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_5">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a39ba2e5d7c0b566990404d2e33959fe6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_5</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>5 channels audio. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_6">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a48a6247c68ddbba23182b4db0cf18656"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_6</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>6 channels audio. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_7">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895af35af2c7ecf951346705b88169efdf95"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_7</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>7 channels audio. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_8">
+<span class="target" id="group__nrf__tdm__hal_1gga926563f9b64a577da2834d00fc4bf895a99a8c7e0dd73317676dceff9fbb50f2c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNELS_COUNT_8</span></span></span><a class="headerlink" href="#c.nrf_tdm_channels_count_t.NRF_TDM_CHANNELS_COUNT_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 channels audio. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_delay_t">
+<span class="target" id="group__nrf__tdm__hal_1ga83c1473c6fc7df68a1208c92b8d9e0ee"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_channel_delay_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_delay_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM channel delay. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_delay_t.NRF_TDM_CHANNEL_DELAY_NONE">
+<span class="target" id="group__nrf__tdm__hal_1gga83c1473c6fc7df68a1208c92b8d9e0eea5c7c2af7d7245860fac8d89571e3a36e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_DELAY_NONE</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_delay_t.NRF_TDM_CHANNEL_DELAY_NONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>No delay. Use with DSP/Aligned format. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_delay_t.NRF_TDM_CHANNEL_DELAY_1CK">
+<span class="target" id="group__nrf__tdm__hal_1gga83c1473c6fc7df68a1208c92b8d9e0eea2877879b1d3b4723895ee2f807afce5f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_DELAY_1CK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_delay_t.NRF_TDM_CHANNEL_DELAY_1CK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>1 clock pulse delay. Used with original TDM format. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_channel_delay_t.NRF_TDM_CHANNEL_DELAY_2CK">
+<span class="target" id="group__nrf__tdm__hal_1gga83c1473c6fc7df68a1208c92b8d9e0eea764f65a1355e4a9c4ec544b3031a5558"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_CHANNEL_DELAY_2CK</span></span></span><a class="headerlink" href="#c.nrf_tdm_channel_delay_t.NRF_TDM_CHANNEL_DELAY_2CK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>2 clock pulses delay. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_polarity_t">
+<span class="target" id="group__nrf__tdm__hal_1ga37b518f0a9dc48ae43585e13a55bf5eb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_polarity_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_polarity_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM signal polarity. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_polarity_t.NRF_TDM_POLARITY_POSEDGE">
+<span class="target" id="group__nrf__tdm__hal_1gga37b518f0a9dc48ae43585e13a55bf5eba794ce754ef416f4fcda62d494adae618"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_POLARITY_POSEDGE</span></span></span><a class="headerlink" href="#c.nrf_tdm_polarity_t.NRF_TDM_POLARITY_POSEDGE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Synchronization at rising edge of the reference signal. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_polarity_t.NRF_TDM_POLARITY_NEGEDGE">
+<span class="target" id="group__nrf__tdm__hal_1gga37b518f0a9dc48ae43585e13a55bf5ebac3361c0d19366e95e8c5cf8b56a56353"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_POLARITY_NEGEDGE</span></span></span><a class="headerlink" href="#c.nrf_tdm_polarity_t.NRF_TDM_POLARITY_NEGEDGE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Synchronization at falling edge of the reference signal. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_tdm_fsync_duration_t">
+<span class="target" id="group__nrf__tdm__hal_1ga97d81ae839402941bdb26c30ba11118b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_fsync_duration_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_fsync_duration_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TDM frame synchronization pulse duration. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_fsync_duration_t.NRF_TDM_FSYNC_DURATION_SCK">
+<span class="target" id="group__nrf__tdm__hal_1gga97d81ae839402941bdb26c30ba11118baf75aad0ddae9dcff51a5dd181942b67b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_FSYNC_DURATION_SCK</span></span></span><a class="headerlink" href="#c.nrf_tdm_fsync_duration_t.NRF_TDM_FSYNC_DURATION_SCK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>FSYNC is active for the duration of one SCK pulse. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_tdm_fsync_duration_t.NRF_TDM_FSYNC_DURATION_CHANNEL">
+<span class="target" id="group__nrf__tdm__hal_1gga97d81ae839402941bdb26c30ba11118baa91fd69423a457cf4de2320beb902999"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TDM_FSYNC_DURATION_CHANNEL</span></span></span><a class="headerlink" href="#c.nrf_tdm_fsync_duration_t.NRF_TDM_FSYNC_DURATION_CHANNEL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>FSYNC is active for the duration of channel transmission. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_task_trigger">
+<span class="target" id="group__nrf__tdm__hal_1ga00a802c4b15d45ca20676f1395485441"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_task_t" title="nrf_tdm_task_t"><span class="n"><span class="pre">nrf_tdm_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for activating the specified TDM task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_task_address_get">
+<span class="target" id="group__nrf__tdm__hal_1ga1825c917fd18dedb05fdcae2be0d96a9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_task_t" title="nrf_tdm_task_t"><span class="n"><span class="pre">nrf_tdm_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified TDM task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Specified task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_clear">
+<span class="target" id="group__nrf__tdm__hal_1ga841114ddf0fd7e80c4fb4f7b7e17306f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_event_t" title="nrf_tdm_event_t"><span class="n"><span class="pre">nrf_tdm_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified TDM event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_check">
+<span class="target" id="group__nrf__tdm__hal_1ga2c9c88e805598cec52f4ac3137cc09cc"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_event_t" title="nrf_tdm_event_t"><span class="n"><span class="pre">nrf_tdm_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the TDM event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_event_address_get">
+<span class="target" id="group__nrf__tdm__hal_1ga902ed508b30545094c5993e5e5258dcd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_event_t" title="nrf_tdm_event_t"><span class="n"><span class="pre">nrf_tdm_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified TDM event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_enable">
+<span class="target" id="group__nrf__tdm__hal_1ga4c8919c26ac774ef37713e061158fc7e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e"><span class="std std-ref">nrf_tdm_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_disable">
+<span class="target" id="group__nrf__tdm__hal_1gad25f25329310340dd3e74c76c0dd650d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e"><span class="std std-ref">nrf_tdm_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_int_enable_check">
+<span class="target" id="group__nrf__tdm__hal_1gae1d6cbaab99744e20118373c1d284a10"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__tdm__hal_1ga93635032c2231276feb85ba9880fd80e"><span class="std std-ref">nrf_tdm_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_enable">
+<span class="target" id="group__nrf__tdm__hal_1ga764444243bb55ad64fc73332d14eafd3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the TDM peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_disable">
+<span class="target" id="group__nrf__tdm__hal_1gabe1142e6da8b387273ec361ed7d5c44b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the TDM peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_enable_check">
+<span class="target" id="group__nrf__tdm__hal_1ga9068005601734bcd1401ba0115c7a887"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the TDM peripheral is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The TDM is enabled. </p></li>
+<li><p><strong>false</strong> – The TDM is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_subscribe_set">
+<span class="target" id="group__nrf__tdm__hal_1gac9e604cf4675df23fec17eb112beca1a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_task_t" title="nrf_tdm_task_t"><span class="n"><span class="pre">nrf_tdm_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given TDM task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_subscribe_clear">
+<span class="target" id="group__nrf__tdm__hal_1ga8366779fe0d0aa31e81b32852b5dd371"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_task_t" title="nrf_tdm_task_t"><span class="n"><span class="pre">nrf_tdm_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given TDM task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_publish_set">
+<span class="target" id="group__nrf__tdm__hal_1ga34e7ab3c4c352adab7b39a6e6e0d3d14"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_event_t" title="nrf_tdm_event_t"><span class="n"><span class="pre">nrf_tdm_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given TDM event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_publish_clear">
+<span class="target" id="group__nrf__tdm__hal_1gaaeedf454fc5474eb2ab7c9ad8c13138c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_event_t" title="nrf_tdm_event_t"><span class="n"><span class="pre">nrf_tdm_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given TDM event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_pins_set">
+<span class="target" id="group__nrf__tdm__hal_1ga1d9b942da033f0a8fc354b8037a3c650"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_pins_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_pins_t" title="nrf_tdm_pins_t"><span class="n"><span class="pre">nrf_tdm_pins_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_pins</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_pins_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring TDM pins. </p>
+<p>Usage of the SDOUT, SDIN, and MCK signals is optional. If a given signal is not needed, pass the <a class="reference internal" href="#group__nrf__tdm__hal_1ga01dee3a0830499e4ca89c454da681860"><span class="std std-ref">NRF_TDM_PIN_NOT_CONNECTED</span></a> value instead of its pin number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_pins</strong> – <strong>[in]</strong> Pointer to the structure with pins selection. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_pin_get">
+<span class="target" id="group__nrf__tdm__hal_1ga8a0bc908e8cc94d0223fac80153f6299"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_sck_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_sck_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SCK pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SCK pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_fsync_pin_get">
+<span class="target" id="group__nrf__tdm__hal_1ga4f94a1a5f2f5cdd014336c84f3b3c2d0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_fsync_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_fsync_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the FSYNC pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>FSYNC pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_pin_get">
+<span class="target" id="group__nrf__tdm__hal_1ga78f235fc95e17d903575b8ea86d518c9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_mck_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_mck_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the MCK pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MCK pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_sdout_pin_get">
+<span class="target" id="group__nrf__tdm__hal_1ga5837d6347538da6e0a1e3ad6d8aef659"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_sdout_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_sdout_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SDOUT pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SDOUT pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_sdin_pin_get">
+<span class="target" id="group__nrf__tdm__hal_1ga690e584ecb7c76e301afb2447c80c32b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_sdin_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_sdin_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SDIN pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SDIN pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_configure">
+<span class="target" id="group__nrf__tdm__hal_1ga443c5eea61c71bff96b77892db127f4c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_config_t" title="nrf_tdm_config_t"><span class="n"><span class="pre">nrf_tdm_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the TDM peripheral configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_set">
+<span class="target" id="group__nrf__tdm__hal_1gaea100566cc9480a44b393c8a96719916"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_mck_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_mck_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the master clock generator. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if the master clock generator is to be enabled, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_rx_count_set">
+<span class="target" id="group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_rx_count_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_rx_count_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting up the TDM RX transfer length. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function sets up the RX buffer size. At least one of <a class="reference internal" href="#group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8"><span class="std std-ref">nrf_tdm_rx_count_set</span></a> or <a class="reference internal" href="#group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a"><span class="std std-ref">nrf_tdm_tx_count_set</span></a> functions must be called before starting the transmission. Also <a class="reference internal" href="#group__nrf__tdm__hal_1ga9c2678e160973e03d1c0d86b6396aaf1"><span class="std std-ref">nrf_tdm_transfer_direction_set</span></a> and <a class="reference internal" href="#group__nrf__tdm__hal_1ga61fcb0ef7327e008cc398ae843e4ddc7"><span class="std std-ref">nrf_tdm_rx_buffer_set</span></a> should be called before starting the transmission.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the buffer (in 32-bit words). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_tx_count_set">
+<span class="target" id="group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_tx_count_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_tx_count_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting up the TDM TX transfer length. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function sets up the RX buffer size. At least one of <a class="reference internal" href="#group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8"><span class="std std-ref">nrf_tdm_rx_count_set</span></a> or <a class="reference internal" href="#group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a"><span class="std std-ref">nrf_tdm_tx_count_set</span></a> functions must be called before starting the transmission. Also <a class="reference internal" href="#group__nrf__tdm__hal_1ga9c2678e160973e03d1c0d86b6396aaf1"><span class="std std-ref">nrf_tdm_transfer_direction_set</span></a> and <a class="reference internal" href="#group__nrf__tdm__hal_1gaf375ce34941a6b5af8513c6655001c57"><span class="std std-ref">nrf_tdm_tx_buffer_set</span></a> should be called before starting the transmission.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the buffer (in 32-bit words). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_transfer_direction_set">
+<span class="target" id="group__nrf__tdm__hal_1ga9c2678e160973e03d1c0d86b6396aaf1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_transfer_direction_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_rxtxen_t" title="nrf_tdm_rxtxen_t"><span class="n"><span class="pre">nrf_tdm_rxtxen_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">dir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_transfer_direction_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting up the direction of the TDM transfer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>dir</strong> – <strong>[in]</strong> Transmission direction. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_rx_buffer_set">
+<span class="target" id="group__nrf__tdm__hal_1ga61fcb0ef7327e008cc398ae843e4ddc7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_rx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_rx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pointer to the receive buffer. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The size of the buffer can be set only by calling <a class="reference internal" href="#group__nrf__tdm__hal_1ga627872d8a3724d9317756b2caa833db8"><span class="std std-ref">nrf_tdm_rx_count_set</span></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the receive buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_rx_buffer_get">
+<span class="target" id="group__nrf__tdm__hal_1ga372465489bc0de6d3ad5f688cd51cbbf"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_rx_buffer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_rx_buffer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to the receive buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the receive buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_tx_buffer_set">
+<span class="target" id="group__nrf__tdm__hal_1gaf375ce34941a6b5af8513c6655001c57"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_tx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_tx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pointer to the transmit buffer. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The size of the buffer can be set only by calling <a class="reference internal" href="#group__nrf__tdm__hal_1ga66c6cc1e942aa208b775d496c871c80a"><span class="std std-ref">nrf_tdm_tx_count_set</span></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the transmit buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_current_tx_transfer_amount_get">
+<span class="target" id="group__nrf__tdm__hal_1gac7894e41679574d0b1c0d3e87c4d292e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_current_tx_transfer_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_current_tx_transfer_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the number of bytes transferred in the current transaction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes transferred. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_last_tx_transfer_amount_get">
+<span class="target" id="group__nrf__tdm__hal_1ga0933d2abd9b6c7d8866bee08ffec044e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_last_tx_transfer_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_last_tx_transfer_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the number of bytes transferred in the last transaction. The value has been updated after the END event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes transferred. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_current_rx_transfer_amount_get">
+<span class="target" id="group__nrf__tdm__hal_1gac430d295dff8ef6b0b5a1a9313212b06"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_current_rx_transfer_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_current_rx_transfer_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the number of bytes received in the current transaction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes received. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_last_rx_transfer_amount_get">
+<span class="target" id="group__nrf__tdm__hal_1ga016e63814509245e4f08b79785aac096"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_last_rx_transfer_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_last_rx_transfer_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the number of bytes received in the last transaction. The value has been updated after the END event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes received. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_tx_buffer_get">
+<span class="target" id="group__nrf__tdm__hal_1gaee897ce4f2fdcb7effe74167756a3c7f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_tx_buffer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_tx_buffer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to the transmit buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the transmit buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_mck_configure">
+<span class="target" id="group__nrf__tdm__hal_1ga1d1a9880dc363c20af3935bfa2b59862"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_mck_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_src_t" title="nrf_tdm_src_t"><span class="n"><span class="pre">nrf_tdm_src_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">clksrc</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable_bypass</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_mck_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring TDM master Clock. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>clksrc</strong> – <strong>[in]</strong> TDM master clock source selection. </p></li>
+<li><p><strong>enable_bypass</strong> – <strong>[in]</strong> Bypass clock generator. MCK will be equal to source input. If bypass is enabled the MCK.DIV setting has no effect. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_tdm_sck_configure">
+<span class="target" id="group__nrf__tdm__hal_1ga092497e6cb868ce8a0420af882d81c6b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_sck_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_TDM_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_tdm_src_t" title="nrf_tdm_src_t"><span class="n"><span class="pre">nrf_tdm_src_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">clksrc</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable_bypass</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_tdm_sck_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring TDM serial Clock. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>clksrc</strong> – <strong>[in]</strong> TDM serial clock source selection. </p></li>
+<li><p><strong>enable_bypass</strong> – <strong>[in]</strong> Bypass clock generator. SCK will be equal to source input. If bypass is enabled the SCK.DIV setting has no effect. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t">
+<span class="target" id="structnrf__tdm__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_config_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_tdm.h&gt;</em></div>
+<p>TDM configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.mode">
+<span class="target" id="structnrf__tdm__config__t_1aac584e9fee89e4bbc87c82c687581206"></span><a class="reference internal" href="#c.nrf_tdm_mode_t" title="nrf_tdm_mode_t"><span class="n"><span class="pre">nrf_tdm_mode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mode of operation (master or slave). </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.alignment">
+<span class="target" id="structnrf__tdm__config__t_1a5a1c7bcab2c37df54776e2a5818bc014"></span><a class="reference internal" href="#c.nrf_tdm_align_t" title="nrf_tdm_align_t"><span class="n"><span class="pre">nrf_tdm_align_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alignment</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.alignment" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Alignment of sample within a frame. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.sample_width">
+<span class="target" id="structnrf__tdm__config__t_1a60b45e6584be6c25569c42fafcdbbfc7"></span><a class="reference internal" href="#c.nrf_tdm_swidth_t" title="nrf_tdm_swidth_t"><span class="n"><span class="pre">nrf_tdm_swidth_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample_width</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.sample_width" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sample width. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.channels">
+<span class="target" id="structnrf__tdm__config__t_1a34f59ff95b2eebc71ee265190364029c"></span><a class="reference internal" href="#c.nrf_tdm_channel_mask_t" title="nrf_tdm_channel_mask_t"><span class="n"><span class="pre">nrf_tdm_channel_mask_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">channels</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.channels" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enabled channels. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.num_of_channels">
+<span class="target" id="structnrf__tdm__config__t_1a4031a08bf844ecece8671c547789d2a7"></span><a class="reference internal" href="#c.nrf_tdm_channels_count_t" title="nrf_tdm_channels_count_t"><span class="n"><span class="pre">nrf_tdm_channels_count_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">num_of_channels</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.num_of_channels" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Nnumber of channels within a frame. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.channel_delay">
+<span class="target" id="structnrf__tdm__config__t_1a7ea30292f0a55fd656962e91d8571646"></span><a class="reference internal" href="#c.nrf_tdm_channel_delay_t" title="nrf_tdm_channel_delay_t"><span class="n"><span class="pre">nrf_tdm_channel_delay_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">channel_delay</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.channel_delay" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Channel delay settings. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.mck_setup">
+<span class="target" id="structnrf__tdm__config__t_1a56aff35bb1ab72ae8a34ed35849ad693"></span><a class="reference internal" href="#c.nrf_tdm_mck_div_t" title="nrf_tdm_mck_div_t"><span class="n"><span class="pre">nrf_tdm_mck_div_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mck_setup</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.mck_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Master clock divider setup. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.sck_setup">
+<span class="target" id="structnrf__tdm__config__t_1ae4675a7af55edaa00f2fc5b4fc96c500"></span><a class="reference internal" href="#c.nrf_tdm_sck_div_t" title="nrf_tdm_sck_div_t"><span class="n"><span class="pre">nrf_tdm_sck_div_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sck_setup</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.sck_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Serial clock divider setup. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.sck_polarity">
+<span class="target" id="structnrf__tdm__config__t_1a44bb86aa2f13e1b090485ba68615e01d"></span><a class="reference internal" href="#c.nrf_tdm_polarity_t" title="nrf_tdm_polarity_t"><span class="n"><span class="pre">nrf_tdm_polarity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sck_polarity</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.sck_polarity" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Serial clock polarity. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.fsync_polarity">
+<span class="target" id="structnrf__tdm__config__t_1a60ce6574e9fc52123864c217e139df07"></span><a class="reference internal" href="#c.nrf_tdm_polarity_t" title="nrf_tdm_polarity_t"><span class="n"><span class="pre">nrf_tdm_polarity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fsync_polarity</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.fsync_polarity" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Frame Synchronization pulse polarity. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_config_t.fsync_duration">
+<span class="target" id="structnrf__tdm__config__t_1ac5a0d6af69351e29871f342596c399c8"></span><a class="reference internal" href="#c.nrf_tdm_fsync_duration_t" title="nrf_tdm_fsync_duration_t"><span class="n"><span class="pre">nrf_tdm_fsync_duration_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fsync_duration</span></span></span><a class="headerlink" href="#c.nrf_tdm_config_t.fsync_duration" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Frame Synchronization pulse duration. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_tdm_pins_t">
+<span class="target" id="structnrf__tdm__pins__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_tdm_pins_t</span></span></span><a class="headerlink" href="#c.nrf_tdm_pins_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_tdm.h&gt;</em></div>
+<p>TDM pins. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_pins_t.sck_pin">
+<span class="target" id="structnrf__tdm__pins__t_1a98e68b4a455a1b6d2d8ab990e6d1d03c"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sck_pin</span></span></span><a class="headerlink" href="#c.nrf_tdm_pins_t.sck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_pins_t.fsync_pin">
+<span class="target" id="structnrf__tdm__pins__t_1a69fa6ce5f7b9b60d50e3230f08a6fb4c"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fsync_pin</span></span></span><a class="headerlink" href="#c.nrf_tdm_pins_t.fsync_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>FSYNC pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_pins_t.mck_pin">
+<span class="target" id="structnrf__tdm__pins__t_1a3f64016f7e5ecb0fb6013e5975f262fd"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mck_pin</span></span></span><a class="headerlink" href="#c.nrf_tdm_pins_t.mck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK pin number. </p>
+<p>Optional. Use <a class="reference internal" href="#group__nrf__tdm__hal_1ga01dee3a0830499e4ca89c454da681860"><span class="std std-ref">NRF_TDM_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_pins_t.sdout_pin">
+<span class="target" id="structnrf__tdm__pins__t_1ac1caf95ff4c893a6cf87d4c4be250107"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sdout_pin</span></span></span><a class="headerlink" href="#c.nrf_tdm_pins_t.sdout_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SDOUT pin number. </p>
+<p>Optional. Use <a class="reference internal" href="#group__nrf__tdm__hal_1ga01dee3a0830499e4ca89c454da681860"><span class="std std-ref">NRF_TDM_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_tdm_pins_t.sdin_pin">
+<span class="target" id="structnrf__tdm__pins__t_1abf9400d16096de8b89affc727b9ec4f2"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sdin_pin</span></span></span><a class="headerlink" href="#c.nrf_tdm_pins_t.sdin_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SDIN pin number. </p>
+<p>Optional. Use <a class="reference internal" href="#group__nrf__tdm__hal_1ga01dee3a0830499e4ca89c454da681860"><span class="std std-ref">NRF_TDM_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../temp/index.html" class="btn btn-neutral float-right" title="TEMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="TDM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

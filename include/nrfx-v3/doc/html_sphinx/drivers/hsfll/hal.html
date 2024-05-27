@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSFLL HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="OSCILLATORS HAL" href="../oscillators/hal.html" />
+    <link rel="prev" title="AUXPLL HAL" href="../auxpll/hal.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../clock/index.html">CLOCK</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../clock/driver.html">CLOCK driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clock/hal.html">CLOCK HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../auxpll/hal.html">AUXPLL HAL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">HSFLL HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../oscillators/hal.html">OSCILLATORS HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="../clock/index.html">CLOCK</a></li>
+      <li class="breadcrumb-item active">HSFLL HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/hsfll/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hsfll-hal">
+<h1>HSFLL HAL<a class="headerlink" href="#hsfll-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__hsfll__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_hsfll_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the High Speed Frequency Locked Loop (HSFLL). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_HSFLL_HAS_DITHERING_INITVALUE">
+<span class="target" id="group__nrf__hsfll__hal_1ga8a46b0d61ca2d324682b76884330e549"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_HAS_DITHERING_INITVALUE</span></span></span><a class="headerlink" href="#c.NRF_HSFLL_HAS_DITHERING_INITVALUE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether initial value for clock dithering configuration is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_HSFLL_HAS_DITHERINIT">
+<span class="target" id="group__nrf__hsfll__hal_1ga319d84caea05a82fe36f5a717e12d354"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_HAS_DITHERINIT</span></span></span><a class="headerlink" href="#c.NRF_HSFLL_HAS_DITHERINIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether initial value for clock dithering seed configuration is present. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_hsfll_task_t">
+<span class="target" id="group__nrf__hsfll__hal_1gaaf63c801dadc3cc404e66e2288ecdd70"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_task_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_task_t.NRF_HSFLL_TASK_START">
+<span class="target" id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a1d1aa0962f779b54ae27d2d3406989ae"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_TASK_START</span></span></span><a class="headerlink" href="#c.nrf_hsfll_task_t.NRF_HSFLL_TASK_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start the HSFLL. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_task_t.NRF_HSFLL_TASK_STOP">
+<span class="target" id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a626ed1e7d60ba132a4c196c8e7f558bd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_TASK_STOP</span></span></span><a class="headerlink" href="#c.nrf_hsfll_task_t.NRF_HSFLL_TASK_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop the HSFLL. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_task_t.NRF_HSFLL_TASK_FREQ_MEAS">
+<span class="target" id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a9fd42b7f977773a1f028565c5ccd2b34"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_TASK_FREQ_MEAS</span></span></span><a class="headerlink" href="#c.nrf_hsfll_task_t.NRF_HSFLL_TASK_FREQ_MEAS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start frequency measurement in software-controlled mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_task_t.NRF_HSFLL_TASK_FREQ_CHANGE">
+<span class="target" id="group__nrf__hsfll__hal_1ggaaf63c801dadc3cc404e66e2288ecdd70a5cacc8169f1737a957426789174ea5d0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_TASK_FREQ_CHANGE</span></span></span><a class="headerlink" href="#c.nrf_hsfll_task_t.NRF_HSFLL_TASK_FREQ_CHANGE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger frequency change. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_t">
+<span class="target" id="group__nrf__hsfll__hal_1ga67c57226bb78f8858844566d3c89b500"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_event_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_STARTED">
+<span class="target" id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500a577fa5953e1f9ddf58fc4b0fa0f35b67"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_EVENT_STARTED</span></span></span><a class="headerlink" href="#c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_STARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_STOPPED">
+<span class="target" id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500aee8611794727dea5269e6efe4a205ab8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_EVENT_STOPPED</span></span></span><a class="headerlink" href="#c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_STOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL stopped. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_FREQM_DONE">
+<span class="target" id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500aa8fe7cc76c9f6af4b19f0e180db644c9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_EVENT_FREQM_DONE</span></span></span><a class="headerlink" href="#c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_FREQM_DONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL frequency measurement done. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_FREQ_CHANGED">
+<span class="target" id="group__nrf__hsfll__hal_1gga67c57226bb78f8858844566d3c89b500a5b4f6c091326004d42baa02fa970cc42"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_EVENT_FREQ_CHANGED</span></span></span><a class="headerlink" href="#c.nrf_hsfll_event_t.NRF_HSFLL_EVENT_FREQ_CHANGED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL frequency change done. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_status_t">
+<span class="target" id="group__nrf__hsfll__hal_1ga22d84dbd304c5820d04b30f24eb51876"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_mode_status_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_status_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL clock status operating modes. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_status_t.NRF_HSFLL_MODE_STATUS_OPEN_LOOP">
+<span class="target" id="group__nrf__hsfll__hal_1gga22d84dbd304c5820d04b30f24eb51876ae4707366f19688348511e74363840e40"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_MODE_STATUS_OPEN_LOOP</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_status_t.NRF_HSFLL_MODE_STATUS_OPEN_LOOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Open loop mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_status_t.NRF_HSFLL_MODE_STATUS_CLOSED_LOOP">
+<span class="target" id="group__nrf__hsfll__hal_1gga22d84dbd304c5820d04b30f24eb51876ac3c5b3bfe3187d5425cee3c46e0c90e2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_MODE_STATUS_CLOSED_LOOP</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_status_t.NRF_HSFLL_MODE_STATUS_CLOSED_LOOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Closed loop mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_status_t.NRF_HSFLL_MODE_STATUS_BYPASS">
+<span class="target" id="group__nrf__hsfll__hal_1gga22d84dbd304c5820d04b30f24eb51876a64fafb5c9c162b7a91b3e4f06ce33162"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_MODE_STATUS_BYPASS</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_status_t.NRF_HSFLL_MODE_STATUS_BYPASS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bypass mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_ctrl_t">
+<span class="target" id="group__nrf__hsfll__hal_1ga39dc8779fe0c54cc97619419fe1a8882"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_mode_ctrl_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_ctrl_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL clock control operating mode settings. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_AUTO">
+<span class="target" id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882a170b39f552c1e309a6695fe6108d0915"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_MODE_CTRL_AUTO</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_AUTO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The PCGC controls the mode automatically. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_OPEN_LOOP">
+<span class="target" id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882adea16baa54cd516deccdf3c8b1f8813e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_MODE_CTRL_OPEN_LOOP</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_OPEN_LOOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Open loop mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_CLOSED_LOOP">
+<span class="target" id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882a299ea696692e727ed26aedf36330560b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_MODE_CTRL_CLOSED_LOOP</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_CLOSED_LOOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Closed loop mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_BYPASS">
+<span class="target" id="group__nrf__hsfll__hal_1gga39dc8779fe0c54cc97619419fe1a8882a8f2480b89871d9f9038335794a14a5a2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HSFLL_MODE_CTRL_BYPASS</span></span></span><a class="headerlink" href="#c.nrf_hsfll_mode_ctrl_t.NRF_HSFLL_MODE_CTRL_BYPASS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bypass mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_task_address_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga9dddcf75c0f04862a06387fe606edd88"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_task_t" title="nrf_hsfll_task_t"><span class="n"><span class="pre">nrf_hsfll_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> HSFLL task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the requested task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_task_trigger">
+<span class="target" id="group__nrf__hsfll__hal_1gad25640261347cb07eb76941a2368e09c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_task_t" title="nrf_hsfll_task_t"><span class="n"><span class="pre">nrf_hsfll_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for triggering the specified task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_address_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga19d1e811d34aee962e02e8fb979fafbf"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_event_t" title="nrf_hsfll_event_t"><span class="n"><span class="pre">nrf_hsfll_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the address of the specified event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> HSFLL event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_clear">
+<span class="target" id="group__nrf__hsfll__hal_1ga3eaaa073b59ea26da9b23dcb22c73e00"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_event_t" title="nrf_hsfll_event_t"><span class="n"><span class="pre">nrf_hsfll_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be cleared. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_event_check">
+<span class="target" id="group__nrf__hsfll__hal_1gae60378a605af57564f44e359b7d2043b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_event_t" title="nrf_hsfll_event_t"><span class="n"><span class="pre">nrf_hsfll_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the specified event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_status_clk_get">
+<span class="target" id="group__nrf__hsfll__hal_1gadac31e8d57d71c6b4186f59db8f1340e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_status_clk_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_status_clk_t" title="nrf_hsfll_status_clk_t"><span class="n"><span class="pre">nrf_hsfll_status_clk_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_status</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_status_clk_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the HSFLL status. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_status</strong> – <strong>[out]</strong> Pointer to the structure to be filled with the HSFLL status. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_freqm_done_check">
+<span class="target" id="group__nrf__hsfll__hal_1gaa7adafcaa53407dc41099e5d74155d0e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_freqm_done_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_freqm_done_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking whether the HSFLL frequency measurement is completed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The frequency measurement is completed. </p></li>
+<li><p><strong>false</strong> – The frequency measurement is in progress. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_freqm_error_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga1c70443d909e28515ece4bc694bd5277"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_freqm_error_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_freqm_error_t" title="nrf_hsfll_freqm_error_t"><span class="n"><span class="pre">nrf_hsfll_freqm_error_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_error</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_freqm_error_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting HSFLL frequency measurement errors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_error</strong> – <strong>[out]</strong> Pointer to the structure to be filled with HSFLL frequency measurement errors. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_freqm_meas_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga05d00a41e4e025418a0b54875bf03864"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_freqm_meas_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_freqm_meas_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting HSFLL frequency measurement. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The last frequency measurement value. Measures the number of reference clock cycles. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_mode_set">
+<span class="target" id="group__nrf__hsfll__hal_1gacd78b204be22175d34bb81942ccaa8cc"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_mode_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_clkctrl_t" title="nrf_hsfll_clkctrl_t"><span class="n"><span class="pre">nrf_hsfll_clkctrl_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_clkctrl</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_mode_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting HSFLL clock control mode settings. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_clkctrl</strong> – <strong>[in]</strong> Pointer to the structure with new HSFLL clock control mode settings. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_mode_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga98ef21e04eb98689965abb5a129b3066"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_mode_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_clkctrl_t" title="nrf_hsfll_clkctrl_t"><span class="n"><span class="pre">nrf_hsfll_clkctrl_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_clkctrl</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_mode_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting HSFLL clock control mode settings. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_clkctrl</strong> – <strong>[out]</strong> Pointer to the structure to be filled with HSFLL clock control settings. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_dithering_set">
+<span class="target" id="group__nrf__hsfll__hal_1gaa8613335cda9ae2024187c716f9cfc36"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_dithering_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_dithering_t" title="nrf_hsfll_dithering_t"><span class="n"><span class="pre">nrf_hsfll_dithering_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_dithering_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting HSFLL clock dithering configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with new HSFLL clock dithering configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_dithering_get">
+<span class="target" id="group__nrf__hsfll__hal_1gae9621d76a7feb65ac1ded46406f12bb9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_dithering_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_dithering_t" title="nrf_hsfll_dithering_t"><span class="n"><span class="pre">nrf_hsfll_dithering_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_dithering_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting HSFLL clock dithering configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[out]</strong> Pointer to the structure to be filled with HSFLL clock dithering configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_mult_set">
+<span class="target" id="group__nrf__hsfll__hal_1ga8128f0a55ca09443c6156bbb7b18406f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_mult_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">multiplier</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_mult_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting HSFLL frequency multiplier. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>multiplier</strong> – <strong>[in]</strong> Value of new multiplier. Valid <code class="docutils literal notranslate"><span class="pre">multiplier</span></code> range is from 4 to 25. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_mult_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga16416adfeb7ad9ce1f7ba5284a86c085"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_mult_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_mult_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting HSFLL frequency multiplier. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Current value of frequency multiplier used by HSFLL. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_sleep_set">
+<span class="target" id="group__nrf__hsfll__hal_1ga2b2da2ee38c67145860f9ef0a593f2ab"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_sleep_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_sleep_t" title="nrf_hsfll_sleep_t"><span class="n"><span class="pre">nrf_hsfll_sleep_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_sleep_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting HSFLL clock sleep configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with new HSFLL clock sleep configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_sleep_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga3f5f1222dffd22bee5b1b863f65f8d84"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_sleep_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_sleep_t" title="nrf_hsfll_sleep_t"><span class="n"><span class="pre">nrf_hsfll_sleep_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_sleep_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting HSFLL clock sleep configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[out]</strong> Pointer to the structure to be filled with HSFLL clock sleep configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_retainfinetrim_enable_set">
+<span class="target" id="group__nrf__hsfll__hal_1gaaf9a3a9f0bc7019d955ed88d82fa0684"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_retainfinetrim_enable_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">retain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_retainfinetrim_enable_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling or disabling the retention of HSFLL fine trim control. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>retain</strong> – <strong>[in]</strong> True if the fine trim control is to be retained when HSFLL goes to open-loop mode, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_overridelocked_enable_set">
+<span class="target" id="group__nrf__hsfll__hal_1ga60dc7710809a136d150ffd4fa1f9c085"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_overridelocked_enable_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">override</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_overridelocked_enable_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling or disabling the override of the HSFLL LOCKED signal. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>override</strong> – <strong>[in]</strong> True if the override is to be enabled, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_dither_init_set">
+<span class="target" id="group__nrf__hsfll__hal_1gaa8da86a746b26811c0c29681653c9085"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_dither_init_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">seed</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_dither_init_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the configurable seed of HSFLL clock dithering. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>seed</strong> – <strong>[in]</strong> 32-bit initial value for the PRBS. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_mirror_lock_set">
+<span class="target" id="group__nrf__hsfll__hal_1ga20306b5cda469bc8cfd0e86b26984507"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_mirror_lock_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_mirror_lock_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling or disabling lock for mirrored registers. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if the lock is to be enabled, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_trim_set">
+<span class="target" id="group__nrf__hsfll__hal_1gaf927798c0f1c728d9dfbab02b337ad9e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_trim_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_trim_t" title="nrf_hsfll_trim_t"><span class="n"><span class="pre">nrf_hsfll_trim_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_trim</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_trim_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function to setup trims configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_trim</strong> – <strong>[in]</strong> Pointer to the structure with new HSFLL trim configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_hsfll_trim_get">
+<span class="target" id="group__nrf__hsfll__hal_1ga6a0b3a01f766199a67d2ca7473a764b0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_trim_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_HSFLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_hsfll_trim_t" title="nrf_hsfll_trim_t"><span class="n"><span class="pre">nrf_hsfll_trim_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_trim</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_hsfll_trim_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function to getting trims configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_trim</strong> – <strong>[in]</strong> Pointer to the structure to be filled with HSFLL trim configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_hsfll_status_clk_t">
+<span class="target" id="structnrf__hsfll__status__clk__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_status_clk_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_status_clk_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_hsfll.h&gt;</em></div>
+<p>HSFLL clock status. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_status_clk_t.mode">
+<span class="target" id="structnrf__hsfll__status__clk__t_1abe37b7af88588a848c66cf0c7e33f939"></span><a class="reference internal" href="#c.nrf_hsfll_mode_status_t" title="nrf_hsfll_mode_status_t"><span class="n"><span class="pre">nrf_hsfll_mode_status_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrf_hsfll_status_clk_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL operating mode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_status_clk_t.override">
+<span class="target" id="structnrf__hsfll__status__clk__t_1a1fed69b09e553ff64dba0f1b9ddb43bd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">override</span></span></span><a class="headerlink" href="#c.nrf_hsfll_status_clk_t.override" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL override mode is enabled. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_status_clk_t.accuracy">
+<span class="target" id="structnrf__hsfll__status__clk__t_1a23aa6008205628dea5ba2de10306b16a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">accuracy</span></span></span><a class="headerlink" href="#c.nrf_hsfll_status_clk_t.accuracy" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clock accurracy is within 2%. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_status_clk_t.locked">
+<span class="target" id="structnrf__hsfll__status__clk__t_1ae41c337b6e36e586469a779f0c4c98da"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">locked</span></span></span><a class="headerlink" href="#c.nrf_hsfll_status_clk_t.locked" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL locked to reference clock. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_hsfll_freqm_error_t">
+<span class="target" id="structnrf__hsfll__freqm__error__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_freqm_error_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_freqm_error_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_hsfll.h&gt;</em></div>
+<p>HSFLL frequency measurements errors. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_freqm_error_t.error">
+<span class="target" id="structnrf__hsfll__freqm__error__t_1a718be3ce4592c8cb38e8acf2e5fda79c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">error</span></span></span><a class="headerlink" href="#c.nrf_hsfll_freqm_error_t.error" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trim error status. True if outside limit, false if within. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_freqm_error_t.trim_underflow">
+<span class="target" id="structnrf__hsfll__freqm__error__t_1a9f84f15deb1e4eb2b411f1e54b4250e4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trim_underflow</span></span></span><a class="headerlink" href="#c.nrf_hsfll_freqm_error_t.trim_underflow" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Underflow error status. True if outside limit, false if within. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_freqm_error_t.trim_overflow">
+<span class="target" id="structnrf__hsfll__freqm__error__t_1a8eeb5ec7ca8a348877a29c200fad8923"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trim_overflow</span></span></span><a class="headerlink" href="#c.nrf_hsfll_freqm_error_t.trim_overflow" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Overflow error status. True if outside limit, false if within. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_t">
+<span class="target" id="structnrf__hsfll__clkctrl__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_clkctrl_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_hsfll.h&gt;</em></div>
+<p>HSFLL clock control. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_t.mode">
+<span class="target" id="structnrf__hsfll__clkctrl__t_1ac64b3739e4cb37a0a69c7ed40e02ce8e"></span><a class="reference internal" href="#c.nrf_hsfll_mode_ctrl_t" title="nrf_hsfll_mode_ctrl_t"><span class="n"><span class="pre">nrf_hsfll_mode_ctrl_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL operating mode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_clkctrl_t.override">
+<span class="target" id="structnrf__hsfll__clkctrl__t_1a9f2b7c3c50d04c558b37e99eb1a3567d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">override</span></span></span><a class="headerlink" href="#c.nrf_hsfll_clkctrl_t.override" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HSFLL override mode. True if enabled, false otherwise. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_hsfll_dithering_t">
+<span class="target" id="structnrf__hsfll__dithering__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_dithering_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_dithering_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_hsfll.h&gt;</em></div>
+<p>HSFLL clock dithering configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_dithering_t.cyclecount">
+<span class="target" id="structnrf__hsfll__dithering__t_1ad8b63f26776f6c9e6d04e7649a0587ae"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cyclecount</span></span></span><a class="headerlink" href="#c.nrf_hsfll_dithering_t.cyclecount" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Cycle count configuration for clock dithering. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_dithering_t.maxoffset">
+<span class="target" id="structnrf__hsfll__dithering__t_1aa239ead888f2777ab5df41fdab6dcab0"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxoffset</span></span></span><a class="headerlink" href="#c.nrf_hsfll_dithering_t.maxoffset" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Maximum offset configuration for clock dithering. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_dithering_t.initvalue">
+<span class="target" id="structnrf__hsfll__dithering__t_1ab720172bf5b46279f7101581876c75b4"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initvalue</span></span></span><a class="headerlink" href="#c.nrf_hsfll_dithering_t.initvalue" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Initial value for the clock dithering. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_dithering_t.enable">
+<span class="target" id="structnrf__hsfll__dithering__t_1a0f783d5974ad8530315d9238776bd561"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enable</span></span></span><a class="headerlink" href="#c.nrf_hsfll_dithering_t.enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable the clock dithering. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_hsfll_sleep_t">
+<span class="target" id="structnrf__hsfll__sleep__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_sleep_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_sleep_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_hsfll.h&gt;</em></div>
+<p>HSFLL clock sleep configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_sleep_t.mode">
+<span class="target" id="structnrf__hsfll__sleep__t_1a568e95d8c277cfe21a8a43c764fecaa0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrf_hsfll_sleep_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Power down the HSFLL core. True if powered down, false if in normal mode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_sleep_t.retain">
+<span class="target" id="structnrf__hsfll__sleep__t_1aaf48fee2e595d1199d1a8b1be50388b1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">retain</span></span></span><a class="headerlink" href="#c.nrf_hsfll_sleep_t.retain" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Retain all inputs while powered down. True if retention is enabled, false otherwise. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_hsfll_trim_t">
+<span class="target" id="structnrf__hsfll__trim__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_hsfll_trim_t</span></span></span><a class="headerlink" href="#c.nrf_hsfll_trim_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_hsfll.h&gt;</em></div>
+<p>HSFLL trims configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_trim_t.coarse">
+<span class="target" id="structnrf__hsfll__trim__t_1ad88f582c4a3180d91f1f35619978586e"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">coarse</span></span></span><a class="headerlink" href="#c.nrf_hsfll_trim_t.coarse" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Coarse frequance trimming. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_trim_t.fine">
+<span class="target" id="structnrf__hsfll__trim__t_1a5f71ce7aedfae8e3dc6b315e24107cf7"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fine</span></span></span><a class="headerlink" href="#c.nrf_hsfll_trim_t.fine" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Fine frequency trimming. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_hsfll_trim_t.vsup">
+<span class="target" id="structnrf__hsfll__trim__t_1aa811bd2180bf3d397f6b96db21015460"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vsup</span></span></span><a class="headerlink" href="#c.nrf_hsfll_trim_t.vsup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Internal regulator voltage supply level trimming. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../oscillators/hal.html" class="btn btn-neutral float-right" title="OSCILLATORS HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../auxpll/hal.html" class="btn btn-neutral" title="AUXPLL HAL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

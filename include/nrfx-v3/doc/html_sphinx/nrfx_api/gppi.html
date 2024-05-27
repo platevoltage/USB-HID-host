@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generic PPI Layer &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../_static/js/ncs.js"
+></script>
+<script src="../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DPPI driver" href="../drivers/dppi/driver.html" />
+    <link rel="prev" title="DPPI" href="../drivers/dppi/index.html" />
+<link
+  href="../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Drivers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">nrfx API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="atomic.html">Atomic operations API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bitmask.html">Bitmask module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html">Common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_configuration.html">Common configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_nrfy.html">Common nrfy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coredep.html">Core-dependent functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_codes.html">Global Error Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flag32_allocator.html">Generic flag allocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glue.html">nrfx_glue.h</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Generic PPI Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interconnect_apb.html">APB bus support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interconnect_ipct.html">IPCT support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">nrfx_log.h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prs.html">Peripheral Resource Sharing (PRS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ram_ctrl.html">Generic RAM control layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reset_reason.html">Generic Reset Reason layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vdma.html">Generic Vector DMA layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../drivers/index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="../drivers/dppi/index.html">DPPI</a></li>
+      <li class="breadcrumb-item active">Generic PPI Layer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/nrfx_api/gppi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generic-ppi-layer">
+<h1>Generic PPI Layer<a class="headerlink" href="#generic-ppi-layer" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__gppi"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_gppi</span></span></dt>
+<dd><p>Helper layer that provides the common functionality of PPI and DPPI drivers. </p>
+<p>Use PPI and DPPI drivers directly. This layer is provided only to help create generic code that can be built for SoCs equipped with either of these peripherals. When using this layer, take into account that there are significant differences between the PPI and DPPI interfaces that affect the behavior of this layer.</p>
+<p>One difference is that PPI allows associating of one task or event with more than one channel, whereas DPPI does not allow this. In DPPI, the second association overwrites the first one. Consequently, this helper layer cannot be used in applications that need to connect a task or event to multiple channels.</p>
+<p>Another difference is that in DPPI one channel can be associated with multiple tasks and multiple events, while in PPI this is not possible (with the exception of the association of a second task as a fork). Because of this difference, it is important to clear the previous endpoints of the channel that is to be reused with some different ones. Otherwise, the behavior of this helper layer will be different, depending on the actual interface used: in DPPI the channel configuration will be extended with the new endpoints, and in PPI the new endpoints will replace the previous ones. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_group_t">
+<span class="target" id="group__nrfx__gppi_1ga53d2a58b54093ef707d310426f651eb0"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></span><a class="headerlink" href="#c.nrfx_gppi_channel_group_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Generic PPI channel groups. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP0">
+<span class="target" id="group__nrfx__gppi_1gga53d2a58b54093ef707d310426f651eb0a8bb8dbcbb30287bf14a7c678a80297e6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_CHANNEL_GROUP0</span></span></span><a class="headerlink" href="#c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Channel group 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP1">
+<span class="target" id="group__nrfx__gppi_1gga53d2a58b54093ef707d310426f651eb0a17e513789a2d41feb4edec493f4c358a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_CHANNEL_GROUP1</span></span></span><a class="headerlink" href="#c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Channel group 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP2">
+<span class="target" id="group__nrfx__gppi_1gga53d2a58b54093ef707d310426f651eb0a8918e46a6571b581da1377dbdf81d19f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_CHANNEL_GROUP2</span></span></span><a class="headerlink" href="#c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Channel group 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP3">
+<span class="target" id="group__nrfx__gppi_1gga53d2a58b54093ef707d310426f651eb0a254d56ed3ec3b5bf27a96392a2379153"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_CHANNEL_GROUP3</span></span></span><a class="headerlink" href="#c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Channel group 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP4">
+<span class="target" id="group__nrfx__gppi_1gga53d2a58b54093ef707d310426f651eb0a89ec98282a3e5e4be172c4dc8d35e227"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_CHANNEL_GROUP4</span></span></span><a class="headerlink" href="#c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Channel group 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP5">
+<span class="target" id="group__nrfx__gppi_1gga53d2a58b54093ef707d310426f651eb0a5f01f1c2ba1406fb80fdbb6dca83dda2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_CHANNEL_GROUP5</span></span></span><a class="headerlink" href="#c.nrfx_gppi_channel_group_t.NRFX_GPPI_CHANNEL_GROUP5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Channel group 5. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t">
+<span class="target" id="group__nrfx__gppi_1ga0102b85d71d04429294356ba42769dbd"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_task_t</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Generic PPI tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG0_EN">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda2c9b411cbf7fa8f9b48afe5bceeddc36"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG0_EN</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG0_EN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for enabling channel group 0 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG0_DIS">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda486ee3e9ffaa6f7bfdcca0913f7060d7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG0_DIS</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG0_DIS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for disabling channel group 0 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG1_EN">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda4d8060242e948e89f71554ca7faa1f32"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG1_EN</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG1_EN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for enabling channel group 1 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG1_DIS">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbdab2fc0fea0ab4d47acdb252c477790a02"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG1_DIS</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG1_DIS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for disabling channel group 1 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG2_EN">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda94b66df07a693037c98fcde8cc74d5c8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG2_EN</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG2_EN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for enabling channel group 2 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG2_DIS">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda87d6438c6182fc1bf76551892ced41b8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG2_DIS</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG2_DIS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for disabling channel group 2 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG3_EN">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda9037ea75bdbbcb80c1b1252a8247110e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG3_EN</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG3_EN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for enabling channel group 3 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG3_DIS">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda99ad4390128a5296cb7886a93775e47a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG3_DIS</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG3_DIS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for disabling channel group 3 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG4_EN">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda53a35a6099543cbc1f0d4d2ff19fbfcd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG4_EN</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG4_EN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for enabling channel group 4 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG4_DIS">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbdab8ca36722eba05b51f80b85ad9a93770"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG4_DIS</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG4_DIS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for disabling channel group 4 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG5_EN">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbdab223c5495a0cad39cb481e0f8cb401f4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG5_EN</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG5_EN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for enabling channel group 5 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG5_DIS">
+<span class="target" id="group__nrfx__gppi_1gga0102b85d71d04429294356ba42769dbda76fe8ce7ccebcf846b8d7adfc5691c49"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_GPPI_TASK_CHG5_DIS</span></span></span><a class="headerlink" href="#c.nrfx_gppi_task_t.NRFX_GPPI_TASK_CHG5_DIS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for disabling channel group 5 </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_check">
+<span class="target" id="group__nrfx__gppi_1gae03a0b72e449e8ec7ef73a0f30e66479"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channel_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channel_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if a given channel is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel to check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The channel is enabled. </p></li>
+<li><p><strong>false</strong> – The channel is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channels_disable_all">
+<span class="target" id="group__nrfx__gppi_1gac8c51de88ffdcbe3ba2fbb153864c763"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channels_disable_all</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channels_disable_all" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling all channels. </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channels_enable">
+<span class="target" id="group__nrfx__gppi_1ga9a2dc649beb3d5144d9b641498da0d1a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channels_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channels_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling multiple channels. </p>
+<p>The bits in <code class="docutils literal notranslate"><span class="pre">mask</span></code> value correspond to particular channels. This means that writing 1 to bit 0 enables channel 0, writing 1 to bit 1 enables channel 1, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> Channel mask. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channels_disable">
+<span class="target" id="group__nrfx__gppi_1ga6b96cd981f8d4a606c27e0f9a86b4bfa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channels_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channels_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling multiple channels. </p>
+<p>The bits in <code class="docutils literal notranslate"><span class="pre">mask</span></code> value correspond to particular channels. This means that writing 1 to bit 0 disables channel 0, writing 1 to bit 1 disables channel 1, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> Channel mask. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_event_endpoint_setup">
+<span class="target" id="group__nrfx__gppi_1ga2ede53f653eb2aa889b39168b3070a04"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_event_endpoint_setup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">eep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_event_endpoint_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for associating a given channel with the specified event register. </p>
+<p>This function sets the DPPI publish configuration for a given event or sets the PPI event endpoint register.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel to which to assign the event. </p></li>
+<li><p><strong>eep</strong> – <strong>[in]</strong> Address of the event register. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_endpoint_setup">
+<span class="target" id="group__nrfx__gppi_1ga4b22684a1309780298cb5814e612d0f2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_task_endpoint_setup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">tep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_task_endpoint_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for associating a given channel with the specified task register. </p>
+<p>This function sets the DPPI subscribe configuration for a given task or sets the PPI task endpoint register.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel to which to assign the task. </p></li>
+<li><p><strong>tep</strong> – <strong>[in]</strong> Address of the task register. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_endpoints_setup">
+<span class="target" id="group__nrfx__gppi_1ga476ae2c744201a4e69b21a3e1c000e2b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channel_endpoints_setup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">eep</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">tep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channel_endpoints_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting up the event and task endpoints for a given channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel to which the given endpoints are assigned. </p></li>
+<li><p><strong>eep</strong> – <strong>[in]</strong> Address of the event register. </p></li>
+<li><p><strong>tep</strong> – <strong>[in]</strong> Address of the task register. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_endpoints_clear">
+<span class="target" id="group__nrfx__gppi_1gad93112e7016725905bf3e8976c2071c8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channel_endpoints_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">eep</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">tep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channel_endpoints_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the event and task endpoints for a given channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel to which the given endpoints are assigned. </p></li>
+<li><p><strong>eep</strong> – <strong>[in]</strong> Address of the event register. </p></li>
+<li><p><strong>tep</strong> – <strong>[in]</strong> Address of the task register. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_event_endpoint_clear">
+<span class="target" id="group__nrfx__gppi_1ga070a6c382efa69eeb16c3cadc40e350a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_event_endpoint_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">eep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_event_endpoint_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the DPPI publish configuration for a given event register or for clearing the PPI event endpoint register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel for which to clear the event endpoint. Not used in DPPI. </p></li>
+<li><p><strong>eep</strong> – <strong>[in]</strong> Address of the event register. Not used in PPI. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_endpoint_clear">
+<span class="target" id="group__nrfx__gppi_1ga737fd4ffc64e6fac9bce9047b945f4b5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_task_endpoint_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">tep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_task_endpoint_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the DPPI subscribe configuration for a given task register or for clearing the PPI task endpoint register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel from which to disconnect the task enpoint. Not used in DPPI. </p></li>
+<li><p><strong>tep</strong> – <strong>[in]</strong> Address of the task register. Not used in PPI. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_fork_endpoint_setup">
+<span class="target" id="group__nrfx__gppi_1gaa132eb4028fa7f3fb3d323783766f0f3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_fork_endpoint_setup</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">fork_tep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_fork_endpoint_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting up the task endpoint for a given PPI fork or for associating the DPPI channel with an additional task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel to which the given fork endpoint is assigned. </p></li>
+<li><p><strong>fork_tep</strong> – <strong>[in]</strong> Address of the task register. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_fork_endpoint_clear">
+<span class="target" id="group__nrfx__gppi_1ga252cdc2f3ba2dc425be61411c6e8ac6d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_fork_endpoint_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">fork_tep</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_fork_endpoint_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the task endpoint for a given PPI fork or for clearing the DPPI subscribe register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel for which to clear the fork endpoint. Not used in DPPI. </p></li>
+<li><p><strong>fork_tep</strong> – <strong>[in]</strong> Address of the task register. Not used in PPI. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channels_group_set">
+<span class="target" id="group__nrfx__gppi_1ga5d9f62edcb68add2c943d6754885180b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channels_group_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel_mask</span></span>, <a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">channel_group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channels_group_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting multiple channels in a channel group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_mask</strong> – <strong>[in]</strong> Channels to be set in the group. </p></li>
+<li><p><strong>channel_group</strong> – <strong>[in]</strong> Channel group. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channels_include_in_group">
+<span class="target" id="group__nrfx__gppi_1ga7ba2fef5427c77d5c10bf529855d09dd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channels_include_in_group</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel_mask</span></span>, <a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">channel_group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channels_include_in_group" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for including multiple channels in a channel group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_mask</strong> – <strong>[in]</strong> Channels to be included in the group. </p></li>
+<li><p><strong>channel_group</strong> – <strong>[in]</strong> Channel group. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channels_remove_from_group">
+<span class="target" id="group__nrfx__gppi_1gab9e5be105978e46fe99812027830e969"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channels_remove_from_group</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel_mask</span></span>, <a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">channel_group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channels_remove_from_group" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for removing multiple channels from a channel group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_mask</strong> – <strong>[in]</strong> Channels to be removed from the group. </p></li>
+<li><p><strong>channel_group</strong> – <strong>[in]</strong> Channel group. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_group_clear">
+<span class="target" id="group__nrfx__gppi_1gaa6496e963d55b2e0998c5679f2db5f9d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_group_clear</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">channel_group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_group_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for removing all channels from a channel group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_group</strong> – <strong>[in]</strong> Channel group. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_group_enable">
+<span class="target" id="group__nrfx__gppi_1ga686c7571eeef92bd6373179f8ffa3fd5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_group_enable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">channel_group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_group_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling a channel group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_group</strong> – <strong>[in]</strong> Channel group. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_group_disable">
+<span class="target" id="group__nrfx__gppi_1gacc65427e93f89114215075e1941f058c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_group_disable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">channel_group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_group_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling a group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_group</strong> – <strong>[in]</strong> Channel group. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_trigger">
+<span class="target" id="group__nrfx__gppi_1ga70c753e3f135f765024aaea8d9b9ab20"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_task_trigger</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_task_t" title="nrfx_gppi_task_t"><span class="n"><span class="pre">nrfx_gppi_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for activating a task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_task_address_get">
+<span class="target" id="group__nrfx__gppi_1gab87c81b39189ea90958bb2f2bcc61374"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_task_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_task_t" title="nrfx_gppi_task_t"><span class="n"><span class="pre">nrfx_gppi_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of a specific task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – <strong>[in]</strong> PPI or DPPI task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the requested task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_group_disable_task_get">
+<span class="target" id="group__nrfx__gppi_1gad2da3dbd775c5081c5da9fbb2e3bcb1d"></span><a class="reference internal" href="#c.nrfx_gppi_task_t" title="nrfx_gppi_task_t"><span class="n"><span class="pre">nrfx_gppi_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_group_disable_task_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_group_disable_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of a channel group disable task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – <strong>[in]</strong> Channel group.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Disable task address of the specified group. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_group_enable_task_get">
+<span class="target" id="group__nrfx__gppi_1ga0db935d2d1c9b16d2dc56b575eda9baf"></span><a class="reference internal" href="#c.nrfx_gppi_task_t" title="nrfx_gppi_task_t"><span class="n"><span class="pre">nrfx_gppi_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_group_enable_task_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_group_enable_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of a channel group enable task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – <strong>[in]</strong> Channel group.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Enable task address of the specified group. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_alloc">
+<span class="target" id="group__nrfx__gppi_1ga6dd90aed8d0d35b00e3542c45fa986c8"></span><a class="reference internal" href="error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channel_alloc</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channel_alloc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for allocating a channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_channel</strong> – <strong>[out]</strong> After successful allocation, index of the allocated channel.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Channel was successfully allocated. </p></li>
+<li><p><strong>NRFX_ERROR_NO_MEM</strong> – There is no available channel to be used. </p></li>
+<li><p><strong>NRFX_ERROR_NOT_SUPPORTED</strong> – Driver is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_channel_free">
+<span class="target" id="group__nrfx__gppi_1ga69d26420e203027aa235ee448b0c99af"></span><a class="reference internal" href="error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_channel_free</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_channel_free" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for freeing a channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> (D)PPI channel to be freed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – The channel was successfully freed. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – The specified channel is not allocated or is not user-configurable. </p></li>
+<li><p><strong>NRFX_ERROR_NOT_SUPPORTED</strong> – Driver is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_group_alloc">
+<span class="target" id="group__nrfx__gppi_1ga004919d885105ccf92e3a0150c1eb293"></span><a class="reference internal" href="error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_group_alloc</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_group_alloc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for allocating a channel group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_group</strong> – <strong>[out]</strong> Pointer to the (D)PPI channel group that has been allocated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – The channel group was successfully allocated. </p></li>
+<li><p><strong>NRFX_ERROR_NO_MEM</strong> – There is no available channel group to be used. </p></li>
+<li><p><strong>NRFX_ERROR_NOT_SUPPORTED</strong> – Driver is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_gppi_group_free">
+<span class="target" id="group__nrfx__gppi_1gad09cf8bf15c7d0df53c38276ebdf440e"></span><a class="reference internal" href="error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_gppi_group_free</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_gppi_channel_group_t" title="nrfx_gppi_channel_group_t"><span class="n"><span class="pre">nrfx_gppi_channel_group_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">group</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_gppi_group_free" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for freeing a channel group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group</strong> – <strong>[in]</strong> (D)PPI channel group to be freed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – The channel was successfully freed. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – The specified channel is not allocated or is not user-configurable. </p></li>
+<li><p><strong>NRFX_ERROR_NOT_SUPPORTED</strong> – Driver is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../drivers/dppi/driver.html" class="btn btn-neutral float-right" title="DPPI driver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../drivers/dppi/index.html" class="btn btn-neutral" title="DPPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTRL-AP HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DCNF" href="../dcnf/index.html" />
+    <link rel="prev" title="CTRL-AP" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">CTRL-AP</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CTRL-AP HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">CTRL-AP</a></li>
+      <li class="breadcrumb-item active">CTRL-AP HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/ctrlap/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ctrl-ap-hal">
+<h1>CTRL-AP HAL<a class="headerlink" href="#ctrl-ap-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__ctrlap__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_ctrlap_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the Control Access Port (CTRL-AP) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_event_t">
+<span class="target" id="group__nrf__ctrlap__hal_1gac9b5cbc4dd049f0dd0476e28ecb0ab3c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_event_t</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CTRLAP events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_event_t.NRF_CTRLAP_EVENT_RXREADY">
+<span class="target" id="group__nrf__ctrlap__hal_1ggac9b5cbc4dd049f0dd0476e28ecb0ab3cad492ff2ad48e05240f02b3dc2e5942a2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CTRLAP_EVENT_RXREADY</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_event_t.NRF_CTRLAP_EVENT_RXREADY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>New data from the peer is available. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_event_t.NRF_CTRLAP_EVENT_TXDONE">
+<span class="target" id="group__nrf__ctrlap__hal_1ggac9b5cbc4dd049f0dd0476e28ecb0ab3ca91aeae8a32cfbd0d198866ca4fad03a7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CTRLAP_EVENT_TXDONE</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_event_t.NRF_CTRLAP_EVENT_TXDONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data has been read by the peer. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_int_mask_t">
+<span class="target" id="group__nrf__ctrlap__hal_1gacc46943975d7ca5c86e97f4a909e369d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CTRLAP interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_int_mask_t.NRF_CTRLAP_INT_RXREADY_MASK">
+<span class="target" id="group__nrf__ctrlap__hal_1ggacc46943975d7ca5c86e97f4a909e369daae2eca1c7147856ffcb88056e9e56e03"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CTRLAP_INT_RXREADY_MASK</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_int_mask_t.NRF_CTRLAP_INT_RXREADY_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on RXREADY event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_int_mask_t.NRF_CTRLAP_INT_TXDONE_MASK">
+<span class="target" id="group__nrf__ctrlap__hal_1ggacc46943975d7ca5c86e97f4a909e369da18ab7bbfc1a8a4f10f3c5bff1cfa7fb4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CTRLAP_INT_TXDONE_MASK</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_int_mask_t.NRF_CTRLAP_INT_TXDONE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on TXDONE event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_bootmode_t">
+<span class="target" id="group__nrf__ctrlap__hal_1ga0cc0d2d29f672be2421e9aa8d25cb3a8"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_bootmode_t</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_bootmode_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CTRLAP secure domain boot mode. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_bootmode_t.NRF_CTRLAP_MODE_NORMAL">
+<span class="target" id="group__nrf__ctrlap__hal_1gga0cc0d2d29f672be2421e9aa8d25cb3a8a8c5f7092f337a754956fb48ad89abc65"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CTRLAP_MODE_NORMAL</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_bootmode_t.NRF_CTRLAP_MODE_NORMAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Normal mode of operation. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_bootmode_t.NRF_CTRLAP_MODE_ROM_OPERATION">
+<span class="target" id="group__nrf__ctrlap__hal_1gga0cc0d2d29f672be2421e9aa8d25cb3a8acfec97b0669e51c7d0ff6c4178fd09df"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CTRLAP_MODE_ROM_OPERATION</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_bootmode_t.NRF_CTRLAP_MODE_ROM_OPERATION" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ROM operation mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_event_clear">
+<span class="target" id="group__nrf__ctrlap__hal_1ga0a7052bafa8adf04564244e727b4ef9d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ctrlap_event_t" title="nrf_ctrlap_event_t"><span class="n"><span class="pre">nrf_ctrlap_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified CTRLAP event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_event_check">
+<span class="target" id="group__nrf__ctrlap__hal_1gad9aeb6cdd877b7be8f36552d3e165437"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ctrlap_event_t" title="nrf_ctrlap_event_t"><span class="n"><span class="pre">nrf_ctrlap_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the CTRLAP event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_event_address_get">
+<span class="target" id="group__nrf__ctrlap__hal_1gab93d243d2a78982e1dbbe740cb40286a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ctrlap_event_t" title="nrf_ctrlap_event_t"><span class="n"><span class="pre">nrf_ctrlap_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified CTRLAP event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Requested event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Address</strong> – of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_int_enable">
+<span class="target" id="group__nrf__ctrlap__hal_1ga20898b56f719287445eaf0b144f19a09"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__ctrlap__hal_1gacc46943975d7ca5c86e97f4a909e369d"><span class="std std-ref">nrf_ctrlap_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_int_disable">
+<span class="target" id="group__nrf__ctrlap__hal_1gac30e775822a0a067b4fab62f640a8eb9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__ctrlap__hal_1gacc46943975d7ca5c86e97f4a909e369d"><span class="std std-ref">nrf_ctrlap_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_int_enable_check">
+<span class="target" id="group__nrf__ctrlap__hal_1gad410c04adc3fc783e9e768bb99ba31bd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__ctrlap__hal_1gacc46943975d7ca5c86e97f4a909e369d"><span class="std std-ref">nrf_ctrlap_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Mask</strong> – of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_int_pending_get">
+<span class="target" id="group__nrf__ctrlap__hal_1gae663f06ef846d60f048a3a7bc489f6e0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_int_pending_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_int_pending_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of pending interrupts. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Bitmask</strong> – with information about pending interrupts. Use <a class="reference internal" href="#group__nrf__ctrlap__hal_1gacc46943975d7ca5c86e97f4a909e369d"><span class="std std-ref">nrf_ctrlap_int_mask_t</span></a> values for bit masking. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_mailbox_rxdata_get">
+<span class="target" id="group__nrf__ctrlap__hal_1ga03e2fb9407edb0fe0d425fdd5732fc43"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_mailbox_rxdata_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_mailbox_rxdata_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading data sent from the debugger to the CPU. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reading from this register will clear pending status of RX.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Data</strong> – sent from the debugger to the CPU. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_mailbox_rxstatus_pending_check">
+<span class="target" id="group__nrf__ctrlap__hal_1gaf44968f7a952c4beec5851a904033500"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_mailbox_rxstatus_pending_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_mailbox_rxstatus_pending_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if data sent from the debugger to the CPU has been read. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Data pending in register RXDATA. </p></li>
+<li><p><strong>false</strong> – No data pending in register RXDATA. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_mailbox_txdata_get">
+<span class="target" id="group__nrf__ctrlap__hal_1ga26952946f300db05f464986fb4a2ab93"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_mailbox_txdata_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_mailbox_txdata_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading data sent from CPU to debugger. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Data</strong> – sent from the CPU to the debugger. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_mailbox_txdata_set">
+<span class="target" id="group__nrf__ctrlap__hal_1gaf2829f4324c91181a4b7d1b27294c267"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_mailbox_txdata_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_mailbox_txdata_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing data sent from CPU to debugger. </p>
+<p>Writing to this register will automatically set field <code class="docutils literal notranslate"><span class="pre">DataPending</span></code> in register <code class="docutils literal notranslate"><span class="pre">TXSTATUS</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>data</strong> – <strong>[in]</strong> Data to send. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_mailbox_txstatus_pending_check">
+<span class="target" id="group__nrf__ctrlap__hal_1ga3b960c5b6cbb8fb24942e3b077a97e3a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_mailbox_txstatus_pending_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_mailbox_txstatus_pending_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if data sent from the CPU to the debugger has been read. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Data pending in register TXDATA. </p></li>
+<li><p><strong>false</strong> – No data pending in register TXDATA. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_mailbox_bootmode_get">
+<span class="target" id="group__nrf__ctrlap__hal_1ga29823940bfd9dd34d788f1b39fde72ab"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_ctrlap_bootmode_t" title="nrf_ctrlap_bootmode_t"><span class="n"><span class="pre">nrf_ctrlap_bootmode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_mailbox_bootmode_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_mailbox_bootmode_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking boot mode. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If ROM operation mode is set the MAILBOX is used to communicate the secure ROM operations.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boot mode. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_info_set">
+<span class="target" id="group__nrf__ctrlap__hal_1ga10409a6fe61d8dd46485c6a6a3a77a61"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_info_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ctrlap_info_t" title="nrf_ctrlap_info_t"><span class="n"><span class="pre">nrf_ctrlap_info_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_info_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the CTRLAP device information. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_data</strong> – <strong>[in]</strong> Pointer to the device information structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_info_get">
+<span class="target" id="group__nrf__ctrlap__hal_1gaf46b94aa3230b338a9fd4da994f0e93c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_info_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CTRLAPPERI_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ctrlap_info_t" title="nrf_ctrlap_info_t"><span class="n"><span class="pre">nrf_ctrlap_info_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_data</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ctrlap_info_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the CTRLAP device information. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_data</strong> – <strong>[out]</strong> Pointer to the data structure to be filled with device information. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_info_t">
+<span class="target" id="structnrf__ctrlap__info__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ctrlap_info_t</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_info_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_ctrlap.h&gt;</em></div>
+<p>CTRLAP device information. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_info_t.partno">
+<span class="target" id="structnrf__ctrlap__info__t_1a3c75ec33b8d044834990a1b0493347df"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">partno</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_info_t.partno" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Part number of the device, this information is retained on system on idle. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_info_t.hw_revision">
+<span class="target" id="structnrf__ctrlap__info__t_1a11aae1a90586f9afef6483117c4a65e0"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hw_revision</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_info_t.hw_revision" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Hardware Revision of the device, this information is retained on system on idle. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_ctrlap_info_t.ready">
+<span class="target" id="structnrf__ctrlap__info__t_1a87a993786f47c9a688627d3059adde57"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ready</span></span></span><a class="headerlink" href="#c.nrf_ctrlap_info_t.ready" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set when INFO registers update is completed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../dcnf/index.html" class="btn btn-neutral float-right" title="DCNF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="CTRL-AP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

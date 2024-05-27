@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPIO HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GPIO HALY" href="haly.html" />
+    <link rel="prev" title="GPIO" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">GPIO</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">GPIO HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">GPIO HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">GPIO</a></li>
+      <li class="breadcrumb-item active">GPIO HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/gpio/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gpio-hal">
+<h1>GPIO HAL<a class="headerlink" href="#gpio-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__gpio__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_gpio_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the GPIO peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_LATCH_PRESENT">
+<span class="target" id="group__nrf__gpio__hal_1gaec2a3eac5d67b67a2386f1c6fb1f6106"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_LATCH_PRESENT</span></span></span><a class="headerlink" href="#c.NRF_GPIO_LATCH_PRESENT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the functionality of latching GPIO state change is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_HAS_SEL">
+<span class="target" id="group__nrf__gpio__hal_1gaffecabd8693d1bdd3105279e987b8c02"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_HAS_SEL</span></span></span><a class="headerlink" href="#c.NRF_GPIO_HAS_SEL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of MCU/Subsystem control selection. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_HAS_MULTIPERIPH_SEL">
+<span class="target" id="group__nrf__gpio__hal_1ga7a968809e46f581a8764ade33d783380"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_HAS_MULTIPERIPH_SEL</span></span></span><a class="headerlink" href="#c.NRF_GPIO_HAS_MULTIPERIPH_SEL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of MCU/Subsystem control selection for multiple peripherals. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_HAS_CLOCKPIN">
+<span class="target" id="group__nrf__gpio__hal_1ga7614d5ad245421bed40cac10e6169c9e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_HAS_CLOCKPIN</span></span></span><a class="headerlink" href="#c.NRF_GPIO_HAS_CLOCKPIN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of clock pin enable. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_HAS_PORT_IMPEDANCE">
+<span class="target" id="group__nrf__gpio__hal_1gae8ef8522c7fe1f0e92c1f64ffd6b7bbc"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_HAS_PORT_IMPEDANCE</span></span></span><a class="headerlink" href="#c.NRF_GPIO_HAS_PORT_IMPEDANCE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of drive control for impedance. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_HAS_RETENTION">
+<span class="target" id="group__nrf__gpio__hal_1ga08e866a36ed65bd30b19ed5171e23a97"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_HAS_RETENTION</span></span></span><a class="headerlink" href="#c.NRF_GPIO_HAS_RETENTION" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of register retention. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_HAS_DETECT_MODE">
+<span class="target" id="group__nrf__gpio__hal_1ga2735fcb450162b1dc0c4cb2f9407a7ab"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_HAS_DETECT_MODE</span></span></span><a class="headerlink" href="#c.NRF_GPIO_HAS_DETECT_MODE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of detect mode. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_PIN_MAP">
+<span class="target" id="group__nrf__gpio__hal_1ga0d66f2aaf7771ca4424237174032bf6a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_MAP</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">port</span></span>, <span class="n"><span class="pre">pin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_GPIO_PIN_MAP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for mapping port and pin numbers to values understandable for nrf_gpio functions. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIO_PORT_IMPEDANCE_ALL_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ga8676fd26fb087c4ff7865d8b98456270"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PORT_IMPEDANCE_ALL_MASK</span></span></span><a class="headerlink" href="#c.NRF_GPIO_PORT_IMPEDANCE_ALL_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mask of all impedances. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_dir_t">
+<span class="target" id="group__nrf__gpio__hal_1ga4089fa9e3311c34d254d4d00029911bc"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_dir_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_dir_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin direction definitions. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_dir_t.NRF_GPIO_PIN_DIR_INPUT">
+<span class="target" id="group__nrf__gpio__hal_1gga4089fa9e3311c34d254d4d00029911bcadcb15e081def4002ed564fd8abbaa29d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_DIR_INPUT</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_dir_t.NRF_GPIO_PIN_DIR_INPUT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Input. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_dir_t.NRF_GPIO_PIN_DIR_OUTPUT">
+<span class="target" id="group__nrf__gpio__hal_1gga4089fa9e3311c34d254d4d00029911bca51b31d6f52c664433688ecc535e49f54"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_DIR_OUTPUT</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_dir_t.NRF_GPIO_PIN_DIR_OUTPUT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Output. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_input_t">
+<span class="target" id="group__nrf__gpio__hal_1ga94d8c546b86a236b5f7636703b8f5fb3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_input_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_input_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Connection of input buffer. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_input_t.NRF_GPIO_PIN_INPUT_CONNECT">
+<span class="target" id="group__nrf__gpio__hal_1gga94d8c546b86a236b5f7636703b8f5fb3a7456b2eb45bdd598b6d37f050596bdb0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_INPUT_CONNECT</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_input_t.NRF_GPIO_PIN_INPUT_CONNECT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Connect input buffer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_input_t.NRF_GPIO_PIN_INPUT_DISCONNECT">
+<span class="target" id="group__nrf__gpio__hal_1gga94d8c546b86a236b5f7636703b8f5fb3a42298cb252f14dd48d55f57c781cdec7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_INPUT_DISCONNECT</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_input_t.NRF_GPIO_PIN_INPUT_DISCONNECT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disconnect input buffer. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_pull_t">
+<span class="target" id="group__nrf__gpio__hal_1ga07e0c8c0b30499cf0a7b79dbe62d3fcc"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_pull_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_pull_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enumerator used for selecting the pin to be pulled down or up at the time of pin configuration. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_pull_t.NRF_GPIO_PIN_NOPULL">
+<span class="target" id="group__nrf__gpio__hal_1gga07e0c8c0b30499cf0a7b79dbe62d3fcca13ffcb94eb78be866c66b5f5b516af65"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_NOPULL</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_pull_t.NRF_GPIO_PIN_NOPULL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin pull-up resistor disabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_pull_t.NRF_GPIO_PIN_PULLDOWN">
+<span class="target" id="group__nrf__gpio__hal_1gga07e0c8c0b30499cf0a7b79dbe62d3fcca314d4b349d7e59ea3373a1ced4f32e4d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_PULLDOWN</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_pull_t.NRF_GPIO_PIN_PULLDOWN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin pull-down resistor enabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_pull_t.NRF_GPIO_PIN_PULLUP">
+<span class="target" id="group__nrf__gpio__hal_1gga07e0c8c0b30499cf0a7b79dbe62d3fccad60f768c699495d9976a45fa7a9f51c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_PULLUP</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_pull_t.NRF_GPIO_PIN_PULLUP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin pull-up resistor enabled. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t">
+<span class="target" id="group__nrf__gpio__hal_1gabb86c9557487ac1eda0cec28f258a725"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_drive_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enumerator used for selecting output drive mode. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0S1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a7430a2bb9ee97396d618b1de067add5f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_S0S1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0S1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Standard ‘0’, standard ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0S1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a05a32c354a2a520789377866d5ded3a8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_H0S1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0S1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High drive ‘0’, standard ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0H1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a9021818371b95764e33ccf449bdb4814"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_S0H1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0H1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Standard ‘0’, high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0H1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725aae4d4424759f4afd546132ac8b2b22d1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_H0H1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0H1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High drive ‘0’, high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_D0S1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725accd17ed1047af1c0cd7488c3f73494ad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_D0S1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_D0S1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disconnect ‘0’ standard ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_D0H1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725af2f9e6489fde67b621b14ee017fe8db7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_D0H1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_D0H1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disconnect ‘0’, high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0D1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725abcfb6c6201ec05f72907abac15f274de"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_S0D1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0D1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Standard ‘0’, disconnect ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0D1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a7f1462c5c8f9bf21b4fcb49c87da7b35"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_H0D1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0D1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High drive ‘0’, disconnect ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0S1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a5e380ced98b2ce04d8b861f7e05be56c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_E0S1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0S1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Extra high drive ‘0’, standard ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0E1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a2e225e743d1d045a799e5015be1deb85"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_S0E1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_S0E1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Standard ‘0’, extra high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0E1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a10d68ce3c32e113944bff5fcf3c1f803"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_E0E1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0E1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Extra high drive ‘0’, extra high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0H1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725af7a634f113d60ca80bdac4eda8527bcb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_E0H1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0H1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Extra high drive ‘0’, high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0E1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725adff056a63a98f326d1165bacb7f9781c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_H0E1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_H0E1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High drive ‘0’, extra high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_D0E1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a7743a4068e574083f6bedc7c2fc2d357"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_D0E1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_D0E1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disconnect ‘0’, extra high drive ‘1’. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0D1">
+<span class="target" id="group__nrf__gpio__hal_1ggabb86c9557487ac1eda0cec28f258a725a104b6cb440dfa154c5af66b473ec654a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_E0D1</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_drive_t.NRF_GPIO_PIN_E0D1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Extra high drive ‘0’, disconnect ‘1’. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sense_t">
+<span class="target" id="group__nrf__gpio__hal_1ga0708136c752d69015962a2ccb4c59fbd"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_sense_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sense_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enumerator used for selecting the pin to sense high or low level on the pin input. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sense_t.NRF_GPIO_PIN_NOSENSE">
+<span class="target" id="group__nrf__gpio__hal_1gga0708136c752d69015962a2ccb4c59fbda60d9e9b3abe91c66a618e34d88444e95"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_NOSENSE</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sense_t.NRF_GPIO_PIN_NOSENSE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin sense level disabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sense_t.NRF_GPIO_PIN_SENSE_LOW">
+<span class="target" id="group__nrf__gpio__hal_1gga0708136c752d69015962a2ccb4c59fbda48aaaa3fc33a295d9c65f094e03aba24"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SENSE_LOW</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sense_t.NRF_GPIO_PIN_SENSE_LOW" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin sense low level. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sense_t.NRF_GPIO_PIN_SENSE_HIGH">
+<span class="target" id="group__nrf__gpio__hal_1gga0708136c752d69015962a2ccb4c59fbda8fe882a266370654fa6d664be3e1ecce"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SENSE_HIGH</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sense_t.NRF_GPIO_PIN_SENSE_HIGH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin sense high level. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t">
+<span class="target" id="group__nrf__gpio__hal_1gabcfe09507cd81936b478b544a7d06cbd"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_sel_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enumerator used for selecting the MCU/Subsystem to control the specified pin. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_APP">
+<span class="target" id="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbdab0317a810b03521492e020da33c238e6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SEL_APP</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_APP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin controlled by Application MCU. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_NETWORK">
+<span class="target" id="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbdaff43b8a479c5d1d216769656295ec3ce"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SEL_NETWORK</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_NETWORK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin controlled by Network MCU. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_PERIPHERAL">
+<span class="target" id="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbda25ad710070f7054e93f8296e8c56acb0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SEL_PERIPHERAL</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_PERIPHERAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin controlled by dedicated peripheral. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_TND">
+<span class="target" id="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbdac0eb55d8875462b2088e066651469a6d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SEL_TND</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_TND" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin controlled by Trace and Debug Subsystem. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_GPIO">
+<span class="target" id="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbda30ce1520c7b2ca5a2352a81f50a43988"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SEL_GPIO</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_GPIO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin controlled by GPIO or peripherals with configurable pins. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_VPR">
+<span class="target" id="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbda267e4d863a519079859e3bb64b75623f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SEL_VPR</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_VPR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin controlled by VPR. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_GRTC">
+<span class="target" id="group__nrf__gpio__hal_1ggabcfe09507cd81936b478b544a7d06cbdaf51a0b404a275fd8777922b641e1d6d2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PIN_SEL_GRTC</span></span></span><a class="headerlink" href="#c.nrf_gpio_pin_sel_t.NRF_GPIO_PIN_SEL_GRTC" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin controlled by GRTC peripheral. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_mask_t">
+<span class="target" id="group__nrf__gpio__hal_1gab01b1906e99209559262d3df8d708b47"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_impedance_mask_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_port_impedance_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Port impedance enable mask. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_50_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggab01b1906e99209559262d3df8d708b47a06c999824039dbbf9f67fee737332d94"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PORT_IMPEDANCE_50_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_50_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable 50 Ohm impedance. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_100_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggab01b1906e99209559262d3df8d708b47a7cbab96eb46e69f420e4ac989ca146d7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PORT_IMPEDANCE_100_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_100_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable 100 Ohm impedance. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_200_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggab01b1906e99209559262d3df8d708b47a58c99b6590ba709dd84b2dadfa86e796"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PORT_IMPEDANCE_200_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_200_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable 200 Ohm impedance. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_400_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggab01b1906e99209559262d3df8d708b47a68f0043879d5f2b29404fd1196bf46c2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PORT_IMPEDANCE_400_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_400_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable 400 Ohm impedance. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_800_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggab01b1906e99209559262d3df8d708b47a13cda96d1e40d8c2ffc695e3b42411e4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PORT_IMPEDANCE_800_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_800_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable 800 Ohm impedance. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_1600_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggab01b1906e99209559262d3df8d708b47aae8f1af1296313448d76a804c4e87545"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_PORT_IMPEDANCE_1600_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_port_impedance_mask_t.NRF_GPIO_PORT_IMPEDANCE_1600_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable 1600 Ohm impedance. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t">
+<span class="target" id="group__nrf__gpio__hal_1gaa5d725d883ca7ba78beb99c9be52ef41"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_retain_mask_t</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Retention enable mask. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_APPLICATION_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a4a535467b59fa5d8adb50f5b1615e049"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_APPLICATION_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_APPLICATION_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for GPIO registers for Application domain. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_NETWORK_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41af99972bd10ae1770b28e0faf663139e4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_NETWORK_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_NETWORK_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for GPIO registers for Radio core. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN0_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41af3b045de9e7cf4b18e552bf4335472ef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN0_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN1_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41afccbead0100bf7ff630e28e710a6a792"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN1_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN2_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a7912a79fb5eb389e8caeb40620b48425"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN2_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN3_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41aa19d8e14d2eead41313ba1e16463dd2b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN3_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN4_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a90eff8a5903cb6e7daffa579174a4036"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN4_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN5_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41ae9a0b15f929d6f44660cd8ba9a46fc6e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN5_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN6_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a3f082ca3293a588030def0ab22f548e4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN6_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN7_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a7a7d8f2d0bbfd05a253acfede4fc04c4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN7_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN8_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a305be4ffeac97793407ba94e86fe4e36"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN8_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN8_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 8. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN9_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a600a1dcbef5e60eba7d920af2726e2ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN9_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN9_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 9. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN10_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a4ce62e5cd24bb493952e2b784afec92c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN10_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN10_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 10. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN11_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a830919ed82ad7da84edde2bbb3988e38"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN11_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN11_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 11. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN12_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a6800e4b188e6f3b32e869faf7c6618b7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN12_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN12_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 12. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN13_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a82d6d76a6bbb7f2318b42a921f06bd03"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN13_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN13_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 13. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN14_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a52f53b596ff4c89e30cf9f81c3d267b4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN14_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN14_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 14. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN15_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41ac823080831b80a74ecf695284a49b725"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN15_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN15_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 15. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN16_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a0cc7898418b2a7e0102ef579a1b7c169"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN16_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN16_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 16. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN17_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a6541297dec71eeb1e7a5a06ec8e66ce1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN17_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN17_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 17. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN18_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a57d621cc9bde188d349036bbc0e827bc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN18_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN18_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 18. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN19_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41afc5fabc64db505a137cdba29801f70db"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN19_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN19_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 19. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN20_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41abad54703def75165f90c0e6bc47b6b56"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN20_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN20_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 20. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN21_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41ad1f3c6a946cec2487c9fb0e6ec55dfb9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN21_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN21_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 21. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN22_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a5b911b98fddb3e550d3776ed83fa9350"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN22_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN22_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 22. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN23_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a43f7f6c26c508a78818b4b69a6053b9d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN23_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN23_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 23. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN24_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41aae91386f21d2cc9534caae89f5d331dc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN24_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN24_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 24. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN25_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a984616f61e63d0dcdd402e3a88e52725"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN25_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN25_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 25. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN26_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a0fa7174aba9e6121314038504992fa7d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN26_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN26_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 26. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN27_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a4fe8453a3f050d75c54b1d200bdbc3a6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN27_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN27_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 27. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN28_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41af5b28f22155bd22b35921f00dce9edbf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN28_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN28_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 28. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN29_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a817c1129c97a4632b50a85ccdfdfa980"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN29_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN29_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 29. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN30_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a460c3676f58d2bf069b697b27b8dd515"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN30_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN30_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 30. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN31_MASK">
+<span class="target" id="group__nrf__gpio__hal_1ggaa5d725d883ca7ba78beb99c9be52ef41a72e1fa1ff8de3ddfd22ef8f3039f52f6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIO_RETAIN_PIN31_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpio_retain_mask_t.NRF_GPIO_RETAIN_PIN31_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable retention for pin 31. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_range_cfg_output">
+<span class="target" id="group__nrf__gpio__hal_1ga2a34295e713d0e29a858a0dd31d619b3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_range_cfg_output</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_range_start</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_range_end</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_range_cfg_output" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the GPIO pin range as output pins with normal drive strength. This function can be used to configure pin range as simple output with gate driving GPIO_PIN_CNF_DRIVE_S0S1 (normal cases). </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For configuring only one pin as output, use <a class="reference internal" href="#group__nrf__gpio__hal_1gaa417905af0907e63baae651c1679d01a"><span class="std std-ref">nrf_gpio_cfg_output</span></a>. Sense capability on the pin is disabled and input is disconnected from the buffer as the pins are configured as output.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_range_start</strong> – Specifies the start number (inclusive) in the range of pin numbers to be configured. </p></li>
+<li><p><strong>pin_range_end</strong> – Specifies the end number (inclusive) in the range of pin numbers to be configured. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_range_cfg_input">
+<span class="target" id="group__nrf__gpio__hal_1gacde48e9647b3961591336ff75de8b02e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_range_cfg_input</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_range_start</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_range_end</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_pull_t" title="nrf_gpio_pin_pull_t"><span class="n"><span class="pre">nrf_gpio_pin_pull_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pull_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_range_cfg_input" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the GPIO pin range as input pins with given initial value set, hiding inner details. This function can be used to configure pin range as simple input. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For configuring only one pin as input, use <a class="reference internal" href="#group__nrf__gpio__hal_1ga2f960eb1827bd613a08d7b48651711b4"><span class="std std-ref">nrf_gpio_cfg_input</span></a>. Sense capability on the pin is disabled and input is connected to buffer so that the GPIO-&gt;IN register is readable.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_range_start</strong> – Specifies the start number (inclusive) in the range of pin numbers to be configured. </p></li>
+<li><p><strong>pin_range_end</strong> – Specifies the end number (inclusive) in the range of pin numbers to be configured. </p></li>
+<li><p><strong>pull_config</strong> – State of the pin range pull resistor (no pull, pulled down, or pulled high). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_cfg">
+<span class="target" id="group__nrf__gpio__hal_1gad89e946ef28fb1e130237c8a074bc7bb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_cfg</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_dir_t" title="nrf_gpio_pin_dir_t"><span class="n"><span class="pre">nrf_gpio_pin_dir_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">dir</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_input_t" title="nrf_gpio_pin_input_t"><span class="n"><span class="pre">nrf_gpio_pin_input_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">input</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_pull_t" title="nrf_gpio_pin_pull_t"><span class="n"><span class="pre">nrf_gpio_pin_pull_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pull</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_drive_t" title="nrf_gpio_pin_drive_t"><span class="n"><span class="pre">nrf_gpio_pin_drive_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">drive</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_sense_t" title="nrf_gpio_pin_sense_t"><span class="n"><span class="pre">nrf_gpio_pin_sense_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">sense</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pin configuration function. </p>
+<p>The main pin configuration function. This function allows to set any aspect in PIN_CNF register.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+<li><p><strong>dir</strong> – Pin direction. </p></li>
+<li><p><strong>input</strong> – Connect or disconnect the input buffer. </p></li>
+<li><p><strong>pull</strong> – Pull configuration. </p></li>
+<li><p><strong>drive</strong> – Drive configuration. </p></li>
+<li><p><strong>sense</strong> – Pin sensing mechanism. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_reconfigure">
+<span class="target" id="group__nrf__gpio__hal_1gaac51df09d9290f1d8047a4a46657bc35"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_reconfigure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_dir_t" title="nrf_gpio_pin_dir_t"><span class="n"><span class="pre">nrf_gpio_pin_dir_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_dir</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_input_t" title="nrf_gpio_pin_input_t"><span class="n"><span class="pre">nrf_gpio_pin_input_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_input</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_pull_t" title="nrf_gpio_pin_pull_t"><span class="n"><span class="pre">nrf_gpio_pin_pull_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_pull</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_drive_t" title="nrf_gpio_pin_drive_t"><span class="n"><span class="pre">nrf_gpio_pin_drive_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_drive</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_sense_t" title="nrf_gpio_pin_sense_t"><span class="n"><span class="pre">nrf_gpio_pin_sense_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_sense</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_reconfigure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reconfiguring pin. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function selectively updates fields in PIN_CNF register. Reconfiguration is performed in single register write. Fields for which new configuration is not provided remain unchanged.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+<li><p><strong>p_dir</strong> – Pin direction. If NULL, previous setting remains. </p></li>
+<li><p><strong>p_input</strong> – Connect or disconnect the input buffer. If NULL, previous setting remains. </p></li>
+<li><p><strong>p_pull</strong> – Pull configuration. If NULL, previous setting remains. </p></li>
+<li><p><strong>p_drive</strong> – Drive configuration. If NULL, previous setting remains. </p></li>
+<li><p><strong>p_sense</strong> – Pin sensing mechanism. If NULL, previous setting remains. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_cfg_output">
+<span class="target" id="group__nrf__gpio__hal_1gaa417905af0907e63baae651c1679d01a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_cfg_output</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_cfg_output" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the given GPIO pin number as output, hiding inner details. This function can be used to configure a pin as simple output with gate driving GPIO_PIN_CNF_DRIVE_S0S1 (normal cases). </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sense capability on the pin is disabled and input is disconnected from the buffer as the pins are configured as output.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_cfg_input">
+<span class="target" id="group__nrf__gpio__hal_1ga2f960eb1827bd613a08d7b48651711b4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_cfg_input</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_pull_t" title="nrf_gpio_pin_pull_t"><span class="n"><span class="pre">nrf_gpio_pin_pull_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pull_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_cfg_input" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the given GPIO pin number as input, hiding inner details. This function can be used to configure a pin as simple input. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sense capability on the pin is disabled and input is connected to buffer so that the GPIO-&gt;IN register is readable.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+<li><p><strong>pull_config</strong> – State of the pin range pull resistor (no pull, pulled down, or pulled high). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_cfg_default">
+<span class="target" id="group__nrf__gpio__hal_1ga34cf00314729a3fd0cc04de9f4b74a64"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_cfg_default</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_cfg_default" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for resetting pin configuration to its default state. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_cfg_watcher">
+<span class="target" id="group__nrf__gpio__hal_1gad1026666584b2d04c02db558230ecc6f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_cfg_watcher</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_cfg_watcher" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the given GPIO pin number as a watcher. Only input is connected. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_input_disconnect">
+<span class="target" id="group__nrf__gpio__hal_1ga63c36e49d1c38772316209aa7d9c5e9e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_input_disconnect</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_input_disconnect" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disconnecting input for the given GPIO. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_cfg_sense_input">
+<span class="target" id="group__nrf__gpio__hal_1ga9f56f2de7bbb5d20c3ed3a88d844e1ca"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_cfg_sense_input</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_pull_t" title="nrf_gpio_pin_pull_t"><span class="n"><span class="pre">nrf_gpio_pin_pull_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pull_config</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_sense_t" title="nrf_gpio_pin_sense_t"><span class="n"><span class="pre">nrf_gpio_pin_sense_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">sense_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_cfg_sense_input" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the given GPIO pin number as input, hiding inner details. This function can be used to configure pin range as simple input. Sense capability on the pin is configurable and input is connected to buffer so that the GPIO-&gt;IN register is readable. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+<li><p><strong>pull_config</strong> – State of the pin pull resistor (no pull, pulled down, or pulled high). </p></li>
+<li><p><strong>sense_config</strong> – Sense level of the pin (no sense, sense low, or sense high). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_cfg_sense_set">
+<span class="target" id="group__nrf__gpio__hal_1ga6e55de9a5b5c97a9eb430094d7012ad6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_cfg_sense_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_sense_t" title="nrf_gpio_pin_sense_t"><span class="n"><span class="pre">nrf_gpio_pin_sense_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">sense_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_cfg_sense_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring sense level for the given GPIO. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number. </p></li>
+<li><p><strong>sense_config</strong> – Sense configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_dir_set">
+<span class="target" id="group__nrf__gpio__hal_1ga6cfe68a6a36eb51d65a23d4b9e8dc192"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_dir_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_dir_t" title="nrf_gpio_pin_dir_t"><span class="n"><span class="pre">nrf_gpio_pin_dir_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">direction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_dir_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the direction for a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number for which to set the direction. </p></li>
+<li><p><strong>direction</strong> – Specifies the direction. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_set">
+<span class="target" id="group__nrf__gpio__hal_1gab702c07d3087905e6c80c287116052fd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_clear">
+<span class="target" id="group__nrf__gpio__hal_1ga40b1e64cb60fac12e2fdebb5975c18ad"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_toggle">
+<span class="target" id="group__nrf__gpio__hal_1ga01229c1afac385b135cb5441814de618"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_toggle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_toggle" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for toggling a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to toggle. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_write">
+<span class="target" id="group__nrf__gpio__hal_1gaf00dc5b966c72c25fb615f5db6ebef59"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing a value to a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to write. </p></li>
+<li><p><strong>value</strong> – Specifies the value to be written to the pin. <ul>
+<li><p>0 Clears the pin. </p></li>
+<li><p>&gt;=1 Sets the pin. </p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_read">
+<span class="target" id="group__nrf__gpio__hal_1gae6af1c0ef7379540dff84f1fd21c75ee"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the input level of a GPIO pin. </p>
+<p>If the value returned by this function is to be valid, the pin’s input buffer must be connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 if the pin input level is low. Positive value if the pin is high. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_out_read">
+<span class="target" id="group__nrf__gpio__hal_1ga86fff8083c47b1466caae966709cee94"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_out_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_out_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the output level of a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 if the pin output level is low. Positive value if pin output is high. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_sense_get">
+<span class="target" id="group__nrf__gpio__hal_1ga969bfaba6910e532972bc61aa3d36d8e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_sense_t" title="nrf_gpio_pin_sense_t"><span class="n"><span class="pre">nrf_gpio_pin_sense_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_sense_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_sense_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the sense configuration of a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sense configuration. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_dir_get">
+<span class="target" id="group__nrf__gpio__hal_1gaaf646c2b3741b320043623984b4bb594"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_dir_t" title="nrf_gpio_pin_dir_t"><span class="n"><span class="pre">nrf_gpio_pin_dir_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_dir_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_dir_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the direction configuration of a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Direction configuration. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_input_get">
+<span class="target" id="group__nrf__gpio__hal_1ga256a5cb4921ab72223471db221d5119d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_input_t" title="nrf_gpio_pin_input_t"><span class="n"><span class="pre">nrf_gpio_pin_input_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_input_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_input_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the status of GPIO pin input buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Pin number to be read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Input</strong> – buffer configuration. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_pull_get">
+<span class="target" id="group__nrf__gpio__hal_1ga160fad0da6f67e982cfe169bbfcc84e9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpio_pin_pull_t" title="nrf_gpio_pin_pull_t"><span class="n"><span class="pre">nrf_gpio_pin_pull_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_pull_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_pull_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the pull configuration of a GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Specifies the pin number to read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Pull</strong> – configuration. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_dir_output_set">
+<span class="target" id="group__nrf__gpio__hal_1ga0aeaeacba06d85d45eabbc7d139f4ec9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_dir_output_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">out_mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_dir_output_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting output direction on the selected pins on the given port. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>out_mask</strong> – Mask specifying the pins to set as output. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_dir_input_set">
+<span class="target" id="group__nrf__gpio__hal_1gadb8e58d4708cdfad3b0f3836363feb75"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_dir_input_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">in_mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_dir_input_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting input direction on selected pins on a given port. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>in_mask</strong> – Mask that specifies the pins to be set as input. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_dir_write">
+<span class="target" id="group__nrf__gpio__hal_1gac7ad85f30246f270a8a21cc42bed0d43"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_dir_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">dir_mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_dir_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing the direction configuration of the GPIO pins in the given port. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>dir_mask</strong> – Mask that specifies the direction of pins. Bit set means that the given pin is configured as output. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_dir_read">
+<span class="target" id="group__nrf__gpio__hal_1ga8554b214bf18c42f2a16105cf56b151a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_dir_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_dir_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the direction configuration of a GPIO port. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pin configuration of the current direction settings. Bit set means that the given pin is configured as output. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_in_read">
+<span class="target" id="group__nrf__gpio__hal_1gad41aefaa71c794cd90fcc4ff4c451029"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_in_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_in_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the input signals of the GPIO pins on the given port. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the peripheral registers structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Port input values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_out_read">
+<span class="target" id="group__nrf__gpio__hal_1ga7c28f84af83564240cc4113864590929"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_out_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_out_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading the output signals of the GPIO pins on the given port. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the peripheral registers structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Port output values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_out_write">
+<span class="target" id="group__nrf__gpio__hal_1ga73488ca11ae3da5a656cb867a15e4772"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_out_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_out_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing the GPIO pins output on a given port. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>value</strong> – Output port mask. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_out_set">
+<span class="target" id="group__nrf__gpio__hal_1ga7fb94e6618e4c1a3a4422d08bf8c45ff"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_out_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">set_mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_out_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting high level on selected the GPIO pins on the given port. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>set_mask</strong> – Mask with pins to be set as logical high level. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_out_clear">
+<span class="target" id="group__nrf__gpio__hal_1ga24044cd107738fa0d9be177a492d1b3f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_out_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">clr_mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_out_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting low level on selected the GPIO pins on the given port. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>clr_mask</strong> – Mask with pins to be set as logical low level. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_ports_read">
+<span class="target" id="group__nrf__gpio__hal_1ga0f64b944223b8a410ce46bbd0b06c550"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_ports_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">start_port</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_masks</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_ports_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading pin state of multiple consecutive ports. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_port</strong> – Index of the first port to read. </p></li>
+<li><p><strong>length</strong> – Number of ports to read. </p></li>
+<li><p><strong>p_masks</strong> – Pointer to output array where port states will be stored. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_set">
+<span class="target" id="group__nrf__gpio__hal_1gae3cc6094b53aa69908762894f0dd2d18"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_impedance_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_impedance_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the impedance matching of the pins on the given port. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each bit sets certain impedance and have them in parallel when more than one bit is set. High impedance is set for the pin when all bits are disabled. When all bits are enabled, the resulting impedance is about 25 Ohm.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – Mask of impedances to be set, created using <a class="reference internal" href="#group__nrf__gpio__hal_1gab01b1906e99209559262d3df8d708b47"><span class="std std-ref">nrf_gpio_port_impedance_mask_t</span></a>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_impedance_get">
+<span class="target" id="group__nrf__gpio__hal_1gad368bdbf76905342b5c3e1822aafcbcf"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_impedance_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_impedance_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for geting the impedance matching of the pins on the given port. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of impedances set, created using <a class="reference internal" href="#group__nrf__gpio__hal_1gab01b1906e99209559262d3df8d708b47"><span class="std std-ref">nrf_gpio_port_impedance_mask_t</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_retain_set">
+<span class="target" id="group__nrf__gpio__hal_1ga5fc0b2649ca129aa4bf3d885f77837a7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_retain_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_retain_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the retention of the registers. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – Mask of retention domains to be enabled, created using <a class="reference internal" href="#group__nrf__gpio__hal_1gaa5d725d883ca7ba78beb99c9be52ef41"><span class="std std-ref">nrf_gpio_retain_mask_t</span></a>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_retain_get">
+<span class="target" id="group__nrf__gpio__hal_1gab3cc25095f11cc33b8e68d8c5b51b825"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_retain_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_retain_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for geting the retention setting of the registers. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of retention domains set, created using <a class="reference internal" href="#group__nrf__gpio__hal_1gaa5d725d883ca7ba78beb99c9be52ef41"><span class="std std-ref">nrf_gpio_retain_mask_t</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_detect_latch_set">
+<span class="target" id="group__nrf__gpio__hal_1ga588c5dfe623bbf04227e56f033bfce71"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_detect_latch_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_detect_latch_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the latched detect behaviour. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>enable</strong> – True if the latched LDETECT behaviour is to be used, false if DETECT is to be directly connected to PIN DETECT signals. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_port_detect_latch_check">
+<span class="target" id="group__nrf__gpio__hal_1ga1ba6d59fed29d3e7bce39e4e167e1a30"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_port_detect_latch_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_port_detect_latch_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking the latched detect behaviour. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Latched LDETECT behaviour is used. </p></li>
+<li><p><strong>false</strong> – DETECT is directly connected to PIN DETECT signals. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_latches_read">
+<span class="target" id="group__nrf__gpio__hal_1ga9e33213e819a67d831438e0389ecfee7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_latches_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">start_port</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_masks</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_latches_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading latch state of multiple consecutive ports. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_port</strong> – Index of the first port to read. </p></li>
+<li><p><strong>length</strong> – Number of ports to read. </p></li>
+<li><p><strong>p_masks</strong> – Pointer to output array where latch states will be stored. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_latches_read_and_clear">
+<span class="target" id="group__nrf__gpio__hal_1gabac37b1a5bb08529542cfac292a8e1cd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_latches_read_and_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">start_port</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_masks</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_latches_read_and_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading and immediate clearing latch state of multiple consecutive ports. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_port</strong> – Index of the first port to read and clear. </p></li>
+<li><p><strong>length</strong> – Number of ports to read and clear. </p></li>
+<li><p><strong>p_masks</strong> – Pointer to output array where latch states will be stored. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_latch_get">
+<span class="target" id="group__nrf__gpio__hal_1ga1b48d2d829dc4b22e307d60b0a12b2c6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_latch_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_latch_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading latch state of single pin. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Pin number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 if latch is not set. Positive value otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_latch_clear">
+<span class="target" id="group__nrf__gpio__hal_1ga17ab0ef05caabca53cbef3bbe8ad7bab"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_latch_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_latch_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing latch state of a single pin. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_control_select">
+<span class="target" id="group__nrf__gpio__hal_1ga100ea469df06fdd0de4e6cfcbfad09c7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_control_select</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <a class="reference internal" href="#c.nrf_gpio_pin_sel_t" title="nrf_gpio_pin_sel_t"><span class="n"><span class="pre">nrf_gpio_pin_sel_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">ctrl</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_control_select" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for selecting the MCU or Subsystem to control a GPIO pin. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – Pin_number. </p></li>
+<li><p><strong>ctrl</strong> – MCU/Subsystem to control the pin. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_clock_set">
+<span class="target" id="group__nrf__gpio__hal_1gae30d35cb6a873fcae4a7d71747eb9844"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_clock_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_clock_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting whether the clock should be enabled for the specified GPIO pin. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – <strong>[in]</strong> Pin number. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if clock is to be enabled, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_clock_check">
+<span class="target" id="group__nrf__gpio__hal_1ga38705139f2960b426e8f3bc04517d0d5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_clock_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_clock_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the clock enable setting for the specified GPIO pin. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This register is retained when retention is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – <strong>[in]</strong> Pin number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Clock is enabled. </p></li>
+<li><p><strong>false</strong> – Clock is disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_present_check">
+<span class="target" id="group__nrf__gpio__hal_1ga4438cf0e5a3c3adb1700c63cfb6ed0f3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_present_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_present_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if provided pin is present on the MCU. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin_number</strong> – <strong>[in]</strong> Number of the pin to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Pin is present. </p></li>
+<li><p><strong>false</strong> – Pin is not present. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_port_number_extract">
+<span class="target" id="group__nrf__gpio__hal_1gafc364966f195670481ef5fcc4e509a73"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_port_number_extract</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_pin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_port_number_extract" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for extracting port number and the relative pin number from the absolute pin number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_pin</strong> – <strong>[inout]</strong> Pointer to the absolute pin number overridden by the pin number that is relative to the port.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Port number. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpio_pin_port_decode">
+<span class="target" id="group__nrf__gpio__hal_1ga6be37dfcb0d177ea565f65c4f56fc9e1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">NRF_GPIO_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpio_pin_port_decode</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_pin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpio_pin_port_decode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for extracting port and the relative pin number from the absolute pin number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_pin</strong> – <strong>[inout]</strong> Pointer to the absolute pin number overridden by the pin number that is relative to the port.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to port register set. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="haly.html" class="btn btn-neutral float-right" title="GPIO HALY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="GPIO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

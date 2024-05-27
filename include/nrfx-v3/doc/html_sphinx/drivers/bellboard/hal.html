@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BELLBOARD HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BELLBOARD HALY" href="haly.html" />
+    <link rel="prev" title="BELLBOARD driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">BELLBOARD</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">BELLBOARD driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">BELLBOARD HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">BELLBOARD HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">BELLBOARD</a></li>
+      <li class="breadcrumb-item active">BELLBOARD HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/bellboard/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bellboard-hal">
+<h1>BELLBOARD HAL<a class="headerlink" href="#bellboard-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__bellboard__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_bellboard_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the BELLBOARD peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_BELLBOARD_EVENTS_TRIGGERED_COUNT">
+<span class="target" id="group__nrf__bellboard__hal_1gae98a60a559a3e97c18517f62937ef2c8"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENTS_TRIGGERED_COUNT</span></span></span><a class="headerlink" href="#c.NRF_BELLBOARD_EVENTS_TRIGGERED_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying maximum number of available events triggered. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t">
+<span class="target" id="group__nrf__bellboard__hal_1gacdf010457aefed28120bfe375c2aadb6"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_event_t</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>BELLBOARD events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_0">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a3b7d7a65a846270a163f97a4137fe856"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_0</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 0 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_1">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6adf6df0129ab310a9beaad18cb00e3a72"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_1</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 1 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_2">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a9baa5a3b95580a3bdd73104ba3593b54"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_2</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 2 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_3">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6aa8903728ab99c8ee2bd33ae1d5189bc3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_3</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 3 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_4">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6ac53e2c61e7b7f6c956b95a32671d531e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_4</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 4 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_5">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a35d90676ced22ab5cc3fb374a846e0a0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_5</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 5 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_6">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6ae35bcdbda1081ab03b30df793578e0a9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_6</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 6 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_7">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a96a749c238b9d87e74a14e2206972d81"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_7</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 7 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_8">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6afd53af409720bea8675856aee048385f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_8</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 8 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_9">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6acbed87b02b58daf7e43e0ed552f39424"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_9</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 9 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_10">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6aca7af4aaec1019ea71e6e8a866bc4db7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_10</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 10 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_11">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6abf7f87d6fb8af7f3bcf0c32037aee04d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_11</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 11 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_12">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a1cc7b4177a60736d22e3a54e212cc466"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_12</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 12 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_13">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6ab5a237cb61b65d600b1c4841e38841d4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_13</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 13 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_14">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6af3739f9f741a798457cd35dff6839c05"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_14</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 14 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_15">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a2eaf277e150d1319c2a580b471793fde"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_15</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 15 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_16">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a41269a1af0997719af0152046c09a08e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_16</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 16 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_17">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a623c2e68e92704625129d53bdf4f9d68"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_17</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_17" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 17 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_18">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a401645f7d54f16a0fb2d94126feb79e5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_18</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_18" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 18 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_19">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a9447fb23da4bdb814a82ca1a90524ce6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_19</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_19" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 19 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_20">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a2c29ee8f74adffc0e518e6e1070ad3b9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_20</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_20" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 20 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_21">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a5f74633e15afae0baced3f1fa0310a64"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_21</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 21 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_22">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a5656648424d4b41f4ff8f5166258aedc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_22</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_22" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 22 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_23">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a7a81ac1e6dd149ab503336e4cb7101b7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_23</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_23" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 23 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_24">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a1be6edd640bee45aa072a80a8383e3f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_24</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_24" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 24 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_25">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6aa280465a667fad3d7a6d69153a0bc9b2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_25</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_25" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 25 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_26">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6abfff5ef9b8ae1cd440d2c77e5ec3ea43"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_26</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_26" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 26 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_27">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a5f6f9487add62cb89cfd2b83699f7af8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_27</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_27" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 27 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_28">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6aafa232ad510db496d11d94d5f6532034"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_28</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_28" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 28 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_29">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a8aa4e609f055011a8f9566211ecd9138"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_29</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_29" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 29 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_30">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a3a7d2c2eb6ea692e6322e01678a86f35"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_30</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_30" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 30 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_31">
+<span class="target" id="group__nrf__bellboard__hal_1ggacdf010457aefed28120bfe375c2aadb6a0152d3452ba933623fbdd479eac63e39"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_EVENT_TRIGGERED_31</span></span></span><a class="headerlink" href="#c.nrf_bellboard_event_t.NRF_BELLBOARD_EVENT_TRIGGERED_31" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 31 event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t">
+<span class="target" id="group__nrf__bellboard__hal_1ga56f5fc2ca5b710e51d244956582f290b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>BELLBOARD interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_0_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba29854afa28474dfbb51cd8cf77d2cec2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_0_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 0 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_1_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba51bec5b68bcf52efd9c06a519222e3ec"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_1_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 1 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_2_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba14ea6803126e3100b3cf11a811511073"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_2_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 2 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_3_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba3a321c5d8a93900eadbcb7f797f95854"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_3_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 3 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_4_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba6196ecc7145a225ba96690379a3b3975"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_4_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 4 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_5_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290baf6009a68128cf8a6341c87cc5d661258"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_5_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 5 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_6_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba3bd526c0d904fdcfaf75d64bb2ac1504"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_6_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 6 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_7_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba92c063cd214e080efe44e0a38dd2b4e1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_7_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 7 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_8_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba59dc8ca4c86d5d4cb1ea4372278dde8e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_8_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_8_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 8 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_9_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba2372d4c26c338ad0a43be582c221e059"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_9_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_9_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 9 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_10_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290bad1dd0e074f04c9e159db010e2f46bfe3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_10_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_10_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 10 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_11_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba351039fef370e34781b7249318f48760"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_11_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_11_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 11 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_12_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba861522c0524de67aaa0fb23c3a962a9f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_12_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_12_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 12 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_13_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba92e3ee90e754b45d62e5cd33790fa165"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_13_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_13_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 13 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_14_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290baa7a54940b2c72d1e441f24c52ffdc222"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_14_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_14_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 14 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_15_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba31195011c79f6766b961f9b923aae4e7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_15_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_15_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 15 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_16_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290baedfce90c4c5f27dedad19287428502f9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_16_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_16_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 16 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_17_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba7d854860bf38c97beb2792b5cf00aaf1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_17_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_17_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 17 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_18_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290bad24fd1fa3a24e657d88a108bcae9596e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_18_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_18_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 18 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_19_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba8a6fb326d0ba1adfd4061a4e8e420065"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_19_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_19_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 19 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_20_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba28b691f68861a688dffb62f81f611706"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_20_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_20_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 20 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_21_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba86946bb91512d72e29e921f8f31c1e2d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_21_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_21_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 21 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_22_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba5043c1229a3d917d6e98bb510a766de6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_22_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_22_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 22 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_23_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba3df7483dc8cc7015eaf35f053cb79d73"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_23_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_23_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 23 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_24_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290baaeccba3b6fc14728a5f6265766bfd112"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_24_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_24_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 24 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_25_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba70edf314dfc5514a34834068052c494d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_25_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_25_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 25 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_26_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290bac7f3fbbd0e06acb81929102b1af5a1de"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_26_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_26_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 26 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_27_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba4baa4d38485df39497720200843367e2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_27_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_27_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 27 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_28_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290bac789226700b2c1c379b1e9fda79978f6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_28_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_28_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 28 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_29_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290ba06499bce62be4e7329a75393ea24c0af"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_29_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_29_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 29 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_30_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290baeca96d658909accdd94110c97b5e7ec5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_30_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_30_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 30 interrupt mask. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_31_MASK">
+<span class="target" id="group__nrf__bellboard__hal_1gga56f5fc2ca5b710e51d244956582f290bab5fdd135df7e7e5f25caa31951427469"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_INT_TRIGGERED_31_MASK</span></span></span><a class="headerlink" href="#c.nrf_bellboard_int_mask_t.NRF_BELLBOARD_INT_TRIGGERED_31_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Triggered 31 interrupt mask. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t">
+<span class="target" id="group__nrf__bellboard__hal_1ga9cb866cd9da27e96a77d6acd2b33e746"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_task_t</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>BELLBOARD tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_0">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a4f65569980fefb1cabc9d5129dba888f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_0</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 0 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_1">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a6e4e7a9a5140adac360261ec9f7cb4eb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_1</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 1 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_2">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746afd7c32330b97cb182bb6fc6b2dae72e7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_2</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 2 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_3">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a735ff442c15885b94979b5fc68cf1cca"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_3</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 3 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_4">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a75bf069362fda0477ac80cc6236de2e8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_4</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 4 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_5">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a1fa5757cb95b3a0c3d990649fb8ff3fa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_5</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 5 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_6">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a7598664640b373aad1a2df24859e1324"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_6</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 6 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_7">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746aa32eabdb94fed27033a4002bfd40f64d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_7</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 7 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_8">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746af06f60dbe25fc13902b428d9fb5f3cda"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_8</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 8 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_9">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a32975076a49e247d417e383ae04da6ba"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_9</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 9 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_10">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a1f3108c79e689d9520617a64bb10f4c0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_10</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 10 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_11">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a5528fb18632c2089173191565f9be9fa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_11</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 11 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_12">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a6bbb4caac3c0a30e4f348b5bdf98d615"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_12</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 12 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_13">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a89b802e653cbb55dcf4b8c55121eca36"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_13</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 13 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_14">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746aae81d7124ec65d502d5e035dc62721bd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_14</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 14 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_15">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746ad98e1dda1d3bb7f69e46a79cb28bcd39"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_15</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 15 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_16">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a580e1f31a3cdebe0fd159bb7222a947d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_16</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 16 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_17">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a3645bfb07ef384cbc1ade12ebe55663b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_17</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_17" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 17 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_18">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746ab7b6a8d1b8ca0818823ce4a9b3fc18b6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_18</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_18" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 18 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_19">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a8a322628a3bb8437e59a2f1266efbed1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_19</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_19" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 19 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_20">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746ad6a46391afc8505dcda42fe1330d041a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_20</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_20" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 20 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_21">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746af8dbce335407d3d6152482c2ed39f871"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_21</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 21 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_22">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a2953d2cdd54886b28782a8bbecab7ccb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_22</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_22" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 22 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_23">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746ace29edc3749a965474746dcb1d868682"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_23</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_23" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 23 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_24">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a3f05bbba1a87c90b2da2fbfcb17e4677"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_24</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_24" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 24 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_25">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a590e9bdbb4047bea5f147b7a7d15c76c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_25</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_25" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 25 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_26">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746ab42dab8d301f20f1ec17fd600838301b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_26</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_26" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 26 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_27">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a561e1b3a40be1847df23d622cd307f72"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_27</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_27" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 27 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_28">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746a714bd4d3f6576fdde72a6e86ae45d0d8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_28</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_28" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 28 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_29">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746aa1194af2738042976ac6c5328f5fca4e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_29</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_29" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 29 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_30">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746aec3b1a47fb743fc7d60a7a54cd79e48a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_30</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_30" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 30 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_31">
+<span class="target" id="group__nrf__bellboard__hal_1gga9cb866cd9da27e96a77d6acd2b33e746aa8fde7a1a1a37ddc018ba779a94cf28e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_BELLBOARD_TASK_TRIGGER_31</span></span></span><a class="headerlink" href="#c.nrf_bellboard_task_t.NRF_BELLBOARD_TASK_TRIGGER_31" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 31 task. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_trigger">
+<span class="target" id="group__nrf__bellboard__hal_1ga244a7a0f18026648a49a93293031efc2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_bellboard_task_t" title="nrf_bellboard_task_t"><span class="n"><span class="pre">nrf_bellboard_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for triggering the specified BELLBOARD task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_task_address_get">
+<span class="target" id="group__nrf__bellboard__hal_1gafa96dd0593133d5a3859628976a85b3f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_bellboard_task_t" title="nrf_bellboard_task_t"><span class="n"><span class="pre">nrf_bellboard_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified BELLBOARD task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Specified task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_triggered_event_get">
+<span class="target" id="group__nrf__bellboard__hal_1ga33f96a06dee94d32d7fd9613ce51becb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_bellboard_event_t" title="nrf_bellboard_event_t"><span class="n"><span class="pre">nrf_bellboard_event_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_triggered_event_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_triggered_event_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the specified BELLBOARD TRIGGERED event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Event index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified BELLBOARD TRIGGERED event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_trigger_task_get">
+<span class="target" id="group__nrf__bellboard__hal_1gacc4842e03e68f95f9bbb118236435aff"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_bellboard_task_t" title="nrf_bellboard_task_t"><span class="n"><span class="pre">nrf_bellboard_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_trigger_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_trigger_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the specified BELLBOARD TRIGGER task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Task index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified BELLBOARD TRIGGER task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_clear">
+<span class="target" id="group__nrf__bellboard__hal_1ga1b4743f2cee27e112265b65d33114046"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_bellboard_event_t" title="nrf_bellboard_event_t"><span class="n"><span class="pre">nrf_bellboard_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified BELLBOARD event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_check">
+<span class="target" id="group__nrf__bellboard__hal_1ga36c3d788a79f4aba907bd92c774873d8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_bellboard_event_t" title="nrf_bellboard_event_t"><span class="n"><span class="pre">nrf_bellboard_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the BELLBOARD event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_event_address_get">
+<span class="target" id="group__nrf__bellboard__hal_1ga075ae6f5c3141d6af83b62d66819a5ea"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_bellboard_event_t" title="nrf_bellboard_event_t"><span class="n"><span class="pre">nrf_bellboard_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified BELLBOARD event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_enable">
+<span class="target" id="group__nrf__bellboard__hal_1gaaa84a439672fb98408477a4352d4f0a1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">group_idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>group_idx</strong> – <strong>[in]</strong> Index of interrupt group to be enabled. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__bellboard__hal_1ga56f5fc2ca5b710e51d244956582f290b"><span class="std std-ref">nrf_bellboard_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_disable">
+<span class="target" id="group__nrf__bellboard__hal_1ga96083c6ad51f303af5693853ba35df5d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">group_idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>group_idx</strong> – <strong>[in]</strong> Index of interrupt group to be disabled. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__bellboard__hal_1ga56f5fc2ca5b710e51d244956582f290b"><span class="std std-ref">nrf_bellboard_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_enable_check">
+<span class="target" id="group__nrf__bellboard__hal_1gadd0d9fbfd4079caf46d0689ebab55726"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">group_idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>group_idx</strong> – <strong>[in]</strong> Index of interrupt group to be checked. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__bellboard__hal_1ga56f5fc2ca5b710e51d244956582f290b"><span class="std std-ref">nrf_bellboard_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_bellboard_int_pending_get">
+<span class="target" id="group__nrf__bellboard__hal_1ga1fc63831ae72dff1636ae95caaa834cd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_bellboard_int_pending_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_BELLBOARD_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">group_idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_bellboard_int_pending_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of pending interrupts. </p>
+<p>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>group_idx</strong> – <strong>[in]</strong> Index of interrupt group to be retrieved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bitmask with information about pending interrupts. Use <a class="reference internal" href="#group__nrf__bellboard__hal_1ga56f5fc2ca5b710e51d244956582f290b"><span class="std std-ref">nrf_bellboard_int_mask_t</span></a> values for bit masking. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="haly.html" class="btn btn-neutral float-right" title="BELLBOARD HALY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="BELLBOARD driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

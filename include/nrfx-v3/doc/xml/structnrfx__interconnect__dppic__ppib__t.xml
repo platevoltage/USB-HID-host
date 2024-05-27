@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrfx__interconnect__dppic__ppib__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrfx_interconnect_dppic_ppib_t</compoundname>
+    <includes local="no">nrfx_interconnect_dppic_ppib.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__ppib__t_1a62affb3e6592540e7a336904bd522834" prot="public" static="no" mutable="no">
+        <type>NRF_DPPIC_Type *</type>
+        <definition>NRF_DPPIC_Type* nrfx_interconnect_dppic_ppib_t::dppic</definition>
+        <argsstring></argsstring>
+        <name>dppic</name>
+        <qualifiedname>nrfx_interconnect_dppic_ppib_t::dppic</qualifiedname>
+        <briefdescription>
+<para>DPPIC peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="62" column="21" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__ppib__t_1a229cad807f3adc88a5bf28c72670a016" prot="public" static="no" mutable="no">
+        <type>NRF_PPIB_Type *</type>
+        <definition>NRF_PPIB_Type* nrfx_interconnect_dppic_ppib_t::ppib</definition>
+        <argsstring></argsstring>
+        <name>ppib</name>
+        <qualifiedname>nrfx_interconnect_dppic_ppib_t::ppib</qualifiedname>
+        <briefdescription>
+<para>PPIB peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="63" column="21" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>DPPIC and PPIB interconnect properties structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="60" column="1" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="61" bodyend="64"/>
+    <listofallmembers>
+      <member refid="structnrfx__interconnect__dppic__ppib__t_1a62affb3e6592540e7a336904bd522834" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_ppib_t</scope><name>dppic</name></member>
+      <member refid="structnrfx__interconnect__dppic__ppib__t_1a229cad807f3adc88a5bf28c72670a016" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_ppib_t</scope><name>ppib</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

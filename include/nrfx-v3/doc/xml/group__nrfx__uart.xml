@@ -1,0 +1,919 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__uart" kind="group">
+    <compoundname>nrfx_uart</compoundname>
+    <title>UART driver</title>
+    <innerclass refid="structnrfx__uart__t" prot="public">nrfx_uart_t</innerclass>
+    <innerclass refid="structnrfx__uart__config__t" prot="public">nrfx_uart_config_t</innerclass>
+    <innerclass refid="structnrfx__uart__xfer__evt__t" prot="public">nrfx_uart_xfer_evt_t</innerclass>
+    <innerclass refid="structnrfx__uart__error__evt__t" prot="public">nrfx_uart_error_evt_t</innerclass>
+    <innerclass refid="structnrfx__uart__event__t" prot="public">nrfx_uart_event_t</innerclass>
+    <innergroup refid="group__nrfx__uart__config">UART peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__uart_1ga6b4bcf39e8636d2d0fbbdb49f70f558e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_uart_evt_type_t</name>
+        <enumvalue id="group__nrfx__uart_1gga6b4bcf39e8636d2d0fbbdb49f70f558eaef0d49a8d0409802b83806612043b494" prot="public">
+          <name>NRFX_UART_EVT_TX_DONE</name>
+          <briefdescription>
+<para>Requested TX transfer completed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__uart_1gga6b4bcf39e8636d2d0fbbdb49f70f558eab606d08f8fa0d2a01df3348b608a581e" prot="public">
+          <name>NRFX_UART_EVT_RX_DONE</name>
+          <briefdescription>
+<para>Requested RX transfer completed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__uart_1gga6b4bcf39e8636d2d0fbbdb49f70f558ea12cd6382c52f40837eab94556a9ea32e" prot="public">
+          <name>NRFX_UART_EVT_ERROR</name>
+          <briefdescription>
+<para>Error reported by UART peripheral. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Types of UART driver events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="74" column="1" bodyfile="drivers/include/nrfx_uart.h" bodystart="75" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__uart_1ga3c6580633e7ee8044e7e88204c60f8f2" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_uart_event_handler_t) (nrfx_uart_event_t const *p_event, void *p_context)</definition>
+        <argsstring>)(nrfx_uart_event_t const *p_event, void *p_context)</argsstring>
+        <name>nrfx_uart_event_handler_t</name>
+        <briefdescription>
+<para>UART interrupt event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to event structure. Event is allocated on the stack so it is available only within the context of the event handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to the interrupt handler, set on initialization. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="185" column="9" bodyfile="drivers/include/nrfx_uart.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__uart_1gad39364c2398152822f0a7cf08242c773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_uart_init</definition>
+        <argsstring>(nrfx_uart_t const *p_instance, nrfx_uart_config_t const *p_config, nrfx_uart_event_handler_t event_handler)</argsstring>
+        <name>nrfx_uart_init</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__uart__config__t" kindref="compound">nrfx_uart_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__uart_1ga3c6580633e7ee8044e7e88204c60f8f2" kindref="member">nrfx_uart_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the UART driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function configures and enables UART. After this function GPIO pins are controlled by UART.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. If not provided, the driver works in blocking mode.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_ALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. Deprecated - use <ref refid="group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd" kindref="member">NRFX_ERROR_ALREADY</ref> instead. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other peripheral with the same instance ID is already in use. This is possible only if <ref refid="group__nrfx__prs" kindref="compound">Peripheral Resource Sharing (PRS)</ref> module is enabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="207" column="12" declfile="drivers/include/nrfx_uart.h" declline="207" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga5fe25e4fae0008950c17a7b9c077539f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_uart_reconfigure</definition>
+        <argsstring>(nrfx_uart_t const *p_instance, nrfx_uart_config_t const *p_config)</argsstring>
+        <name>nrfx_uart_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__uart__config__t" kindref="compound">nrfx_uart_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the UART driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is during transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="221" column="12" declfile="drivers/include/nrfx_uart.h" declline="221" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga3c7d3c7254fcc4e9c4e9059aa1c54ca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_uart_uninit</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the UART driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="229" column="6" declfile="drivers/include/nrfx_uart.h" declline="229" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1gaad7d5e905ef349cf91e439d715bd27e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_uart_init_check</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the UART driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="239" column="6" declfile="drivers/include/nrfx_uart.h" declline="239" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga385399ab1737a3a0bf6531555deb7fe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_uart_task_address_get</definition>
+        <argsstring>(nrfx_uart_t const *p_instance, nrf_uart_task_t task)</argsstring>
+        <name>nrfx_uart_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1ga61ed3c0eb7723a0dfda76d7d5025e5a8" kindref="member">nrf_uart_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified UART task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="398" column="29" bodyfile="drivers/include/nrfx_uart.h" bodystart="398" bodyend="402" declfile="drivers/include/nrfx_uart.h" declline="249" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1gaa6d0683ef86bed53c8fa54e2b0c07f47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_uart_event_address_get</definition>
+        <argsstring>(nrfx_uart_t const *p_instance, nrf_uart_event_t event)</argsstring>
+        <name>nrfx_uart_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__uart__hal_1gad1710c9c8832f8d4b3264cca8029b730" kindref="member">nrf_uart_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of the specified UART event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="404" column="29" bodyfile="drivers/include/nrfx_uart.h" bodystart="404" bodyend="408" declfile="drivers/include/nrfx_uart.h" declline="260" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga96d8dfc8c56ebb4c8954ce45ecdc5c5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_uart_tx</definition>
+        <argsstring>(nrfx_uart_t const *p_instance, uint8_t const *p_data, size_t length)</argsstring>
+        <name>nrfx_uart_tx</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint8_t const *</type>
+          <declname>p_data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for sending data over UART. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If an event handler was provided in <ref refid="group__nrfx__uart_1gad39364c2398152822f0a7cf08242c773" kindref="member">nrfx_uart_init()</ref> call, this function returns immediately and the handler is called when the transfer is done. Otherwise, the transfer is performed in blocking mode, that is this function returns when the transfer is finished. Blocking mode is not using interrupt so there is no context switching inside the function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Driver is already transferring. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_FORBIDDEN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transfer was aborted from a different context (blocking mode only). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="281" column="12" declfile="drivers/include/nrfx_uart.h" declline="281" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1gab312c666f7978079395cd89c43f652ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_uart_tx_in_progress</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_tx_in_progress</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if UART is currently transmitting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UART is transmitting. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UART is not transmitting. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="293" column="6" declfile="drivers/include/nrfx_uart.h" declline="293" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga86befcb208c4d713b185fb9cc260bfe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_uart_tx_abort</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_tx_abort</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for aborting any ongoing transmission. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para><ref refid="group__nrfx__uart_1gga6b4bcf39e8636d2d0fbbdb49f70f558eaef0d49a8d0409802b83806612043b494" kindref="member">NRFX_UART_EVT_TX_DONE</ref> event will be generated in non-blocking mode. It will contain number of bytes sent until the abort was called. The event handler will be called from the function context.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="303" column="6" declfile="drivers/include/nrfx_uart.h" declline="303" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga8358a6813691795302fa064a8c522c4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_uart_rx</definition>
+        <argsstring>(nrfx_uart_t const *p_instance, uint8_t *p_data, size_t length)</argsstring>
+        <name>nrfx_uart_rx</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>p_data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Function for receiving data over UART. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If an event handler is provided in the <ref refid="group__nrfx__uart_1gad39364c2398152822f0a7cf08242c773" kindref="member">nrfx_uart_init()</ref> call, this function returns immediately and the handler is called when the transfer is done. Otherwise, the transfer is performed in blocking mode, that is this function returns when the transfer is finished. Blocking mode is not using interrupt so there is no context switching inside the function. The receive buffer pointer is double-buffered in non-blocking mode. The secondary buffer can be set immediately after starting the transfer and will be filled when the primary buffer is full. The double-buffering feature allows receiving data continuously.</para>
+<para>If this function is used without a previous call to <ref refid="group__nrfx__uart_1ga88e28bd5720903663e7aff18589183c0" kindref="member">nrfx_uart_rx_enable</ref>, the reception will be stopped on error or when the supplied buffer fills up. In both cases, RX FIFO gets disabled. This means that, in case of error, the bytes that follow are lost. If this <ref refid="group__nrfx__uart_1ga8358a6813691795302fa064a8c522c4a" kindref="member">nrfx_uart_rx()</ref> function is used with the previous call to <ref refid="group__nrfx__uart_1ga88e28bd5720903663e7aff18589183c0" kindref="member">nrfx_uart_rx_enable</ref>, the reception is stopped in case of error, but FIFO is still ongoing. The receiver is still working, so after handling the error, an immediate repeated call to this <ref refid="group__nrfx__uart_1ga8358a6813691795302fa064a8c522c4a" kindref="member">nrfx_uart_rx()</ref> function with fresh data buffer will re-establish reception. To disable the receiver, you must call <ref refid="group__nrfx__uart_1ga9af3afd3fd7d9f1a3e4271db1b330f60" kindref="member">nrfx_uart_rx_disable</ref> explicitly.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to receive.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reception is complete (in case of blocking mode) or it is successfully started (in case of non-blocking mode). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already receiving (and the secondary buffer has already been set in non-blocking mode). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_FORBIDDEN</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The transfer was aborted from a different context (blocking mode only, also see <ref refid="group__nrfx__uart_1ga9af3afd3fd7d9f1a3e4271db1b330f60" kindref="member">nrfx_uart_rx_disable</ref>). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INTERNAL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The UART peripheral reported an error. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="340" column="12" declfile="drivers/include/nrfx_uart.h" declline="340" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1gac4932d49b816b818d14f4ecc129f3a81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_uart_rx_ready</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_rx_ready</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for testing the receiver state in blocking mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The receiver has at least one byte of data to get. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The receiver is empty. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="352" column="6" declfile="drivers/include/nrfx_uart.h" declline="352" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga88e28bd5720903663e7aff18589183c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_uart_rx_enable</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_rx_enable</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling the receiver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>UART has a 6-byte-long RX FIFO and it is used to store incoming data. If a user does not call the UART receive function before the FIFO is filled, an overrun error will appear. The receiver must be explicitly closed by the user <simplesect kind="see"><para><ref refid="group__nrfx__uart_1ga9af3afd3fd7d9f1a3e4271db1b330f60" kindref="member">nrfx_uart_rx_disable</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="363" column="6" declfile="drivers/include/nrfx_uart.h" declline="363" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga9af3afd3fd7d9f1a3e4271db1b330f60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_uart_rx_disable</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_rx_disable</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling the receiver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function must be called to close the receiver after it has been explicitly enabled by <simplesect kind="see"><para><ref refid="group__nrfx__uart_1ga88e28bd5720903663e7aff18589183c0" kindref="member">nrfx_uart_rx_enable</ref>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="373" column="6" declfile="drivers/include/nrfx_uart.h" declline="373" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1gae11b51e930c03acc3fa6d9ec6fea3454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_uart_rx_abort</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_rx_abort</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for aborting any ongoing reception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para><ref refid="group__nrfx__uart_1gga6b4bcf39e8636d2d0fbbdb49f70f558eaef0d49a8d0409802b83806612043b494" kindref="member">NRFX_UART_EVT_TX_DONE</ref> event will be generated in non-blocking mode. It will contain number of bytes received until the abort was called. The event handler will be called from the UART interrupt context.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="383" column="6" declfile="drivers/include/nrfx_uart.h" declline="383" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__uart_1ga8c948c76cc5e0b1ffa54a7add4ab49ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_uart_errorsrc_get</definition>
+        <argsstring>(nrfx_uart_t const *p_instance)</argsstring>
+        <name>nrfx_uart_errorsrc_get</name>
+        <param>
+          <type><ref refid="structnrfx__uart__t" kindref="compound">nrfx_uart_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading error source mask. Mask contains values from <ref refid="group__nrf__uart__hal_1ga2657a793028d3f7083ad87cc05bd9817" kindref="member">nrf_uart_error_mask_t</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function must be used in blocking mode only. In case of non-blocking mode, an error event is generated. Function clears error sources after reading.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Mask of reported errors. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="394" column="10" declfile="drivers/include/nrfx_uart.h" declline="394" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__uart_1gaedde27dbdcd78002a3db52874954fcb8" prot="public" static="no">
+        <name>NRFX_UART_INSTANCE</name>
+        <param><defname>id</defname></param>
+        <initializer>{                                                            \
+    .p_reg        = <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, UART, id),             \
+    .drv_inst_idx = <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRFX_UART, id, _INST_IDX),   \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating a UART driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="67" column="9" bodyfile="drivers/include/nrfx_uart.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__uart_1ga5ad69b2a4594e0aee9f9fab2614495dd" prot="public" static="no">
+        <name>NRFX_UART_DEFAULT_EXTENDED_STOP_CONFIG</name>
+        <initializer>        .stop = <ref refid="group__nrf__uart__hal_1gga86541355ae5c6a5699495c2483a85335a12996cfbd62d3a657a95f8088155225e" kindref="member">NRF_UART_STOP_ONE</ref>,</initializer>
+        <briefdescription>
+<para>UART additional stop bits configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="110" column="13" bodyfile="drivers/include/nrfx_uart.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__uart_1ga1af910dfaa10d229d736b2f080059006" prot="public" static="no">
+        <name>NRFX_UART_DEFAULT_EXTENDED_PARITYTYPE_CONFIG</name>
+        <initializer>        .paritytype = <ref refid="group__nrf__uart__hal_1ggaefcc99f71b39e6750fae1b28765fb20da49f3221f6523cf71692001b348a72f7a" kindref="member">NRF_UART_PARITYTYPE_EVEN</ref>,</initializer>
+        <briefdescription>
+<para>UART additional parity type configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="118" column="13" bodyfile="drivers/include/nrfx_uart.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__uart_1gaec4cb2d87b1df0f58b4edd006b91d9c5" prot="public" static="no">
+        <name>NRFX_UART_DEFAULT_CONFIG</name>
+        <param><defname>_pin_tx</defname></param>
+        <param><defname>_pin_rx</defname></param>
+        <initializer>{                                                                                 \
+    .pseltxd            = _pin_tx,                                                \
+    .pselrxd            = _pin_rx,                                                \
+    .pselcts            = <ref refid="group__nrf__uart__hal_1ga505f00f51ff5b93317032f1e3b5ba1a6" kindref="member">NRF_UART_PSEL_DISCONNECTED</ref>,                             \
+    .pselrts            = <ref refid="group__nrf__uart__hal_1ga505f00f51ff5b93317032f1e3b5ba1a6" kindref="member">NRF_UART_PSEL_DISCONNECTED</ref>,                             \
+    .p_context          = NULL,                                                   \
+    .baudrate           = <ref refid="group__nrf__uart__hal_1gga8f8c852e9d2eca9a20348c0640d7db5ea899519ef5bc33b854b4ffe9b2fd743db" kindref="member">NRF_UART_BAUDRATE_115200</ref>,                               \
+    .interrupt_priority = <ref refid="group__nrfx__uart__config_1ga011a33c59b7fbfacce167ef1b8dba321" kindref="member">NRFX_UART_DEFAULT_CONFIG_IRQ_PRIORITY</ref>,                  \
+    .hal_cfg            = {                                                       \
+        .hwfc           = <ref refid="group__nrf__uart__hal_1gga64bc954123930f8167c2386a4dd58848ae70d354622bd8186a27d9e5f8563e8b3" kindref="member">NRF_UART_HWFC_DISABLED</ref>,                                 \
+        .parity         = <ref refid="group__nrf__uart__hal_1gga26a900177fa34963f4ac68f3896ad803a0ac8b6f846138b0b5c25f6547718ae3c" kindref="member">NRF_UART_PARITY_EXCLUDED</ref>,                               \
+        <ref refid="group__nrfx__uart_1ga5ad69b2a4594e0aee9f9fab2614495dd" kindref="member">NRFX_UART_DEFAULT_EXTENDED_STOP_CONFIG</ref>                                    \
+        <ref refid="group__nrfx__uart_1ga1af910dfaa10d229d736b2f080059006" kindref="member">NRFX_UART_DEFAULT_EXTENDED_PARITYTYPE_CONFIG</ref>                              \
+    }                                                                             \
+}</initializer>
+        <briefdescription>
+<para>UART driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up UART with the following options:<itemizedlist>
+<listitem><para>hardware flow control disabled</para>
+</listitem><listitem><para>no parity bit</para>
+</listitem><listitem><para>one stop bit</para>
+</listitem><listitem><para>baudrate: 115200</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_tx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TX pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_rx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RX pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="136" column="9" bodyfile="drivers/include/nrfx_uart.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__uart_1ga1ee6e5383fafb5cbd9508ae6f3c7f599" prot="public" static="no">
+        <name>NRFX_UART_INST_HANDLER_GET</name>
+        <param><defname>idx</defname></param>
+        <initializer><ref refid="group__nrfx__common_1gaa78d21b07d22f7a4bfbd1feda51ef1f4" kindref="member">NRFX_CONCAT_3</ref>(nrfx_uart_, idx, _irq_handler)</initializer>
+        <briefdescription>
+<para>Macro returning UART interrupt handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>param[in] idx UART index.</para>
+<para><simplesect kind="return"><para>Interrupt handler. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="418" column="9" bodyfile="drivers/include/nrfx_uart.h" bodystart="418" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>UART peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

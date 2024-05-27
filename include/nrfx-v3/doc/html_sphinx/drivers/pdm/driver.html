@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDM driver &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PDM HAL" href="hal.html" />
+    <link rel="prev" title="PDM" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">PDM</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PDM driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">PDM HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">PDM HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">PDM</a></li>
+      <li class="breadcrumb-item active">PDM driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/pdm/driver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pdm-driver">
+<h1>PDM driver<a class="headerlink" href="#pdm-driver" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__pdm"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_pdm</span></span></dt>
+<dd><p>Pulse Density Modulation (PDM) peripheral driver. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_PDM_MAX_BUFFER_SIZE">
+<span class="target" id="group__nrfx__pdm_1ga7a3a3c0637a11c96fec6657741474790"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_PDM_MAX_BUFFER_SIZE</span></span></span><a class="headerlink" href="#c.NRFX_PDM_MAX_BUFFER_SIZE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Maximum supported PDM buffer size. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_PDM_DEFAULT_CONFIG">
+<span class="target" id="group__nrfx__pdm_1gaf135d07d0d96e8c7b7f743284acc2465"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_PDM_DEFAULT_CONFIG</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">_pin_clk</span></span>, <span class="n"><span class="pre">_pin_din</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_PDM_DEFAULT_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>PDM driver default configuration. </p>
+<p>This configuration sets up PDM with the following options:<ul class="simple">
+<li><p>mono mode</p></li>
+<li><p>data sampled on the clock falling edge</p></li>
+<li><p>frequency: 1.032 MHz</p></li>
+<li><p>standard gain</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_pin_clk</strong> – <strong>[in]</strong> CLK output pin. </p></li>
+<li><p><strong>_pin_din</strong> – <strong>[in]</strong> DIN input pin. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrfx_pdm_event_handler_t">
+<span class="target" id="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_event_handler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#c.nrfx_pdm_evt_t" title="nrfx_pdm_evt_t"><span class="n"><span class="pre">nrfx_pdm_evt_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_evt</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.nrfx_pdm_event_handler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Handler for the PDM interface ready events. </p>
+<p>This event handler is called on a buffer request, an error or when a buffer is full and ready to be processed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Param p_evt<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>[in]</strong> Pointer to the PDM event structure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrfx_pdm_error_t">
+<span class="target" id="group__nrfx__pdm_1ga1af0465836194329a34d4d4c96a4ae91"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_error_t</span></span></span><a class="headerlink" href="#c.nrfx_pdm_error_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>PDM error type. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_pdm_error_t.NRFX_PDM_NO_ERROR">
+<span class="target" id="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91ac5a21e69633247017ebba68fa41c655f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_PDM_NO_ERROR</span></span></span><a class="headerlink" href="#c.nrfx_pdm_error_t.NRFX_PDM_NO_ERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>No error. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_pdm_error_t.NRFX_PDM_ERROR_OVERFLOW">
+<span class="target" id="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91a7199474b0f4f36346ac05f59cc91ca8c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_PDM_ERROR_OVERFLOW</span></span></span><a class="headerlink" href="#c.nrfx_pdm_error_t.NRFX_PDM_ERROR_OVERFLOW" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Overflow error. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_init">
+<span class="target" id="group__nrfx__pdm_1gaa57ad2808b90d8236ebad625af2c5c30"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_pdm_config_t" title="nrfx_pdm_config_t"><span class="n"><span class="pre">nrfx_pdm_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span>, <a class="reference internal" href="#c.nrfx_pdm_event_handler_t" title="nrfx_pdm_event_handler_t"><span class="n"><span class="pre">nrfx_pdm_event_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event_handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the PDM interface. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the initial configuration. </p></li>
+<li><p><strong>event_handler</strong> – <strong>[in]</strong> Event handler provided by the user. Cannot be NULL.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization was successful. </p></li>
+<li><p><strong>NRFX_ERROR_ALREADY</strong> – The driver is already initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is already initialized. Deprecated - use <a class="reference internal" href="../../nrfx_api/error_codes.html#group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd"><span class="std std-ref">NRFX_ERROR_ALREADY</span></a> instead. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – Invalid configuration was specified. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_reconfigure">
+<span class="target" id="group__nrfx__pdm_1gacbf87ead5f29641b4d046ee9a3af3d27"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_reconfigure</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_pdm_config_t" title="nrfx_pdm_config_t"><span class="n"><span class="pre">nrfx_pdm_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_reconfigure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reconfiguring the PDM interface. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Reconfiguration was successful. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – There is ongoing sampling and driver cannot be reconfigured. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is not initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – Invalid configuration was specified. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_uninit">
+<span class="target" id="group__nrfx__pdm_1ga037b116dc1c1fbd971ce4d7fea6e3dd8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_uninit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the PDM interface. </p>
+<p>This function stops PDM sampling, if it is in progress. </p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_init_check">
+<span class="target" id="group__nrfx__pdm_1gad70f5cd179d3555811e91ec78d5b3fbb"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_init_check</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_init_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the PDM interface is initialized. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Return values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true</strong> – Interface is already initialized. </p></li>
+<li><p><strong>false</strong> – Interface is not initialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_task_address_get">
+<span class="target" id="group__nrfx__pdm_1ga883a05a1f04ebc572b84fadee2b6e270"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_task_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="hal.html#c.nrf_pdm_task_t" title="nrf_pdm_task_t"><span class="n"><span class="pre">nrf_pdm_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of a PDM interface task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – <strong>[in]</strong> Task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Task address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_enable_check">
+<span class="target" id="group__nrfx__pdm_1ga16b7b3d1dcaae6d3a851863809aade1d"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_enable_check</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the state of the PDM interface. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Return values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true</strong> – The PDM interface is enabled. </p></li>
+<li><p><strong>false</strong> – The PDM interface is disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_start">
+<span class="target" id="group__nrfx__pdm_1ga296fabdbaca15179a54777be2d6b38a9"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_start</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_start" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for starting the PDM sampling. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Return values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Sampling was started successfully or was already in progress. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – Previous start/stop operation is in progress. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_stop">
+<span class="target" id="group__nrfx__pdm_1ga5d121481d6baf27a1c3a1df56a0658a1"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_stop</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_stop" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for stopping the PDM sampling. </p>
+<p>When this function is called, the PDM interface is stopped after finishing the current frame. The event handler function might be called once more after calling this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Sampling was stopped successfully or was already stopped before. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – Previous start/stop operation is in progress. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_pdm_buffer_set">
+<span class="target" id="group__nrfx__pdm_1ga6a35f8ef97b4ee2774d34473c0d213b3"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">buffer_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_pdm_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for supplying the sample buffer. </p>
+<p>Call this function after every buffer request event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> Pointer to the receive buffer. Cannot be NULL. </p></li>
+<li><p><strong>buffer_length</strong> – <strong>[in]</strong> Length of the receive buffer in 16-bit words.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – The buffer was applied successfully. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The buffer was already supplied or the peripheral is currently being stopped. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver was not initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – Invalid parameters were provided. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_pdm_evt_t">
+<span class="target" id="structnrfx__pdm__evt__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_evt_t</span></span></span><a class="headerlink" href="#c.nrfx_pdm_evt_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_pdm.h&gt;</em></div>
+<p>PDM event structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_evt_t.buffer_requested">
+<span class="target" id="structnrfx__pdm__evt__t_1aa22a290acdd7586c5baa5d3fb4e8ad50"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buffer_requested</span></span></span><a class="headerlink" href="#c.nrfx_pdm_evt_t.buffer_requested" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Buffer request flag. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_evt_t.buffer_released">
+<span class="target" id="structnrfx__pdm__evt__t_1ac4a03910b0eca24c0275ef88173c99ab"></span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">buffer_released</span></span></span><a class="headerlink" href="#c.nrfx_pdm_evt_t.buffer_released" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the released buffer. Can be NULL. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_evt_t.error">
+<span class="target" id="structnrfx__pdm__evt__t_1abab83641a0571dc15d1a47707b5e2f45"></span><a class="reference internal" href="#c.nrfx_pdm_error_t" title="nrfx_pdm_error_t"><span class="n"><span class="pre">nrfx_pdm_error_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">error</span></span></span><a class="headerlink" href="#c.nrfx_pdm_evt_t.error" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error type. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t">
+<span class="target" id="structnrfx__pdm__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_pdm_config_t</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_pdm.h&gt;</em></div>
+<p>PDM interface driver configuration structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.mode">
+<span class="target" id="structnrfx__pdm__config__t_1afc2ed6a7553925b607cb771c1ad55bee"></span><a class="reference internal" href="hal.html#c.nrf_pdm_mode_t" title="nrf_pdm_mode_t"><span class="n"><span class="pre">nrf_pdm_mode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interface operation mode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.edge">
+<span class="target" id="structnrfx__pdm__config__t_1a4efeaec7d1969b87969024790302b59e"></span><a class="reference internal" href="hal.html#c.nrf_pdm_edge_t" title="nrf_pdm_edge_t"><span class="n"><span class="pre">nrf_pdm_edge_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">edge</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.edge" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sampling mode. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.clk_pin">
+<span class="target" id="structnrfx__pdm__config__t_1a1b4b108b2bc7ad1cbb739e09923e8635"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clk_pin</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.clk_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CLK pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.din_pin">
+<span class="target" id="structnrfx__pdm__config__t_1a5793ce40b7f2e9e2e0dde0c7e73c6617"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">din_pin</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.din_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>DIN pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.clock_freq">
+<span class="target" id="structnrfx__pdm__config__t_1a158de0520c19f2bdf83c1b3c4bc4c164"></span><a class="reference internal" href="hal.html#c.nrf_pdm_freq_t" title="nrf_pdm_freq_t"><span class="n"><span class="pre">nrf_pdm_freq_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clock_freq</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.clock_freq" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clock frequency. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.gain_l">
+<span class="target" id="structnrfx__pdm__config__t_1ad96795474694d76d72850a1f02c4d680"></span><a class="reference internal" href="hal.html#c.nrf_pdm_gain_t" title="nrf_pdm_gain_t"><span class="n"><span class="pre">nrf_pdm_gain_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gain_l</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.gain_l" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Left channel gain. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.gain_r">
+<span class="target" id="structnrfx__pdm__config__t_1a8122189fb2235fc095e86c6a358e9fa8"></span><a class="reference internal" href="hal.html#c.nrf_pdm_gain_t" title="nrf_pdm_gain_t"><span class="n"><span class="pre">nrf_pdm_gain_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gain_r</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.gain_r" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Right channel gain. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.interrupt_priority">
+<span class="target" id="structnrfx__pdm__config__t_1a4c04b615c9abccc5ba7950baa10b92ef"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interrupt_priority</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.interrupt_priority" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt priority. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.skip_gpio_cfg">
+<span class="target" id="structnrfx__pdm__config__t_1a36dd54b8831af750dbbe52ad96d66e50"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_gpio_cfg</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.skip_gpio_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip GPIO configuration of pins. </p>
+<p>When set to true, the driver does not modify any GPIO parameters of the used pins. Those parameters are supposed to be configured externally before the driver is initialized. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_pdm_config_t.skip_psel_cfg">
+<span class="target" id="structnrfx__pdm__config__t_1ab29f25744de03035771ad53249c11059"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_psel_cfg</span></span></span><a class="headerlink" href="#c.nrfx_pdm_config_t.skip_psel_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip pin selection configuration. </p>
+<p>When set to true, the driver does not modify pin select registers in the peripheral. Those registers are supposed to be set up externally before the driver is initialized. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When both GPIO configuration and pin selection are to be skipped, the structure fields that specify pins can be omitted, as they are ignored anyway. </p>
+</div>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hal.html" class="btn btn-neutral float-right" title="PDM HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="PDM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

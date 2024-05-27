@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LPCOMP driver &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LPCOMP HAL" href="hal.html" />
+    <link rel="prev" title="LPCOMP" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">LPCOMP</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LPCOMP driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">LPCOMP HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">LPCOMP HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">LPCOMP</a></li>
+      <li class="breadcrumb-item active">LPCOMP driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/lpcomp/driver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lpcomp-driver">
+<h1>LPCOMP driver<a class="headerlink" href="#lpcomp-driver" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__lpcomp"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_lpcomp</span></span></dt>
+<dd><p>Low Power Comparator (LPCOMP) peripheral driver. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_LPCOMP_DEFAULT_CONFIG">
+<span class="target" id="group__nrfx__lpcomp_1gac349eca33f0c728b249bc9a30ab69b8f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_LPCOMP_DEFAULT_CONFIG</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">_input</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_LPCOMP_DEFAULT_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LPCOMP driver default configuration. </p>
+<p>This configuration sets up LPCOMP with the following options:<ul class="simple">
+<li><p>reference voltage: 4/8 of supply voltage</p></li>
+<li><p>detection of both up and down crossings</p></li>
+<li><p>hysteresis disabled</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_input</strong> – <strong>[in]</strong> Comparator input pin. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_event_handler_t">
+<span class="target" id="group__nrfx__lpcomp_1gabc311f5d0ad394a1b9e75c2f35146d5d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_lpcomp_event_handler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="hal.html#c.nrf_lpcomp_event_t" title="nrf_lpcomp_event_t"><span class="n"><span class="pre">nrf_lpcomp_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.nrfx_lpcomp_event_handler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LPCOMP event handler function type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param event<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>[in]</strong> LPCOMP event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_init">
+<span class="target" id="group__nrfx__lpcomp_1ga624f1e98f60e0effc57c7552e9091090"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_lpcomp_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_lpcomp_config_t" title="nrfx_lpcomp_config_t"><span class="n"><span class="pre">nrfx_lpcomp_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span>, <a class="reference internal" href="#c.nrfx_lpcomp_event_handler_t" title="nrfx_lpcomp_event_handler_t"><span class="n"><span class="pre">nrfx_lpcomp_event_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event_handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_lpcomp_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the LPCOMP driver. </p>
+<p>This function initializes the LPCOMP driver, but does not enable the peripheral or any interrupts. To start the driver, call the function <a class="reference internal" href="#group__nrfx__lpcomp_1ga419afd58e233d1770b548057f43d8ecb"><span class="std std-ref">nrfx_lpcomp_enable()</span></a> after initialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the initial configuration. </p></li>
+<li><p><strong>event_handler</strong> – <strong>[in]</strong> Event handler provided by the user. Must not be NULL.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization was successful. </p></li>
+<li><p><strong>NRFX_ERROR_ALREADY</strong> – The driver is already initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is already initialized. Deprecated - use <a class="reference internal" href="../../nrfx_api/error_codes.html#group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd"><span class="std std-ref">NRFX_ERROR_ALREADY</span></a> instead. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The COMP peripheral is already in use. This is possible only if <a class="reference internal" href="../../nrfx_api/prs.html#group__nrfx__prs"><span class="std std-ref">Peripheral Resource Sharing (PRS)</span></a> module is enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_uninit">
+<span class="target" id="group__nrfx__lpcomp_1ga85688c3f05ac4a9414e89e3321c46325"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_lpcomp_uninit</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_lpcomp_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the LPCOMP driver. </p>
+<p>This function uninitializes the LPCOMP driver. The LPCOMP peripheral and its interrupts are disabled, and local variables are cleaned. After this call, you must initialize the driver again by calling <a class="reference internal" href="#group__nrfx__lpcomp_1ga624f1e98f60e0effc57c7552e9091090"><span class="std std-ref">nrfx_lpcomp_init()</span></a> if you want to use it.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#group__nrfx__lpcomp_1ga2ca7bf99d573607494cee7386c5ec7c7"><span class="std std-ref">nrfx_lpcomp_disable</span></a></p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#group__nrfx__lpcomp_1ga624f1e98f60e0effc57c7552e9091090"><span class="std std-ref">nrfx_lpcomp_init</span></a></p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_init_check">
+<span class="target" id="group__nrfx__lpcomp_1ga03e57ec0fe6f81562293b54889228442"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_lpcomp_init_check</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_lpcomp_init_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the LPCOMP driver is initialized. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Return values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true</strong> – Driver is already initialized. </p></li>
+<li><p><strong>false</strong> – Driver is not initialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_enable">
+<span class="target" id="group__nrfx__lpcomp_1ga419afd58e233d1770b548057f43d8ecb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_lpcomp_enable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_lpcomp_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the LPCOMP peripheral and interrupts. </p>
+<p>Before calling this function, the driver must be initialized. This function enables the LPCOMP peripheral and its interrupts.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#group__nrfx__lpcomp_1ga2ca7bf99d573607494cee7386c5ec7c7"><span class="std std-ref">nrfx_lpcomp_disable</span></a></p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_disable">
+<span class="target" id="group__nrfx__lpcomp_1ga2ca7bf99d573607494cee7386c5ec7c7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_lpcomp_disable</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_lpcomp_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the LPCOMP peripheral. </p>
+<p>Before calling this function, the driver must be initialized. This function disables the LPCOMP peripheral and its interrupts.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#group__nrfx__lpcomp_1ga419afd58e233d1770b548057f43d8ecb"><span class="std std-ref">nrfx_lpcomp_enable</span></a></p>
+</div>
+</p>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_config_t">
+<span class="target" id="structnrfx__lpcomp__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_lpcomp_config_t</span></span></span><a class="headerlink" href="#c.nrfx_lpcomp_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_lpcomp.h&gt;</em></div>
+<p>LPCOMP configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_config_t.reference">
+<span class="target" id="structnrfx__lpcomp__config__t_1a71be0fa623bffc838994bd71799f0846"></span><a class="reference internal" href="hal.html#c.nrf_lpcomp_ref_t" title="nrf_lpcomp_ref_t"><span class="n"><span class="pre">nrf_lpcomp_ref_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reference</span></span></span><a class="headerlink" href="#c.nrfx_lpcomp_config_t.reference" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Reference selection. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_config_t.ext_ref">
+<span class="target" id="structnrfx__lpcomp__config__t_1a40e0b2f7bafbf19b0bd1e857cc77ebd9"></span><a class="reference internal" href="hal.html#c.nrf_lpcomp_ext_ref_t" title="nrf_lpcomp_ext_ref_t"><span class="n"><span class="pre">nrf_lpcomp_ext_ref_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ext_ref</span></span></span><a class="headerlink" href="#c.nrfx_lpcomp_config_t.ext_ref" title="Permalink to this definition"></a><br /></dt>
+<dd><p>External analog reference selection. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_config_t.detection">
+<span class="target" id="structnrfx__lpcomp__config__t_1ac62834103dafe287bb8ac0dd16e9f8a1"></span><a class="reference internal" href="hal.html#c.nrf_lpcomp_detect_t" title="nrf_lpcomp_detect_t"><span class="n"><span class="pre">nrf_lpcomp_detect_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">detection</span></span></span><a class="headerlink" href="#c.nrfx_lpcomp_config_t.detection" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Detection type. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_config_t.input">
+<span class="target" id="structnrfx__lpcomp__config__t_1a77432881a2288dbb28f7263db3a7c128"></span><a class="reference internal" href="hal.html#c.nrf_lpcomp_input_t" title="nrf_lpcomp_input_t"><span class="n"><span class="pre">nrf_lpcomp_input_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">input</span></span></span><a class="headerlink" href="#c.nrfx_lpcomp_config_t.input" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Input to be monitored. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_lpcomp_config_t.interrupt_priority">
+<span class="target" id="structnrfx__lpcomp__config__t_1abdc5e85f397c341aade7c04e09ef8cb9"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interrupt_priority</span></span></span><a class="headerlink" href="#c.nrfx_lpcomp_config_t.interrupt_priority" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LPCOMP interrupt priority. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hal.html" class="btn btn-neutral float-right" title="LPCOMP HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="LPCOMP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

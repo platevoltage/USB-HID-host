@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I2S HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="I2S HALY" href="haly.html" />
+    <link rel="prev" title="I2S driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">I2S</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">I2S driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">I2S HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">I2S HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">I2S</a></li>
+      <li class="breadcrumb-item active">I2S HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/i2s/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="i2s-hal">
+<h1>I2S HAL<a class="headerlink" href="#i2s-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__i2s__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_i2s_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the Inter-IC Sound (I2S) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_I2S_HAS_CLKCONFIG">
+<span class="target" id="group__nrf__i2s__hal_1gae6fd9e57a9e93488c6200e98a1c53c60"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_HAS_CLKCONFIG</span></span></span><a class="headerlink" href="#c.NRF_I2S_HAS_CLKCONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether clock source configuration is available. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_I2S_HAS_FRAMESTART">
+<span class="target" id="group__nrf__i2s__hal_1ga8deb74881fd11355aa7a79c8d1f5d987"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_HAS_FRAMESTART</span></span></span><a class="headerlink" href="#c.NRF_I2S_HAS_FRAMESTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether frame start event is available. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_I2S_HAS_GPIO_PORT_SELECTION">
+<span class="target" id="group__nrf__i2s__hal_1ga2327c9ec121c8ded6b631ce0e34f594c"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_HAS_GPIO_PORT_SELECTION</span></span></span><a class="headerlink" href="#c.NRF_I2S_HAS_GPIO_PORT_SELECTION" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether GPIO port selection for pins is available. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_I2S_HAS_SWIDTH_32BIT">
+<span class="target" id="group__nrf__i2s__hal_1gaa890efc8f7bdf507e07763fbdab319f3"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_HAS_SWIDTH_32BIT</span></span></span><a class="headerlink" href="#c.NRF_I2S_HAS_SWIDTH_32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether 32-bit sample width is available. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_I2S_PIN_NOT_CONNECTED">
+<span class="target" id="group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_PIN_NOT_CONNECTED</span></span></span><a class="headerlink" href="#c.NRF_I2S_PIN_NOT_CONNECTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This value can be provided as a parameter for the <a class="reference internal" href="#group__nrf__i2s__hal_1gaa24e58ad729cb0f561c8d3fb2f264aba"><span class="std std-ref">nrf_i2s_pins_set</span></a> function call to specify that the given I2S signal (SDOUT, SDIN, or MCK) shall not be connected to a physical pin. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_I2S_PSEL_SCK_PIN_MASK">
+<span class="target" id="group__nrf__i2s__hal_1ga48568a306a6e92daf4154f4c487b81ba"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_PSEL_SCK_PIN_MASK</span></span></span><a class="headerlink" href="#c.NRF_I2S_PSEL_SCK_PIN_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S SCK pin selection mask. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_I2S_PSEL_SCK_PORT_MASK">
+<span class="target" id="group__nrf__i2s__hal_1ga6c3b902ba174c76aa2a186044047521a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_PSEL_SCK_PORT_MASK</span></span></span><a class="headerlink" href="#c.NRF_I2S_PSEL_SCK_PORT_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S SCK port selection mask. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_task_t">
+<span class="target" id="group__nrf__i2s__hal_1ga1b0d6237adff2552380ed192c4f2446c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_task_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_task_t.NRF_I2S_TASK_START">
+<span class="target" id="group__nrf__i2s__hal_1gga1b0d6237adff2552380ed192c4f2446cabbefc91625909b371318b3cfc78b1456"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_TASK_START</span></span></span><a class="headerlink" href="#c.nrf_i2s_task_t.NRF_I2S_TASK_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Starts continuous I2S transfer. Also starts the MCK generator if this is enabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_task_t.NRF_I2S_TASK_STOP">
+<span class="target" id="group__nrf__i2s__hal_1gga1b0d6237adff2552380ed192c4f2446ca9754abf68b9149b7f599fcccdd29586b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_TASK_STOP</span></span></span><a class="headerlink" href="#c.nrf_i2s_task_t.NRF_I2S_TASK_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stops I2S transfer. Also stops the MCK generator. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_t">
+<span class="target" id="group__nrf__i2s__hal_1ga967706637d88bdbccfff09608a2b4130"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_event_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_t.NRF_I2S_EVENT_RXPTRUPD">
+<span class="target" id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130a1f7f78cdb45f7a6792810623c6806798"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_EVENT_RXPTRUPD</span></span></span><a class="headerlink" href="#c.nrf_i2s_event_t.NRF_I2S_EVENT_RXPTRUPD" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The RXD.PTR register has been copied to internal double buffers. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_t.NRF_I2S_EVENT_TXPTRUPD">
+<span class="target" id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130ac532888736efb62e2afb6c76aeb0d651"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_EVENT_TXPTRUPD</span></span></span><a class="headerlink" href="#c.nrf_i2s_event_t.NRF_I2S_EVENT_TXPTRUPD" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The TXD.PTR register has been copied to internal double buffers. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_t.NRF_I2S_EVENT_STOPPED">
+<span class="target" id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130a8c791bd62d42d5761f0920076c1dd2cf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_EVENT_STOPPED</span></span></span><a class="headerlink" href="#c.nrf_i2s_event_t.NRF_I2S_EVENT_STOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S transfer stopped. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_t.NRF_I2S_EVENT_FRAMESTART">
+<span class="target" id="group__nrf__i2s__hal_1gga967706637d88bdbccfff09608a2b4130a93d84b351e2600ed47959e2e6a429b95"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_EVENT_FRAMESTART</span></span></span><a class="headerlink" href="#c.nrf_i2s_event_t.NRF_I2S_EVENT_FRAMESTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Frame start event, generated on the active edge of LRCK. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_mask_t">
+<span class="target" id="group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_mask_t.NRF_I2S_INT_RXPTRUPD_MASK">
+<span class="target" id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029af03b50ce11123bdaa44c148e73c340c7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_INT_RXPTRUPD_MASK</span></span></span><a class="headerlink" href="#c.nrf_i2s_int_mask_t.NRF_I2S_INT_RXPTRUPD_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on RXPTRUPD event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_mask_t.NRF_I2S_INT_TXPTRUPD_MASK">
+<span class="target" id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029a43e537211fbe458d62a9fae275163514"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_INT_TXPTRUPD_MASK</span></span></span><a class="headerlink" href="#c.nrf_i2s_int_mask_t.NRF_I2S_INT_TXPTRUPD_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on TXPTRUPD event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_mask_t.NRF_I2S_INT_STOPPED_MASK">
+<span class="target" id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029a3154828ac8dfc2c4a70101c9acd60c1c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_INT_STOPPED_MASK</span></span></span><a class="headerlink" href="#c.nrf_i2s_int_mask_t.NRF_I2S_INT_STOPPED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on STOPPED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_mask_t.NRF_I2S_INT_FRAMESTART_MASK">
+<span class="target" id="group__nrf__i2s__hal_1ggaee5d64ab1aaaca42c89ea5aa2bfc4029acc6166c86d5e63e4288d0b892c8d7504"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_INT_FRAMESTART_MASK</span></span></span><a class="headerlink" href="#c.nrf_i2s_int_mask_t.NRF_I2S_INT_FRAMESTART_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on FRAMESTART event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_mode_t">
+<span class="target" id="group__nrf__i2s__hal_1ga05fa70f696366c5a06fa5f5e673735af"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_mode_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_mode_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S modes of operation. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mode_t.NRF_I2S_MODE_MASTER">
+<span class="target" id="group__nrf__i2s__hal_1gga05fa70f696366c5a06fa5f5e673735afa24a0b56d47e1d15b9b5c9b9d3775d4b2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MODE_MASTER</span></span></span><a class="headerlink" href="#c.nrf_i2s_mode_t.NRF_I2S_MODE_MASTER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Master mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mode_t.NRF_I2S_MODE_SLAVE">
+<span class="target" id="group__nrf__i2s__hal_1gga05fa70f696366c5a06fa5f5e673735afa381753eabfe4bd24348d05f27fe9f946"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MODE_SLAVE</span></span></span><a class="headerlink" href="#c.nrf_i2s_mode_t.NRF_I2S_MODE_SLAVE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Slave mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t">
+<span class="target" id="group__nrf__i2s__hal_1ga1e7fb828b72fa48367cbaeed264f9372"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_mck_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S master clock generator settings. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_DISABLED">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a91a3ed8417e245a7a6f40e9265e9f8b4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_DISABLED</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK disabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV2">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a8e0d2df6f941afbc0b221275d8dac217"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV2</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 2 = 16.0 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV3">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a07799733c266afe2a3ff6e287ba16570"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV3</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 3 = 10.6666667 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV4">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a37099054b461641464a581ae3501ba0b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV4</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 4 = 8.0 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV5">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aab3fd645d05c261d6c02cee0426712d5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV5</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 5 = 6.4 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV6">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a0e8a600b3c708080f06e5ae79eacdb29"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV6</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 6 = 5.3333333 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV8">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aa02748b1a696e23de61f2587c972cb80"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV8</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 8 = 4.0 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV10">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372af462345fd7fa15e375430f3e4c7d0b1c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV10</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 10 = 3.2 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV11">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a9f18c1c2b24039ed3d462141cda5044a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV11</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 11 = 2.9090909 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV15">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a1a81c1a63a0be014b2fabec4180c1e1d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV15</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 15 = 2.1333333 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV16">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a80fbb2b7d6c7f8fe7843d7b44b591f49"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV16</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 16 = 2.0 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV21">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a5d5cd5dfa34dde86151c1623d26be14d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV21</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 21 = 1.5238095 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV23">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a14d8add095a0d9394d83a557bbebdd2b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV23</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV23" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 23 = 1.3913043 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV30">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a5cd00d9c0315ebd896ddd79e1080bb5b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV30</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV30" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 30 = 1.0666667 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV31">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372afe9d9c0d12809516b94fe3aa9617c7ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV31</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV31" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 31 = 1.0322581 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV32">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372adcc9a908c6d0ff260403eb8b5355334c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV32</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV32" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 32 = 1.0 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV42">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372a47c43818a811318535b52e60d385b608"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV42</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV42" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 42 = 0.7619048 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV63">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aee4dee75ed99dcbe8b6ab72ba0e6fca9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV63</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV63" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 63 = 0.5079365 MHz. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV125">
+<span class="target" id="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372ac955cbfda803705f9b419a7249e62620"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_MCK_32MDIV125</span></span></span><a class="headerlink" href="#c.nrf_i2s_mck_t.NRF_I2S_MCK_32MDIV125" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 MHz / 125 = 0.256 MHz. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t">
+<span class="target" id="group__nrf__i2s__hal_1ga11ab985aa62eb48d2177d6784e9a1820"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_ratio_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S MCK/LRCK ratios. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_32X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a2e0d2025041a5f77159649b23c4e3be1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_32X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_32X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 32. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_48X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a464eb658eb4dc14be2778c4206df5e3d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_48X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_48X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 48. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_64X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a9e5b735f322f0837f125ed8800bb03cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_64X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_64X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 64. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_96X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820ace83ade3551e12b1e6d6786552236ef3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_96X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_96X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 96. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_128X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a95043fb96126d45f7962ecb44fcc8326"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_128X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_128X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 128. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_192X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a002df3214118ae5d9dc5a5a681be27b4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_192X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_192X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 192. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_256X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a54378d898f762ca10e8c19bb2fbf92f7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_256X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_256X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 256. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_384X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a7ad64239518ee68973609b7dec83a850"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_384X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_384X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 384. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_ratio_t.NRF_I2S_RATIO_512X">
+<span class="target" id="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820aa20a211b8d083895903d1131d2f6fbb2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_RATIO_512X</span></span></span><a class="headerlink" href="#c.nrf_i2s_ratio_t.NRF_I2S_RATIO_512X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK = MCK / 512. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t">
+<span class="target" id="group__nrf__i2s__hal_1gac06986979fa6e2b0f4dd1f444b95ef00"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_swidth_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S sample widths. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_8BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a1d5cf8f57d1b2987c2c8026ae6f6e8d4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_8BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_8BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_16BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a736f17419ddfa2cd390715b0b5c933eb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_16BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_16BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>16 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_24BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a6c2eae4d02cd3c2bf5d5117911a986ad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_24BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_24BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>24 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_32BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00ae68942ddf8363103641f3a3a03ecca0a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_32BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32 bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_8BIT_IN16BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00af63112e2a72c606cdab0953c01ac8e9c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_8BIT_IN16BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_8BIT_IN16BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 bit sample in a 16-bit half-frame. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_8BIT_IN32BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a80848a2aed6c474753e23f5e1b50ceab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_8BIT_IN32BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_8BIT_IN32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 bit sample in a 32-bit half-frame. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_16BIT_IN32BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a193365ba6e28558ab9f8f639203cf8bc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_16BIT_IN32BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_16BIT_IN32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>16 bit sample in a 32-bit half-frame. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_24BIT_IN32BIT">
+<span class="target" id="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a9c541cb19eed47f8cc3335260d9c8c3b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_SWIDTH_24BIT_IN32BIT</span></span></span><a class="headerlink" href="#c.nrf_i2s_swidth_t.NRF_I2S_SWIDTH_24BIT_IN32BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>24 bit sample in a 32-bit half-frame. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_align_t">
+<span class="target" id="group__nrf__i2s__hal_1gae48fd73f7f8f0c2f321f192e4b9ed190"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_align_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_align_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S alignments of sample within a frame. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_align_t.NRF_I2S_ALIGN_LEFT">
+<span class="target" id="group__nrf__i2s__hal_1ggae48fd73f7f8f0c2f321f192e4b9ed190aa0c153dfb284d0433cf811e257f68e92"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_ALIGN_LEFT</span></span></span><a class="headerlink" href="#c.nrf_i2s_align_t.NRF_I2S_ALIGN_LEFT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Left-aligned. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_align_t.NRF_I2S_ALIGN_RIGHT">
+<span class="target" id="group__nrf__i2s__hal_1ggae48fd73f7f8f0c2f321f192e4b9ed190a89c6fd3bdfdc412617fc6328b8b882f7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_ALIGN_RIGHT</span></span></span><a class="headerlink" href="#c.nrf_i2s_align_t.NRF_I2S_ALIGN_RIGHT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Right-aligned. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_format_t">
+<span class="target" id="group__nrf__i2s__hal_1ga18ab6f73e00677525e1ab53f24dfc1cc"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_format_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_format_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S frame formats. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_format_t.NRF_I2S_FORMAT_I2S">
+<span class="target" id="group__nrf__i2s__hal_1gga18ab6f73e00677525e1ab53f24dfc1cca68f5e22fc456e548528bf1037201ae68"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_FORMAT_I2S</span></span></span><a class="headerlink" href="#c.nrf_i2s_format_t.NRF_I2S_FORMAT_I2S" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Original I2S format. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_format_t.NRF_I2S_FORMAT_ALIGNED">
+<span class="target" id="group__nrf__i2s__hal_1gga18ab6f73e00677525e1ab53f24dfc1ccabdf99037b33682b6cffafc9240283121"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_FORMAT_ALIGNED</span></span></span><a class="headerlink" href="#c.nrf_i2s_format_t.NRF_I2S_FORMAT_ALIGNED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Alternate (left-aligned or right-aligned) format. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_channels_t">
+<span class="target" id="group__nrf__i2s__hal_1ga60b286e35e447040e992a3ded4375dbe"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_channels_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_channels_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S enabled channels. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_channels_t.NRF_I2S_CHANNELS_STEREO">
+<span class="target" id="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbea2b60ebd0c804a2a9d7cecbe1f073dab5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_CHANNELS_STEREO</span></span></span><a class="headerlink" href="#c.nrf_i2s_channels_t.NRF_I2S_CHANNELS_STEREO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stereo. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_channels_t.NRF_I2S_CHANNELS_LEFT">
+<span class="target" id="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbea1c11023af3fc2f8d9bd8bad901275234"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_CHANNELS_LEFT</span></span></span><a class="headerlink" href="#c.nrf_i2s_channels_t.NRF_I2S_CHANNELS_LEFT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Left only. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_channels_t.NRF_I2S_CHANNELS_RIGHT">
+<span class="target" id="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbeabf436a70e4b064360cfa54ecd459c348"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_CHANNELS_RIGHT</span></span></span><a class="headerlink" href="#c.nrf_i2s_channels_t.NRF_I2S_CHANNELS_RIGHT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Right only. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_i2s_clksrc_t">
+<span class="target" id="group__nrf__i2s__hal_1gad0c72277d28dba147ebb0696a425c38c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_clksrc_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_clksrc_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S Clock source selection. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_clksrc_t.NRF_I2S_CLKSRC_PCLK32M">
+<span class="target" id="group__nrf__i2s__hal_1ggad0c72277d28dba147ebb0696a425c38ca006d0a833b037022286e7c7cb196b1ef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_CLKSRC_PCLK32M</span></span></span><a class="headerlink" href="#c.nrf_i2s_clksrc_t.NRF_I2S_CLKSRC_PCLK32M" title="Permalink to this definition"></a><br /></dt>
+<dd><p>32MHz peripheral clock. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_i2s_clksrc_t.NRF_I2S_CLKSRC_ACLK">
+<span class="target" id="group__nrf__i2s__hal_1ggad0c72277d28dba147ebb0696a425c38ca05504cc606fa043629a895cb9a8986e2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_I2S_CLKSRC_ACLK</span></span></span><a class="headerlink" href="#c.nrf_i2s_clksrc_t.NRF_I2S_CLKSRC_ACLK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Audio PLL clock. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_task_trigger">
+<span class="target" id="group__nrf__i2s__hal_1ga9a685f05dd1d4b12353186b7046c6e23"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_task_t" title="nrf_i2s_task_t"><span class="n"><span class="pre">nrf_i2s_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for activating the specified I2S task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_task_address_get">
+<span class="target" id="group__nrf__i2s__hal_1ga50d49f34a959cc036ab0ce55ff1840d8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_task_t" title="nrf_i2s_task_t"><span class="n"><span class="pre">nrf_i2s_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified I2S task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Specified task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_clear">
+<span class="target" id="group__nrf__i2s__hal_1ga38474d2787174fb01658bb28d7dfaba9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_event_t" title="nrf_i2s_event_t"><span class="n"><span class="pre">nrf_i2s_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified I2S event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_check">
+<span class="target" id="group__nrf__i2s__hal_1gaa21fbad4b6843761743180678de57d46"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_event_t" title="nrf_i2s_event_t"><span class="n"><span class="pre">nrf_i2s_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the I2S event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_event_address_get">
+<span class="target" id="group__nrf__i2s__hal_1ga53a98a96f313e6e74143d7dcb60a98a2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_event_t" title="nrf_i2s_event_t"><span class="n"><span class="pre">nrf_i2s_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified I2S event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_enable">
+<span class="target" id="group__nrf__i2s__hal_1gae6ad420da3decfe88fdaf1795878e28f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029"><span class="std std-ref">nrf_i2s_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_disable">
+<span class="target" id="group__nrf__i2s__hal_1ga296d21e44439e25f10cc4dd717d45b18"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029"><span class="std std-ref">nrf_i2s_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_int_enable_check">
+<span class="target" id="group__nrf__i2s__hal_1ga87f4010060652e1620d24a3fddefed09"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__i2s__hal_1gaee5d64ab1aaaca42c89ea5aa2bfc4029"><span class="std std-ref">nrf_i2s_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_enable">
+<span class="target" id="group__nrf__i2s__hal_1ga88eb6dcb016cc499886e58bd5c914089"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the I2S peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_disable">
+<span class="target" id="group__nrf__i2s__hal_1gab762c64e38a866a51001b50ef6e2ed2a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the I2S peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_subscribe_set">
+<span class="target" id="group__nrf__i2s__hal_1ga1cc8e79f477a2ae232123bda7648bd24"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_task_t" title="nrf_i2s_task_t"><span class="n"><span class="pre">nrf_i2s_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given I2S task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_subscribe_clear">
+<span class="target" id="group__nrf__i2s__hal_1ga842b1ddeaec04def545f9e6d948ee0e1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_task_t" title="nrf_i2s_task_t"><span class="n"><span class="pre">nrf_i2s_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given I2S task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_publish_set">
+<span class="target" id="group__nrf__i2s__hal_1gadb2bbc32fe7c8ce5dada74f7e85cf89e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_event_t" title="nrf_i2s_event_t"><span class="n"><span class="pre">nrf_i2s_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given I2S event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_publish_clear">
+<span class="target" id="group__nrf__i2s__hal_1ga41e38e06a6caa21708e69e89f1d8b5fc"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_event_t" title="nrf_i2s_event_t"><span class="n"><span class="pre">nrf_i2s_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given I2S event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_pins_set">
+<span class="target" id="group__nrf__i2s__hal_1gaa24e58ad729cb0f561c8d3fb2f264aba"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_pins_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_pins_t" title="nrf_i2s_pins_t"><span class="n"><span class="pre">nrf_i2s_pins_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_pins</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_pins_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring I2S pins. </p>
+<p>Usage of the SDOUT, SDIN, and MCK signals is optional. If a given signal is not needed, pass the <a class="reference internal" href="#group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"><span class="std std-ref">NRF_I2S_PIN_NOT_CONNECTED</span></a> value instead of its pin number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_pins</strong> – <strong>[in]</strong> Pointer to the structure with pins selection. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_sck_pin_get">
+<span class="target" id="group__nrf__i2s__hal_1gab71de58ff97197873fa3872370ed7002"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_sck_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_sck_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SCK pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SCK pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_lrck_pin_get">
+<span class="target" id="group__nrf__i2s__hal_1ga95fb128feef63ca105d8d35600baa5aa"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_lrck_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_lrck_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the LRCK pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>LRCK pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_mck_pin_get">
+<span class="target" id="group__nrf__i2s__hal_1ga10e1013c82eb5ef067aa11eb141c4a38"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_mck_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_mck_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the MCK pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MCK pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_sdout_pin_get">
+<span class="target" id="group__nrf__i2s__hal_1gace9c22fceb75c64829fafbade7aa6860"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_sdout_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_sdout_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SDOUT pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SDOUT pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_sdin_pin_get">
+<span class="target" id="group__nrf__i2s__hal_1ga909727234ecb199fcdf436b15f6223cd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_sdin_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_sdin_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SDIN pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SDIN pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_configure">
+<span class="target" id="group__nrf__i2s__hal_1ga1e35046cd7d3decaf2e9c7e304c51487"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_config_t" title="nrf_i2s_config_t"><span class="n"><span class="pre">nrf_i2s_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the I2S peripheral configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_transfer_set">
+<span class="target" id="group__nrf__i2s__hal_1ga4f58fc8e84570286d4abfdedbdf80530"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_transfer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_rx_buffer</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_tx_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_transfer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting up the I2S transfer. </p>
+<p>This function sets up the RX and TX buffers and enables reception or transmission (or both) accordingly. If the transfer in a given direction is not required, pass NULL instead of the pointer to the corresponding buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the buffers (in 32-bit words). </p></li>
+<li><p><strong>p_rx_buffer</strong> – <strong>[in]</strong> Pointer to the receive buffer. Pass NULL to disable reception. </p></li>
+<li><p><strong>p_tx_buffer</strong> – <strong>[in]</strong> Pointer to the transmit buffer. Pass NULL to disable transmission. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_rx_buffer_set">
+<span class="target" id="group__nrf__i2s__hal_1gaef70cd84afcc91341aa82324155e5b36"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_rx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_rx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pointer to the receive buffer. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The size of the buffer can be set only by calling <a class="reference internal" href="#group__nrf__i2s__hal_1ga4f58fc8e84570286d4abfdedbdf80530"><span class="std std-ref">nrf_i2s_transfer_set</span></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the receive buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_rx_buffer_get">
+<span class="target" id="group__nrf__i2s__hal_1ga300c23337833839f4c517069604bc4a5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_rx_buffer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_rx_buffer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to the receive buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the receive buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_tx_buffer_set">
+<span class="target" id="group__nrf__i2s__hal_1gaedfeb0764a02f811b3cd7f37096ff284"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_tx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_tx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pointer to the transmit buffer. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The size of the buffer can be set only by calling <a class="reference internal" href="#group__nrf__i2s__hal_1ga4f58fc8e84570286d4abfdedbdf80530"><span class="std std-ref">nrf_i2s_transfer_set</span></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the transmit buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_tx_buffer_get">
+<span class="target" id="group__nrf__i2s__hal_1ga599b42b26c7c26fdc277eb1c72602d4a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_tx_buffer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_tx_buffer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to the transmit buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the transmit buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_i2s_clk_configure">
+<span class="target" id="group__nrf__i2s__hal_1gaad29a9133da28846b000d43a4edd5553"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_clk_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_i2s_clksrc_t" title="nrf_i2s_clksrc_t"><span class="n"><span class="pre">nrf_i2s_clksrc_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">clksrc</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable_bypass</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_i2s_clk_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring I2S Clock. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>clksrc</strong> – <strong>[in]</strong> I2S Clock source selection. </p></li>
+<li><p><strong>enable_bypass</strong> – <strong>[in]</strong> Bypass clock generator. MCK will be equal to source input. If bypass is enabled the MCKFREQ setting has no effect. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t">
+<span class="target" id="structnrf__i2s__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_config_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_i2s.h&gt;</em></div>
+<p>I2S configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t.mode">
+<span class="target" id="structnrf__i2s__config__t_1a6f1b9e5a75274eb901305233a71bc98d"></span><a class="reference internal" href="#c.nrf_i2s_mode_t" title="nrf_i2s_mode_t"><span class="n"><span class="pre">nrf_i2s_mode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mode of operation (master or slave). </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t.format">
+<span class="target" id="structnrf__i2s__config__t_1a57c5a5993018ec5a730e340bdac3fbe8"></span><a class="reference internal" href="#c.nrf_i2s_format_t" title="nrf_i2s_format_t"><span class="n"><span class="pre">nrf_i2s_format_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">format</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t.format" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S frame format. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t.alignment">
+<span class="target" id="structnrf__i2s__config__t_1aa9390ecdf99ac9c3a288eddbeaa7d95d"></span><a class="reference internal" href="#c.nrf_i2s_align_t" title="nrf_i2s_align_t"><span class="n"><span class="pre">nrf_i2s_align_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alignment</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t.alignment" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Alignment of sample within a frame. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t.sample_width">
+<span class="target" id="structnrf__i2s__config__t_1a681ec1b659b60964234576da4db4e8e9"></span><a class="reference internal" href="#c.nrf_i2s_swidth_t" title="nrf_i2s_swidth_t"><span class="n"><span class="pre">nrf_i2s_swidth_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample_width</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t.sample_width" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sample width. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t.channels">
+<span class="target" id="structnrf__i2s__config__t_1a83298082dfa9f6277a79623cefcfad26"></span><a class="reference internal" href="#c.nrf_i2s_channels_t" title="nrf_i2s_channels_t"><span class="n"><span class="pre">nrf_i2s_channels_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">channels</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t.channels" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enabled channels. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t.mck_setup">
+<span class="target" id="structnrf__i2s__config__t_1ae966f3c9781e1f92f4401ec686fc4cff"></span><a class="reference internal" href="#c.nrf_i2s_mck_t" title="nrf_i2s_mck_t"><span class="n"><span class="pre">nrf_i2s_mck_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mck_setup</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t.mck_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Master clock generator setup. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_config_t.ratio">
+<span class="target" id="structnrf__i2s__config__t_1ac891fb12199d8c9370d5003219086955"></span><a class="reference internal" href="#c.nrf_i2s_ratio_t" title="nrf_i2s_ratio_t"><span class="n"><span class="pre">nrf_i2s_ratio_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ratio</span></span></span><a class="headerlink" href="#c.nrf_i2s_config_t.ratio" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK/LRCK ratio. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_i2s_pins_t">
+<span class="target" id="structnrf__i2s__pins__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_i2s_pins_t</span></span></span><a class="headerlink" href="#c.nrf_i2s_pins_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_i2s.h&gt;</em></div>
+<p>I2S pins. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_pins_t.sck_pin">
+<span class="target" id="structnrf__i2s__pins__t_1a6583910884a06eb529c35c49754957d2"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sck_pin</span></span></span><a class="headerlink" href="#c.nrf_i2s_pins_t.sck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_pins_t.lrck_pin">
+<span class="target" id="structnrf__i2s__pins__t_1a6efd1aaec13f77bb86b7fdbcae69ea0d"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lrck_pin</span></span></span><a class="headerlink" href="#c.nrf_i2s_pins_t.lrck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_pins_t.mck_pin">
+<span class="target" id="structnrf__i2s__pins__t_1a21e7d864b30f42733f8fa06cdca41d20"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mck_pin</span></span></span><a class="headerlink" href="#c.nrf_i2s_pins_t.mck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK pin number. </p>
+<p>Optional. Use <a class="reference internal" href="#group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"><span class="std std-ref">NRF_I2S_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_pins_t.sdout_pin">
+<span class="target" id="structnrf__i2s__pins__t_1a7bebea4f8503e6d75c75d011acf0f369"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sdout_pin</span></span></span><a class="headerlink" href="#c.nrf_i2s_pins_t.sdout_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SDOUT pin number. </p>
+<p>Optional. Use <a class="reference internal" href="#group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"><span class="std std-ref">NRF_I2S_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_i2s_pins_t.sdin_pin">
+<span class="target" id="structnrf__i2s__pins__t_1ae3a0581e8377eed6e43b327adaf7b111"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sdin_pin</span></span></span><a class="headerlink" href="#c.nrf_i2s_pins_t.sdin_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SDIN pin number. </p>
+<p>Optional. Use <a class="reference internal" href="#group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"><span class="std std-ref">NRF_I2S_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="haly.html" class="btn btn-neutral float-right" title="I2S HALY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="I2S driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MPC HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MPU" href="../mpu/index.html" />
+    <link rel="prev" title="MPC" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">MPC</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MPC HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">MPC</a></li>
+      <li class="breadcrumb-item active">MPC HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/mpc/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mpc-hal">
+<h1>MPC HAL<a class="headerlink" href="#mpc-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__mpc__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_mpc_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the Memory Privilege Controller (MPC) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_MPC_HAS_RTCHOKE">
+<span class="target" id="group__nrf__mpc__hal_1ga7be93b4931a85c0d99e1e57b3725bf62"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_HAS_RTCHOKE</span></span></span><a class="headerlink" href="#c.NRF_MPC_HAS_RTCHOKE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether RTCHOKE functionality is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_MPC_HAS_SECDOM">
+<span class="target" id="group__nrf__mpc__hal_1ga10f21e5dc459acad0ea2d36f29b8037b"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_HAS_SECDOM</span></span></span><a class="headerlink" href="#c.NRF_MPC_HAS_SECDOM" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether SECDOM functionality is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_MPC_HAS_OVERRIDE_OFFSET">
+<span class="target" id="group__nrf__mpc__hal_1gab273d8e3ac44dfb001e8dd37079e10ed"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_HAS_OVERRIDE_OFFSET</span></span></span><a class="headerlink" href="#c.NRF_MPC_HAS_OVERRIDE_OFFSET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether OVERRIDE OFFSET functionality is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_MPC_REGION_COUNT">
+<span class="target" id="group__nrf__mpc__hal_1ga23e057328b822941974380fd47f35540"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_REGION_COUNT</span></span></span><a class="headerlink" href="#c.NRF_MPC_REGION_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of regions. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_MPC_OVERRIDE_COUNT">
+<span class="target" id="group__nrf__mpc__hal_1gad1d9c129c96df36540f7e075aad3ad12"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_OVERRIDE_COUNT</span></span></span><a class="headerlink" href="#c.NRF_MPC_OVERRIDE_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of override regions. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_MPC_MASTER_PORTS_COUNT">
+<span class="target" id="group__nrf__mpc__hal_1gabc595a5b1c0c672d60b76bb8b90d2c88"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTER_PORTS_COUNT</span></span></span><a class="headerlink" href="#c.NRF_MPC_MASTER_PORTS_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of master ports. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_MPC_RTCHOKE_COUNT">
+<span class="target" id="group__nrf__mpc__hal_1ga61549ebb9c4c7beb97135757d0ea3b43"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_RTCHOKE_COUNT</span></span></span><a class="headerlink" href="#c.NRF_MPC_RTCHOKE_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of Real Time Choke slaves. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_mpc_event_t">
+<span class="target" id="group__nrf__mpc__hal_1ga934ee74ecdc1e369d8160adb9fc66720"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_event_t</span></span></span><a class="headerlink" href="#c.nrf_mpc_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MPC events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_event_t.NRF_MPC_EVENT_MEMACCERR">
+<span class="target" id="group__nrf__mpc__hal_1gga934ee74ecdc1e369d8160adb9fc66720a22af0570a23c55c1853b69faf805c232"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_EVENT_MEMACCERR</span></span></span><a class="headerlink" href="#c.nrf_mpc_event_t.NRF_MPC_EVENT_MEMACCERR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Memory access error. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_mpc_int_mask_t">
+<span class="target" id="group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_mpc_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MPC interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_int_mask_t.NRF_MPC_INT_MEMACCERR_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga772315a021c75e1da4c2e3e063187507ae01bcfb89be5b3c40fed1fc219d9643c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_INT_MEMACCERR_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_int_mask_t.NRF_MPC_INT_MEMACCERR_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on MEMACCERR event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_mpc_errorsource_t">
+<span class="target" id="group__nrf__mpc__hal_1ga7a52bbfed00c736a7ee0f49896fa4081"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_errorsource_t</span></span></span><a class="headerlink" href="#c.nrf_mpc_errorsource_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error sources. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_errorsource_t.NRF_MPC_ERRORSOURCE_SLAVE">
+<span class="target" id="group__nrf__mpc__hal_1gga7a52bbfed00c736a7ee0f49896fa4081a64cb903a31aa57615e678d5c7d1eafa3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_ERRORSOURCE_SLAVE</span></span></span><a class="headerlink" href="#c.nrf_mpc_errorsource_t.NRF_MPC_ERRORSOURCE_SLAVE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error was triggered by an AXI slave. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_errorsource_t.NRF_MPC_ERRORSOURCE_MPC">
+<span class="target" id="group__nrf__mpc__hal_1gga7a52bbfed00c736a7ee0f49896fa4081aef720a89162160fcd8414c59dfe9256b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_ERRORSOURCE_MPC</span></span></span><a class="headerlink" href="#c.nrf_mpc_errorsource_t.NRF_MPC_ERRORSOURCE_MPC" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error was triggered by MCP module. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_mpc_permission_mask_t">
+<span class="target" id="group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_permission_mask_t</span></span></span><a class="headerlink" href="#c.nrf_mpc_permission_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Permissions mask. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This enum may be used for both permission settings and permission settings mask. </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_READ_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a1c509f1ebed48d6867afccc726a4043b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_PERM_READ_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_READ_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_WRITE_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a558f07197637e5a0b8a2a2f921fd447d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_PERM_WRITE_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_WRITE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Write access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_EXECUTE_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a79c6b09eb35c7aad331e55d236dd2c70"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_PERM_EXECUTE_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_EXECUTE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Software execute. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_SECURE_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga7647978ee34cb4523182c945f58551b9a262e5d8389b70a706fc90ee7bedfc21b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_PERM_SECURE_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_permission_mask_t.NRF_MPC_PERM_SECURE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Security mapping. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t">
+<span class="target" id="group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_masterport_mask_t</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Masterport mask. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_0_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a43c186c29e44d048d4d7fe4ff28a652e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_0_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_1_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a7de1a72c217938e2df33c57e5c1d1dfd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_1_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_2_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a01c63fbb707890de841006fda673c7a0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_2_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_3_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a2e60961c3d173af19e69bb72d89359b0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_3_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_4_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a8d0d2f2319c6c8a0a03d5500cb3ec0e1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_4_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_5_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626ae0c8a06e6520ffd7a128333b53eae1ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_5_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_6_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626aa78b1ac5e174da4d23be61d3d848c307"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_6_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_7_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a8436ed84236cfdc080dfd18607d3104d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_7_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_8_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a3ccbfb54e1ef110e13b796eadeb099f1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_8_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_8_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 8. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_9_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626ae9182adf98e9b7dd08cac1938fa4c3b8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_9_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_9_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 9. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_10_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626aa53e7ec9f08170d9206c9f2af034ce1c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_10_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_10_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 10. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_11_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a4f507e6bc4cb0b2470370bbd76d21276"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_11_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_11_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 11. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_12_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626aff37a9b46c2e54b063257ff36d20fb96"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_12_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_12_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 12. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_13_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a40a0275a3e23ae843380fd27b3d2a7d5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_13_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_13_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 13. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_14_MASK">
+<span class="target" id="group__nrf__mpc__hal_1gga89f734f107017134f3ff2c1136864626a7b7cf1b2bf1f319c354013c347da4b28"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_MPC_MASTERPORT_14_MASK</span></span></span><a class="headerlink" href="#c.nrf_mpc_masterport_mask_t.NRF_MPC_MASTERPORT_14_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable master port 14. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_event_check">
+<span class="target" id="group__nrf__mpc__hal_1ga1efe7a5a8558565cc61d2c4f311d1cc1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_mpc_event_t" title="nrf_mpc_event_t"><span class="n"><span class="pre">nrf_mpc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the specified MPC event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_event_clear">
+<span class="target" id="group__nrf__mpc__hal_1gaa90d4919d314628db3a9c6d042715522"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_mpc_event_t" title="nrf_mpc_event_t"><span class="n"><span class="pre">nrf_mpc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified MPC event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be cleared. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_event_address_get">
+<span class="target" id="group__nrf__mpc__hal_1ga3904ca723acf510699a41b86c45ff6ba"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_mpc_event_t" title="nrf_mpc_event_t"><span class="n"><span class="pre">nrf_mpc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified MPC event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to get the address of.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_int_enable">
+<span class="target" id="group__nrf__mpc__hal_1ga25ca9fe6b6ebcf95172d18727eee35c5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507"><span class="std std-ref">nrf_mpc_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_int_enable_check">
+<span class="target" id="group__nrf__mpc__hal_1ga1e22f8e05eb85b0ed1b14654c93abd7f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507"><span class="std std-ref">nrf_mpc_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_int_disable">
+<span class="target" id="group__nrf__mpc__hal_1gaf40309fcc06c2cac4f55186a6c093042"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__mpc__hal_1ga772315a021c75e1da4c2e3e063187507"><span class="std std-ref">nrf_mpc_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_set">
+<span class="target" id="group__nrf__mpc__hal_1gacbff5f9ce331b63da982ea340f425c9a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_config_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <a class="reference internal" href="#c.nrf_mpc_region_config_t" title="nrf_mpc_region_config_t"><span class="n"><span class="pre">nrf_mpc_region_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_config_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting configuration of the region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure of the region configuration parameters. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_get">
+<span class="target" id="group__nrf__mpc__hal_1gab554feb151d3a8a84aa1ef49985b24b8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_mpc_region_config_t" title="nrf_mpc_region_config_t"><span class="n"><span class="pre">nrf_mpc_region_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting configuration of the region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Structure with configuration of the region. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_startaddr_set">
+<span class="target" id="group__nrf__mpc__hal_1ga7157d67ae0a98e234ee019202d106c40"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_startaddr_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_startaddr_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting start address of the region. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Address must be on a 4kB memory boundary.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_startaddr_get">
+<span class="target" id="group__nrf__mpc__hal_1ga32f4b879381393d713cce3491fb1e57a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_startaddr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_startaddr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting start address of the region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Start address of the region. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_addrmask_set">
+<span class="target" id="group__nrf__mpc__hal_1ga22f8d9a1f3e4fd561edbbdb88e143f6a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_addrmask_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_addrmask_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting address mask of the region. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mask must be on a 4kB memory boundary.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_addrmask_get">
+<span class="target" id="group__nrf__mpc__hal_1gae5cffc828be3aca6ebdeac0461001f90"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_addrmask_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_addrmask_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting address mask of the region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address mask of the region. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_masterport_set">
+<span class="target" id="group__nrf__mpc__hal_1ga447c3ac18526b96414f7222acf308d75"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_masterport_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_masterport_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified master ports of the region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of master ports to be enabled, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_masterport_get">
+<span class="target" id="group__nrf__mpc__hal_1gaf2ead7ef46873e85ffff2a217a3f1cd4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_masterport_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_region_masterport_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting enabled master ports of the region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled master ports, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_set">
+<span class="target" id="group__nrf__mpc__hal_1ga39c507026fa171618a79101c6233ca8b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_config_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <a class="reference internal" href="#c.nrf_mpc_override_config_t" title="nrf_mpc_override_config_t"><span class="n"><span class="pre">nrf_mpc_override_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_config_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting configuration of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure of the override region configuration parameters. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_get">
+<span class="target" id="group__nrf__mpc__hal_1gac007fe07342b8eecba4932d41ed0efec"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_mpc_override_config_t" title="nrf_mpc_override_config_t"><span class="n"><span class="pre">nrf_mpc_override_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting configuration of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Structure with configuration of the override region. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_startaddr_set">
+<span class="target" id="group__nrf__mpc__hal_1ga860c13495b30810658e923daae9307c9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_startaddr_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_startaddr_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting start address of the override region. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Address must be on a 4kB memory boundary.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_startaddr_get">
+<span class="target" id="group__nrf__mpc__hal_1gae3d4c0b94e029e5c76125e12dee391cc"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_startaddr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_startaddr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting start address of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Start address of the override region. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_endaddr_set">
+<span class="target" id="group__nrf__mpc__hal_1ga3788c87dd9420235f8965883202c9c78"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_endaddr_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_endaddr_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting end address of the override region. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Address must be on a 4kB memory boundary.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_endaddr_get">
+<span class="target" id="group__nrf__mpc__hal_1gac05d65c913a5fa0c53ea112257da7969"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_endaddr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_endaddr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting end address of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>End address of the override region. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_offset_set">
+<span class="target" id="group__nrf__mpc__hal_1ga4360714e10c9b3a46f342b9084b34911"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_offset_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">offset</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_offset_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting offset of the override region. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Offset will be left shifted before applying, creating a 33-bit signed integer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>offset</strong> – <strong>[in]</strong> Address offset value divided by 2. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_offset_get">
+<span class="target" id="group__nrf__mpc__hal_1gaebfa2cf1848130f9c4bc17c814545e1a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_offset_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_offset_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting offset of the override region. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Offset is left shifted before applying, creating a 33-bit signed integer.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address offset value divided by 2. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_perm_set">
+<span class="target" id="group__nrf__mpc__hal_1ga765e067757c5e85d628788848163ee95"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_perm_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">permissions</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_perm_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting permission settings for the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>permissions</strong> – <strong>[in]</strong> Mask of permissions to be set, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9"><span class="std std-ref">nrf_mpc_permission_mask_t</span></a> enumerator values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_perm_get">
+<span class="target" id="group__nrf__mpc__hal_1gafced42e6003285cc6b93aef32c08715e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_perm_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_perm_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting permission settings of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of permissions, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9"><span class="std std-ref">nrf_mpc_permission_mask_t</span></a> enumerator values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_permmask_set">
+<span class="target" id="group__nrf__mpc__hal_1ga9baa4d2ef6d04d3c6125f2ed9493aaf5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_permmask_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">permissions</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_permmask_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting permission settings mask for the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>permissions</strong> – <strong>[in]</strong> Mask of permissions settings mask to be set, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9"><span class="std std-ref">nrf_mpc_permission_mask_t</span></a> enumerator values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_permmask_get">
+<span class="target" id="group__nrf__mpc__hal_1ga13a7fe4a399c7d24fcf9f9c7788c09c1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_permmask_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_permmask_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting permission settings mask of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of permissions settings mask, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga7647978ee34cb4523182c945f58551b9"><span class="std std-ref">nrf_mpc_permission_mask_t</span></a> enumerator values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_ownerid_set">
+<span class="target" id="group__nrf__mpc__hal_1ga0fd600b1d367f88e6181ec42e9c1f842"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_ownerid_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">nrf_owner_t</span></span><span class="w"> </span><span class="n"><span class="pre">owner_id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_ownerid_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting owner ID for the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>owner_id</strong> – <strong>[in]</strong> Owner ID to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_ownerid_get">
+<span class="target" id="group__nrf__mpc__hal_1ga36bb427a4979cd656667b8a08ad55ff4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">nrf_owner_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_ownerid_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_ownerid_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting owner ID of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Owner ID of the overridde region. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_masterport_set">
+<span class="target" id="group__nrf__mpc__hal_1gae79fb68d0f2cdb8bab520731e25b38e9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_masterport_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_masterport_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified master ports of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of master ports to be enabled, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_masterport_get">
+<span class="target" id="group__nrf__mpc__hal_1ga398b9aad20b0735a4ada32812a3dd3d0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_masterport_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_override_masterport_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting enabled master ports of the override region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Override region index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled master ports, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_memaccerr_address_get">
+<span class="target" id="group__nrf__mpc__hal_1gaaef975d68f3bb54b021d37ba1d64c9ce"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_memaccerr_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_memaccerr_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the memory address of memory access error. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Register content will not be changed as long as MEMACCERR event is active.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Target address for the errroneous access. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_memaccerr_info_ownerid_get">
+<span class="target" id="group__nrf__mpc__hal_1ga7b52f80f1b3190f2630418b740a8abbb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">nrf_owner_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_memaccerr_info_ownerid_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_memaccerr_info_ownerid_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the owner identifier of the transaction that triggered memory access error. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Register content will not be changed as long as MEMACCERR event is active.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Owner identifier of the errorneous access. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_memaccerr_info_masterport_get">
+<span class="target" id="group__nrf__mpc__hal_1ga788b2a97dba99dfa03f09ef727c178d5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_memaccerr_info_masterport_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_memaccerr_info_masterport_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the master port of the transaction that triggered memory access error. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Register content will not be changed as long as MEMACCERR event is active.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Master port where errorneous access is detected. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_memaccerr_info_perm_get">
+<span class="target" id="group__nrf__mpc__hal_1gaeca19e5b26e7b6504cc179e01ed93f05"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_memaccerr_info_perm_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_memaccerr_info_perm_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the permissions of the transaction that triggered memory access error. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Register content will not be changed as long as MEMACCERR event is active.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Permission settings of the errorneous access. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_memaccerr_info_errorsource_get">
+<span class="target" id="group__nrf__mpc__hal_1gad5eedb315b47a18f9965755353a60f31"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_mpc_errorsource_t" title="nrf_mpc_errorsource_t"><span class="n"><span class="pre">nrf_mpc_errorsource_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_memaccerr_info_errorsource_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_memaccerr_info_errorsource_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the source of the transaction that triggered memory access error. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Register content will not be changed as long as MEMACCERR event is active.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Source of the errorneous access. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_globalslave_masterport_set">
+<span class="target" id="group__nrf__mpc__hal_1gaeec50c60a288767deb1587481edbe762"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_globalslave_masterport_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_globalslave_masterport_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified master ports connection to global slave. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of master ports to be connected, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_globalslave_masterport_get">
+<span class="target" id="group__nrf__mpc__hal_1ga0aae47ddb1607ea45e94b1f8bd281e85"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_globalslave_masterport_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_globalslave_masterport_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting enabled master ports connection to global slave. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of master ports connected, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_globalslave_lock_enable">
+<span class="target" id="group__nrf__mpc__hal_1gae6edfd83d8f3f243e4637a3152d829f7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_globalslave_lock_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_globalslave_lock_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the global slave registers lock. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When global slave registers is enabled, modifying the global slave configuration is not possible.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_globalslave_lock_check">
+<span class="target" id="group__nrf__mpc__hal_1ga6a6e9ce5f593eca645894a5d5ca0aa1e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_globalslave_lock_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_globalslave_lock_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the status of the global slave registers lock. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When global slave registers is enabled, modifying the global slave configuration is not possible.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if global slave registers are locked, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_rtchoke_writeaccess_set">
+<span class="target" id="group__nrf__mpc__hal_1gac611c03b4cabceedf8df9694361a6f66"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_rtchoke_writeaccess_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_rtchoke_writeaccess_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the AXI Write Address Channel Real Time Choke for specified master ports. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of master ports to have the Write Real Time Choke enabled, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_rtchoke_writeaccess_get">
+<span class="target" id="group__nrf__mpc__hal_1ga2ddf36ab7898e4415c2a2334198598d5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_rtchoke_writeaccess_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_rtchoke_writeaccess_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting master ports with enabled AXI Write Address Channel Real Time Choke. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of master ports with the Write Real Time Choke enabled, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_rtchoke_readaccess_set">
+<span class="target" id="group__nrf__mpc__hal_1ga13bb38ea31028aae2aac0ee3e091b21e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_rtchoke_readaccess_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_rtchoke_readaccess_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the AXI Read Address Channel Real Time Choke for specified master ports. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of master ports to have the Read Real Time Choke enabled, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_rtchoke_readaccess_get">
+<span class="target" id="group__nrf__mpc__hal_1ga5e448fe5c32baa27c83d191623623249"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_rtchoke_readaccess_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_rtchoke_readaccess_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting master ports with enabled AXI Read Address Channel Real Time Choke. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of master ports with the Read Real Time Choke enabled, constructed from <a class="reference internal" href="#group__nrf__mpc__hal_1ga89f734f107017134f3ff2c1136864626"><span class="std std-ref">nrf_mpc_masterport_mask_t</span></a> enumerator values. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_rtchoke_delay_set">
+<span class="target" id="group__nrf__mpc__hal_1gad8417da63a1d979fbb0640f5863c4324"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_rtchoke_delay_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">slave</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">delay</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_rtchoke_delay_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the Real Time Choke delay for the specified slave. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>slave</strong> – <strong>[in]</strong> Slave number. </p></li>
+<li><p><strong>delay</strong> – <strong>[in]</strong> Delay value to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_mpc_rtchoke_delay_get">
+<span class="target" id="group__nrf__mpc__hal_1ga175f2577dab13295cdaec1156517ba2c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_rtchoke_delay_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MPC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">slave</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_mpc_rtchoke_delay_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the Real Time Choke delay for the specified slave. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>slave</strong> – <strong>[in]</strong> Slave number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Delay value for slave. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_t">
+<span class="target" id="structnrf__mpc__region__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_region_config_t</span></span></span><a class="headerlink" href="#c.nrf_mpc_region_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_mpc.h&gt;</em></div>
+<p>Region configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_t.slave_number">
+<span class="target" id="structnrf__mpc__region__config__t_1a054dea0aabe1a6ee2db1fecae85a6dbb"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slave_number</span></span></span><a class="headerlink" href="#c.nrf_mpc_region_config_t.slave_number" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Target slave number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_t.lock">
+<span class="target" id="structnrf__mpc__region__config__t_1a6cf4b2cfcaec789f3cd10a13b2fe2306"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock</span></span></span><a class="headerlink" href="#c.nrf_mpc_region_config_t.lock" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Lock region until next reset. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_t.enable">
+<span class="target" id="structnrf__mpc__region__config__t_1a4de0d503ce985c901074ad86c6cd96ae"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enable</span></span></span><a class="headerlink" href="#c.nrf_mpc_region_config_t.enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable region. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_t.owner">
+<span class="target" id="structnrf__mpc__region__config__t_1ac6f78d5496451fe0b92a7d38f22d0df7"></span><span class="n"><span class="pre">nrf_owner_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">owner</span></span></span><a class="headerlink" href="#c.nrf_mpc_region_config_t.owner" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Owner identifier. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_region_config_t.permissions">
+<span class="target" id="structnrf__mpc__region__config__t_1aa6addf45d511c661f30f1c4448216539"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">permissions</span></span></span><a class="headerlink" href="#c.nrf_mpc_region_config_t.permissions" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Permissions. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_t">
+<span class="target" id="structnrf__mpc__override__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_mpc_override_config_t</span></span></span><a class="headerlink" href="#c.nrf_mpc_override_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_mpc.h&gt;</em></div>
+<p>Override region configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_t.slave_number">
+<span class="target" id="structnrf__mpc__override__config__t_1aeba44959ba9eb41e8554346fc519d457"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">slave_number</span></span></span><a class="headerlink" href="#c.nrf_mpc_override_config_t.slave_number" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Target slave number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_t.lock">
+<span class="target" id="structnrf__mpc__override__config__t_1afaede07e7e8d148de29d572b9d131f32"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock</span></span></span><a class="headerlink" href="#c.nrf_mpc_override_config_t.lock" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Lock region until next reset. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_t.enable">
+<span class="target" id="structnrf__mpc__override__config__t_1a7983b862caf84e27bfcba42a3484802f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enable</span></span></span><a class="headerlink" href="#c.nrf_mpc_override_config_t.enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable region. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_t.secdom_enable">
+<span class="target" id="structnrf__mpc__override__config__t_1af9c0906727de0d61f51abab88ca5baee"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">secdom_enable</span></span></span><a class="headerlink" href="#c.nrf_mpc_override_config_t.secdom_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable overriding of secure domain permissions. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_mpc_override_config_t.secure_mask">
+<span class="target" id="structnrf__mpc__override__config__t_1a288370ffa540451f928016b4761af0e8"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">secure_mask</span></span></span><a class="headerlink" href="#c.nrf_mpc_override_config_t.secure_mask" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Secure mask. Read only. If set, the bit 28 of the transaction is ignored while address matching. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mpu/index.html" class="btn btn-neutral float-right" title="MPU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="MPC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

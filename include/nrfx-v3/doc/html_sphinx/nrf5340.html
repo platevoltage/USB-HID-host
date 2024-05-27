@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nRF5340 drivers &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="_static/js/ncs.js"
+></script>
+<script src="_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="nRF54H20 drivers" href="nrf54h20.html" />
+    <link rel="prev" title="nRF52840 Drivers" href="nrf52840.html" />
+<link
+  href="_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="drv_supp_matrix.html">Driver support overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nrf51_series.html">nRF51 Series Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf52805.html">nRF52805 Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf52810.html">nRF52810/nRF52811 Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf52820.html">nRF52820 Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf52832.html">nRF52832 Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf52833.html">nRF52833 Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf52840.html">nRF52840 Drivers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">nRF5340 drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf54h20.html">nRF54H20 drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf54l15_enga.html">nRF54L15 EngA drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nrf91_series.html">nRF91 Series drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="drv_supp_matrix.html">Driver support overview</a></li>
+      <li class="breadcrumb-item active">nRF5340 drivers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nrf5340.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nrf5340-drivers">
+<h1>nRF5340 drivers<a class="headerlink" href="#nrf5340-drivers" title="Permalink to this heading"></a></h1>
+<div class="docutils container">
+<dd><p>This page lists nrfx driver components supported by the nRF5340 SoC. For a complete overview, see <a class="reference internal" href="drv_supp_matrix.html#nrfx_drv_supp_matrix"><span class="std std-ref">Driver support overview</span></a>.</p>
+<p><a class="reference internal" href="drivers/aar/index.html#group__nrf__aar"><span class="std std-ref">AAR</span></a></p>
+<p><a class="reference internal" href="drivers/acl/index.html#group__nrf__acl"><span class="std std-ref">ACL</span></a></p>
+<p><a class="reference internal" href="drivers/ccm/index.html#group__nrf__ccm"><span class="std std-ref">CCM</span></a></p>
+<p><a class="reference internal" href="drivers/cache/index.html#group__nrf__cache"><span class="std std-ref">CACHE</span></a></p>
+<p><a class="reference internal" href="drivers/clock/index.html#group__nrf__clock"><span class="std std-ref">CLOCK</span></a></p>
+<p><a class="reference internal" href="drivers/comp/index.html#group__nrf__comp"><span class="std std-ref">COMP</span></a></p>
+<p><a class="reference internal" href="drivers/systick/index.html#group__nrf__systick"><span class="std std-ref">Cortex-M Systick</span></a></p>
+<p><a class="reference internal" href="drivers/dcnf/index.html#group__nrf__dcnf"><span class="std std-ref">DCNF</span></a></p>
+<p><a class="reference internal" href="drivers/dppi/index.html#group__nrf__dppi"><span class="std std-ref">DPPI</span></a></p>
+<p><a class="reference internal" href="drivers/ecb/index.html#group__nrf__ecb"><span class="std std-ref">ECB</span></a></p>
+<p><a class="reference internal" href="drivers/egu/index.html#group__nrf__egu"><span class="std std-ref">EGU</span></a></p>
+<p><a class="reference internal" href="drivers/icr/index.html#group__nrf__icr"><span class="std std-ref">ICR</span></a></p>
+<p><a class="reference internal" href="drivers/fpu/index.html#group__nrf__fpu"><span class="std std-ref">FPU</span></a></p>
+<p><a class="reference internal" href="drivers/gpio/index.html#group__nrf__gpio"><span class="std std-ref">GPIO</span></a></p>
+<p><a class="reference internal" href="drivers/gpiote/index.html#group__nrf__gpiote"><span class="std std-ref">GPIOTE</span></a></p>
+<p><a class="reference internal" href="drivers/i2s/index.html#group__nrf__i2s"><span class="std std-ref">I2S</span></a></p>
+<p><a class="reference internal" href="drivers/ipc/index.html#group__nrf__ipc"><span class="std std-ref">IPC</span></a></p>
+<p><a class="reference internal" href="drivers/kmu/index.html#group__nrf__kmu"><span class="std std-ref">KMU</span></a></p>
+<p><a class="reference internal" href="drivers/mutex/index.html#group__nrf__mutex"><span class="std std-ref">MUTEX</span></a></p>
+<p><a class="reference internal" href="drivers/nfct/index.html#group__nrf__nfct"><span class="std std-ref">NFCT</span></a></p>
+<p><a class="reference internal" href="drivers/nvmc/index.html#group__nrf__nvmc"><span class="std std-ref">NVMC</span></a></p>
+<p><a class="reference internal" href="drivers/pdm/index.html#group__nrf__pdm"><span class="std std-ref">PDM</span></a></p>
+<p><a class="reference internal" href="drivers/power/index.html#group__nrf__power"><span class="std std-ref">POWER</span></a></p>
+<p><a class="reference internal" href="drivers/pwm/index.html#group__nrf__pwm"><span class="std std-ref">PWM</span></a></p>
+<p><a class="reference internal" href="drivers/qdec/index.html#group__nrf__qdec"><span class="std std-ref">QDEC</span></a></p>
+<p><a class="reference internal" href="drivers/qspi/index.html#group__nrf__qspi"><span class="std std-ref">QSPI</span></a></p>
+<p><a class="reference internal" href="drivers/radio/index.html#group__nrf__radio"><span class="std std-ref">RADIO</span></a></p>
+<p><a class="reference internal" href="drivers/rng/index.html#group__nrf__rng"><span class="std std-ref">RNG</span></a></p>
+<p><a class="reference internal" href="drivers/rtc/index.html#group__nrf__rtc"><span class="std std-ref">RTC</span></a></p>
+<p><a class="reference internal" href="drivers/saadc/index.html#group__nrf__saadc"><span class="std std-ref">SAADC</span></a></p>
+<p><a class="reference internal" href="drivers/spim/index.html#group__nrf__spim"><span class="std std-ref">SPIM</span></a></p>
+<p><a class="reference internal" href="drivers/spis/index.html#group__nrf__spis"><span class="std std-ref">SPIS</span></a></p>
+<p><a class="reference internal" href="drivers/spu/index.html#group__nrf__spu"><span class="std std-ref">SPU</span></a></p>
+<p><a class="reference internal" href="drivers/temp/index.html#group__nrf__temp"><span class="std std-ref">TEMP</span></a></p>
+<p><a class="reference internal" href="drivers/timer/index.html#group__nrf__timer"><span class="std std-ref">TIMER</span></a></p>
+<p><a class="reference internal" href="drivers/twim/index.html#group__nrf__twim"><span class="std std-ref">TWIM</span></a></p>
+<p><a class="reference internal" href="drivers/twis/index.html#group__nrf__twis"><span class="std std-ref">TWIS</span></a></p>
+<p><a class="reference internal" href="drivers/uarte/index.html#group__nrf__uarte"><span class="std std-ref">UARTE</span></a></p>
+<p><a class="reference internal" href="drivers/usbd/index.html#group__nrf__usbd"><span class="std std-ref">USBD</span></a></p>
+<p><a class="reference internal" href="drivers/vmc/index.html#group__nrf__vmc"><span class="std std-ref">VMC</span></a></p>
+<p><a class="reference internal" href="drivers/wdt/index.html#group__nrf__wdt"><span class="std std-ref">WDT</span></a></p>
+</dd></div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nrf54h20.html" class="btn btn-neutral float-right" title="nRF54H20 drivers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nrf52840.html" class="btn btn-neutral" title="nRF52840 Drivers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

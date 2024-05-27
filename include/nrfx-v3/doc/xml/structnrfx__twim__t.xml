@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrfx__twim__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrfx_twim_t</compoundname>
+    <includes local="no">nrfx_twim.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrfx__twim__t_1a59c390e55ce55380ff608e43f8500ebd" prot="public" static="no" mutable="no">
+        <type>NRF_TWIM_Type *</type>
+        <definition>NRF_TWIM_Type* nrfx_twim_t::p_twim</definition>
+        <argsstring></argsstring>
+        <name>p_twim</name>
+        <qualifiedname>nrfx_twim_t::p_twim</qualifiedname>
+        <briefdescription>
+<para>Pointer to a structure with TWIM registers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="55" column="20" bodyfile="drivers/include/nrfx_twim.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__twim__t_1ace77513b16b4b0cadb82a0f556f3c631" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nrfx_twim_t::drv_inst_idx</definition>
+        <argsstring></argsstring>
+        <name>drv_inst_idx</name>
+        <qualifiedname>nrfx_twim_t::drv_inst_idx</qualifiedname>
+        <briefdescription>
+<para>Index of the driver instance. For internal use only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_twim.h" line="56" column="21" bodyfile="drivers/include/nrfx_twim.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure for the TWIM driver instance. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="drivers/include/nrfx_twim.h" line="53" column="1" bodyfile="drivers/include/nrfx_twim.h" bodystart="54" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structnrfx__twim__t_1ace77513b16b4b0cadb82a0f556f3c631" prot="public" virt="non-virtual"><scope>nrfx_twim_t</scope><name>drv_inst_idx</name></member>
+      <member refid="structnrfx__twim__t_1a59c390e55ce55380ff608e43f8500ebd" prot="public" virt="non-virtual"><scope>nrfx_twim_t</scope><name>p_twim</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peripheral Resource Sharing (PRS) &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../_static/js/ncs.js"
+></script>
+<script src="../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Generic RAM control layer" href="ram_ctrl.html" />
+    <link rel="prev" title="nrfx_log.h" href="log.html" />
+<link
+  href="../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Drivers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">nrfx API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="atomic.html">Atomic operations API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bitmask.html">Bitmask module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html">Common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_configuration.html">Common configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_nrfy.html">Common nrfy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coredep.html">Core-dependent functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_codes.html">Global Error Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flag32_allocator.html">Generic flag allocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glue.html">nrfx_glue.h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gppi.html">Generic PPI Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interconnect_apb.html">APB bus support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interconnect_ipct.html">IPCT support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">nrfx_log.h</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Peripheral Resource Sharing (PRS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ram_ctrl.html">Generic RAM control layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reset_reason.html">Generic Reset Reason layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vdma.html">Generic Vector DMA layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="index.html">nrfx API</a></li>
+      <li class="breadcrumb-item active">Peripheral Resource Sharing (PRS)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/nrfx_api/prs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="peripheral-resource-sharing-prs">
+<h1>Peripheral Resource Sharing (PRS)<a class="headerlink" href="#peripheral-resource-sharing-prs" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__prs"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_prs</span></span></dt>
+<dd><p>Peripheral Resource Sharing interface (PRS). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_prs_acquire">
+<span class="target" id="group__nrfx__prs_1gaa53affb47b578b75204f58e87c065edf"></span><a class="reference internal" href="error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_prs_acquire</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_base_addr</span></span>, <a class="reference internal" href="common.html#c.nrfx_irq_handler_t" title="nrfx_irq_handler_t"><span class="n"><span class="pre">nrfx_irq_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">irq_handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_prs_acquire" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for acquiring shared peripheral resources associated with the specified peripheral. </p>
+<p>Certain resources and registers are shared among peripherals that have the same ID (for example: SPI0, SPIM0, SPIS0, TWI0, TWIM0, and TWIS0 in nRF52832). Only one of them can be utilized at a given time. This function reserves proper resources to be used by the specified peripheral. If NRFX_PRS_ENABLED is set to a non-zero value, IRQ handlers for peripherals that are sharing resources with others are implemented by the <a class="reference internal" href="#group__nrfx__prs"><span class="std std-ref">Peripheral Resource Sharing (PRS)</span></a> module instead of individual drivers. The drivers must then specify their interrupt handling routines and register them by using this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_base_addr</strong> – <strong>[in]</strong> Requested peripheral base pointer. </p></li>
+<li><p><strong>irq_handler</strong> – <strong>[in]</strong> Interrupt handler to register.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – If resources were acquired successfully or the specified peripheral is not handled by the PRS subsystem and there is no need to acquire resources for it. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – If resources were already acquired. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_prs_release">
+<span class="target" id="group__nrfx__prs_1gad6d2a989afdfd94c72396e995d41451a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_prs_release</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_base_addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_prs_release" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for releasing shared resources reserved previously by <a class="reference internal" href="#group__nrfx__prs_1gaa53affb47b578b75204f58e87c065edf"><span class="std std-ref">nrfx_prs_acquire()</span></a> for the specified peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_base_addr</strong> – <strong>[in]</strong> Released peripheral base pointer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ram_ctrl.html" class="btn btn-neutral float-right" title="Generic RAM control layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="log.html" class="btn btn-neutral" title="nrfx_log.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

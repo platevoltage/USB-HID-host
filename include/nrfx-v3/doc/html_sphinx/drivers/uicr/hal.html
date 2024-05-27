@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UICR HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IPC" href="../ipc/index.html" />
+    <link rel="prev" title="FICR HAL" href="../ficr/hal.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../icr/index.html">ICR</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../ficr/hal.html">FICR HAL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">UICR HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="../icr/index.html">ICR</a></li>
+      <li class="breadcrumb-item active">UICR HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/uicr/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uicr-hal">
+<h1>UICR HAL<a class="headerlink" href="#uicr-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__uicr__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_uicr_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the User Information Configuration Registers (UICR) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_MEM_CONFIG">
+<span class="target" id="group__nrf__uicr__hal_1gac8a578ff0091dd7545c8d34b3d1906ec"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_MEM_CONFIG</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_MEM_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether memory configuration through UICR is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_PERIPH_CONFIG">
+<span class="target" id="group__nrf__uicr__hal_1gabc4cc4f6c8b324f22e590fe8299d2695"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_PERIPH_CONFIG</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_PERIPH_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether peripheral configuration through UICR is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_FEATURE_CONFIG">
+<span class="target" id="group__nrf__uicr__hal_1gac39e751b3adde40ebdc356ca38c4fb96"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_FEATURE_CONFIG</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_FEATURE_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether feature configuration through UICR is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_MAILBOX">
+<span class="target" id="group__nrf__uicr__hal_1ga76f9e43790a153f4a525b78eefe4d384"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_MAILBOX</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_MAILBOX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether mailbox configuration through UICR is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_VTOR">
+<span class="target" id="group__nrf__uicr__hal_1gae372027930aecce11d48984885c91a5b"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_VTOR</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_VTOR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether VTOR configuration through UICR is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_PTREXT">
+<span class="target" id="group__nrf__uicr__hal_1ga1ae27704197dd3a03046e04735ccbc8a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_PTREXT</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_PTREXT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether extended UICR is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_FEATURE_GPIO">
+<span class="target" id="group__nrf__uicr__hal_1ga4225dbb077a826d9890253ebd433af88"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_FEATURE_GPIO</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_FEATURE_GPIO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether GPIO feature is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_BOOTCONF">
+<span class="target" id="group__nrf__uicr__hal_1ga4f30e48b6a2e60609d29b8ddabdc5a5f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_BOOTCONF</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_BOOTCONF" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether immutable boot region configuration is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_HAS_CH_LINK_DIR_EN">
+<span class="target" id="group__nrf__uicr__hal_1gaf0667d650ca16bb8b0c127dace26da5e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_HAS_CH_LINK_DIR_EN</span></span></span><a class="headerlink" href="#c.NRF_UICR_HAS_CH_LINK_DIR_EN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether linking channels of DPPI as either source or sink is configured using the LINK.DIR and LINK.EN registers. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_MEM_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga2d76f0ebfca6b54939f5f6dbb5d7b998"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_MEM_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_MEM_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of memory blocks. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_PERIPH_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1gada990a37dd2ad29da5908376434200f6"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_PERIPH_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_PERIPH_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of peripherals. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_GPIO_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga09473c70d80bcb2afff60f732f633eeb"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_GPIO_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_GPIO_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of GPIOs. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_GPIOTE_CH_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga62268de8a4d18e676f3c61c63681661a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_GPIOTE_CH_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_GPIOTE_CH_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of GPIOTE channels. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_IPCT_GLOBAL_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga49224132f9758c36f1b06e0020551697"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_IPCT_GLOBAL_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_IPCT_GLOBAL_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of global IPCTs. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_DPPI_LOCAL_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga2a531c1af0bae25ba6ee47f7cea0377c"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_DPPI_LOCAL_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_DPPI_LOCAL_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of local IPCTs. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_DPPI_GLOBAL_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga9491ea8761e5cfdb9c12389203bcdf58"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_DPPI_GLOBAL_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_DPPI_GLOBAL_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of global DPPIs. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_IPCMAP_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga26582a5a0ff35a1a64755ade0a496c62"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_IPCMAP_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_IPCMAP_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of IPCMAPs. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_MAILBOX_COUNT">
+<span class="target" id="group__nrf__uicr__hal_1ga168cfdf22a9ab7f27256ef815c8a9b7c"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_MAILBOX_COUNT</span></span></span><a class="headerlink" href="#c.NRF_UICR_MAILBOX_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of MAILBOXes. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UICR_BOOTCONF_PERM_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gaf7e4df2c614ddeea5cf690d8c1842188"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_BOOTCONF_PERM_MASK</span></span></span><a class="headerlink" href="#c.NRF_UICR_BOOTCONF_PERM_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Immutable boot region permissions bitmask. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_perm_mask_t">
+<span class="target" id="group__nrf__uicr__hal_1ga8ce5128128bc90c4bcdf2ae9decbd461"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_mem_config_perm_mask_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_perm_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Memory permissions mask. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When bit is set, the selected action is not allowed. </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_READ_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461a110deaf304a983ef7dcc4dd1dcf5115d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_MEM_CONFIG_PERM_READ_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_READ_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_WRITE_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461adb4faf64a9cde0cf81ea7f04af4f5aab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_MEM_CONFIG_PERM_WRITE_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_WRITE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Write access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_EXECUTE_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461a74eb6d3b08bdcecb3660d4e619173d08"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_MEM_CONFIG_PERM_EXECUTE_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_EXECUTE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Software execute. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_NONSECURE_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga8ce5128128bc90c4bcdf2ae9decbd461aee3c0f160f33ae7b7e72c3a97c75ea63"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_MEM_CONFIG_PERM_NONSECURE_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_perm_mask_t.NRF_UICR_MEM_CONFIG_PERM_NONSECURE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Non-secure access. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t">
+<span class="target" id="group__nrf__uicr__hal_1ga633bfb6ff9adb31de5fdcad1c67846f9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_feature_index_mask_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index mask. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ownership of the pin is indicated by bit not set. </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_0_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a8a50b080cc50af4c180c353031c6928c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_0_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_1_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a3865b0bc734e3e7ed2ea51e34e249591"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_1_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_2_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a9cabfd34749e57ae9cfe27d78adefd0f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_2_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_3_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a8774f0d50dcc9fa9639b20c13115aa31"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_3_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_4_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a3c87f11e1b6400f04a756690aaaeed7f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_4_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_5_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ae0c64e03ce39ab7b31230cfd03414348"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_5_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_6_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a5dec069be5479d79ec954b7e51022266"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_6_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_7_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ad33d2c3488235aa431936d7ee6163152"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_7_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_8_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a40e36cdae9b4965dfa3e78896b797577"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_8_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_8_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 8. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_9_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a6f44792d9671f8f5b4a6b3e19e22d882"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_9_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_9_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 9. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_10_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ae6f70d75ca15b34127e1540c82c6278b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_10_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_10_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 10. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_11_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac0c046040e5f189c0976b9333dd7413e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_11_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_11_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 11. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_12_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a5bce945074c75d3f818c3a06efad0b72"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_12_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_12_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 12. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_13_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a6dbb52322a35221ca99e6ca128acf170"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_13_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_13_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 13. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_14_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac85c015fddd8f1b33fe34457ad70c088"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_14_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_14_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 14. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_15_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a4b97322b886bc6f3637d1c6dbf419ea9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_15_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_15_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 15. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_16_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a874bb06cef755e43f17549c7316bd528"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_16_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_16_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 16. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_17_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a94c15c97987eca2ed933ad827766db23"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_17_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_17_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 17. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_18_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac85ac1f32b09385d8148483defaed467"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_18_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_18_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 18. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_19_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a7d6c8f023fc62845cb3c0b0d2f48c9c2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_19_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_19_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 19. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_20_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9accb71e91d3bb45454c36a4d93d4d1438"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_20_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_20_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 20. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_21_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a47df59cfcd253d246bce8c4e72172f42"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_21_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_21_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 21. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_22_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a6ba9a8d820c122ea587a93d2ce591dd8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_22_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_22_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 22. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_23_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a96bb3246c80cb72d2c446e5fa9983fe1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_23_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_23_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 23. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_24_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ac1f46dbbb7fa34e8becbfeb768492856"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_24_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_24_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 24. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_25_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a2f23b7518bbc3f5d1df3d793e6007f3c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_25_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_25_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 25. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_26_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9ae30d3301c06e509a387a71e1e4ec99ad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_26_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_26_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 26. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_27_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a9a5ae501ecfb1e40a9180e1da312c474"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_27_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_27_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 27. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_28_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a82cd4f1347453af3f0d931c1e1727fd2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_28_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_28_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 28. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_29_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a801404e21079d8825acfe00a505eb10a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_29_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_29_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 29. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_30_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a39767807c8a659855e43dee322bca2d6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_30_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_30_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 30. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_31_MASK">
+<span class="target" id="group__nrf__uicr__hal_1gga633bfb6ff9adb31de5fdcad1c67846f9a2ba920734a29d7f2c5e3b0a7e9f3ea6e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_INDEX_31_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_index_mask_t.NRF_UICR_FEATURE_INDEX_31_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Feature index 31. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t">
+<span class="target" id="group__nrf__uicr__hal_1ga66ccb3acfe92e9f7cbfd2ca1fdbcf270"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_feature_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>UICR features. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_GPIO">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a2ec35746b1d4568def693fd65f0abb28"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_GPIO</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_GPIO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIO port. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_GPIOTE_CH">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a6d514e525436b9a9c9d2ff74f568dbe6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_GPIOTE_CH</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_GPIOTE_CH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE channel. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_LOCAL_CH">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a6f43bb9191bc47761cc86aa955d1045c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_IPCT_LOCAL_CH</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_LOCAL_CH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Local IPCT channel. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_LOCAL_INTERRUPT">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270ad665729e7bae569b9bbdf9ca7855e57d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_IPCT_LOCAL_INTERRUPT</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_LOCAL_INTERRUPT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Local IPCT interrupt. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_GLOBAL_CH">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270aedf069a8ff8421b975adf03656c48a66"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_IPCT_GLOBAL_CH</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_GLOBAL_CH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Global IPCT channel. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_GLOBAL_INTERRUPT">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a6439193cd83670c367d622555f7adf56"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_IPCT_GLOBAL_INTERRUPT</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_IPCT_GLOBAL_INTERRUPT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Global IPCT interrupt. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_LOCAL_CH">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a570d168c607bf2117b867d5614742d03"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_DPPI_LOCAL_CH</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_LOCAL_CH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Local DPPI channel. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_LOCAL_CHG">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270afae9a02df30948ac802db6549d36827b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_DPPI_LOCAL_CHG</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_LOCAL_CHG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Local DPPI channel group. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_GLOBAL_CH">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a9d181e78ee0b0e9103f3b60861ba4f18"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_DPPI_GLOBAL_CH</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_GLOBAL_CH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Global DPPI channel. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_GLOBAL_CHG">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a115dbfac65edffb3ae33750141029aee"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_DPPI_GLOBAL_CHG</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_DPPI_GLOBAL_CHG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Global DPPI channel group. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_t.NRF_UICR_FEATURE_GRTC_CC">
+<span class="target" id="group__nrf__uicr__hal_1gga66ccb3acfe92e9f7cbfd2ca1fdbcf270a531e8911c5c45980f53f966205ea7776"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_FEATURE_GRTC_CC</span></span></span><a class="headerlink" href="#c.nrf_uicr_feature_t.NRF_UICR_FEATURE_GRTC_CC" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GRTC compare channel. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_perm_mask_t">
+<span class="target" id="group__nrf__uicr__hal_1gaf409f7ff093daa5f8fe61b52f6bb46f9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_boot_region_perm_mask_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_perm_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Immutable boot region permissions mask. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When bit is set, the selected action is allowed. </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_READ_MASK">
+<span class="target" id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9a1cea7ec9f1c753126fcd784c4eaee19f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_BOOT_REGION_PERM_READ_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_READ_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Read access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_WRITE_MASK">
+<span class="target" id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9ab60317e38f28dfc55f88ac3efc0c8826"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_BOOT_REGION_PERM_WRITE_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_WRITE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Write access. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_EXECUTE_MASK">
+<span class="target" id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9a6f54d194f723f974dd816882836637d3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_BOOT_REGION_PERM_EXECUTE_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_EXECUTE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Software execute. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_SECURE_MASK">
+<span class="target" id="group__nrf__uicr__hal_1ggaf409f7ff093daa5f8fe61b52f6bb46f9a6549116a40c06387fc6f78ecf1ab1f5c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UICR_BOOT_REGION_PERM_SECURE_MASK</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_perm_mask_t.NRF_UICR_BOOT_REGION_PERM_SECURE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Secure-only access. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_get">
+<span class="target" id="group__nrf__uicr__hal_1ga2733c418f74d5b72a4c0ad308a065e33"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_uicr_mem_config_t" title="nrf_uicr_mem_config_t"><span class="n"><span class="pre">nrf_uicr_mem_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_mem_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_mem_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the configuration of the memory block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the memory block.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configuration of the specified memory block. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_size_get">
+<span class="target" id="group__nrf__uicr__hal_1ga6a2eade6e610e70f18d6265563af82ae"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_mem_size_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_mem_size_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the size of the memory block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the memory block.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Size of the specified memory block in bytes. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_periph_config_get">
+<span class="target" id="group__nrf__uicr__hal_1ga9d971fc2dbf7c88e30df716ba99e740d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_uicr_periph_config_t" title="nrf_uicr_periph_config_t"><span class="n"><span class="pre">nrf_uicr_periph_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_periph_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_periph_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the configuration of the peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configuration of the specified peripheral. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_own_get">
+<span class="target" id="group__nrf__uicr__hal_1gaa0a66e6f2c8c5a5158edebf108ea0673"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_feature_own_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uicr_feature_t" title="nrf_uicr_feature_t"><span class="n"><span class="pre">nrf_uicr_feature_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">feature</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_feature_own_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the ownership requests of the feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>feature</strong> – <strong>[in]</strong> Feature to be accessed. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the feature. Only used for applicable features, otherwise skipped.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ownership requests mask of the specified feature. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_secure_get">
+<span class="target" id="group__nrf__uicr__hal_1ga39509ccfe57f58d08f6609b08c99a0e9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_feature_secure_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uicr_feature_t" title="nrf_uicr_feature_t"><span class="n"><span class="pre">nrf_uicr_feature_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">feature</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_feature_secure_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the permission requests of the feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>feature</strong> – <strong>[in]</strong> Feature to be accessed. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the feature. Only used for applicable features, otherwise skipped.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Permission requests mask of the specified feature. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_feature_link_get">
+<span class="target" id="group__nrf__uicr__hal_1ga4c00b81f689650ea22c439963136e3ec"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_uicr_dppi_link_t" title="nrf_uicr_dppi_link_t"><span class="n"><span class="pre">nrf_uicr_dppi_link_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_feature_link_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uicr_feature_t" title="nrf_uicr_feature_t"><span class="n"><span class="pre">nrf_uicr_feature_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">feature</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_feature_link_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the linking requests of the feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>feature</strong> – <strong>[in]</strong> Feature to be accessed. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the feature. Only used for applicable features, otherwise skipped.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Linking requests masks for source and sink of the specified feature. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_ipcmap_config_get">
+<span class="target" id="group__nrf__uicr__hal_1gad97ca56d56a3a159289ff20f28c4fcbe"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_uicr_ipcmap_config_t" title="nrf_uicr_ipcmap_config_t"><span class="n"><span class="pre">nrf_uicr_ipcmap_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_ipcmap_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_ipcmap_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the configuration of the IPCMAP channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the IPCMAP channel.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configuration of the specified IPCMAP channel. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_mailbox_address_get">
+<span class="target" id="group__nrf__uicr__hal_1gaf17b98b7ea1b5c6b17d0a7534812de65"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_mailbox_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_mailbox_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the MAILBOX. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the memory block.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Start address of the specified MAILBOX. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_mailbox_config_get">
+<span class="target" id="group__nrf__uicr__hal_1gaa913e12362a7fcbb985453bba7c7ac92"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_uicr_mailbox_config_t" title="nrf_uicr_mailbox_config_t"><span class="n"><span class="pre">nrf_uicr_mailbox_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_mailbox_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_mailbox_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the configuration of the MAILBOX. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the MAILBOX.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configuration of the specified MAILBOX. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_initsvtor_get">
+<span class="target" id="group__nrf__uicr__hal_1gafc55b845d7d0eddb1bf6df4aac09c3d6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_initsvtor_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_initsvtor_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the initial value of the secure VTOR (Vector Table Offset Register). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initial value of the secure VTOR. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_initnsvtor_get">
+<span class="target" id="group__nrf__uicr__hal_1ga35f097d276870db880c195f0657afe38"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_initnsvtor_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_initnsvtor_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the initial value of the non-secure VTOR. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Initial value of the non-secure VTOR. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_ptrextuicr_get">
+<span class="target" id="group__nrf__uicr__hal_1gae786054ad658b6d9d824caeaf4cc00c1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_ptrextuicr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_ptrextuicr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to the extended UICR. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the extended UICR. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_config_set">
+<span class="target" id="group__nrf__uicr__hal_1ga72b2daea4bfed2a80d04fa74fc57abc6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_boot_region_config_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uicr_boot_region_config_t" title="nrf_uicr_boot_region_config_t"><span class="n"><span class="pre">nrf_uicr_boot_region_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_boot_region_config_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the configuration of the immutable boot region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the configuration structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_config_get">
+<span class="target" id="group__nrf__uicr__hal_1gac07a9377a2dbeb1a9f7fca466c945c97"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_boot_region_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICR_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uicr_boot_region_config_t" title="nrf_uicr_boot_region_config_t"><span class="n"><span class="pre">nrf_uicr_boot_region_config_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_boot_region_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the configuration of the immutable boot region. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure to be filled with immutable boot region settings.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Configuration is applied. </p></li>
+<li><p><strong>false</strong> – Register is equal to 0xFFFFFFFF, meaning that configuration is not applied. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_gpio_instance_get">
+<span class="target" id="group__nrf__uicr__hal_1ga208c47feed9c5c3328f3af54503428af"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_gpio_instance_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICREXTENDED_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_gpio_instance_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the GPIO instance address associated with the specified GPIO entry. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of GPIO entry.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>GPIO instance address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uicr_gpio_ctrlsel_get">
+<span class="target" id="group__nrf__uicr__hal_1ga65ead495d131afb60fef4ed7b8e0dbbf"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_gpio_ctrlsel_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UICREXTENDED_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uicr_gpio_ctrlsel_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the CTRLSEL configuration associated with the specified GPIO pin. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>pin_number</strong> – <strong>[in]</strong> Absolute pin number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CTRLSEL configuration. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_t">
+<span class="target" id="structnrf__uicr__mem__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_mem_config_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uicr.h&gt;</em></div>
+<p>Memory configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_t.permissions">
+<span class="target" id="structnrf__uicr__mem__config__t_1a048fd7fb38506d3a489e112653d18a43"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">permissions</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_t.permissions" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Permissions. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_t.owner">
+<span class="target" id="structnrf__uicr__mem__config__t_1aa8e536c42e73668ac4df097845f6311d"></span><span class="n"><span class="pre">nrf_owner_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">owner</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_t.owner" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Owner identifier. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_mem_config_t.address">
+<span class="target" id="structnrf__uicr__mem__config__t_1a2930277ba328bd20d47f0fe7d01021f7"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">address</span></span></span><a class="headerlink" href="#c.nrf_uicr_mem_config_t.address" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Block start address. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uicr_ipcmap_pair_t">
+<span class="target" id="structnrf__uicr__ipcmap__pair__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_ipcmap_pair_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_ipcmap_pair_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uicr.h&gt;</em></div>
+<p>IPCMAP pair. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_ipcmap_pair_t.ipct_channel">
+<span class="target" id="structnrf__uicr__ipcmap__pair__t_1af4c9be604522fbabc30f25550cb2f377"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ipct_channel</span></span></span><a class="headerlink" href="#c.nrf_uicr_ipcmap_pair_t.ipct_channel" title="Permalink to this definition"></a><br /></dt>
+<dd><p>IPCT channel number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_ipcmap_pair_t.domain">
+<span class="target" id="structnrf__uicr__ipcmap__pair__t_1a20d3b1dd5207341f5c2e036f6e65b49b"></span><span class="n"><span class="pre">nrf_domain_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">domain</span></span></span><a class="headerlink" href="#c.nrf_uicr_ipcmap_pair_t.domain" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Domain ID. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uicr_ipcmap_config_t">
+<span class="target" id="structnrf__uicr__ipcmap__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_ipcmap_config_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_ipcmap_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uicr.h&gt;</em></div>
+<p>IPCMAP configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_ipcmap_config_t.source">
+<span class="target" id="structnrf__uicr__ipcmap__config__t_1af3e01ce6963f9ec8cb28b70cd17ebfb8"></span><a class="reference internal" href="#c.nrf_uicr_ipcmap_pair_t" title="nrf_uicr_ipcmap_pair_t"><span class="n"><span class="pre">nrf_uicr_ipcmap_pair_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">source</span></span></span><a class="headerlink" href="#c.nrf_uicr_ipcmap_config_t.source" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Source side. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_ipcmap_config_t.sink">
+<span class="target" id="structnrf__uicr__ipcmap__config__t_1a049485b90047e5e8320cb4c43b6d489d"></span><a class="reference internal" href="#c.nrf_uicr_ipcmap_pair_t" title="nrf_uicr_ipcmap_pair_t"><span class="n"><span class="pre">nrf_uicr_ipcmap_pair_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sink</span></span></span><a class="headerlink" href="#c.nrf_uicr_ipcmap_config_t.sink" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sink side. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uicr_dppi_link_t">
+<span class="target" id="structnrf__uicr__dppi__link__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_dppi_link_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_dppi_link_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uicr.h&gt;</em></div>
+<p>DPPI link. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_dppi_link_t.source">
+<span class="target" id="structnrf__uicr__dppi__link__t_1a1587ea63ae24348d82729f11471f6698"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">source</span></span></span><a class="headerlink" href="#c.nrf_uicr_dppi_link_t.source" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Source side. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_dppi_link_t.sink">
+<span class="target" id="structnrf__uicr__dppi__link__t_1afbeacd88a595f78b29dfabbc8fb86799"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sink</span></span></span><a class="headerlink" href="#c.nrf_uicr_dppi_link_t.sink" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sink side. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uicr_periph_config_t">
+<span class="target" id="structnrf__uicr__periph__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_periph_config_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_periph_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uicr.h&gt;</em></div>
+<p>Peripheral configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_periph_config_t.secattr">
+<span class="target" id="structnrf__uicr__periph__config__t_1acb0a03ab1ed8dca30e0884736a55242f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">secattr</span></span></span><a class="headerlink" href="#c.nrf_uicr_periph_config_t.secattr" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Security mapping. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_periph_config_t.dmasec">
+<span class="target" id="structnrf__uicr__periph__config__t_1aab3f99a336d58c85d8ab290f44b4ce8f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dmasec</span></span></span><a class="headerlink" href="#c.nrf_uicr_periph_config_t.dmasec" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Security attribution for the DMA transfer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_periph_config_t.processor">
+<span class="target" id="structnrf__uicr__periph__config__t_1a780655236e768e9c5ed60abb239cb526"></span><span class="n"><span class="pre">nrf_processor_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">processor</span></span></span><a class="headerlink" href="#c.nrf_uicr_periph_config_t.processor" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Processor ID. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_periph_config_t.address">
+<span class="target" id="structnrf__uicr__periph__config__t_1a388c64ac0ff4feb17063130b7f620cd0"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">address</span></span></span><a class="headerlink" href="#c.nrf_uicr_periph_config_t.address" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Peripheral address. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uicr_mailbox_config_t">
+<span class="target" id="structnrf__uicr__mailbox__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_mailbox_config_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_mailbox_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uicr.h&gt;</em></div>
+<p>MAILBOX configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_mailbox_config_t.size">
+<span class="target" id="structnrf__uicr__mailbox__config__t_1afdd0bc50e3b39faeb97ee9364bb77269"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><a class="headerlink" href="#c.nrf_uicr_mailbox_config_t.size" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Memory size. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_mailbox_config_t.owner">
+<span class="target" id="structnrf__uicr__mailbox__config__t_1a37f4ac45378f774952729814d928460f"></span><span class="n"><span class="pre">nrf_owner_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">owner</span></span></span><a class="headerlink" href="#c.nrf_uicr_mailbox_config_t.owner" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remote owner identification. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_mailbox_config_t.secure">
+<span class="target" id="structnrf__uicr__mailbox__config__t_1a327313c6d14e1b821f6b11994a6dca2a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">secure</span></span></span><a class="headerlink" href="#c.nrf_uicr_mailbox_config_t.secure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Secure permission. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_config_t">
+<span class="target" id="structnrf__uicr__boot__region__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uicr_boot_region_config_t</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uicr.h&gt;</em></div>
+<p>Immutable boot region configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_config_t.permissions">
+<span class="target" id="structnrf__uicr__boot__region__config__t_1a88e65343a84f64768f5182d4cd125b63"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">permissions</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_config_t.permissions" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Permissions created using <a class="reference internal" href="#group__nrf__uicr__hal_1gaf409f7ff093daa5f8fe61b52f6bb46f9"><span class="std std-ref">nrf_uicr_boot_region_perm_mask_t</span></a>. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_config_t.writeonce">
+<span class="target" id="structnrf__uicr__boot__region__config__t_1a000d2118e256a0522b3a9ac539f0bb7b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">writeonce</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_config_t.writeonce" title="Permalink to this definition"></a><br /></dt>
+<dd><p>True if writes to the boot region are to be applied only when the current data is 0xFFFFFFFF. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_config_t.lock">
+<span class="target" id="structnrf__uicr__boot__region__config__t_1af92655eb21e32baa57ad2cceeb054e03"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lock</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_config_t.lock" title="Permalink to this definition"></a><br /></dt>
+<dd><p>True if RRAMC configuration registers for the boot region are to be read-only. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uicr_boot_region_config_t.size_kb">
+<span class="target" id="structnrf__uicr__boot__region__config__t_1ae9ab323b710fecde9985d26dcdea11a1"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size_kb</span></span></span><a class="headerlink" href="#c.nrf_uicr_boot_region_config_t.size_kb" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Region size in kBs. */. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ipc/index.html" class="btn btn-neutral float-right" title="IPC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ficr/hal.html" class="btn btn-neutral" title="FICR HAL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

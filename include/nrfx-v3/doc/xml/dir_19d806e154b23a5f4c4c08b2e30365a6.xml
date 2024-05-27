@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_19d806e154b23a5f4c4c08b2e30365a6" kind="dir">
+    <compoundname>soc</compoundname>
+    <innerdir refid="dir_ba1d44a77959b3df926d36dbdbbb796b">soc/interconnect</innerdir>
+    <innerfile refid="nrfx__atomic_8h">nrfx_atomic.h</innerfile>
+    <innerfile refid="nrfx__atomic__internal_8h">nrfx_atomic_internal.h</innerfile>
+    <innerfile refid="nrfx__coredep_8h">nrfx_coredep.h</innerfile>
+    <innerfile refid="nrfx__irqs_8h">nrfx_irqs.h</innerfile>
+    <innerfile refid="nrfx__irqs__ext_8h">nrfx_irqs_ext.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf51_8h">nrfx_irqs_nrf51.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf52805_8h">nrfx_irqs_nrf52805.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf52810_8h">nrfx_irqs_nrf52810.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf52811_8h">nrfx_irqs_nrf52811.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf52820_8h">nrfx_irqs_nrf52820.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf52832_8h">nrfx_irqs_nrf52832.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf52833_8h">nrfx_irqs_nrf52833.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf52840_8h">nrfx_irqs_nrf52840.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf5340__application_8h">nrfx_irqs_nrf5340_application.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf5340__network_8h">nrfx_irqs_nrf5340_network.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__application_8h">nrfx_irqs_nrf54h20_application.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__enga__application_8h">nrfx_irqs_nrf54h20_enga_application.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__enga__flpr_8h">nrfx_irqs_nrf54h20_enga_flpr.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__enga__ppr_8h">nrfx_irqs_nrf54h20_enga_ppr.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__enga__radiocore_8h">nrfx_irqs_nrf54h20_enga_radiocore.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__flpr_8h">nrfx_irqs_nrf54h20_flpr.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__ppr_8h">nrfx_irqs_nrf54h20_ppr.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54h20__radiocore_8h">nrfx_irqs_nrf54h20_radiocore.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54l15__application_8h">nrfx_irqs_nrf54l15_application.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54l15__enga__application_8h">nrfx_irqs_nrf54l15_enga_application.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54l15__enga__flpr_8h">nrfx_irqs_nrf54l15_enga_flpr.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf54l15__flpr_8h">nrfx_irqs_nrf54l15_flpr.h</innerfile>
+    <innerfile refid="nrfx__irqs__nrf91_8h">nrfx_irqs_nrf91.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/"/>
+  </compounddef>
+</doxygen>

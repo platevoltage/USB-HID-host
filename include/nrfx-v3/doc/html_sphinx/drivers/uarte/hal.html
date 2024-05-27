@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UARTE HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="UARTE HALY" href="haly.html" />
+    <link rel="prev" title="UARTE driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">UARTE</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">UARTE driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">UARTE HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">UARTE HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">UARTE</a></li>
+      <li class="breadcrumb-item active">UARTE HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/uarte/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uarte-hal">
+<h1>UARTE HAL<a class="headerlink" href="#uarte-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__uarte__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_uarte_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the UARTE peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_INST_GET">
+<span class="target" id="group__nrf__uarte__hal_1ga163aa58099af5af3b8ee35c3155a34f0"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INST_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_UARTE_INST_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro getting pointer to the structure of registers of the UARTE peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idx</strong> – <strong>[in]</strong> UARTE instance index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the structure of registers of the UARTE peripheral. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_HAS_DMA_REG">
+<span class="target" id="group__nrf__uarte__hal_1ga8c6fb673c718d483cfd092b2876e4e3a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_HAS_DMA_REG</span></span></span><a class="headerlink" href="#c.NRF_UARTE_HAS_DMA_REG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether dedicated DMA register is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_HAS_DMA_TASKS_EVENTS">
+<span class="target" id="group__nrf__uarte__hal_1ga076e06cca1beb456e2f3aeef25078be8"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_HAS_DMA_TASKS_EVENTS</span></span></span><a class="headerlink" href="#c.NRF_UARTE_HAS_DMA_TASKS_EVENTS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether UARTE DMA tasks and events are present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_HAS_DMA_SHORTS">
+<span class="target" id="group__nrf__uarte__hal_1ga9b1018ce818e2f7a1400ca0e43b0cf2a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_HAS_DMA_SHORTS</span></span></span><a class="headerlink" href="#c.NRF_UARTE_HAS_DMA_SHORTS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether UARTE DMA shortcuts are present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_HAS_ENDTX_STOPTX_SHORT">
+<span class="target" id="group__nrf__uarte__hal_1ga5a41ceea56437a8d61dfd70a6f0f6a6f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_HAS_ENDTX_STOPTX_SHORT</span></span></span><a class="headerlink" href="#c.NRF_UARTE_HAS_ENDTX_STOPTX_SHORT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether UARTE ENDTX_STOPTX shortcut is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_BASE_FREQUENCY_128MHZ">
+<span class="target" id="group__nrf__uarte__hal_1gad1d66a544d55b791e4a9c7cb26186144"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BASE_FREQUENCY_128MHZ</span></span></span><a class="headerlink" href="#c.NRF_UARTE_BASE_FREQUENCY_128MHZ" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Base frequency value 128 MHz for UARTE. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_BASE_FREQUENCY_64MHZ">
+<span class="target" id="group__nrf__uarte__hal_1gabf5b1cb781ef23c14045cab6c9357db4"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BASE_FREQUENCY_64MHZ</span></span></span><a class="headerlink" href="#c.NRF_UARTE_BASE_FREQUENCY_64MHZ" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Base frequency value 64 MHz for UARTE. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_BASE_FREQUENCY_16MHZ">
+<span class="target" id="group__nrf__uarte__hal_1gac4d1b4891d0eddf0341d513217d6d0db"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BASE_FREQUENCY_16MHZ</span></span></span><a class="headerlink" href="#c.NRF_UARTE_BASE_FREQUENCY_16MHZ" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Base frequency value 16 MHz for UARTE. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_IS_128MHZ_UARTE">
+<span class="target" id="group__nrf__uarte__hal_1ga68e72cc37ed15adfd86c09f040259217"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_IS_128MHZ_UARTE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_UARTE_IS_128MHZ_UARTE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for checking whether the base frequency for the specified UARTE is 128 MHz. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_IS_64MHZ_UARTE">
+<span class="target" id="group__nrf__uarte__hal_1gab7ed47dc391119f4368f54a15ee15300"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_IS_64MHZ_UARTE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_UARTE_IS_64MHZ_UARTE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for checking whether the base frequency for the specified UARTE is 64 MHz. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_UARTE_BASE_FREQUENCY_GET">
+<span class="target" id="group__nrf__uarte__hal_1gaa420fce556af9f1f14701f5c4dd3729a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BASE_FREQUENCY_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_UARTE_BASE_FREQUENCY_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for getting base frequency value in Hz for the specified UARTE. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_t">
+<span class="target" id="group__nrf__uarte__hal_1gae99a63cb1416b51c2e2282c4c56a6b12"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_task_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>UARTE tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_t.NRF_UARTE_TASK_STARTRX">
+<span class="target" id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12abd99d435a65192d48802b693b9acab6b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_TASK_STARTRX</span></span></span><a class="headerlink" href="#c.nrf_uarte_task_t.NRF_UARTE_TASK_STARTRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start UART receiver. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_t.NRF_UARTE_TASK_STOPRX">
+<span class="target" id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12a0bc486fb0751337a49fa3b4570279afc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_TASK_STOPRX</span></span></span><a class="headerlink" href="#c.nrf_uarte_task_t.NRF_UARTE_TASK_STOPRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop UART receiver. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_t.NRF_UARTE_TASK_STARTTX">
+<span class="target" id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12af3a09172b5dff04de632997f0f7d5a73"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_TASK_STARTTX</span></span></span><a class="headerlink" href="#c.nrf_uarte_task_t.NRF_UARTE_TASK_STARTTX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start UART transmitter. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_t.NRF_UARTE_TASK_STOPTX">
+<span class="target" id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12a4f014e7e6d864c697f3b501581e77d0c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_TASK_STOPTX</span></span></span><a class="headerlink" href="#c.nrf_uarte_task_t.NRF_UARTE_TASK_STOPTX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop UART transmitter. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_t.NRF_UARTE_TASK_FLUSHRX">
+<span class="target" id="group__nrf__uarte__hal_1ggae99a63cb1416b51c2e2282c4c56a6b12aac4a3088721b4cffa1f8788032b49d84"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_TASK_FLUSHRX</span></span></span><a class="headerlink" href="#c.nrf_uarte_task_t.NRF_UARTE_TASK_FLUSHRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flush RX FIFO in RX buffer. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t">
+<span class="target" id="group__nrf__uarte__hal_1ga1189b14604f6051467bc91b337c45d6a"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_event_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>UARTE events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_CTS">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aadb7e7f48f8a385142af3ae249e8a15ae"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_CTS</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_CTS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CTS is activated. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_NCTS">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aaa9eadfafaf2bc8d8525973db6ad0fffa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_NCTS</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_NCTS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CTS is deactivated. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_RXDRDY">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aad82cb8f90030dfd0a66ac658a29722ec"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_RXDRDY</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_RXDRDY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data received in RXD (but potentially not yet transferred to Data RAM). </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_TXDRDY">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa41438c8cc0a6dd6a3c534e25640c5f15"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_TXDRDY</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_TXDRDY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data sent from TXD. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_ERROR">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aadb747c6d6000073aff543006fb6a67bf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_ERROR</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_ERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error detected. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_RXTO">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aacfe771476126c4edf5f77d96a46a4f71"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_RXTO</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_RXTO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receiver timeout. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_TXSTOPPED">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aaf294fd2bdf6d029e97ddc0821d662e12"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_TXSTOPPED</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_TXSTOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Transmitted stopped. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_ENDRX">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa8329b5c3838d796c881a3962424b4150"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_ENDRX</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_ENDRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive buffer is filled up. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_ENDTX">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa8e4ed69aeb2b036939ecfb11afaf01b7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_ENDTX</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_ENDTX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last TX byte transmitted. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_RXSTARTED">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa3088313a496175a52d7f4b5e050c7702"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_RXSTARTED</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_RXSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receiver has started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_t.NRF_UARTE_EVENT_TXSTARTED">
+<span class="target" id="group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aa499f8441d47ff978989ed67aa6a6b27a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_EVENT_TXSTARTED</span></span></span><a class="headerlink" href="#c.nrf_uarte_event_t.NRF_UARTE_EVENT_TXSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Transmitter has started. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_short_t">
+<span class="target" id="group__nrf__uarte__hal_1ga34d5c38f66b74d10c11f72ea548e2138"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_short_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_short_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Types of UARTE shortcuts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_short_t.NRF_UARTE_SHORT_ENDRX_STARTRX">
+<span class="target" id="group__nrf__uarte__hal_1gga34d5c38f66b74d10c11f72ea548e2138a3cc21925e8c9ba6b47b5e4fc5ca89e29"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_SHORT_ENDRX_STARTRX</span></span></span><a class="headerlink" href="#c.nrf_uarte_short_t.NRF_UARTE_SHORT_ENDRX_STARTRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between ENDRX event and STARTRX task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_short_t.NRF_UARTE_SHORT_ENDRX_STOPRX">
+<span class="target" id="group__nrf__uarte__hal_1gga34d5c38f66b74d10c11f72ea548e2138ab09bcb8597c21c3677695b1398ac044e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_SHORT_ENDRX_STOPRX</span></span></span><a class="headerlink" href="#c.nrf_uarte_short_t.NRF_UARTE_SHORT_ENDRX_STOPRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between ENDRX event and STOPRX task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_short_t.NRF_UARTE_SHORT_ENDTX_STOPTX">
+<span class="target" id="group__nrf__uarte__hal_1gga34d5c38f66b74d10c11f72ea548e2138aeca5b4a017684808e562ec2820f35bc2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_SHORT_ENDTX_STOPTX</span></span></span><a class="headerlink" href="#c.nrf_uarte_short_t.NRF_UARTE_SHORT_ENDTX_STOPTX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Shortcut between ENDTX event and STOPTX task. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t">
+<span class="target" id="group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>UARTE interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_CTS_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daf20b28af97bf98240e439be787e5c4d0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_CTS_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_CTS_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on CTS event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_NCTS_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da59bb6b09498fa43d957024eaa753e408"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_NCTS_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_NCTS_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on NCTS event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_RXDRDY_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daa7f3b9072bbc035da6c43572e3631981"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_RXDRDY_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_RXDRDY_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on RXDRDY event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_TXDRDY_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da9fcbc283a6cf19a2d8acce330fd22751"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_TXDRDY_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_TXDRDY_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on TXDRDY event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_ERROR_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08dab082797b57a6a1372b90cd1f93d474b2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_ERROR_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_ERROR_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ERROR event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_RXTO_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08dae04416c04b5abdc51fce34d22b2e4100"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_RXTO_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_RXTO_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on RXTO event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_TXSTOPPED_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08dac82a332df7e6c202081c26ce4c873953"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_TXSTOPPED_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_TXSTOPPED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on TXSTOPPED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_ENDRX_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daf4ae0123794e860fae0a6d2b8218da32"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_ENDRX_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_ENDRX_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ENDRX event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_ENDTX_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08daaa49ccde68d4ef6871758c50d701698d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_ENDTX_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_ENDTX_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ENDTX event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_RXSTARTED_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da8952e20f257456e2b6ca5474b980fafb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_RXSTARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_RXSTARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on RXSTARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_mask_t.NRF_UARTE_INT_TXSTARTED_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga395d7c4d3cd101fa0afb90940593a08da9c88cf5a272fcdf3585c7ff021b07f92"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_INT_TXSTARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_int_mask_t.NRF_UARTE_INT_TXSTARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on TXSTARTED event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t">
+<span class="target" id="group__nrf__uarte__hal_1ga42eca93d0e7d6354bcc75d6e2cdb462e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_baudrate_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Baudrates supported by UARTE. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_1200">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea0d8daad791322bcc600d42ed57d9e208"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_1200</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_1200" title="Permalink to this definition"></a><br /></dt>
+<dd><p>1200 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_2400">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eaf46e7dd95a090a2cd64c1c9cfadf2ad5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_2400</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_2400" title="Permalink to this definition"></a><br /></dt>
+<dd><p>2400 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_4800">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea6677e10c9acb2684b6fecf68492715c7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_4800</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_4800" title="Permalink to this definition"></a><br /></dt>
+<dd><p>4800 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_9600">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eaeb153c4183d63ecb9ec6af6af734de97"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_9600</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_9600" title="Permalink to this definition"></a><br /></dt>
+<dd><p>9600 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_14400">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea8bdc32e6d7c97372039e5d9a492590f5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_14400</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_14400" title="Permalink to this definition"></a><br /></dt>
+<dd><p>14400 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_19200">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea70d18503d81a11007456bd3e89c945d5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_19200</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_19200" title="Permalink to this definition"></a><br /></dt>
+<dd><p>19200 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_28800">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea86e1747104e9f7c2df7a610141b21f1a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_28800</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_28800" title="Permalink to this definition"></a><br /></dt>
+<dd><p>28800 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_31250">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea5c86870ab4a044f4c10b40d192ba8a00"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_31250</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_31250" title="Permalink to this definition"></a><br /></dt>
+<dd><p>31250 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_38400">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eac52db59615094af65f8d478f02a68234"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_38400</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_38400" title="Permalink to this definition"></a><br /></dt>
+<dd><p>38400 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_56000">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea3283f76b77f5b4ecefbadb3fdc1062ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_56000</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_56000" title="Permalink to this definition"></a><br /></dt>
+<dd><p>56000 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_57600">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea527231954d1e97b9cc6d9408f5d432b2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_57600</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_57600" title="Permalink to this definition"></a><br /></dt>
+<dd><p>57600 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_76800">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea05c8f6c846aacb6793e1205d3533c479"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_76800</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_76800" title="Permalink to this definition"></a><br /></dt>
+<dd><p>76800 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_115200">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea7b89b684f80db1d68e98d93321426e05"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_115200</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_115200" title="Permalink to this definition"></a><br /></dt>
+<dd><p>115200 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_230400">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea01eeab23554f8418f13ac59c0d2e9cf8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_230400</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_230400" title="Permalink to this definition"></a><br /></dt>
+<dd><p>230400 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_250000">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea4236634f18ab5639793652d3cef4d17e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_250000</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_250000" title="Permalink to this definition"></a><br /></dt>
+<dd><p>250000 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_460800">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea76aeb4941330f856f18f1d8b092861cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_460800</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_460800" title="Permalink to this definition"></a><br /></dt>
+<dd><p>460800 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_921600">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462eac0f3d8da95efc2f5dfc618789522285a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_921600</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_921600" title="Permalink to this definition"></a><br /></dt>
+<dd><p>921600 baud. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_1000000">
+<span class="target" id="group__nrf__uarte__hal_1gga42eca93d0e7d6354bcc75d6e2cdb462ea4a0c94847b9e1eb020672b81f177aa39"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_BAUDRATE_1000000</span></span></span><a class="headerlink" href="#c.nrf_uarte_baudrate_t.NRF_UARTE_BAUDRATE_1000000" title="Permalink to this definition"></a><br /></dt>
+<dd><p>1000000 baud. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_error_mask_t">
+<span class="target" id="group__nrf__uarte__hal_1ga83eec8b883f6b2e77e4baa39b65d9cb0"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_error_mask_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_error_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Types of UARTE error masks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_OVERRUN_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0a252a1e515833af01bc95347d61a22e5c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_ERROR_OVERRUN_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_OVERRUN_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Overrun error. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_PARITY_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0ae3a0b96204ac5f2197ce75c8a8e79a8e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_ERROR_PARITY_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_PARITY_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parity error. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_FRAMING_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0aeaba8538c226f4784b25f86582d8a469"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_ERROR_FRAMING_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_FRAMING_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Framing error. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_BREAK_MASK">
+<span class="target" id="group__nrf__uarte__hal_1gga83eec8b883f6b2e77e4baa39b65d9cb0a05874849929b6d5a555378258e81eb2d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_ERROR_BREAK_MASK</span></span></span><a class="headerlink" href="#c.nrf_uarte_error_mask_t.NRF_UARTE_ERROR_BREAK_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Break error. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_parity_t">
+<span class="target" id="group__nrf__uarte__hal_1ga8aaeeefd8dcc602621e652895d8760ce"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_parity_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_parity_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Types of UARTE parity modes. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_parity_t.NRF_UARTE_PARITY_EXCLUDED">
+<span class="target" id="group__nrf__uarte__hal_1gga8aaeeefd8dcc602621e652895d8760cea17846ae089c79d17a516e8f112f673cd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_PARITY_EXCLUDED</span></span></span><a class="headerlink" href="#c.nrf_uarte_parity_t.NRF_UARTE_PARITY_EXCLUDED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parity excluded. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_parity_t.NRF_UARTE_PARITY_INCLUDED">
+<span class="target" id="group__nrf__uarte__hal_1gga8aaeeefd8dcc602621e652895d8760cea8e974850339489e88039da76031b0c50"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_PARITY_INCLUDED</span></span></span><a class="headerlink" href="#c.nrf_uarte_parity_t.NRF_UARTE_PARITY_INCLUDED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parity included. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_hwfc_t">
+<span class="target" id="group__nrf__uarte__hal_1ga067ff543548e273bd1658c8746894c11"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_hwfc_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_hwfc_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Types of UARTE flow control modes. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_hwfc_t.NRF_UARTE_HWFC_DISABLED">
+<span class="target" id="group__nrf__uarte__hal_1gga067ff543548e273bd1658c8746894c11a5a0258c57be0d052b3d1811967e4d689"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_HWFC_DISABLED</span></span></span><a class="headerlink" href="#c.nrf_uarte_hwfc_t.NRF_UARTE_HWFC_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Hardware flow control disabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_hwfc_t.NRF_UARTE_HWFC_ENABLED">
+<span class="target" id="group__nrf__uarte__hal_1gga067ff543548e273bd1658c8746894c11a00927c92cfe376a926365e4ecdfbb512"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_HWFC_ENABLED</span></span></span><a class="headerlink" href="#c.nrf_uarte_hwfc_t.NRF_UARTE_HWFC_ENABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Hardware flow control enabled. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_stop_t">
+<span class="target" id="group__nrf__uarte__hal_1gaf1d6928d2c4cae2bce9205c05c9a2b91"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_stop_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_stop_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Types of UARTE stop bit modes. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_stop_t.NRF_UARTE_STOP_ONE">
+<span class="target" id="group__nrf__uarte__hal_1ggaf1d6928d2c4cae2bce9205c05c9a2b91ad589067c6ef83f8b7caae93f99cef541"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_STOP_ONE</span></span></span><a class="headerlink" href="#c.nrf_uarte_stop_t.NRF_UARTE_STOP_ONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>One stop bit. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_stop_t.NRF_UARTE_STOP_TWO">
+<span class="target" id="group__nrf__uarte__hal_1ggaf1d6928d2c4cae2bce9205c05c9a2b91add7462fa97524ae1bd67999c02c7b180"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_STOP_TWO</span></span></span><a class="headerlink" href="#c.nrf_uarte_stop_t.NRF_UARTE_STOP_TWO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Two stop bits. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_uarte_paritytype_t">
+<span class="target" id="group__nrf__uarte__hal_1ga5bd965c0acc87987e247c3a812353923"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_paritytype_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_paritytype_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Types of UARTE parity types. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_paritytype_t.NRF_UARTE_PARITYTYPE_EVEN">
+<span class="target" id="group__nrf__uarte__hal_1gga5bd965c0acc87987e247c3a812353923a1f6bdb309fe828abc37df8f6b3a0f724"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_PARITYTYPE_EVEN</span></span></span><a class="headerlink" href="#c.nrf_uarte_paritytype_t.NRF_UARTE_PARITYTYPE_EVEN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parity even. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_uarte_paritytype_t.NRF_UARTE_PARITYTYPE_ODD">
+<span class="target" id="group__nrf__uarte__hal_1gga5bd965c0acc87987e247c3a812353923ae2978aa504ba543fd6ce965d81a05f3c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_UARTE_PARITYTYPE_ODD</span></span></span><a class="headerlink" href="#c.nrf_uarte_paritytype_t.NRF_UARTE_PARITYTYPE_ODD" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parity odd. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_clear">
+<span class="target" id="group__nrf__uarte__hal_1ga5dae90ae9ce6c18e2fcf8a03d3657602"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_event_t" title="nrf_uarte_event_t"><span class="n"><span class="pre">nrf_uarte_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing a specific UARTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_check">
+<span class="target" id="group__nrf__uarte__hal_1gace95ff2a8e55699ccaec942fc699ab3b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_event_t" title="nrf_uarte_event_t"><span class="n"><span class="pre">nrf_uarte_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the UARTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_event_address_get">
+<span class="target" id="group__nrf__uarte__hal_1ga71fbc9d9b1a7a7fb61e54af1db53e9b1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_event_t" title="nrf_uarte_event_t"><span class="n"><span class="pre">nrf_uarte_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified UARTE event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> The specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_shorts_set">
+<span class="target" id="group__nrf__uarte__hal_1gaa95a64c55eaf1ef8c5034c701be8cc2f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_shorts_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_shorts_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring UARTE shortcuts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Shortcuts to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_shorts_get">
+<span class="target" id="group__nrf__uarte__hal_1gacdf7d64e583ad40f2f6284080af2bb54"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_shorts_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_shorts_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting UARTE shortcuts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Shortcuts to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of requested shortcuts which were enabled. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_shorts_enable">
+<span class="target" id="group__nrf__uarte__hal_1gaf118432d67372baf106ddebd40706ac0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_shorts_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_shorts_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling UARTE shortcuts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Shortcuts to be enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_shorts_disable">
+<span class="target" id="group__nrf__uarte__hal_1ga4b45795e5eb4ab6ca6bec57fef5ca900"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_shorts_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_shorts_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling UARTE shortcuts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Shortcuts to be disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_enable">
+<span class="target" id="group__nrf__uarte__hal_1gaa541c8ca2314f3228f99d6745d51ba03"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling UARTE interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d"><span class="std std-ref">nrf_uarte_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_enable_check">
+<span class="target" id="group__nrf__uarte__hal_1ga90865440e200499623f4cc89e01db83d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d"><span class="std std-ref">nrf_uarte_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_int_disable">
+<span class="target" id="group__nrf__uarte__hal_1ga9b7a75ee458272927873b753c7f0d3ad"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__uarte__hal_1ga395d7c4d3cd101fa0afb90940593a08d"><span class="std std-ref">nrf_uarte_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_subscribe_set">
+<span class="target" id="group__nrf__uarte__hal_1ga122e4a898f64c58603ffe58ebe9f0828"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_task_t" title="nrf_uarte_task_t"><span class="n"><span class="pre">nrf_uarte_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given UARTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_subscribe_clear">
+<span class="target" id="group__nrf__uarte__hal_1ga615374471fc4545e9b26e69963c37d95"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_task_t" title="nrf_uarte_task_t"><span class="n"><span class="pre">nrf_uarte_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given UARTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_publish_set">
+<span class="target" id="group__nrf__uarte__hal_1ga92107bd9f425356f88682a286ba480e9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_event_t" title="nrf_uarte_event_t"><span class="n"><span class="pre">nrf_uarte_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given UARTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_publish_clear">
+<span class="target" id="group__nrf__uarte__hal_1gacfa67b79ba293492c74d1e670106fcc8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_event_t" title="nrf_uarte_event_t"><span class="n"><span class="pre">nrf_uarte_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given UARTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_errorsrc_get_and_clear">
+<span class="target" id="group__nrf__uarte__hal_1gafb0484282cce3fb422e1179cbbede5e9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_errorsrc_get_and_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_errorsrc_get_and_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting error source mask. Function is clearing error source flags after reading. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask with error source flags. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_enable">
+<span class="target" id="group__nrf__uarte__hal_1ga070849bf37e459b44758bfe6cd63859b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling UARTE. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_disable">
+<span class="target" id="group__nrf__uarte__hal_1gac6629a9ad9c7acbf36515e484a45d166"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling UARTE. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_enable_check">
+<span class="target" id="group__nrf__uarte__hal_1gae8d7bc802477ebd1b07539e0c9ec8ff1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the UARTE is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The UARTE is enabled. </p></li>
+<li><p><strong>false</strong> – The UARTE is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_txrx_pins_set">
+<span class="target" id="group__nrf__uarte__hal_1ga3639640032bc1ad556e7706b9ca1dedb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_txrx_pins_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pseltxd</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pselrxd</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_txrx_pins_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring TX/RX pins. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>pseltxd</strong> – <strong>[in]</strong> TXD pin number. </p></li>
+<li><p><strong>pselrxd</strong> – <strong>[in]</strong> RXD pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_txrx_pins_disconnect">
+<span class="target" id="group__nrf__uarte__hal_1gae12fb2e2d49533008304ff39d250929d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_txrx_pins_disconnect</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_txrx_pins_disconnect" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disconnecting TX/RX pins. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_tx_pin_get">
+<span class="target" id="group__nrf__uarte__hal_1gad20aa88659fd7ee2ac284a89730057c4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_tx_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_tx_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting TX pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>TX pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_rx_pin_get">
+<span class="target" id="group__nrf__uarte__hal_1gaf13bcb5b920de9d9d50ee369f4a7d6c8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_rx_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_rx_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting RX pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RX pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_rts_pin_get">
+<span class="target" id="group__nrf__uarte__hal_1gae45c79f51d7ee117ede98c03dbc7a724"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_rts_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_rts_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting RTS pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RTS pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_cts_pin_get">
+<span class="target" id="group__nrf__uarte__hal_1ga143b34d55cfc636dd26a804566eef939"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_cts_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_cts_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting CTS pin selection. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CTS pin selection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_hwfc_pins_set">
+<span class="target" id="group__nrf__uarte__hal_1ga6203bd22ea2ff2288a5634c2ec4a3d7f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_hwfc_pins_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pselrts</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pselcts</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_hwfc_pins_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring flow control pins. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>pselrts</strong> – <strong>[in]</strong> RTS pin number. </p></li>
+<li><p><strong>pselcts</strong> – <strong>[in]</strong> CTS pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_hwfc_pins_disconnect">
+<span class="target" id="group__nrf__uarte__hal_1ga7d032eec8527123301563e29fae8fe8b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_hwfc_pins_disconnect</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_hwfc_pins_disconnect" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disconnecting flow control pins. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_trigger">
+<span class="target" id="group__nrf__uarte__hal_1ga3bdb712b7c870d00490404158c8f6531"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_task_t" title="nrf_uarte_task_t"><span class="n"><span class="pre">nrf_uarte_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for starting an UARTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_task_address_get">
+<span class="target" id="group__nrf__uarte__hal_1gaf3123d724a34655489ff9a353f24dd10"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_task_t" title="nrf_uarte_task_t"><span class="n"><span class="pre">nrf_uarte_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Task address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_configure">
+<span class="target" id="group__nrf__uarte__hal_1ga7ade109c5df6108b680ecc9186f079b5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_config_t" title="nrf_uarte_config_t"><span class="n"><span class="pre">nrf_uarte_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_cfg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring UARTE. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_cfg</strong> – <strong>[in]</strong> Pointer to UARTE settings structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_baudrate_set">
+<span class="target" id="group__nrf__uarte__hal_1ga156a5e07b05444cdaebe7bbfa141f0d8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_baudrate_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_uarte_baudrate_t" title="nrf_uarte_baudrate_t"><span class="n"><span class="pre">nrf_uarte_baudrate_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">baudrate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_baudrate_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting UARTE baud rate. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>baudrate</strong> – <strong>[in]</strong> Baud rate. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_tx_buffer_set">
+<span class="target" id="group__nrf__uarte__hal_1gab54534a45e185cee807e27b4b2a77d75"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_tx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_tx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the transmit buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the buffer with data to send. </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Maximum number of data bytes to transmit. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_tx_buffer_get">
+<span class="target" id="group__nrf__uarte__hal_1gaa2591b6842b0ef1033a095e9484d0cd8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_tx_buffer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_tx_buffer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the transmit buffer address. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the transmit buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_tx_amount_get">
+<span class="target" id="group__nrf__uarte__hal_1ga4b52b1f7133577c0cf017143d5dc5ee0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_tx_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_tx_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting number of bytes transmitted in the last transaction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Amount</strong> – of bytes transmitted. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_rx_buffer_set">
+<span class="target" id="group__nrf__uarte__hal_1ga1bb25747646dd76f76f5939cc332abc9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_rx_buffer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_rx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the receive buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the buffer for received data. </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Maximum number of data bytes to receive. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_rx_buffer_get">
+<span class="target" id="group__nrf__uarte__hal_1gaee7e0cd824a91100b21464fca8d789fb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_rx_buffer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_rx_buffer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the reception buffer address. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the reception buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_uarte_rx_amount_get">
+<span class="target" id="group__nrf__uarte__hal_1ga61ad399cf37f988ff775dd594edee863"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_rx_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_uarte_rx_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting number of bytes received in the last transaction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Amount</strong> – of bytes received. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_uarte_config_t">
+<span class="target" id="structnrf__uarte__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_uarte_config_t</span></span></span><a class="headerlink" href="#c.nrf_uarte_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_uarte.h&gt;</em></div>
+<p>Structure for UARTE transmission configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uarte_config_t.hwfc">
+<span class="target" id="structnrf__uarte__config__t_1a087d80bdf09822a25457ed814100081d"></span><a class="reference internal" href="#c.nrf_uarte_hwfc_t" title="nrf_uarte_hwfc_t"><span class="n"><span class="pre">nrf_uarte_hwfc_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hwfc</span></span></span><a class="headerlink" href="#c.nrf_uarte_config_t.hwfc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flow control configuration. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uarte_config_t.parity">
+<span class="target" id="structnrf__uarte__config__t_1afbe9ee13c677c7352f8cbcabf61fc205"></span><a class="reference internal" href="#c.nrf_uarte_parity_t" title="nrf_uarte_parity_t"><span class="n"><span class="pre">nrf_uarte_parity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">parity</span></span></span><a class="headerlink" href="#c.nrf_uarte_config_t.parity" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parity configuration. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uarte_config_t.stop">
+<span class="target" id="structnrf__uarte__config__t_1ad3a265288de25e9260a928c9cdae9c43"></span><a class="reference internal" href="#c.nrf_uarte_stop_t" title="nrf_uarte_stop_t"><span class="n"><span class="pre">nrf_uarte_stop_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stop</span></span></span><a class="headerlink" href="#c.nrf_uarte_config_t.stop" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop bits. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_uarte_config_t.paritytype">
+<span class="target" id="structnrf__uarte__config__t_1a27cf5a5adfeec88a09325aaae526fabb"></span><a class="reference internal" href="#c.nrf_uarte_paritytype_t" title="nrf_uarte_paritytype_t"><span class="n"><span class="pre">nrf_uarte_paritytype_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">paritytype</span></span></span><a class="headerlink" href="#c.nrf_uarte_config_t.paritytype" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parity type. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="haly.html" class="btn btn-neutral float-right" title="UARTE HALY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="UARTE driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

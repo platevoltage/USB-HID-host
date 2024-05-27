@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MVDMA HALY &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MWU" href="../mwu/index.html" />
+    <link rel="prev" title="MVDMA HAL" href="hal.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">MVDMA</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../nrfx_api/vdma.html">Generic Vector DMA layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">MVDMA HAL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">MVDMA HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">MVDMA</a></li>
+      <li class="breadcrumb-item active">MVDMA HALY</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/mvdma/haly.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mvdma-haly">
+<h1>MVDMA HALY<a class="headerlink" href="#mvdma-haly" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfy__mvdma"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfy_mvdma</span></span></dt>
+<dd><p>Hardware access layer with cache and barrier support for managing the MVDMA peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFY_MVDMA_HAS_NEW_VER">
+<span class="target" id="group__nrfy__mvdma_1ga9d77568243baee496850736edda08630"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFY_MVDMA_HAS_NEW_VER</span></span></span><a class="headerlink" href="#c.NRFY_MVDMA_HAS_NEW_VER" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gae2a46e84fd2c194d6d687f760e5b563b"><span class="std std-ref">NRF_MVDMA_HAS_NEW_VER</span></a>  Symbol indicating whether MVDMA uses new or old version.  </p>
+</div>
+</p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFY_MVDMA_HAS_AXIMODE">
+<span class="target" id="group__nrfy__mvdma_1ga24377ab54bf7ef395677f43896c78fca"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFY_MVDMA_HAS_AXIMODE</span></span></span><a class="headerlink" href="#c.NRFY_MVDMA_HAS_AXIMODE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga3136a8d34e086cd5984556a0d4c28203"><span class="std std-ref">NRF_MVDMA_HAS_AXIMODE</span></a>  Symbol indicating whether AXIMODE configuration is present.  </p>
+</div>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_int_init">
+<span class="target" id="group__nrfy__mvdma_1ga5b784802ba865998b780a55a90bc5f1d"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_int_init</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">irq_priority</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_int_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the specified MVDMA interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be initialized. </p></li>
+<li><p><strong>irq_priority</strong> – <strong>[in]</strong> Interrupt priority. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if the interrupts are to be enabled, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_int_uninit">
+<span class="target" id="group__nrfy__mvdma_1ga86c35ce8bac5b4ee26697944cf9cd7ea"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_int_uninit</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_int_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the specified MVDMA interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_events_process">
+<span class="target" id="group__nrfy__mvdma_1ga3f836ff6c47e42975cc0a507927660b7"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_events_process</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span>, <a class="reference internal" href="#c.nrfy_mvdma_list_request_t" title="nrfy_mvdma_list_request_t"><span class="n"><span class="pre">nrfy_mvdma_list_request_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_list_request</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_events_process" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for processing the specified MVDMA events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of events to be processed, created by <a class="reference internal" href="../../nrfx_api/common_nrfy.html#group__nrfy__common_1ga0c6f93867e58ecfb266f70393b408c03"><span class="std std-ref">NRFY_EVENT_TO_INT_BITMASK()</span></a>. </p></li>
+<li><p><strong>p_list_request</strong> – <strong>[in]</strong> Pointer to the structure of list execution request associated with the last operation. Can be NULL.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of events that were generated and processed. To be checked against the result of <a class="reference internal" href="../../nrfx_api/common_nrfy.html#group__nrfy__common_1ga0c6f93867e58ecfb266f70393b408c03"><span class="std std-ref">NRFY_EVENT_TO_INT_BITMASK()</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_start">
+<span class="target" id="group__nrfy__mvdma_1gadee2abf18c994780bd909590916fabaa"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_start</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrfy_mvdma_list_request_t" title="nrfy_mvdma_list_request_t"><span class="n"><span class="pre">nrfy_mvdma_list_request_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_list_request</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_start" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for starting the MVDMA jobs in single-mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_list_request</strong> – <strong>[in]</strong> Pointer to the structure of list execution request if the transaction is to be blocking. NULL for non-blocking transactions. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_multi_start">
+<span class="target" id="group__nrfy__mvdma_1ga5a34fbe7d9394cc229335b0cd7a95377"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_multi_start</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span>, <span class="n"><span class="pre">nrfy_mvdma_multi_list_request_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_list_request</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_multi_start" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for starting the MVDMA jobs in multi-mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Index of the job list that will be executed. </p></li>
+<li><p><strong>p_list_request</strong> – <strong>[in]</strong> Pointer to the structure of lists execution request if the transaction is to be blocking. NULL for non-blocking transactions. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_multi_job_list_set">
+<span class="target" id="group__nrfy__mvdma_1ga46f64c5c2212bad48cfc824a88e4835c"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_multi_job_list_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">nrfy_mvdma_multi_list_request_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_list_request</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_multi_job_list_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the MVDMA job lists in multi-mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_list_request</strong> – <strong>[in]</strong> Pointer to the structure of list execution request. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_multi_job_list_get">
+<span class="target" id="group__nrfy__mvdma_1ga2ab1fdd973456c352aa246508a420b48"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_multi_job_list_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">nrfy_mvdma_multi_list_request_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_list_request</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_multi_job_list_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the MVDMA job lists in multi-mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_list_request</strong> – <strong>[out]</strong> Pointer to the structure to be filled with list execution request. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_job_list_set">
+<span class="target" id="group__nrfy__mvdma_1ga33a286dc72d59bee7b4d25f325e334ca"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_job_list_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrfy_mvdma_list_request_t" title="nrfy_mvdma_list_request_t"><span class="n"><span class="pre">nrfy_mvdma_list_request_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_list_request</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_job_list_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the MVDMA jobs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_list_request</strong> – <strong>[in]</strong> Pointer to the structure of list execution request. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_reset">
+<span class="target" id="group__nrfy__mvdma_1ga9ab523a3cb73b1ef082f656a9260da4e"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_reset</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">wait</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_reset" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for resetting the MVDMA peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>wait</strong> – <strong>[in]</strong> True if reset is to be done in blocking mode, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_abort">
+<span class="target" id="group__nrfy__mvdma_1ga0da2efb4fea20bcce5c5aa10131f87a0"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_abort</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrfy_mvdma_list_request_t" title="nrfy_mvdma_list_request_t"><span class="n"><span class="pre">nrfy_mvdma_list_request_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_list_request</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_abort" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for aborting the MVDMA transaction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_list_request</strong> – <strong>[in]</strong> Pointer to the structure of list execution request. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_source_job_description_get">
+<span class="target" id="group__nrfy__mvdma_1gaa5b7c18d184cf90b46196e70e479c238"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_source_job_description_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrfy_mvdma_list_desc_t" title="nrfy_mvdma_list_desc_t"><span class="n"><span class="pre">nrfy_mvdma_list_desc_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job_list_desc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_source_job_description_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the MVDMA source job details. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_job_list_desc</strong> – <strong>[out]</strong> Pointer to the structure to be filled with job list description. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_sink_job_description_get">
+<span class="target" id="group__nrfy__mvdma_1ga12b43721d2d631321dbf0e378e9af44c"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_sink_job_description_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrfy_mvdma_list_desc_t" title="nrfy_mvdma_list_desc_t"><span class="n"><span class="pre">nrfy_mvdma_list_desc_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job_list_desc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_sink_job_description_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the MVDMA sink job details. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_job_list_desc</strong> – <strong>[out]</strong> Pointer to the structure to be filled with job list description. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_task_trigger">
+<span class="target" id="group__nrfy__mvdma_1ga33967753b0c3e54e4decfb7d1067e1d3"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_task_t" title="nrf_mvdma_task_t"><span class="n"><span class="pre">nrf_mvdma_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga8ff4dd7798c2e64bc78ae3fe6f662532"><span class="std std-ref">nrf_mvdma_task_trigger</span></a>  Function for activating the specified MVDMA task.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_task_address_get">
+<span class="target" id="group__nrfy__mvdma_1ga62f8f13aff01e93c3431acd6ecba50c4"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_task_t" title="nrf_mvdma_task_t"><span class="n"><span class="pre">nrf_mvdma_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gafcbc21aa3b202cea94a75170ea2c8d79"><span class="std std-ref">nrf_mvdma_task_address_get</span></a>  Function for getting the address of the specified MVDMA task register.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Specified task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_start_task_get">
+<span class="target" id="group__nrfy__mvdma_1ga633edc324e95832e045bf79a874f357e"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="hal.html#c.nrf_mvdma_task_t" title="nrf_mvdma_task_t"><span class="n"><span class="pre">nrf_mvdma_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_start_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_start_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga770ec8d1849122f7bf50341e0bceb7a6"><span class="std std-ref">nrf_mvdma_start_task_get</span></a>  Function for getting START task by its index.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Index of the START task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>START task.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_event_clear">
+<span class="target" id="group__nrfy__mvdma_1ga8f9cea7bf645665ce615a80ff74bdebc"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_event_t" title="nrf_mvdma_event_t"><span class="n"><span class="pre">nrf_mvdma_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga74a7b2e9a23a8eeaa82bdce6b9575374"><span class="std std-ref">nrf_mvdma_event_clear</span></a>  Function for clearing the specified MVDMA event.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_event_check">
+<span class="target" id="group__nrfy__mvdma_1gaf5efab42e2782b57e0f693300af62fce"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_event_t" title="nrf_mvdma_event_t"><span class="n"><span class="pre">nrf_mvdma_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga367b9509c93895cb50689d31ac284c01"><span class="std std-ref">nrf_mvdma_event_check</span></a>  Function for retrieving the state of the MVDMA event.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_event_address_get">
+<span class="target" id="group__nrfy__mvdma_1ga433913283231dbb4aef4d80d085f02f4"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_event_t" title="nrf_mvdma_event_t"><span class="n"><span class="pre">nrf_mvdma_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga7d44269c67a65e59a4a9606593782002"><span class="std std-ref">nrf_mvdma_event_address_get</span></a>  Function for getting the address of the specified MVDMA event register.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_int_enable">
+<span class="target" id="group__nrfy__mvdma_1gad3d7d557315bafa48fdefa86888f53c9"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga519024a15bce6aa1ce1c25ca32e9a5a3"><span class="std std-ref">nrf_mvdma_int_enable</span></a>  Function for enabling specified interrupts.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga2fc7541ce6835a58a26f9ba3794f3118"><span class="std std-ref">nrf_mvdma_int_mask_t</span></a> values for bit masking.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_int_disable">
+<span class="target" id="group__nrfy__mvdma_1ga003322648954545e58164e4c9bfbf4a8"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga18e7178bdf80b95ac9d531fcbeb0d7c6"><span class="std std-ref">nrf_mvdma_int_disable</span></a>  Function for disabling specified interrupts.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga2fc7541ce6835a58a26f9ba3794f3118"><span class="std std-ref">nrf_mvdma_int_mask_t</span></a> values for bit masking.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_int_enable_check">
+<span class="target" id="group__nrfy__mvdma_1gad9d8c8922312f35584f10d063f9f9748"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga773770b5370b2f21403fffa5bb532598"><span class="std std-ref">nrf_mvdma_int_enable_check</span></a>  Function for checking if the specified interrupts are enabled.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga2fc7541ce6835a58a26f9ba3794f3118"><span class="std std-ref">nrf_mvdma_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_int_pending_get">
+<span class="target" id="group__nrfy__mvdma_1gaf37fde6d31131ce9d7bb8dfbbd36d591"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_int_pending_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_int_pending_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga88407231c53c6d9d92ab20ab6c81110d"><span class="std std-ref">nrf_mvdma_int_pending_get</span></a>  Function for retrieving the state of pending interrupts.  </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>States of pending interrupt are saved as a bitmask. One set at particular position means that interrupt for event is pending.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bitmask with information about pending interrupts. Use <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga2fc7541ce6835a58a26f9ba3794f3118"><span class="std std-ref">nrf_mvdma_int_mask_t</span></a> values for bit masking.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_subscribe_set">
+<span class="target" id="group__nrfy__mvdma_1gab3dae9f262b49bcf2ee1a39baa079c3b"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_task_t" title="nrf_mvdma_task_t"><span class="n"><span class="pre">nrf_mvdma_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga855b2fdd44b7e7a4bce7659b5190f54e"><span class="std std-ref">nrf_mvdma_subscribe_set</span></a>  Function for setting the subscribe configuration for a given MVDMA task.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_subscribe_clear">
+<span class="target" id="group__nrfy__mvdma_1gab177b7b8f716016f09b36f088d1a932c"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_task_t" title="nrf_mvdma_task_t"><span class="n"><span class="pre">nrf_mvdma_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga962201d7a29f3b10c4a520248efa4057"><span class="std std-ref">nrf_mvdma_subscribe_clear</span></a>  Function for clearing the subscribe configuration for a given MVDMA task.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_publish_set">
+<span class="target" id="group__nrfy__mvdma_1ga5d2b433bc02a0d4ea6961145b492b44b"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_event_t" title="nrf_mvdma_event_t"><span class="n"><span class="pre">nrf_mvdma_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gaa9370f101858358a70af0964ca7a056a"><span class="std std-ref">nrf_mvdma_publish_set</span></a>  Function for setting the publish configuration for a given MVDMA event.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_publish_clear">
+<span class="target" id="group__nrfy__mvdma_1ga2ee85af3690e08619165afc7b2a7e426"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_event_t" title="nrf_mvdma_event_t"><span class="n"><span class="pre">nrf_mvdma_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gadc4859cd77da19bb928f0a477e5c3c39"><span class="std std-ref">nrf_mvdma_publish_clear</span></a>  Function for clearing the publish configuration for a given MVDMA event.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_mode_set">
+<span class="target" id="group__nrfy__mvdma_1gae7c3a908280e9d1158e4f01ea9b80a2a"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_mode_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_mode_t" title="nrf_mvdma_mode_t"><span class="n"><span class="pre">nrf_mvdma_mode_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">mode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_mode_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga0efe65b3bb929a13864bb29e0b570428"><span class="std std-ref">nrf_mvdma_mode_set</span></a>  Function for setting the MVDMA mode.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mode</strong> – <strong>[in]</strong> Desired operating mode for MVDMA.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_aximode_set">
+<span class="target" id="group__nrfy__mvdma_1ga03fa0b8e35713c9e4b39ac66102cfcb3"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_aximode_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_mvdma_aximode_t" title="nrf_mvdma_aximode_t"><span class="n"><span class="pre">nrf_mvdma_aximode_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">aximode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_aximode_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga313afb53dca74554c3b4356b7246f517"><span class="std std-ref">nrf_mvdma_aximode_set</span></a>  Function for setting the AXI mode.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>aximode</strong> – <strong>[in]</strong> Desired AXI mode for MVDMA.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_source_list_ptr_set">
+<span class="target" id="group__nrfy__mvdma_1gab0cdcf701d7d86b04ca71555a0c3cdbe"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_source_list_ptr_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_source_list_ptr_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga6ee1a92116337e8fc4c1f5cdba571778"><span class="std std-ref">nrf_mvdma_source_list_ptr_set</span></a>  Function for setting the pointer to the source descriptor list or pointer to the list of descriptor list pointers, depending on configured <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga611db7934e2236bfe69148e89823a3a3"><span class="std std-ref">nrf_mvdma_mode_t</span></a> mode.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_job</strong> – <strong>[in]</strong> Pointer to a job list.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_source_list_ptr_get">
+<span class="target" id="group__nrfy__mvdma_1ga4b9986ce9ff5e077c86790ad555a2088"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_source_list_ptr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_source_list_ptr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga600ce66bf59c367d736c20a9cad42a4b"><span class="std std-ref">nrf_mvdma_source_list_ptr_get</span></a>  Function for getting the pointer to the source descriptor list or pointer to the list of descriptor list pointers, depending on configured <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga611db7934e2236bfe69148e89823a3a3"><span class="std std-ref">nrf_mvdma_mode_t</span></a> mode.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to a job list.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_sink_list_ptr_set">
+<span class="target" id="group__nrfy__mvdma_1ga3c8224a1c01aa15badb068b443387a48"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_sink_list_ptr_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_sink_list_ptr_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gab120702d8cc46932695bcfa1b8b700a0"><span class="std std-ref">nrf_mvdma_sink_list_ptr_set</span></a>  Function for getting the pointer to the sink descriptor list or pointer to the list of descriptor list pointers, depending on configured <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga611db7934e2236bfe69148e89823a3a3"><span class="std std-ref">nrf_mvdma_mode_t</span></a> mode.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_job</strong> – <strong>[in]</strong> Pointer to a job list.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_sink_list_ptr_get">
+<span class="target" id="group__nrfy__mvdma_1ga65b151f3528c7af9f465e171dcdb421a"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_sink_list_ptr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_sink_list_ptr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gaf012e8c81fd1e2735b818a36f4e5cab7"><span class="std std-ref">nrf_mvdma_sink_list_ptr_get</span></a>  Function for getting the pointer to the sink descriptor list or pointer to the list of descriptor list pointers, depending on configured <a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga611db7934e2236bfe69148e89823a3a3"><span class="std std-ref">nrf_mvdma_mode_t</span></a> mode.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to a job list.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_crc_result_get">
+<span class="target" id="group__nrfy__mvdma_1ga9c885354545fc15f249c2c4fb7229d5b"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_crc_result_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_crc_result_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga8fbb296c6cb2888e3186bfeba3de4678"><span class="std std-ref">nrf_mvdma_crc_result_get</span></a>  Function for getting the result of CRC checksum calculation.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Result of CRC checksum calculation.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_fifo_status_get">
+<span class="target" id="group__nrfy__mvdma_1gab11b0ae1bfe6e9e9bc0835f4bb4e7924"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="hal.html#c.nrf_mvdma_fifo_status_t" title="nrf_mvdma_fifo_status_t"><span class="n"><span class="pre">nrf_mvdma_fifo_status_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_fifo_status_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_fifo_status_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gaa604217304e34b65605fb1cdc7160689"><span class="std std-ref">nrf_mvdma_fifo_status_get</span></a>  Function for getting the status of intermediate FIFO.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Intermediate FIFO status.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_activity_check">
+<span class="target" id="group__nrfy__mvdma_1ga35feab93ea049917f9e6fcc9c4bc5764"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_activity_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_activity_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga048d320f31fc4f79927e69ba28b97f3a"><span class="std std-ref">nrf_mvdma_activity_check</span></a>  Function for checking the MVDMA activity.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – MVDMA is processing data. </p></li>
+<li><p><strong>false</strong> – MVDMA is idle.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_source_error_get">
+<span class="target" id="group__nrfy__mvdma_1ga48f8e1c06995636f0782a5701573c159"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="hal.html#c.nrf_mvdma_source_error_t" title="nrf_mvdma_source_error_t"><span class="n"><span class="pre">nrf_mvdma_source_error_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_source_error_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_source_error_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gab11530bca70704fa00c6605fc5df11f0"><span class="std std-ref">nrf_mvdma_source_error_get</span></a>  Function for getting the bus error of MVDMA data source.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bus error of data source.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_sink_error_get">
+<span class="target" id="group__nrfy__mvdma_1ga4b114027b87bca31ad22cb5a3c611028"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="hal.html#c.nrf_mvdma_sink_error_t" title="nrf_mvdma_sink_error_t"><span class="n"><span class="pre">nrf_mvdma_sink_error_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_sink_error_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_sink_error_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga0a4df038da3b5e328413aed798212d73"><span class="std std-ref">nrf_mvdma_sink_error_get</span></a>  Function for getting the bus error of MVDMA data source.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bus error of data sink.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_last_source_address_get">
+<span class="target" id="group__nrfy__mvdma_1ga2a84ae3dfcafa4aca9a4e785ec007dc3"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_last_source_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_last_source_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga27ce2352bcae4bec021641c662e88a71"><span class="std std-ref">nrf_mvdma_last_source_address_get</span></a>  Function for getting the latest address being accessed on the source AXI channel.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Latest address being accessed on the source AXI channel.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_last_sink_address_get">
+<span class="target" id="group__nrfy__mvdma_1ga538999526d1af66cb1447207a0e7dc0a"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_last_sink_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_last_sink_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gac83dac3081b964c22bc05821f0f485fb"><span class="std std-ref">nrf_mvdma_last_sink_address_get</span></a>  Function for getting the latest address being accessed on the sink AXI channel.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Latest address being accessed on the sink AXI channel.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_source_job_count_get">
+<span class="target" id="group__nrfy__mvdma_1ga448c18fd6c09db2db751d804e9ce55b6"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_source_job_count_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_source_job_count_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1gaaa85c9f87d1afa300b35d39675fdf11a"><span class="std std-ref">nrf_mvdma_source_job_count_get</span></a>  Function for getting the number of completed jobs in the current source descriptor list.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of completed jobs in the current source descriptor list.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_sink_job_count_get">
+<span class="target" id="group__nrfy__mvdma_1ga2b131fb649acfb668a499b002aaf0368"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_sink_job_count_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_MVDMA_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_mvdma_sink_job_count_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__mvdma__hal_1ga6eaf1d2c50551a0a955650036486b7dc"><span class="std std-ref">nrf_mvdma_sink_job_count_get</span></a>  Function for getting the number of completed jobs in the current sink descriptor list.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of completed jobs in the current sink descriptor list.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_list_request_t">
+<span class="target" id="structnrfy__mvdma__list__request__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_list_request_t</span></span></span><a class="headerlink" href="#c.nrfy_mvdma_list_request_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfy_mvdma.h&gt;</em></div>
+<p>Structure describing list execution request for the MVDMA. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_list_request_t.p_source_job_list">
+<span class="target" id="structnrfy__mvdma__list__request__t_1a7f57a56678e8f5c55bef3c1749512614"></span><a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_source_job_list</span></span></span><a class="headerlink" href="#c.nrfy_mvdma_list_request_t.p_source_job_list" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the source job list. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_list_request_t.p_sink_job_list">
+<span class="target" id="structnrfy__mvdma__list__request__t_1a3a999dda56c66e4d455cdd938bb016a9"></span><a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_sink_job_list</span></span></span><a class="headerlink" href="#c.nrfy_mvdma_list_request_t.p_sink_job_list" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the sink job list. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_list_desc_t">
+<span class="target" id="structnrfy__mvdma__list__desc__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_mvdma_list_desc_t</span></span></span><a class="headerlink" href="#c.nrfy_mvdma_list_desc_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfy_mvdma.h&gt;</em></div>
+<p>Auxiliary structure describing the MVDMA job list with unspecified direction. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_list_desc_t.p_jobs">
+<span class="target" id="structnrfy__mvdma__list__desc__t_1aeed4c82ea1ea7a64d0fefa636235108e"></span><a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_jobs</span></span></span><a class="headerlink" href="#c.nrfy_mvdma_list_desc_t.p_jobs" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the job list. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_list_desc_t.job_count">
+<span class="target" id="structnrfy__mvdma__list__desc__t_1aef1c8d483440292ee968094f2a3f0ad9"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">job_count</span></span></span><a class="headerlink" href="#c.nrfy_mvdma_list_desc_t.job_count" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of jobs executed, including terminating job. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_mvdma_list_desc_t.last_addr">
+<span class="target" id="structnrfy__mvdma__list__desc__t_1a1b470d2a71b273ec55ddabb0761efa2d"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last_addr</span></span></span><a class="headerlink" href="#c.nrfy_mvdma_list_desc_t.last_addr" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last sink or source address accessed by the peripheral when the list was processed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mwu/index.html" class="btn btn-neutral float-right" title="MWU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hal.html" class="btn btn-neutral" title="MVDMA HAL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+    "build": {
+      "core": "nordicnrf52",
+      "cpu": "cortex-m4",
+      "f_cpu": "64000000L",
+      "mcu": "nrf52832",
+      "variant": "custom_variant"
+    },
+    "frameworks": [
+      "arduino"
+    ],
+    "name": "Custom nRF52 Board",
+    "upload": {
+      "maximum_ram_size": 65536,
+      "maximum_size": 524288,
+      "protocol": "jlink"
+    },
+    "url": "https://www.example.com",
+    "vendor": "Custom"
+  }

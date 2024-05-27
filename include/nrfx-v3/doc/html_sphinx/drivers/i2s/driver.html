@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I2S driver &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="I2S HAL" href="hal.html" />
+    <link rel="prev" title="I2S" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">I2S</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">I2S driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">I2S HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">I2S HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">I2S</a></li>
+      <li class="breadcrumb-item active">I2S driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/i2s/driver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="i2s-driver">
+<h1>I2S driver<a class="headerlink" href="#i2s-driver" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__i2s"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_i2s</span></span></dt>
+<dd><p>Inter-IC Sound (I2S) peripheral driver. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_I2S_INSTANCE">
+<span class="target" id="group__nrfx__i2s_1ga5a80e2998842bd1f4c0926f09fd65098"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_I2S_INSTANCE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_I2S_INSTANCE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for creating an I2S driver instance. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_I2S_DEFAULT_CONFIG">
+<span class="target" id="group__nrfx__i2s_1ga253c33055db81ff561ce871fa9304fd0"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_I2S_DEFAULT_CONFIG</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">_pin_sck</span></span>, <span class="n"><span class="pre">_pin_lrck</span></span>, <span class="n"><span class="pre">_pin_mck</span></span>, <span class="n"><span class="pre">_pin_sdout</span></span>, <span class="n"><span class="pre">_pin_sdin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_I2S_DEFAULT_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S driver default configuration. </p>
+<p>This configuration sets up I2S with the following options:<ul class="simple">
+<li><p>master mode</p></li>
+<li><p>i2s data format</p></li>
+<li><p>left alignment</p></li>
+<li><p>sample width 16 bit</p></li>
+<li><p>left channel enabled</p></li>
+<li><p>MCK frequency 4 MHz</p></li>
+<li><p>LRCK frequency 125 kHz</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_pin_sck</strong> – <strong>[in]</strong> SCK pin number. </p></li>
+<li><p><strong>_pin_lrck</strong> – <strong>[in]</strong> LRCK pin number. </p></li>
+<li><p><strong>_pin_mck</strong> – <strong>[in]</strong> MCK pin number. </p></li>
+<li><p><strong>_pin_sdout</strong> – <strong>[in]</strong> SDOUT pin number. </p></li>
+<li><p><strong>_pin_sdin</strong> – <strong>[in]</strong> SDIN pin number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED">
+<span class="target" id="group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</span></span></span><a class="headerlink" href="#c.NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The application must provide buffers that are to be used in the next part of the transfer. A call to <a class="reference internal" href="#group__nrfx__i2s_1ga0368f13344a759012a7fc3d343107e9c"><span class="std std-ref">nrfx_i2s_next_buffers_set</span></a> must be done before the currently used buffers are completely processed (that is, the time remaining for supplying the next buffers depends on the used size of the buffers). </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_I2S_STATUS_TRANSFER_STOPPED">
+<span class="target" id="group__nrfx__i2s_1ga8d2c208fb63ad2ebd76a9c0a67794b2e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_I2S_STATUS_TRANSFER_STOPPED</span></span></span><a class="headerlink" href="#c.NRFX_I2S_STATUS_TRANSFER_STOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The I2S peripheral has been stopped and all buffers that were passed to the driver have been released. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrfx_i2s_buffers_t">
+<span class="target" id="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="haly.html#c.nrfy_i2s_xfer_desc_t" title="nrfy_i2s_xfer_desc_t"><span class="n"><span class="pre">nrfy_i2s_xfer_desc_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_buffers_t</span></span></span><a class="headerlink" href="#c.nrfx_i2s_buffers_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S driver buffers structure. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrfx_i2s_data_handler_t">
+<span class="target" id="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_data_handler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#c.nrfx_i2s_buffers_t" title="nrfx_i2s_buffers_t"><span class="n"><span class="pre">nrfx_i2s_buffers_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_released</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">status</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.nrfx_i2s_data_handler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S driver data handler type. </p>
+<p>A data handling function of this type must be specified during the initialization of the driver. The driver will call this function when it finishes using buffers passed to it by the application, and when it needs to be provided with buffers for the next part of the transfer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">p_released</span></code> pointer passed to this function is temporary and will be invalid after the function returns, hence it cannot be stored and used later. If needed, the pointed content (that is, buffers pointers) must be copied instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the peripheral is stopped asynchronously, buffers that are released after the call to <a class="reference internal" href="#group__nrfx__i2s_1ga7bee70318aad2b9850953a5b5e7189c1"><span class="std std-ref">nrfx_i2s_stop</span></a> are not used entirely. In this case, only a part (if any) of the TX buffer has been actually transmitted and only a part (if any) of the RX buffer is filled with received data. </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Param p_released<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>[in]</strong> Pointer to a structure with pointers to buffers passed previously to the driver that will no longer be accessed by it (they can be now safely released or used for another purpose, in particular for a next part of the transfer). This pointer will be NULL if the application did not supply the buffers for the next part of the transfer (via a call to <a class="reference internal" href="#group__nrfx__i2s_1ga0368f13344a759012a7fc3d343107e9c"><span class="std std-ref">nrfx_i2s_next_buffers_set</span></a>) since the previous time the data handler signaled such need. This means that data corruption occurred (the previous buffers are used for the second time) and no buffers can be released at the moment. Both pointers in this structure are NULL when the handler is called for the first time after a transfer is started, because no data has been transferred yet at this point. In all successive calls, the pointers specify what has been sent (TX) and what has been received (RX) in the part of the transfer that has just been completed (provided that a given direction is enabled, see <a class="reference internal" href="#group__nrfx__i2s_1ga5baeb8fd2ee28b71d125694bce59b84e"><span class="std std-ref">nrfx_i2s_start</span></a>). </p>
+</dd>
+<dt class="field-even">Param status<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>[in]</strong> Bit field describing the current status of the transfer. It can be 0 or a combination of the following flags:<ul class="simple">
+<li><p><a class="reference internal" href="#group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772"><span class="std std-ref">NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</span></a></p></li>
+<li><p><a class="reference internal" href="#group__nrfx__i2s_1ga8d2c208fb63ad2ebd76a9c0a67794b2e"><span class="std std-ref">NRFX_I2S_STATUS_TRANSFER_STOPPED</span></a></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_i2s_init">
+<span class="target" id="group__nrfx__i2s_1ga88819734bc482dd9759aa882c97a1410"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_i2s_t" title="nrfx_i2s_t"><span class="n"><span class="pre">nrfx_i2s_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_i2s_config_t" title="nrfx_i2s_config_t"><span class="n"><span class="pre">nrfx_i2s_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span>, <a class="reference internal" href="#c.nrfx_i2s_data_handler_t" title="nrfx_i2s_data_handler_t"><span class="n"><span class="pre">nrfx_i2s_data_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_i2s_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the I2S driver. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the initial configuration. </p></li>
+<li><p><strong>handler</strong> – <strong>[in]</strong> Data handler provided by the user. Must not be NULL.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization was successful. </p></li>
+<li><p><strong>NRFX_ERROR_ALREADY</strong> – The driver is already initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is already initialized. Deprecated - use <a class="reference internal" href="../../nrfx_api/error_codes.html#group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd"><span class="std std-ref">NRFX_ERROR_ALREADY</span></a> instead. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – The requested combination of configuration options is not allowed by the I2S peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_i2s_uninit">
+<span class="target" id="group__nrfx__i2s_1ga34af2bbee22e4db7f50c9a48db04411d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_uninit</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_i2s_t" title="nrfx_i2s_t"><span class="n"><span class="pre">nrfx_i2s_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_i2s_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the I2S driver. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_i2s_init_check">
+<span class="target" id="group__nrfx__i2s_1gab813cd49b74aca4865f0ffc79f114de2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_init_check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_i2s_t" title="nrfx_i2s_t"><span class="n"><span class="pre">nrfx_i2s_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_i2s_init_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the I2S driver instance is initialized. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Instance is already initialized. </p></li>
+<li><p><strong>false</strong> – Instance is not initialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_i2s_start">
+<span class="target" id="group__nrfx__i2s_1ga5baeb8fd2ee28b71d125694bce59b84e"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_start</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_i2s_t" title="nrfx_i2s_t"><span class="n"><span class="pre">nrfx_i2s_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_i2s_buffers_t" title="nrfx_i2s_buffers_t"><span class="n"><span class="pre">nrfx_i2s_buffers_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_initial_buffers</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_i2s_start" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for starting the continuous I2S transfer. </p>
+<p>The I2S data transfer can be performed in one of three modes: RX (reception) only, TX (transmission) only, or in both directions simultaneously. The mode is selected by specifying a proper buffer for a given direction in the call to this function or by passing NULL instead if this direction is to be disabled.</p>
+<p>The length of the buffer (which is a common value for RX and TX if both directions are enabled) is specified in 32-bit words. One 32-bit memory word can either contain four 8-bit samples, two 16-bit samples, or one right-aligned 24-bit sample sign-extended to a 32-bit value. For a detailed memory mapping for different supported configurations, see the Product Specification.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Peripherals using EasyDMA (including I2S) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code NRFX_ERROR_INVALID_ADDR.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_initial_buffers</strong> – <strong>[in]</strong> Pointer to a structure specifying the buffers to be used in the initial part of the transfer (buffers for all consecutive parts are provided through the data handler). </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> Transfer options (0 for default settings). Currently, no additional flags are available.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – The operation was successful. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – Transfer was already started or the driver has not been initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_ADDR</strong> – The provided buffers are not placed in the Data RAM region. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_i2s_next_buffers_set">
+<span class="target" id="group__nrfx__i2s_1ga0368f13344a759012a7fc3d343107e9c"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_next_buffers_set</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_i2s_t" title="nrfx_i2s_t"><span class="n"><span class="pre">nrfx_i2s_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_i2s_buffers_t" title="nrfx_i2s_buffers_t"><span class="n"><span class="pre">nrfx_i2s_buffers_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffers</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_i2s_next_buffers_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for supplying the buffers to be used in the next part of the transfer. </p>
+<p>The application must call this function when the data handler receives <a class="reference internal" href="#group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772"><span class="std std-ref">NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</span></a> in the <code class="docutils literal notranslate"><span class="pre">status</span></code> parameter. The call can be done immediately from the data handler function or later, but it has to be done before the I2S peripheral finishes processing the buffers supplied previously. Otherwise, data corruption will occur.</p>
+<p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d"><span class="std std-ref">nrfx_i2s_data_handler_t</span></a></p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_buffers</strong> – <strong>[in]</strong> Pointer to a structure specifying the buffers to be used in the upcoming part of the transfer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – If the operation was successful. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – If the buffers were already supplied or the peripheral is currently being stopped.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_i2s_stop">
+<span class="target" id="group__nrfx__i2s_1ga7bee70318aad2b9850953a5b5e7189c1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_stop</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_i2s_t" title="nrfx_i2s_t"><span class="n"><span class="pre">nrfx_i2s_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_i2s_stop" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for stopping the I2S transfer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t">
+<span class="target" id="structnrfx__i2s__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_config_t</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_i2s.h&gt;</em></div>
+<p>I2S driver configuration structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.sck_pin">
+<span class="target" id="structnrfx__i2s__config__t_1a30011a05381541d1fa7e5e0096857ae5"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sck_pin</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.sck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCK pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.lrck_pin">
+<span class="target" id="structnrfx__i2s__config__t_1a2b25edacedff07e33988e46c8768eb07"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lrck_pin</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.lrck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LRCK pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.mck_pin">
+<span class="target" id="structnrfx__i2s__config__t_1a5a1ccb07039184848c2cd5c5b5c21a10"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mck_pin</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.mck_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK pin number. </p>
+<p>Optional. Use <a class="reference internal" href="hal.html#group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"><span class="std std-ref">NRF_I2S_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.sdout_pin">
+<span class="target" id="structnrfx__i2s__config__t_1a20dbb69293c558332bc724de31b02470"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sdout_pin</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.sdout_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SDOUT pin number. </p>
+<p>Optional. Use <a class="reference internal" href="hal.html#group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"><span class="std std-ref">NRF_I2S_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.sdin_pin">
+<span class="target" id="structnrfx__i2s__config__t_1acb8d90d7c5f4f7119b3a152f42bdbddd"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sdin_pin</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.sdin_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SDIN pin number. </p>
+<p>Optional. Use <a class="reference internal" href="hal.html#group__nrf__i2s__hal_1ga56f6e18ab6537022f562378c27e5a4d9"><span class="std std-ref">NRF_I2S_PIN_NOT_CONNECTED</span></a> if this signal is not needed. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.irq_priority">
+<span class="target" id="structnrfx__i2s__config__t_1a0b4486ded0082e1a543c659d69ed02f1"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">irq_priority</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.irq_priority" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt priority. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.mode">
+<span class="target" id="structnrfx__i2s__config__t_1aec5eb99857943db1f976c3c13ca27ece"></span><a class="reference internal" href="hal.html#c.nrf_i2s_mode_t" title="nrf_i2s_mode_t"><span class="n"><span class="pre">nrf_i2s_mode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mode of operation (master or slave). </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.format">
+<span class="target" id="structnrfx__i2s__config__t_1acc203606dc98296412a026d6f7d5d8bc"></span><a class="reference internal" href="hal.html#c.nrf_i2s_format_t" title="nrf_i2s_format_t"><span class="n"><span class="pre">nrf_i2s_format_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">format</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.format" title="Permalink to this definition"></a><br /></dt>
+<dd><p>I2S frame format. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.alignment">
+<span class="target" id="structnrfx__i2s__config__t_1a144bc3ea6479273d8a41ea74b13e10e3"></span><a class="reference internal" href="hal.html#c.nrf_i2s_align_t" title="nrf_i2s_align_t"><span class="n"><span class="pre">nrf_i2s_align_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alignment</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.alignment" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Alignment of sample within a frame. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.sample_width">
+<span class="target" id="structnrfx__i2s__config__t_1a4d4f0f34d21e5b8bc61763a922d4b8c0"></span><a class="reference internal" href="hal.html#c.nrf_i2s_swidth_t" title="nrf_i2s_swidth_t"><span class="n"><span class="pre">nrf_i2s_swidth_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sample_width</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.sample_width" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Sample width. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.channels">
+<span class="target" id="structnrfx__i2s__config__t_1a3a161ef851c17cf7dab2045605ba90db"></span><a class="reference internal" href="hal.html#c.nrf_i2s_channels_t" title="nrf_i2s_channels_t"><span class="n"><span class="pre">nrf_i2s_channels_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">channels</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.channels" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enabled channels. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.mck_setup">
+<span class="target" id="structnrfx__i2s__config__t_1a743e586204fb5943f6d2837a84e3a3dc"></span><a class="reference internal" href="hal.html#c.nrf_i2s_mck_t" title="nrf_i2s_mck_t"><span class="n"><span class="pre">nrf_i2s_mck_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mck_setup</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.mck_setup" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Master clock generator setup. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.ratio">
+<span class="target" id="structnrfx__i2s__config__t_1adeb5b479831662f9de7a01358a1f41a7"></span><a class="reference internal" href="hal.html#c.nrf_i2s_ratio_t" title="nrf_i2s_ratio_t"><span class="n"><span class="pre">nrf_i2s_ratio_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ratio</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.ratio" title="Permalink to this definition"></a><br /></dt>
+<dd><p>MCK/LRCK ratio. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.skip_gpio_cfg">
+<span class="target" id="structnrfx__i2s__config__t_1a5caba43529fcae27eca86a5996321590"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_gpio_cfg</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.skip_gpio_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip GPIO configuration of pins. </p>
+<p>When set to true, the driver does not modify any GPIO parameters of the used pins. Those parameters are supposed to be configured externally before the driver is initialized. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_config_t.skip_psel_cfg">
+<span class="target" id="structnrfx__i2s__config__t_1a28a5302a49bc30074ddd2d301b5ed707"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_psel_cfg</span></span></span><a class="headerlink" href="#c.nrfx_i2s_config_t.skip_psel_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip pin selection configuration. </p>
+<p>When set to true, the driver does not modify pin select registers in the peripheral. Those registers are supposed to be set up externally before the driver is initialized. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When both GPIO configuration and pin selection are to be skipped, the structure fields that specify pins can be omitted, as they are ignored anyway. </p>
+</div>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_i2s_t">
+<span class="target" id="structnrfx__i2s__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_i2s_t</span></span></span><a class="headerlink" href="#c.nrfx_i2s_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_i2s.h&gt;</em></div>
+<p>I2S driver instance structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_t.p_reg">
+<span class="target" id="structnrfx__i2s__t_1a9abf9972fc0f47fccf5ea704ccc9877b"></span><span class="n"><span class="pre">NRF_I2S_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_reg</span></span></span><a class="headerlink" href="#c.nrfx_i2s_t.p_reg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to a structure with I2S registers. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_i2s_t.drv_inst_idx">
+<span class="target" id="structnrfx__i2s__t_1ace9d381eee85b15a94dcae4d15df8d8e"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">drv_inst_idx</span></span></span><a class="headerlink" href="#c.nrfx_i2s_t.drv_inst_idx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Index of the driver instance. For internal use only. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hal.html" class="btn btn-neutral float-right" title="I2S HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="I2S" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

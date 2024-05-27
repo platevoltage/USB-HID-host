@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLOCK HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AUXPLL HAL" href="../auxpll/hal.html" />
+    <link rel="prev" title="CLOCK driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">CLOCK</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">CLOCK driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CLOCK HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../auxpll/hal.html">AUXPLL HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../hsfll/hal.html">HSFLL HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../oscillators/hal.html">OSCILLATORS HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">CLOCK</a></li>
+      <li class="breadcrumb-item active">CLOCK HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/clock/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="clock-hal">
+<h1>CLOCK HAL<a class="headerlink" href="#clock-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__clock__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_clock_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the CLOCK peripheral. </p>
+<p>This code can be used to manage low-frequency clock (LFCLK), high-frequency clock (HFCLK), high-frequency 192 MHz clock (HFCLK192M) and high-frequency audio clock (HFCLKAUDIO) settings. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_CALIBRATION">
+<span class="target" id="group__nrf__clock__hal_1gaeb804e837f460de8222cbe0c4ef0b8a5"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_CALIBRATION</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_CALIBRATION" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the Low Frequency Clock calibration is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_CALIBRATION_TIMER">
+<span class="target" id="group__nrf__clock__hal_1ga605ad993f6106e4709673be04e48ecd4"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_CALIBRATION_TIMER</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_CALIBRATION_TIMER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the Low Frequency Clock calibration timer is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_HFCLK192M">
+<span class="target" id="group__nrf__clock__hal_1ga5809cfc28a294963e9e34297893f06c6"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_HFCLK192M</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_HFCLK192M" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the 192 MHz clock is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_HFCLKAUDIO">
+<span class="target" id="group__nrf__clock__hal_1ga5bc5faa0e579ec12f6c19ace10a17244"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_HFCLKAUDIO</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_HFCLKAUDIO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the Audio clock is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_HFCLK_DIV">
+<span class="target" id="group__nrf__clock__hal_1gad87b23ad582f9c922e90ad8fcc58ec3d"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_HFCLK_DIV</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_HFCLK_DIV" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the HFCLK frequency configuration is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_LFCLK_ALWAYSRUN">
+<span class="target" id="group__nrf__clock__hal_1ga539951935aeb02b293fc7405a77215c5"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_LFCLK_ALWAYSRUN</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_LFCLK_ALWAYSRUN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the ALWAYSRUN register is present for LFCLK. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_HFCLK_ALWAYSRUN">
+<span class="target" id="group__nrf__clock__hal_1ga27e62399ab97479fdca9e10320ec5252"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_HFCLK_ALWAYSRUN</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_HFCLK_ALWAYSRUN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the ALWAYSRUN register is present for HFCLK. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_HFCLKSRC">
+<span class="target" id="group__nrf__clock__hal_1ga63128bfbe9597a96928b36bc035a228b"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_HFCLKSRC</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_HFCLKSRC" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the HFCLKSRC register is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_PLL">
+<span class="target" id="group__nrf__clock__hal_1ga8b1ee1b842ec655dad2a8a0b111a0cc7"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_PLL</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_PLL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the PLL section is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_XO">
+<span class="target" id="group__nrf__clock__hal_1ga7923fa404e46e7e1abbf125ad39d3616"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_XO</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_XO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether XO registers are present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HAS_LFCLK_TYPE">
+<span class="target" id="group__nrf__clock__hal_1gac1b7c513cc586139180ef595b7b20ecb"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HAS_LFCLK_TYPE</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HAS_LFCLK_TYPE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the CLOCK type contains LFCLK subtype. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKRUN_STATUS_NotTriggered">
+<span class="target" id="group__nrf__clock__hal_1ga25f77a2fd0ef192c443d7b88cd007d84"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKRUN_STATUS_NotTriggered</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKRUN_STATUS_NotTriggered" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task LFCLKSTART/HFCLKSTART has not been triggered definiton. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKRUN_STATUS_Triggered">
+<span class="target" id="group__nrf__clock__hal_1ga195c4bbb56c69035f161f93144957b65"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKRUN_STATUS_Triggered</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKRUN_STATUS_Triggered" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task LFCLKSTART/HFCLKSTART has been triggered. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_INTENSET_LFCLKSTARTED_Msk">
+<span class="target" id="group__nrf__clock__hal_1ga54b345f822889c4b0c04c046f7bba26e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INTENSET_LFCLKSTARTED_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_INTENSET_LFCLKSTARTED_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on LFCLKSTARTED event mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_LFCLKSRCCOPY">
+<span class="target" id="group__nrf__clock__hal_1ga9b12ac309fcf52b96ccf121604ad0a8c"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_LFCLKSRCCOPY</span></span></span><a class="headerlink" href="#c.NRF_LFCLKSRCCOPY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock SRCCOPY register definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_LFCLKRUN">
+<span class="target" id="group__nrf__clock__hal_1ga1672cf47a29571d28693b960d5ac4736"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_LFCLKRUN</span></span></span><a class="headerlink" href="#c.NRF_LFCLKRUN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock RUN register definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_LFCLKSTAT">
+<span class="target" id="group__nrf__clock__hal_1gaff9b8b7e0cb2f785b76026753222d2e5"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_LFCLKSTAT</span></span></span><a class="headerlink" href="#c.NRF_LFCLKSTAT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock STAT register definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_LFCLKSRC">
+<span class="target" id="group__nrf__clock__hal_1gace550db9400bd8ba69c847023ff52549"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_LFCLKSRC</span></span></span><a class="headerlink" href="#c.NRF_LFCLKSRC" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock SRC register definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_LFCLKALWAYSRUN">
+<span class="target" id="group__nrf__clock__hal_1gaf2adfca656998fd1c0bd5cee3cc15ee1"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_LFCLKALWAYSRUN</span></span></span><a class="headerlink" href="#c.NRF_LFCLKALWAYSRUN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock ALWAYSRUN register definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSRCCOPY_SRC_Msk">
+<span class="target" id="group__nrf__clock__hal_1gaf09c25badcc39b2c874044dea30e9d35"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSRCCOPY_SRC_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSRCCOPY_SRC_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock SRCCOPY status mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSRCCOPY_SRC_Pos">
+<span class="target" id="group__nrf__clock__hal_1gacdf20044a3e28b286cdc47d455cf3291"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSRCCOPY_SRC_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSRCCOPY_SRC_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock SRCCOPY status position definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKRUN_STATUS_Msk">
+<span class="target" id="group__nrf__clock__hal_1gadb033159a59d2a159e520afa62169298"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKRUN_STATUS_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKRUN_STATUS_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock RUN status mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKRUN_STATUS_Pos">
+<span class="target" id="group__nrf__clock__hal_1gaf0956809045fc8b9ca93e772e414b3d9"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKRUN_STATUS_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKRUN_STATUS_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock RUN status position definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSTAT_SRC_Msk">
+<span class="target" id="group__nrf__clock__hal_1gabdde88064b5d20e53721f151ba8c8f48"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSTAT_SRC_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSTAT_SRC_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock STAT source mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSTAT_SRC_Pos">
+<span class="target" id="group__nrf__clock__hal_1ga60e48ade4d634efe42a552122e76eeea"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSTAT_SRC_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSTAT_SRC_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock STAT source position definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSTAT_STATE_Msk">
+<span class="target" id="group__nrf__clock__hal_1ga5484cddb1dfe1ed4d3982ad1307c0cbb"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSTAT_STATE_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSTAT_STATE_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock STAT state mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSTAT_STATE_Pos">
+<span class="target" id="group__nrf__clock__hal_1ga5b359967c40efa2f11c06a2ba4b0ba12"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSTAT_STATE_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSTAT_STATE_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock STAT state position definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSTAT_ALWAYSRUNNING_Msk">
+<span class="target" id="group__nrf__clock__hal_1ga2f550a2c6a1a8f58a48c7d8b8262ada2"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSTAT_ALWAYSRUNNING_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSTAT_ALWAYSRUNNING_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock STAT alwaysrunning position definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKSTAT_ALWAYSRUNNING_Pos">
+<span class="target" id="group__nrf__clock__hal_1gada8946d0e1958e581118011582d9450b"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKSTAT_ALWAYSRUNNING_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKSTAT_ALWAYSRUNNING_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock STAT alwaysrunning mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKALWAYSRUN_ALWAYSRUN_Msk">
+<span class="target" id="group__nrf__clock__hal_1gaad7f55c79e5021acde2dc1c9deb91af5"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKALWAYSRUN_ALWAYSRUN_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKALWAYSRUN_ALWAYSRUN_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock ALWAYSRUN position definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_LFCLKALWAYSRUN_ALWAYSRUN_Pos">
+<span class="target" id="group__nrf__clock__hal_1gab91b3624656e5175625ae800f4938a9e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLKALWAYSRUN_ALWAYSRUN_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_LFCLKALWAYSRUN_ALWAYSRUN_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LF clock ALWAYSRUN mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_INTENSET_HFCLKSTARTED_Msk">
+<span class="target" id="group__nrf__clock__hal_1ga263a8a23be70ebb916ebcbb79ea5bba1"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INTENSET_HFCLKSTARTED_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_INTENSET_HFCLKSTARTED_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock bit mask in interrupt register. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_TASKS_HFCLKSTART">
+<span class="target" id="group__nrf__clock__hal_1gad9c373e812c425d10207063685c96ddf"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TASKS_HFCLKSTART</span></span></span><a class="headerlink" href="#c.NRF_TASKS_HFCLKSTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task HF clock start definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_TASKS_HFCLKSTOP">
+<span class="target" id="group__nrf__clock__hal_1ga9e83f9586897ff8da2a3ed2802785c86"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_TASKS_HFCLKSTOP</span></span></span><a class="headerlink" href="#c.NRF_TASKS_HFCLKSTOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task HF clock stop definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_EVENTS_HFCLKSTARTED">
+<span class="target" id="group__nrf__clock__hal_1gaf95b079647db2d17dddc9e51bd2896d9"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EVENTS_HFCLKSTARTED</span></span></span><a class="headerlink" href="#c.NRF_EVENTS_HFCLKSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event HF clock startrd definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_HFCLKRUN">
+<span class="target" id="group__nrf__clock__hal_1ga31b23257160c1f28e6cd36a469a51194"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HFCLKRUN</span></span></span><a class="headerlink" href="#c.NRF_HFCLKRUN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock RUN register definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_HFCLKSTAT">
+<span class="target" id="group__nrf__clock__hal_1gad09ab255ce781f2c7d60956b53e055a0"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_HFCLKSTAT</span></span></span><a class="headerlink" href="#c.NRF_HFCLKSTAT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock STAT register definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HFCLKRUN_STATUS_Msk">
+<span class="target" id="group__nrf__clock__hal_1ga9a8f01a63f230b3a330e8ce140f7a187"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLKRUN_STATUS_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HFCLKRUN_STATUS_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock RUN status mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HFCLKRUN_STATUS_Pos">
+<span class="target" id="group__nrf__clock__hal_1ga972f816a3a1b384ae4a4453ca80bb1fe"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLKRUN_STATUS_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HFCLKRUN_STATUS_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock RUN status position definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HFCLKSTAT_STATE_Msk">
+<span class="target" id="group__nrf__clock__hal_1ga0054b72186e455d70e8ce2164b1eb951"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLKSTAT_STATE_Msk</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HFCLKSTAT_STATE_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock STAT state mask definition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_CLOCK_HFCLKSTAT_STATE_Pos">
+<span class="target" id="group__nrf__clock__hal_1gab8b8be8d2793585960a11e41706ce6c0"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLKSTAT_STATE_Pos</span></span></span><a class="headerlink" href="#c.NRF_CLOCK_HFCLKSTAT_STATE_Pos" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock STAT state position definition. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_lfclk_t">
+<span class="target" id="group__nrf__clock__hal_1ga5b00bcdc07defd8187f2be8a2ec7a597"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_lfclk_t</span></span></span><a class="headerlink" href="#c.nrf_clock_lfclk_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Low-frequency clock sources. </p>
+<p>Used by LFCLKSRC, LFCLKSTAT, and LFCLKSRCCOPY registers. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_LFULP">
+<span class="target" id="group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597abbf41d486a54192b0710aaec4fc80c57"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLK_LFULP</span></span></span><a class="headerlink" href="#c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_LFULP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Internal 32 kHz Ultra-low power oscillator. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_RC">
+<span class="target" id="group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597ae2a6613188db56db98d2a71a1656556d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLK_RC</span></span></span><a class="headerlink" href="#c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_RC" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Internal 32 kHz RC oscillator. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_XTAL">
+<span class="target" id="group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597a0488e22c4ffb91ea744b59010f9d413c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLK_XTAL</span></span></span><a class="headerlink" href="#c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_XTAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>External 32 kHz crystal. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_SYNTH">
+<span class="target" id="group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597a75d19341d350c8c24a9d036ab45e7a9e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLK_SYNTH</span></span></span><a class="headerlink" href="#c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_SYNTH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Internal 32 kHz synthesized from HFCLK system clock. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_XTAL_LOW_SWING">
+<span class="target" id="group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597a6267606ab850cb0772e20bcd51a2ba31"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLK_XTAL_LOW_SWING</span></span></span><a class="headerlink" href="#c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_XTAL_LOW_SWING" title="Permalink to this definition"></a><br /></dt>
+<dd><p>External 32 kHz low swing signal. Used only with the LFCLKSRC register. For the others <a class="reference internal" href="#group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597a0488e22c4ffb91ea744b59010f9d413c"><span class="std std-ref">NRF_CLOCK_LFCLK_XTAL</span></a> is returned for this setting. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_XTAL_FULL_SWING">
+<span class="target" id="group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597abe6c2514d4e6aad768354e24674bd1fc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_LFCLK_XTAL_FULL_SWING</span></span></span><a class="headerlink" href="#c.nrf_clock_lfclk_t.NRF_CLOCK_LFCLK_XTAL_FULL_SWING" title="Permalink to this definition"></a><br /></dt>
+<dd><p>External 32 kHz full swing signal. Used only with the LFCLKSRC register. For the others <a class="reference internal" href="#group__nrf__clock__hal_1gga5b00bcdc07defd8187f2be8a2ec7a597a0488e22c4ffb91ea744b59010f9d413c"><span class="std std-ref">NRF_CLOCK_LFCLK_XTAL</span></a> is returned for this setting. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk_t">
+<span class="target" id="group__nrf__clock__hal_1gac89aad0e037b7aeefc5264a4dca76197"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclk_t</span></span></span><a class="headerlink" href="#c.nrf_clock_hfclk_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High-frequency clock sources. </p>
+<p>Used by HFCLKSTAT and HFCLK192MSTAT registers. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk_t.NRF_CLOCK_HFCLK_HIGH_ACCURACY">
+<span class="target" id="group__nrf__clock__hal_1ggac89aad0e037b7aeefc5264a4dca76197acd16ac7a514b4ce5fad5229330d3ee91"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLK_HIGH_ACCURACY</span></span></span><a class="headerlink" href="#c.nrf_clock_hfclk_t.NRF_CLOCK_HFCLK_HIGH_ACCURACY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>External 16 MHz/32 MHz crystal oscillator. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk_t.NRF_CLOCK_HFCLK_LOW_ACCURACY">
+<span class="target" id="group__nrf__clock__hal_1ggac89aad0e037b7aeefc5264a4dca76197ac818a771af1b52744004d50920fd584d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLK_LOW_ACCURACY</span></span></span><a class="headerlink" href="#c.nrf_clock_hfclk_t.NRF_CLOCK_HFCLK_LOW_ACCURACY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Internal 16 MHz RC oscillator. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_domain_t">
+<span class="target" id="group__nrf__clock__hal_1ga1739a9f32e7efbf83dc6e773b05211c1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_domain_t</span></span></span><a class="headerlink" href="#c.nrf_clock_domain_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clock domains. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_LFCLK">
+<span class="target" id="group__nrf__clock__hal_1gga1739a9f32e7efbf83dc6e773b05211c1ac8ad29a986fbaf470a540f81ced41929"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_DOMAIN_LFCLK</span></span></span><a class="headerlink" href="#c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_LFCLK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_HFCLK">
+<span class="target" id="group__nrf__clock__hal_1gga1739a9f32e7efbf83dc6e773b05211c1a62d63ec3705f9c2149022810006ab186"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_DOMAIN_HFCLK</span></span></span><a class="headerlink" href="#c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_HFCLK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_HFCLK192M">
+<span class="target" id="group__nrf__clock__hal_1gga1739a9f32e7efbf83dc6e773b05211c1aa0153fc9b37622a8dede499da665221c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_DOMAIN_HFCLK192M</span></span></span><a class="headerlink" href="#c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_HFCLK192M" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_HFCLKAUDIO">
+<span class="target" id="group__nrf__clock__hal_1gga1739a9f32e7efbf83dc6e773b05211c1a78beb20a81bc13eaf1bbb480257b2e14"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_DOMAIN_HFCLKAUDIO</span></span></span><a class="headerlink" href="#c.nrf_clock_domain_t.NRF_CLOCK_DOMAIN_HFCLKAUDIO" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk_div_t">
+<span class="target" id="group__nrf__clock__hal_1ga4ae12749dff0c4975b250728d6de0ad6"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclk_div_t</span></span></span><a class="headerlink" href="#c.nrf_clock_hfclk_div_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High-frequency clock frequency configuration. </p>
+<p>Used by HFCLKCTRL and HFCLK192MCTRL registers. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk_div_t.NRF_CLOCK_HFCLK_DIV_1">
+<span class="target" id="group__nrf__clock__hal_1gga4ae12749dff0c4975b250728d6de0ad6a0ac2a5d326b764d7d22e521767996ec8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLK_DIV_1</span></span></span><a class="headerlink" href="#c.nrf_clock_hfclk_div_t.NRF_CLOCK_HFCLK_DIV_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide HFCLK/HFCLK192M by 1 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk_div_t.NRF_CLOCK_HFCLK_DIV_2">
+<span class="target" id="group__nrf__clock__hal_1gga4ae12749dff0c4975b250728d6de0ad6abea8f4e6147da9de0e57590f23e9fd3c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLK_DIV_2</span></span></span><a class="headerlink" href="#c.nrf_clock_hfclk_div_t.NRF_CLOCK_HFCLK_DIV_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide HFCLK/HFCLK192M by 2 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk_div_t.NRF_CLOCK_HFCLK_DIV_4">
+<span class="target" id="group__nrf__clock__hal_1gga4ae12749dff0c4975b250728d6de0ad6a1334c6bb50f2d41948a016fa5e17eee8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_HFCLK_DIV_4</span></span></span><a class="headerlink" href="#c.nrf_clock_hfclk_div_t.NRF_CLOCK_HFCLK_DIV_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide HFCLK192M by 4 </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_start_task_status_t">
+<span class="target" id="group__nrf__clock__hal_1ga0147a15524c768cc1f8aa8a1cd323f1e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_start_task_status_t</span></span></span><a class="headerlink" href="#c.nrf_clock_start_task_status_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger status of task LFCLKSTART/HFCLKSTART. </p>
+<p>
+Used by LFCLKRUN and HFCLKRUN registers. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This enum is deprecated.</p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_start_task_status_t.NRF_CLOCK_START_TASK_NOT_TRIGGERED">
+<span class="target" id="group__nrf__clock__hal_1gga0147a15524c768cc1f8aa8a1cd323f1ea45055344396fd799150ad4543601de89"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_START_TASK_NOT_TRIGGERED</span></span></span><a class="headerlink" href="#c.nrf_clock_start_task_status_t.NRF_CLOCK_START_TASK_NOT_TRIGGERED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task LFCLKSTART/HFCLKSTART has not been triggered definiton. Task LFCLKSTART/HFCLKSTART has not been triggered. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_start_task_status_t.NRF_CLOCK_START_TASK_TRIGGERED">
+<span class="target" id="group__nrf__clock__hal_1gga0147a15524c768cc1f8aa8a1cd323f1ea56bd6949215384c687e25ec8382fbe94"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_START_TASK_TRIGGERED</span></span></span><a class="headerlink" href="#c.nrf_clock_start_task_status_t.NRF_CLOCK_START_TASK_TRIGGERED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task LFCLKSTART/HFCLKSTART has been triggered. Task LFCLKSTART/HFCLKSTART has been triggered. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t">
+<span class="target" id="group__nrf__clock__hal_1ga7ab8220532dae7b1dde0f5c329e81041"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRF_CLOCK_INT_HF_STARTED_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041ab96bb7ba8e2668d6ccf823ef2e45b6d1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INT_HF_STARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRF_CLOCK_INT_HF_STARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HF clock bit mask in interrupt register. Interrupt on HFCLKSTARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRF_CLOCK_INT_LF_STARTED_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041a3cb9f64dae43d178a8d9f5a11253502e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INT_LF_STARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRF_CLOCK_INT_LF_STARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on LFCLKSTARTED event mask definition. Interrupt on LFCLKSTARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRFX_CLOCK_INT_PLL_STARTED_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041aa67a87bbb43193939daba915fa46ab8e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_CLOCK_INT_PLL_STARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRFX_CLOCK_INT_PLL_STARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on PLLSTARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRF_CLOCK_INT_DONE_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041a40c10edbbcd14de73fb05aa14bf1a17c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INT_DONE_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRF_CLOCK_INT_DONE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on DONE event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRF_CLOCK_INT_CTTO_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041a0820ea89bcb64904238b43bb758ebfaa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INT_CTTO_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRF_CLOCK_INT_CTTO_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on CTTO event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRF_CLOCK_INT_CTSTARTED_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041a20f1a621f577542de76fefa9a0e4ff46"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INT_CTSTARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRF_CLOCK_INT_CTSTARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on CTSTARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRF_CLOCK_INT_CTSTOPPED_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041a962143d35daba16a64de96f9bfa92d7a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INT_CTSTOPPED_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRF_CLOCK_INT_CTSTOPPED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on CTSTOPPED event. Interrupt on HFCLKAUDIOSTARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_int_mask_t.NRF_CLOCK_INT_HF192M_STARTED_MASK">
+<span class="target" id="group__nrf__clock__hal_1gga7ab8220532dae7b1dde0f5c329e81041a873c3c6987903b97f5f4a4e415bf3fe2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_INT_HF192M_STARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_clock_int_mask_t.NRF_CLOCK_INT_HF192M_STARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on HFCLK192MSTARTED event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t">
+<span class="target" id="group__nrf__clock__hal_1ga6bf1711bc8cb7614c8ae806155bd3f33"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_task_t</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Tasks. </p>
+<p>The NRF_CLOCK_TASK_LFCLKSTOP task cannot be set when the low-frequency clock is not running. The NRF_CLOCK_TASK_HFCLKSTOP task cannot be set when the high-frequency clock is not running. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLKSTART">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a05f479c3cb57882e1f4f9caf8bfe9a8a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_HFCLKSTART</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLKSTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start HFCLK clock source. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLKSTOP">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a823dc0e6043cc8f47e48f3749bb34de4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_HFCLKSTOP</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLKSTOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop HFCLK clock source. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_PLLSTART">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a5e327e366f08c5a70aae84c69fcb9fa9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_PLLSTART</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_PLLSTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start PLL and keep it running, regardless of the automatic clock requests. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_PLLSTOP">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a00dbca23a7eb97a5c0c053b82cb2b00b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_PLLSTOP</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_PLLSTOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop PLL. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_LFCLKSTART">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a665f140a53313b4eb7613281653cc6af"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_LFCLKSTART</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_LFCLKSTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start LFCLK clock source. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_LFCLKSTOP">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a6165f023d815930d80553ac6b86b9f26"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_LFCLKSTOP</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_LFCLKSTOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop LFCLK clock source. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_CAL">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33aac43909700fa7e7449fed9007558e3d7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_CAL</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_CAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start calibration of LFCLK RC oscillator. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_CTSTART">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a8c1b64a0d977cd142123fcb9a86fe5d4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_CTSTART</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_CTSTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start calibration timer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_CTSTOP">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a16b1a0dcf1ea9da5a7639b4e14e7d892"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_CTSTOP</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_CTSTOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop calibration timer. Start HFCLKAUDIO clock source. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLKAUDIOSTOP">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33ad88378a98026d7231754361ecc0d6277"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_HFCLKAUDIOSTOP</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLKAUDIOSTOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop HFCLKAUDIO clock source. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLK192MSTART">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33ae3aa365e4009bed61581e206d5b9e342"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_HFCLK192MSTART</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLK192MSTART" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start HFCLK192M clock source. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLK192MSTOP">
+<span class="target" id="group__nrf__clock__hal_1gga6bf1711bc8cb7614c8ae806155bd3f33a6178d7f357cfd604622d53c986446d6b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_TASK_HFCLK192MSTOP</span></span></span><a class="headerlink" href="#c.nrf_clock_task_t.NRF_CLOCK_TASK_HFCLK192MSTOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop HFCLK192M clock source. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t">
+<span class="target" id="group__nrf__clock__hal_1ga8843dd5805c2b01f9b832ed73d583695"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_event_t</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_HFCLKSTARTED">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695abc6d081122f7071932c374f83d38d489"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_HFCLKSTARTED</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_HFCLKSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HFCLK oscillator started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_PLLSTARTED">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695ac6647ea9d607760a3bebe2c4f7463961"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_PLLSTARTED</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_PLLSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>PLL started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_LFCLKSTARTED">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695ad75ad033bf0be9432bd3aa9b0931f07b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_LFCLKSTARTED</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_LFCLKSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>LFCLK oscillator started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_DONE">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695aa862d96adb9c7579442fb51670237efb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_DONE</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_DONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calibration of LFCLK RC oscillator completed. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_CTTO">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695ab2c012e2ac3e1a52f320040a598c1375"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_CTTO</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_CTTO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calibration timer time-out. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_CTSTARTED">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695aa1d704aa864c7e38c09c0a9ca0afd493"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_CTSTARTED</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_CTSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calibration timer started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_CTSTOPPED">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695a59e0c66caf3e8f6cad63ecfe007494e2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_CTSTOPPED</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_CTSTOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calibration timer stopped. HFCLKAUDIO oscillator started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_clock_event_t.NRF_CLOCK_EVENT_HFCLK192MSTARTED">
+<span class="target" id="group__nrf__clock__hal_1gga8843dd5805c2b01f9b832ed73d583695a81353d1135143c314380e46df15cfba5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_CLOCK_EVENT_HFCLK192MSTARTED</span></span></span><a class="headerlink" href="#c.nrf_clock_event_t.NRF_CLOCK_EVENT_HFCLK192MSTARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>HFCLK192M oscillator started. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_int_enable">
+<span class="target" id="group__nrf__clock__hal_1gae1a1fecb47d6d05b9b938d5c74314f86"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified interrupt. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__clock__hal_1ga7ab8220532dae7b1dde0f5c329e81041"><span class="std std-ref">nrf_clock_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_int_disable">
+<span class="target" id="group__nrf__clock__hal_1gadded9b778880ab73d01775cc0ab4ab77"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupt. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__clock__hal_1ga7ab8220532dae7b1dde0f5c329e81041"><span class="std std-ref">nrf_clock_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_int_enable_check">
+<span class="target" id="group__nrf__clock__hal_1ga3cfc1dfe6d92419878efa3d92203d1f3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__clock__hal_1ga7ab8220532dae7b1dde0f5c329e81041"><span class="std std-ref">nrf_clock_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_task_address_get">
+<span class="target" id="group__nrf__clock__hal_1gab667ae60ddf82e1e8bd4ffced897af0c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_task_t" title="nrf_clock_task_t"><span class="n"><span class="pre">nrf_clock_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the address of the specified task. </p>
+<p>This function can be used by the PPI module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> CLOCK Task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the requested task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_task_trigger">
+<span class="target" id="group__nrf__clock__hal_1gaf3e684a3ac2f5e050185d2fa654de394"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_task_t" title="nrf_clock_task_t"><span class="n"><span class="pre">nrf_clock_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the specified task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_event_address_get">
+<span class="target" id="group__nrf__clock__hal_1gab6633ed4e3965b482f4bcf82084ced89"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_event_t" title="nrf_clock_event_t"><span class="n"><span class="pre">nrf_clock_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the address of the specified event. </p>
+<p>This function can be used by the PPI module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> CLOCK Event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_event_clear">
+<span class="target" id="group__nrf__clock__hal_1ga1f7973a6180d8bf7ab6e93b9f6d3ff7c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_event_t" title="nrf_clock_event_t"><span class="n"><span class="pre">nrf_clock_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_event_check">
+<span class="target" id="group__nrf__clock__hal_1ga8ecb4611627133df496528e764455198"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_event_t" title="nrf_clock_event_t"><span class="n"><span class="pre">nrf_clock_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the specified event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_start_task_check">
+<span class="target" id="group__nrf__clock__hal_1gabed84813929d82ba6c6c647c3d6bf158"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_start_task_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_domain_t" title="nrf_clock_domain_t"><span class="n"><span class="pre">nrf_clock_domain_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_start_task_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the trigger status of the task START for given domain. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> Clock domain.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>false</strong> – The task START for the given domain has not been triggered. </p></li>
+<li><p><strong>true</strong> – The task START for the given domain has been triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_is_running">
+<span class="target" id="group__nrf__clock__hal_1gacdce7b3bd39e2466a100f16b41ac72d1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_is_running</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_domain_t" title="nrf_clock_domain_t"><span class="n"><span class="pre">nrf_clock_domain_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_clk_src</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_is_running" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the clock. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> Clock domain. </p></li>
+<li><p><strong>p_clk_src</strong> – <strong>[out]</strong> Pointer to clock source that is running. Set to NULL if not needed. Ignored for HFCLKAUDIO domain. Variable pointed by <code class="docutils literal notranslate"><span class="pre">p_clk_src</span></code> must be of either <a class="reference internal" href="#group__nrf__clock__hal_1ga5b00bcdc07defd8187f2be8a2ec7a597"><span class="std std-ref">nrf_clock_lfclk_t</span></a> type for LFCLK or <a class="reference internal" href="#group__nrf__clock__hal_1gac89aad0e037b7aeefc5264a4dca76197"><span class="std std-ref">nrf_clock_hfclk_t</span></a> type for HFCLK and HFCLK192M.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>false</strong> – The clock is not running. </p></li>
+<li><p><strong>true</strong> – The clock is running. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_lf_src_set">
+<span class="target" id="group__nrf__clock__hal_1ga24c29888cb9c057a3f01457bf3ceb246"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_lf_src_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_lfclk_t" title="nrf_clock_lfclk_t"><span class="n"><span class="pre">nrf_clock_lfclk_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">source</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_lf_src_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for changing the low-frequency clock source. </p>
+<p>Check in Product Specification if this function can be called when the low-frequency clock is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>source</strong> – <strong>[in]</strong> New low-frequency clock source. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_lf_src_get">
+<span class="target" id="group__nrf__clock__hal_1ga91f9e95a8a8717d0d76cd12c70cdd1c9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_lfclk_t" title="nrf_clock_lfclk_t"><span class="n"><span class="pre">nrf_clock_lfclk_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_lf_src_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_lf_src_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the selected source for the low-frequency clock. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRF_CLOCK_LFCLK_RC</strong> – The internal 32 kHz RC oscillator is the selected source for the low-frequency clock. </p></li>
+<li><p><strong>NRF_CLOCK_LFCLK_Xtal</strong> – An external 32 kHz crystal oscillator is the selected source for the low-frequency clock. </p></li>
+<li><p><strong>NRF_CLOCK_LFCLK_Synth</strong> – The internal 32 kHz synthesized from the HFCLK is the selected source for the low-frequency clock. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_lf_actv_src_get">
+<span class="target" id="group__nrf__clock__hal_1ga738da128e4aefd63a596c86395a3abb4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_lfclk_t" title="nrf_clock_lfclk_t"><span class="n"><span class="pre">nrf_clock_lfclk_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_lf_actv_src_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_lf_actv_src_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the active source of the low-frequency clock. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is deprecated. Use <a class="reference internal" href="#group__nrf__clock__hal_1gacdce7b3bd39e2466a100f16b41ac72d1"><span class="std std-ref">nrf_clock_is_running</span></a> instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRF_CLOCK_LFCLK_RC</strong> – The internal 32 kHz RC oscillator is the active source of the low-frequency clock. </p></li>
+<li><p><strong>NRF_CLOCK_LFCLK_Xtal</strong> – An external 32 kHz crystal oscillator is the active source of the low-frequency clock. </p></li>
+<li><p><strong>NRF_CLOCK_LFCLK_Synth</strong> – The internal 32 kHz synthesized from the HFCLK is the active source of the low-frequency clock. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_lf_srccopy_get">
+<span class="target" id="group__nrf__clock__hal_1gad69ff6c345172118cc4afb226048af3a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_lfclk_t" title="nrf_clock_lfclk_t"><span class="n"><span class="pre">nrf_clock_lfclk_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_lf_srccopy_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_lf_srccopy_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the clock source for the LFCLK clock when the task LKCLKSTART is triggered. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRF_CLOCK_LFCLK_RC</strong> – The internal 32 kHz RC oscillator is running and generating the LFCLK clock. </p></li>
+<li><p><strong>NRF_CLOCK_LFCLK_Xtal</strong> – An external 32 kHz crystal oscillator is running and generating the LFCLK clock. </p></li>
+<li><p><strong>NRF_CLOCK_LFCLK_Synth</strong> – The internal 32 kHz synthesized from the HFCLK is running and generating the LFCLK clock. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_lf_is_running">
+<span class="target" id="group__nrf__clock__hal_1gab68648e381ee3e2f5a1c77b051ae19c0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_lf_is_running</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_lf_is_running" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the LFCLK clock. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is deprecated. Use <a class="reference internal" href="#group__nrf__clock__hal_1gacdce7b3bd39e2466a100f16b41ac72d1"><span class="std std-ref">nrf_clock_is_running</span></a> instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>false</strong> – The LFCLK clock is not running. </p></li>
+<li><p><strong>true</strong> – The LFCLK clock is running. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_lf_start_task_status_get">
+<span class="target" id="group__nrf__clock__hal_1ga5e3fc67f9a0e1e612d748a1a9b7b4184"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_start_task_status_t" title="nrf_clock_start_task_status_t"><span class="n"><span class="pre">nrf_clock_start_task_status_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_lf_start_task_status_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_lf_start_task_status_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the trigger status of the task LFCLKSTART. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is deprecated. Use <a class="reference internal" href="#group__nrf__clock__hal_1gabed84813929d82ba6c6c647c3d6bf158"><span class="std std-ref">nrf_clock_start_task_check</span></a> instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRF_CLOCK_START_TASK_NOT_TRIGGERED</strong> – The task LFCLKSTART has not been triggered. </p></li>
+<li><p><strong>NRF_CLOCK_START_TASK_TRIGGERED</strong> – The task LFCLKSTART has been triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hf_src_set">
+<span class="target" id="group__nrf__clock__hal_1gab7cab3a3c552786d73ff99c011ddc312"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hf_src_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_hfclk_t" title="nrf_clock_hfclk_t"><span class="n"><span class="pre">nrf_clock_hfclk_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">source</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hf_src_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for changing the high-frequency clock source. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>source</strong> – <strong>[in]</strong> New high-frequency clock source. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hf_src_get">
+<span class="target" id="group__nrf__clock__hal_1ga34024ba919471d72f9237c447175faca"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_hfclk_t" title="nrf_clock_hfclk_t"><span class="n"><span class="pre">nrf_clock_hfclk_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hf_src_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hf_src_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the selected source of the high-frequency clock. </p>
+<p>For SoCs not featuring the HFCLKSRC register, this is always also the active source of the high-frequency clock.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRF_CLOCK_HFCLK_LOW_ACCURACY</strong> – The internal RC oscillator is the selected source of the high-frequency clock. </p></li>
+<li><p><strong>NRF_CLOCK_HFCLK_HIGH_ACCURACY</strong> – An external crystal oscillator is the selected source of the high-frequency clock. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hf_is_running">
+<span class="target" id="group__nrf__clock__hal_1ga70445979a0eda29dcb76b4be0ef8e03b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hf_is_running</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_hfclk_t" title="nrf_clock_hfclk_t"><span class="n"><span class="pre">nrf_clock_hfclk_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">clk_src</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hf_is_running" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the HFCLK clock. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is deprecated. Use <a class="reference internal" href="#group__nrf__clock__hal_1gacdce7b3bd39e2466a100f16b41ac72d1"><span class="std std-ref">nrf_clock_is_running</span></a> instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>clk_src</strong> – <strong>[in]</strong> Clock source to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>false</strong> – The HFCLK clock is not running. </p></li>
+<li><p><strong>true</strong> – The HFCLK clock is running. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hf_start_task_status_get">
+<span class="target" id="group__nrf__clock__hal_1ga32910f934744e72a7544b53be569dfd6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_start_task_status_t" title="nrf_clock_start_task_status_t"><span class="n"><span class="pre">nrf_clock_start_task_status_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hf_start_task_status_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hf_start_task_status_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the trigger status of the task HFCLKSTART. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is deprecated. Use <a class="reference internal" href="#group__nrf__clock__hal_1gabed84813929d82ba6c6c647c3d6bf158"><span class="std std-ref">nrf_clock_start_task_check</span></a> instead.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRF_CLOCK_START_TASK_NOT_TRIGGERED</strong> – The task HFCLKSTART has not been triggered. </p></li>
+<li><p><strong>NRF_CLOCK_START_TASK_TRIGGERED</strong> – The task HFCLKSTART has been triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclkaudio_config_set">
+<span class="target" id="group__nrf__clock__hal_1gaf44598c429dfbfcc55d482e11bdf1d4b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclkaudio_config_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">freq_value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hfclkaudio_config_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for changing the Audio clock FREQ_VALUE. </p>
+<p>The frequency of HFCLKAUDIO ranges from 10.666 MHz to 13.333 MHz in 40.7 Hz steps. To calculate <code class="docutils literal notranslate"><span class="pre">freq_value</span></code> corresponding to the chosen frequency, use the following equation: FREQ_VALUE = 2^16 * ((12 * f_out / 32M) - 4)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Chosen frequency must fit in 11.176 MHz - 11.402 MHz or 12.165 MHz - 12.411 MHz frequency bands.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>freq_value</strong> – <strong>[in]</strong> New FREQ_VALUE </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclkaudio_config_get">
+<span class="target" id="group__nrf__clock__hal_1gaba822bac96cbd67e5f9f255af89a1f5e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclkaudio_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hfclkaudio_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the Audio clock FREQ_VALUE. </p>
+<p>
+The frequency of HFCLKAUDIO ranges from 10.666 MHz to 13.333 MHz in 40.7 Hz steps. To calculate frequency corresponding to the returned FREQ_VALUE, use the following equation: f_out = 32M * (4 + FREQ_VALUE * 2^(-16))/12</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>FREQ_VALUE of the Audio clock. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_cal_timer_timeout_set">
+<span class="target" id="group__nrf__clock__hal_1ga31257b566ba4812c296bbc4fa63f7886"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_cal_timer_timeout_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">interval</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_cal_timer_timeout_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for changing the calibration timer interval. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>interval</strong> – <strong>[in]</strong> New calibration timer interval in 0.25 s resolution (range: 0.25 seconds to 31.75 seconds). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk192m_div_set">
+<span class="target" id="group__nrf__clock__hal_1ga9307f09045353d04c29bf8ca29cc0c28"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclk192m_div_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_hfclk_div_t" title="nrf_clock_hfclk_div_t"><span class="n"><span class="pre">nrf_clock_hfclk_div_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">divider</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hfclk192m_div_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for changing the HFCLK192M frequency divider. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>divider</strong> – <strong>[in]</strong> New HFCLK192M divider. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk192m_div_get">
+<span class="target" id="group__nrf__clock__hal_1ga53f5fd112e0c314b3b2fd677ad029246"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_hfclk_div_t" title="nrf_clock_hfclk_div_t"><span class="n"><span class="pre">nrf_clock_hfclk_div_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclk192m_div_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hfclk192m_div_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the HFCLK192M frequency divider. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>HFCLK192M frequency divider. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk192m_src_set">
+<span class="target" id="group__nrf__clock__hal_1ga84665d1956d9324a08402a91225fc15c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclk192m_src_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_hfclk_t" title="nrf_clock_hfclk_t"><span class="n"><span class="pre">nrf_clock_hfclk_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">source</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hfclk192m_src_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for changing the HFCLK192M source. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>source</strong> – <strong>[in]</strong> New HFCLK192M source. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_hfclk192m_src_get">
+<span class="target" id="group__nrf__clock__hal_1ga4709388f27018bc447eb944ec7f15f2c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_clock_hfclk_t" title="nrf_clock_hfclk_t"><span class="n"><span class="pre">nrf_clock_hfclk_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_hfclk192m_src_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_hfclk192m_src_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the selected source of the HFCLK192M. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRF_CLOCK_HFCLK_LOW_ACCURACY</strong> – The internal RC oscillator is the selected source of the HFCLK192M. </p></li>
+<li><p><strong>NRF_CLOCK_HFCLK_HIGH_ACCURACY</strong> – An external crystal oscillator is the selected source of the HFCLK192M. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_alwaysrun_set">
+<span class="target" id="group__nrf__clock__hal_1ga842e2ffb161363df7d4769ab67a317ba"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_alwaysrun_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_domain_t" title="nrf_clock_domain_t"><span class="n"><span class="pre">nrf_clock_domain_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">alwaysrun</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_alwaysrun_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the clock domain to always run. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> Clock domain. </p></li>
+<li><p><strong>alwaysrun</strong> – <strong>[in]</strong> Ensure the clock is always running. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_alwaysrun_get">
+<span class="target" id="group__nrf__clock__hal_1ga930ec730c515f7443c2eac61fe829cb1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_alwaysrun_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_domain_t" title="nrf_clock_domain_t"><span class="n"><span class="pre">nrf_clock_domain_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_alwaysrun_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the clock domain is configured to always run. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> Clock domain.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The clock domain is configured to always run. </p></li>
+<li><p><strong>false</strong> – The clock domain is not configured to always run. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_alwaysrun_active_get">
+<span class="target" id="group__nrf__clock__hal_1gad64c2d8e17a381a70ff1c867a3763da2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_alwaysrun_active_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_domain_t" title="nrf_clock_domain_t"><span class="n"><span class="pre">nrf_clock_domain_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">domain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_alwaysrun_active_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the clock domain always run setting is active. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>domain</strong> – <strong>[in]</strong> Clock domain.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The clock domain always run setting is active. </p></li>
+<li><p><strong>false</strong> – The clock domain always run setting is not active. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_subscribe_set">
+<span class="target" id="group__nrf__clock__hal_1gad555b0e6d610054730a7beac749ba5c0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_task_t" title="nrf_clock_task_t"><span class="n"><span class="pre">nrf_clock_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given CLOCK task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_subscribe_clear">
+<span class="target" id="group__nrf__clock__hal_1gaed03227123a60ea7c8bc4ed832adf6f3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_task_t" title="nrf_clock_task_t"><span class="n"><span class="pre">nrf_clock_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given CLOCK task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_publish_set">
+<span class="target" id="group__nrf__clock__hal_1gad0b543bcc840e79ffd5a93035f938910"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_event_t" title="nrf_clock_event_t"><span class="n"><span class="pre">nrf_clock_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given CLOCK event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_clock_publish_clear">
+<span class="target" id="group__nrf__clock__hal_1ga136d09d2b0eafa0118c76cb977c6f743"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_clock_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_CLOCK_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_clock_event_t" title="nrf_clock_event_t"><span class="n"><span class="pre">nrf_clock_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_clock_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given CLOCK event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../auxpll/hal.html" class="btn btn-neutral float-right" title="AUXPLL HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="CLOCK driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

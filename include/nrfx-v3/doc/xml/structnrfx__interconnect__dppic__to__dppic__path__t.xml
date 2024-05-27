@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrfx__interconnect__dppic__to__dppic__path__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrfx_interconnect_dppic_to_dppic_path_t</compoundname>
+    <includes local="no">nrfx_interconnect_dppic_ppib.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__to__dppic__path__t_1a9e0cd26db8f8130a3ded63b3ca78b3c1" prot="public" static="no" mutable="no">
+        <type><ref refid="structnrfx__interconnect__dppic__t" kindref="compound">nrfx_interconnect_dppic_t</ref> *</type>
+        <definition>nrfx_interconnect_dppic_t* nrfx_interconnect_dppic_to_dppic_path_t::src_dppic</definition>
+        <argsstring></argsstring>
+        <name>src_dppic</name>
+        <qualifiedname>nrfx_interconnect_dppic_to_dppic_path_t::src_dppic</qualifiedname>
+        <briefdescription>
+<para>Pointer to the source of DPPIC interconnect instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="79" column="32" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__to__dppic__path__t_1a620179cb2f572cd15114a43544964908" prot="public" static="no" mutable="no">
+        <type><ref refid="structnrfx__interconnect__dppic__t" kindref="compound">nrfx_interconnect_dppic_t</ref> *</type>
+        <definition>nrfx_interconnect_dppic_t* nrfx_interconnect_dppic_to_dppic_path_t::dst_dppic</definition>
+        <argsstring></argsstring>
+        <name>dst_dppic</name>
+        <qualifiedname>nrfx_interconnect_dppic_to_dppic_path_t::dst_dppic</qualifiedname>
+        <briefdescription>
+<para>Pointer to the destination of DPPIC interconnect instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="80" column="32" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__to__dppic__path__t_1aa30b67f9080491583b425a8ac7a2d8e0" prot="public" static="no" mutable="no">
+        <type><ref refid="structnrfx__interconnect__ppib__t" kindref="compound">nrfx_interconnect_ppib_t</ref> *</type>
+        <definition>nrfx_interconnect_ppib_t* nrfx_interconnect_dppic_to_dppic_path_t::ppib</definition>
+        <argsstring></argsstring>
+        <name>ppib</name>
+        <qualifiedname>nrfx_interconnect_dppic_to_dppic_path_t::ppib</qualifiedname>
+        <briefdescription>
+<para>Pointer to the PPIB interconnect instance between <computeroutput>src_dppic</computeroutput> and <computeroutput>dst_dppic</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="81" column="32" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__to__dppic__path__t_1aa1e468353bb05b18d4769414484ce560" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool nrfx_interconnect_dppic_to_dppic_path_t::ppib_inverted</definition>
+        <argsstring></argsstring>
+        <name>ppib_inverted</name>
+        <qualifiedname>nrfx_interconnect_dppic_to_dppic_path_t::ppib_inverted</qualifiedname>
+        <briefdescription>
+<para>True if PPIB connection goes from second to first PPIB peripherial instance, false otherwise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="82" column="33" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>DPPIC to DPPIC connection structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>nrfx_interconnect_dppic_t</label>
+        <link refid="structnrfx__interconnect__dppic__t"/>
+      </node>
+      <node id="1">
+        <label>nrfx_interconnect_dppic_to_dppic_path_t</label>
+        <link refid="structnrfx__interconnect__dppic__to__dppic__path__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>dst_dppic</edgelabel>
+          <edgelabel>src_dppic</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ppib</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>nrfx_interconnect_ppib_t</label>
+        <link refid="structnrfx__interconnect__ppib__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="77" column="1" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="78" bodyend="83"/>
+    <listofallmembers>
+      <member refid="structnrfx__interconnect__dppic__to__dppic__path__t_1a620179cb2f572cd15114a43544964908" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_to_dppic_path_t</scope><name>dst_dppic</name></member>
+      <member refid="structnrfx__interconnect__dppic__to__dppic__path__t_1aa30b67f9080491583b425a8ac7a2d8e0" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_to_dppic_path_t</scope><name>ppib</name></member>
+      <member refid="structnrfx__interconnect__dppic__to__dppic__path__t_1aa1e468353bb05b18d4769414484ce560" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_to_dppic_path_t</scope><name>ppib_inverted</name></member>
+      <member refid="structnrfx__interconnect__dppic__to__dppic__path__t_1a9e0cd26db8f8130a3ded63b3ca78b3c1" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_to_dppic_path_t</scope><name>src_dppic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

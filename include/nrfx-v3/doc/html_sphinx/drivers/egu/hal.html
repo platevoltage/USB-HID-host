@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EGU HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="EXMIF" href="../exmif/index.html" />
+    <link rel="prev" title="EGU driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">EGU</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">EGU driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">EGU HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">EGU</a></li>
+      <li class="breadcrumb-item active">EGU HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/egu/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="egu-hal">
+<h1>EGU HAL<a class="headerlink" href="#egu-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__egu__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_egu_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the Event Generator Unit (EGU) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_EGU_INST_GET">
+<span class="target" id="group__nrf__egu__hal_1gafff20459bba691e9b160bdca14fefc95"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INST_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_EGU_INST_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro getting pointer to the structure of registers of the EGU peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idx</strong> – <strong>[in]</strong> EGU instance index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the structure of registers of the EGU peripheral. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t">
+<span class="target" id="group__nrf__egu__hal_1gaad68fb4ae35283a506e3231ffe8ccf5c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_task_t</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>EGU tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER0">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca5964a48bc7417f5e8b2268cf69f6a636"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER0</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 0 for triggering the corresponding TRIGGERED[0] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER1">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca8113ad5a1aba4f93d67ca7d3d827856b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER1</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 1 for triggering the corresponding TRIGGERED[1] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER2">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5cabac981a1d01aaf93fc5cd4ae07d042d3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER2</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 2 for triggering the corresponding TRIGGERED[2] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER3">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca58a33c4918391f7ff1155a0f21a33884"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER3</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 3 for triggering the corresponding TRIGGERED[3] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER4">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5caf52e70ee2b5a7f9fd948e92b1a8f170e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER4</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 4 for triggering the corresponding TRIGGERED[4] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER5">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca4f0bce2e4614c9de7471b2ee5e1b5e14"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER5</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 5 for triggering the corresponding TRIGGERED[5] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER6">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5cadb0d1922a049d25e3c5465f6580b4d31"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER6</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 6 for triggering the corresponding TRIGGERED[6] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER7">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca753b46be455afe39974da884137bd288"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER7</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 7 for triggering the corresponding TRIGGERED[7] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER8">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca1f5679cb9c4c6e2cbdc9a096d57d2e46"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER8</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 8 for triggering the corresponding TRIGGERED[8] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER9">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca525431b6e1af66e32f2a99fff80a3bd9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER9</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 9 for triggering the corresponding TRIGGERED[9] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER10">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca5d209dceb561814690a2fbdfd1cb08df"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER10</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 10 for triggering the corresponding TRIGGERED[10] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER11">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5cab5111dc14cfd046685595cde9b1cef6a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER11</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 11 for triggering the corresponding TRIGGERED[11] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER12">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca0b9f7be48df09e52a43823aa9a46517b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER12</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 12 for triggering the corresponding TRIGGERED[12] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER13">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca5fcbf250284b2a495d4a789967e62628"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER13</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 13 for triggering the corresponding TRIGGERED[13] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER14">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5ca6276d7da1cc25bf3c5e45f95e6d8da0a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER14</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 14 for triggering the corresponding TRIGGERED[14] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER15">
+<span class="target" id="group__nrf__egu__hal_1ggaad68fb4ae35283a506e3231ffe8ccf5caaf575504258abfe2c9727bf8d6a854dd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_TASK_TRIGGER15</span></span></span><a class="headerlink" href="#c.nrf_egu_task_t.NRF_EGU_TASK_TRIGGER15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Trigger 15 for triggering the corresponding TRIGGERED[15] event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t">
+<span class="target" id="group__nrf__egu__hal_1ga9183c09f1bac5cba4a7b01601ea8cae4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_event_t</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>EGU events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED0">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a053c87152ea09a0dbd3704206e2ed7ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED0</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 0 generated by triggering the corresponding TRIGGER[0] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED1">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4aa84b6629f0be968b61a800e5264077ac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED1</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 1 generated by triggering the corresponding TRIGGER[1] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED2">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4ad1a463dd7673fb1ee792f7138ac5489b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED2</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 2 generated by triggering the corresponding TRIGGER[2] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED3">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a9f4c257539fc4873e59a848073538333"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED3</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 3 generated by triggering the corresponding TRIGGER[3] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED4">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a841c2043c184f8561ef5c02f514f7d99"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED4</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 4 generated by triggering the corresponding TRIGGER[4] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED5">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a775efed8766af2af55f1c4f050639b90"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED5</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 5 generated by triggering the corresponding TRIGGER[5] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED6">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a69910507eceb78c32bdb98505530d271"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED6</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 6 generated by triggering the corresponding TRIGGER[6] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED7">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a9aa945e5e9a47fc58fccae8c89fe5d93"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED7</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 7 generated by triggering the corresponding TRIGGER[7] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED8">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a5ad0528c52dae2eaf5abd246e8c8f0de"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED8</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 8 generated by triggering the corresponding TRIGGER[8] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED9">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4adc1622476af01d729c9c667d4bd2bc54"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED9</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 9 generated by triggering the corresponding TRIGGER[9] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED10">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a3ec6c24c8c978861d6758bbbc02a86f6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED10</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 10 generated by triggering the corresponding TRIGGER[10] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED11">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a9d322366fe802a5044a8fb2b2d526f5e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED11</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 11 generated by triggering the corresponding TRIGGER[11] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED12">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4aa3c3fc40a5dd5734056ccc3cc1d37c4e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED12</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 12 generated by triggering the corresponding TRIGGER[12] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED13">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a808f633fcadb0130785e690d9f354595"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED13</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 13 generated by triggering the corresponding TRIGGER[13] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED14">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4a1ed6561e5846c6feaaedeb9d0bd65ec0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED14</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 14 generated by triggering the corresponding TRIGGER[14] task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED15">
+<span class="target" id="group__nrf__egu__hal_1gga9183c09f1bac5cba4a7b01601ea8cae4af2bba82957ae08329fe25cf985118397"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_EVENT_TRIGGERED15</span></span></span><a class="headerlink" href="#c.nrf_egu_event_t.NRF_EGU_EVENT_TRIGGERED15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event number 15 generated by triggering the corresponding TRIGGER[15] task. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t">
+<span class="target" id="group__nrf__egu__hal_1gaf09ad03a04028053353ab57e37fb02e5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>EGU interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED0">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a89dfb2c47ea95be8c99b224b6ee8b5af"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED0</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[0] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED1">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a782dbc4b757ae41d3a59dc5c701a202b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED1</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[1] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED2">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a46b7f46e0f54bf9e6df2392f023cce9d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED2</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[2] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED3">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a9af3c866b032e5114ccea536997003eb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED3</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[3] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED4">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a96800049b7bdf89c1870a650060b0978"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED4</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[4] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED5">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5ad2d817def41facf0f5ad4f0891bfaeac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED5</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[5] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED6">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a06097096a8aaa384143fcd536638732e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED6</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[6] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED7">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a0cfb6cc9b1a46ec8e95d5cdece7a53ee"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED7</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[7] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED8">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a20a1d18e5d74dab4ab5352024bff74ad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED8</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[8] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED9">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a8b20ed0c8b29763b4396d24cb29862c2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED9</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[9] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED10">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a2b4d148487bf9d9f4778094e99056d15"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED10</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[10] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED11">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a51aacd319a10b96fde6fb8b7b3d0effc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED11</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[11] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED12">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a80e4a860dc79e89ed07f13ad9dfe2903"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED12</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[12] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED13">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5ad9cb4a6712a545adcaec5f32970dd7f7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED13</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[13] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED14">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a0065271137237c12f6cc8ed3978fda9e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED14</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[14] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED15">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5a73db272e431618a7e6c3b7a689a7227e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_TRIGGERED15</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_TRIGGERED15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_TRIGGERED[15] event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_egu_int_mask_t.NRF_EGU_INT_ALL">
+<span class="target" id="group__nrf__egu__hal_1ggaf09ad03a04028053353ab57e37fb02e5ab0bde7873695c5f46043f6af650293f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_EGU_INT_ALL</span></span></span><a class="headerlink" href="#c.nrf_egu_int_mask_t.NRF_EGU_INT_ALL" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_channel_count">
+<span class="target" id="group__nrf__egu__hal_1gaf7b71d8736abb73a30e16ae826f21beb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_channel_count</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_channel_count" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the maximum channel number of the given EGU. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of available channels. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_task_trigger">
+<span class="target" id="group__nrf__egu__hal_1ga6366a9b7831b85b5954e1af45344bafa"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_task_t" title="nrf_egu_task_t"><span class="n"><span class="pre">nrf_egu_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">egu_task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for triggering the specified EGU task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>egu_task</strong> – <strong>[in]</strong> EGU task. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_task_address_get">
+<span class="target" id="group__nrf__egu__hal_1ga2ffe6af41b1c2c6ea1a538ef8e4abf04"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_task_t" title="nrf_egu_task_t"><span class="n"><span class="pre">nrf_egu_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">egu_task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified EGU task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>egu_task</strong> – <strong>[in]</strong> EGU task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified EGU task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_trigger_task_get">
+<span class="target" id="group__nrf__egu__hal_1ga013a74c235e9bd80b893a3b2dd77e7e6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_egu_task_t" title="nrf_egu_task_t"><span class="n"><span class="pre">nrf_egu_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_trigger_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_trigger_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the specified EGU TRIGGER task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified EGU TRIGGER task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_event_check">
+<span class="target" id="group__nrf__egu__hal_1gae62d795c000077757aad7c197552c573"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_event_t" title="nrf_egu_event_t"><span class="n"><span class="pre">nrf_egu_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">egu_event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the EGU event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>egu_event</strong> – <strong>[in]</strong> EGU event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_event_clear">
+<span class="target" id="group__nrf__egu__hal_1gad64a16800b38a1ac2b5def86a0a6c6c2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_event_t" title="nrf_egu_event_t"><span class="n"><span class="pre">nrf_egu_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">egu_event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified EGU event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>egu_event</strong> – <strong>[in]</strong> EGU event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_event_address_get">
+<span class="target" id="group__nrf__egu__hal_1ga976884575f788461de2986a1dadd18c5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_event_t" title="nrf_egu_event_t"><span class="n"><span class="pre">nrf_egu_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">egu_event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified EGU event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>egu_event</strong> – <strong>[in]</strong> EGU event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified EGU event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_triggered_event_get">
+<span class="target" id="group__nrf__egu__hal_1ga79388a3127269519c0daa371374f0fff"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_egu_event_t" title="nrf_egu_event_t"><span class="n"><span class="pre">nrf_egu_event_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_triggered_event_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_triggered_event_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the specified EGU TRIGGERED event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified EGU TRIGGERED event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_int_enable">
+<span class="target" id="group__nrf__egu__hal_1ga3a1828d220e7db4f20726829bb7c71c1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling one or more of the EGU interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__egu__hal_1gaf09ad03a04028053353ab57e37fb02e5"><span class="std std-ref">nrf_egu_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_int_enable_check">
+<span class="target" id="group__nrf__egu__hal_1ga6b269d8a8061dde1eacccfbe30ce0d20"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of one or more of the EGU interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__egu__hal_1gaf09ad03a04028053353ab57e37fb02e5"><span class="std std-ref">nrf_egu_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_int_disable">
+<span class="target" id="group__nrf__egu__hal_1gaefea054ecd4ff49953ad97490514010e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling one or more of the EGU interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__egu__hal_1gaf09ad03a04028053353ab57e37fb02e5"><span class="std std-ref">nrf_egu_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_channel_int_get">
+<span class="target" id="group__nrf__egu__hal_1ga2654ffcc148a75dec5b6c54b24f8a7a5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_egu_int_mask_t" title="nrf_egu_int_mask_t"><span class="n"><span class="pre">nrf_egu_int_mask_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_channel_int_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_channel_int_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of interrupt of the specified EGU channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>EGU interrupt mask. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_subscribe_set">
+<span class="target" id="group__nrf__egu__hal_1gaaf89d61d6698724394d0a8a0e3bb64f9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_task_t" title="nrf_egu_task_t"><span class="n"><span class="pre">nrf_egu_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given EGU task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_subscribe_clear">
+<span class="target" id="group__nrf__egu__hal_1gab5245aa072dd4c255054380cb9be4214"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_task_t" title="nrf_egu_task_t"><span class="n"><span class="pre">nrf_egu_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given EGU task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_publish_set">
+<span class="target" id="group__nrf__egu__hal_1ga1cad5cb8d34ba0a034d32237c4615db0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_event_t" title="nrf_egu_event_t"><span class="n"><span class="pre">nrf_egu_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given EGU event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_egu_publish_clear">
+<span class="target" id="group__nrf__egu__hal_1ga0ce0a0df2089acf7a51273ee35d65a2b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_egu_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_EGU_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_egu_event_t" title="nrf_egu_event_t"><span class="n"><span class="pre">nrf_egu_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_egu_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given EGU event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../exmif/index.html" class="btn btn-neutral float-right" title="EXMIF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="EGU driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

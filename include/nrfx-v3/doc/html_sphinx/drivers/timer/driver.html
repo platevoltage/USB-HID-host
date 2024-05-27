@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TIMER driver &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TIMER HAL" href="hal.html" />
+    <link rel="prev" title="TIMER" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">TIMER</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">TIMER driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">TIMER HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">TIMER HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TIMER</a></li>
+      <li class="breadcrumb-item active">TIMER driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/timer/driver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="timer-driver">
+<h1>TIMER driver<a class="headerlink" href="#timer-driver" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__timer"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_timer</span></span></dt>
+<dd><p>TIMER peripheral driver. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TIMER_INSTANCE">
+<span class="target" id="group__nrfx__timer_1gac8cf0e0a9612d6212a1b0bbedc1178be"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TIMER_INSTANCE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TIMER_INSTANCE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for creating a timer driver instance. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TIMER_DEFAULT_CONFIG">
+<span class="target" id="group__nrfx__timer_1gab08fba04ab603ad5833fb1d060323c5f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TIMER_DEFAULT_CONFIG</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">_frequency</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TIMER_DEFAULT_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TIMER driver default configuration. </p>
+<p>This configuration sets up TIMER with the following options:<ul class="simple">
+<li><p>works as timer</p></li>
+<li><p>width: 16 bit</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_frequency</strong> – <strong>[in]</strong> Timer frequency in Hz. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TIMER_FREQUENCY_STATIC_CHECK">
+<span class="target" id="group__nrfx__timer_1gae1529d456574336a389af763096cc484"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TIMER_FREQUENCY_STATIC_CHECK</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">id</span></span>, <span class="n"><span class="pre">frequency</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TIMER_FREQUENCY_STATIC_CHECK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for checking whether specified frequency can be achived for given timer instance. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Macro is using compile time assertion.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> – <strong>[in]</strong> Index of the specified timer instance. </p></li>
+<li><p><strong>frequency</strong> – <strong>[in]</strong> Desired frequency value in Hz. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TIMER_BASE_FREQUENCY_GET">
+<span class="target" id="group__nrfx__timer_1gadc337139f6cc9eb8be1fb9b9a6ab51f0"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TIMER_BASE_FREQUENCY_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TIMER_BASE_FREQUENCY_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for getting base frequency value in Hz for a given timer instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TIMER_INST_HANDLER_GET">
+<span class="target" id="group__nrfx__timer_1ga32c16639273dfb5b6d9c6da4304a0975"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TIMER_INST_HANDLER_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TIMER_INST_HANDLER_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro returning TIMER interrupt handler. </p>
+<p>param[in] idx TIMER index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Interrupt handler. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrfx_timer_event_handler_t">
+<span class="target" id="group__nrfx__timer_1ga285f99c41b092915f13d2ab443c1a529"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_event_handler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="hal.html#c.nrf_timer_event_t" title="nrf_timer_event_t"><span class="n"><span class="pre">nrf_timer_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event_type</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_context</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.nrfx_timer_event_handler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Timer driver event handler type. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param event_type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>[in]</strong> Timer event. </p>
+</dd>
+<dt class="field-even">Param p_context<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>[in]</strong> General purpose parameter set during initialization of the timer. This parameter can be used to pass additional information to the handler function, for example, the timer ID. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_init">
+<span class="target" id="group__nrfx__timer_1ga658711a0f394b1701a591afd411c7fb0"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_timer_config_t" title="nrfx_timer_config_t"><span class="n"><span class="pre">nrfx_timer_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span>, <a class="reference internal" href="#c.nrfx_timer_event_handler_t" title="nrfx_timer_event_handler_t"><span class="n"><span class="pre">nrfx_timer_event_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">timer_event_handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the initial configuration. </p></li>
+<li><p><strong>timer_event_handler</strong> – <strong>[in]</strong> Event handler provided by the user. Can be NULL.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization was successful. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – Specified frequency is not supported by the TIMER instance. </p></li>
+<li><p><strong>NRFX_ERROR_ALREADY</strong> – The driver is already initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is already initialized. Deprecated - use <a class="reference internal" href="../../nrfx_api/error_codes.html#group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd"><span class="std std-ref">NRFX_ERROR_ALREADY</span></a> instead. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_reconfigure">
+<span class="target" id="group__nrfx__timer_1ga5a7ebb55067b3a92a57ff2233ab88b64"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_reconfigure</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_timer_config_t" title="nrfx_timer_config_t"><span class="n"><span class="pre">nrfx_timer_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_reconfigure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reconfiguring the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Reconfiguration was successful. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – Specified frequency is not supported by the TIMER instance. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is uninitialized. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The driver is enabled and cannot be reconfigured. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_uninit">
+<span class="target" id="group__nrfx__timer_1gaf575efd1aa91b1ba5726cc84ae8b14c5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_uninit</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_init_check">
+<span class="target" id="group__nrfx__timer_1ga0ab536a93aa49be49349b1e1a7c86822"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_init_check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_init_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the TIMER driver instance is initialized. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Instance is already initialized. </p></li>
+<li><p><strong>false</strong> – Instance is not initialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_enable">
+<span class="target" id="group__nrfx__timer_1gafa134003b06c96bb9ef85287d97ba5b1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_enable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for turning on the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_disable">
+<span class="target" id="group__nrfx__timer_1ga5c027a104f7851c1c8553fb027bec305"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_disable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for turning off the timer. </p>
+<p>The timer will allow to enter the lowest possible SYSTEM_ON state only after this function is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_is_enabled">
+<span class="target" id="group__nrfx__timer_1ga34804ca27610a4eaf5ea22530c55521c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_is_enabled</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_is_enabled" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking the timer state. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Timer is enabled. </p></li>
+<li><p><strong>false</strong> – Timer is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_pause">
+<span class="target" id="group__nrfx__timer_1ga3fa603bf05f19747f442dab48082b26c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_pause</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_pause" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for pausing the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_resume">
+<span class="target" id="group__nrfx__timer_1ga5160df8f634192b300dc056b959daa1f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_resume</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_resume" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for resuming the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_clear">
+<span class="target" id="group__nrfx__timer_1gac6d492f568183f9caf6450d4258d4d8d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_clear</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_increment">
+<span class="target" id="group__nrfx__timer_1ga99be46982b90f37a307277847cb4446f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_increment</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_increment" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for incrementing the timer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_task_address_get">
+<span class="target" id="group__nrfx__timer_1ga2ab8eee3cd5fe5288daa580354de368e"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_task_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_timer_task_t" title="nrf_timer_task_t"><span class="n"><span class="pre">nrf_timer_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">timer_task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified timer task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>timer_task</strong> – <strong>[in]</strong> Timer task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Task address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_capture_task_address_get">
+<span class="target" id="group__nrfx__timer_1ga8ddf77dd21d86aa805d12e34f4a6bf3d"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_capture_task_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_capture_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified timer capture task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Capture channel number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Task address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_event_address_get">
+<span class="target" id="group__nrfx__timer_1gace4c7a97948efd518caf4d81f31c6345"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_event_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_timer_event_t" title="nrf_timer_event_t"><span class="n"><span class="pre">nrf_timer_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">timer_event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified timer event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>timer_event</strong> – <strong>[in]</strong> Timer event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Event address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_compare_event_address_get">
+<span class="target" id="group__nrfx__timer_1gaf06f9d1e3055c73bdd4c4495823a812e"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_compare_event_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_compare_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of the specified timer compare event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Compare channel number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Event address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_capture">
+<span class="target" id="group__nrfx__timer_1gaf3672aa2cf9bacea8187b514c1ca4bb9"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_capture</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_timer_cc_channel_t" title="nrf_timer_cc_channel_t"><span class="n"><span class="pre">nrf_timer_cc_channel_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">cc_channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_capture" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for capturing the timer value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>cc_channel</strong> – <strong>[in]</strong> Capture channel number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Captured value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_capture_get">
+<span class="target" id="group__nrfx__timer_1ga496b2a519416b132dd6af05e0eacc477"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_capture_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_timer_cc_channel_t" title="nrf_timer_cc_channel_t"><span class="n"><span class="pre">nrf_timer_cc_channel_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">cc_channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_capture_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the capture value from the specified channel. </p>
+<p>Use this function to read channel values when PPI is used for capturing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>cc_channel</strong> – <strong>[in]</strong> Capture channel number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Captured value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_compare">
+<span class="target" id="group__nrfx__timer_1gaa3e8f898a384907e83d0eb4442bff917"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_compare</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_timer_cc_channel_t" title="nrf_timer_cc_channel_t"><span class="n"><span class="pre">nrf_timer_cc_channel_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">cc_channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">cc_value</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable_int</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_compare" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the timer channel in compare mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>cc_channel</strong> – <strong>[in]</strong> Compare channel number. </p></li>
+<li><p><strong>cc_value</strong> – <strong>[in]</strong> Compare value. </p></li>
+<li><p><strong>enable_int</strong> – <strong>[in]</strong> Enable or disable the interrupt for the compare channel. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_extended_compare">
+<span class="target" id="group__nrfx__timer_1ga508dbcf01f2867f67bf1fb0f07e536d7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_extended_compare</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_timer_cc_channel_t" title="nrf_timer_cc_channel_t"><span class="n"><span class="pre">nrf_timer_cc_channel_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">cc_channel</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">cc_value</span></span>, <a class="reference internal" href="hal.html#c.nrf_timer_short_mask_t" title="nrf_timer_short_mask_t"><span class="n"><span class="pre">nrf_timer_short_mask_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">timer_short_mask</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable_int</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_extended_compare" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the timer channel in the extended compare mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>cc_channel</strong> – <strong>[in]</strong> Compare channel number. </p></li>
+<li><p><strong>cc_value</strong> – <strong>[in]</strong> Compare value. </p></li>
+<li><p><strong>timer_short_mask</strong> – <strong>[in]</strong> Shortcut between the compare event on the channel and the timer task (STOP or CLEAR). </p></li>
+<li><p><strong>enable_int</strong> – <strong>[in]</strong> Enable or disable the interrupt for the compare channel. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_us_to_ticks">
+<span class="target" id="group__nrfx__timer_1ga1c286ccda89895468b47715bc3cd32ba"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_us_to_ticks</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">time_us</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_us_to_ticks" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for converting time in microseconds to timer ticks. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>time_us</strong> – <strong>[in]</strong> Time in microseconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of ticks. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_ms_to_ticks">
+<span class="target" id="group__nrfx__timer_1ga382d2f16b258bc75e2fed6ef2e854324"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_ms_to_ticks</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">time_ms</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_ms_to_ticks" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for converting time in milliseconds to timer ticks. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>time_ms</strong> – <strong>[in]</strong> Time in milliseconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of ticks. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_compare_int_enable">
+<span class="target" id="group__nrfx__timer_1ga383f3b0a31b3c15f7694e630956ff924"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_compare_int_enable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_compare_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling timer compare interrupt. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Compare channel. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_timer_compare_int_disable">
+<span class="target" id="group__nrfx__timer_1gac4eeecc3aa5e1bff45e76f33bd541b83"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_compare_int_disable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_timer_t" title="nrfx_timer_t"><span class="n"><span class="pre">nrfx_timer_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_timer_compare_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling timer compare interrupt. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Compare channel. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_timer_t">
+<span class="target" id="structnrfx__timer__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_t</span></span></span><a class="headerlink" href="#c.nrfx_timer_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_timer.h&gt;</em></div>
+<p>Timer driver instance data structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_t.p_reg">
+<span class="target" id="structnrfx__timer__t_1a5811907b83c2dd76b27bad33f242d6df"></span><span class="n"><span class="pre">NRF_TIMER_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_reg</span></span></span><a class="headerlink" href="#c.nrfx_timer_t.p_reg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the structure with TIMER peripheral instance registers. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_t.instance_id">
+<span class="target" id="structnrfx__timer__t_1ab9fc38adc81ebd19fb1b6cbf7d199ba0"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">instance_id</span></span></span><a class="headerlink" href="#c.nrfx_timer_t.instance_id" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Index of the driver instance. For internal use only. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_t.cc_channel_count">
+<span class="target" id="structnrfx__timer__t_1a4bb088b95bc57348e533309e5816b001"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cc_channel_count</span></span></span><a class="headerlink" href="#c.nrfx_timer_t.cc_channel_count" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of capture/compare channels. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_timer_config_t">
+<span class="target" id="structnrfx__timer__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_timer_config_t</span></span></span><a class="headerlink" href="#c.nrfx_timer_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_timer.h&gt;</em></div>
+<p>The configuration structure of the timer driver instance. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_config_t.frequency">
+<span class="target" id="structnrfx__timer__config__t_1a0856563685cbe16148986a7e43c70ef0"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">frequency</span></span></span><a class="headerlink" href="#c.nrfx_timer_config_t.frequency" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Frequency value. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_config_t.mode">
+<span class="target" id="structnrfx__timer__config__t_1af598ae30fee2bb808ea5fe08bf94269e"></span><a class="reference internal" href="hal.html#c.nrf_timer_mode_t" title="nrf_timer_mode_t"><span class="n"><span class="pre">nrf_timer_mode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrfx_timer_config_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mode of operation. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_config_t.bit_width">
+<span class="target" id="structnrfx__timer__config__t_1ae3503b2e51b8cedcbd0dcd930847c5e9"></span><a class="reference internal" href="hal.html#c.nrf_timer_bit_width_t" title="nrf_timer_bit_width_t"><span class="n"><span class="pre">nrf_timer_bit_width_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bit_width</span></span></span><a class="headerlink" href="#c.nrfx_timer_config_t.bit_width" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bit width. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_config_t.interrupt_priority">
+<span class="target" id="structnrfx__timer__config__t_1a59467f0991494515e028df767839ce2c"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interrupt_priority</span></span></span><a class="headerlink" href="#c.nrfx_timer_config_t.interrupt_priority" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt priority. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_timer_config_t.p_context">
+<span class="target" id="structnrfx__timer__config__t_1a9a8df0acc1853befb6cca8ca27fcd59b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_context</span></span></span><a class="headerlink" href="#c.nrfx_timer_config_t.p_context" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Context passed to interrupt handler. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hal.html" class="btn btn-neutral float-right" title="TIMER HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="TIMER" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

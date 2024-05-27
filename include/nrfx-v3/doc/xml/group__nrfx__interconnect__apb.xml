@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__interconnect__apb" kind="group">
+    <compoundname>nrfx_interconnect_apb</compoundname>
+    <title>APB bus support</title>
+    <innerclass refid="structnrfx__interconnect__apb__t" prot="public">nrfx_interconnect_apb_t</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__interconnect__apb_1ga80461e5c8c76ee1907b650b2e801d69f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>nrf_domain_t</type>
+        <definition>nrf_domain_t nrfx_interconnect_apb_domain_get</definition>
+        <argsstring>(nrfx_interconnect_apb_t const *p_apb_prop)</argsstring>
+        <name>nrfx_interconnect_apb_domain_get</name>
+        <param>
+          <type><ref refid="structnrfx__interconnect__apb__t" kindref="compound">nrfx_interconnect_apb_t</ref> const *</type>
+          <declname>p_apb_prop</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the domain to which the specified APB bus belongs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_apb_prop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to APB properties structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Domain that includes the specified APB. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/apb/nrfx_interconnect_apb.h" line="68" column="14" declfile="soc/interconnect/apb/nrfx_interconnect_apb.h" declline="68" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__interconnect__apb_1ga0d84449ec7dffd96915359dccb346977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnrfx__interconnect__apb__t" kindref="compound">nrfx_interconnect_apb_t</ref> const *</type>
+        <definition>nrfx_interconnect_apb_t const  * nrfx_interconnect_apb_main_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_interconnect_apb_main_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the main APB interconnection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>In some domains the connection between different APBs is realized via additional bus which is called here <computeroutput>main_apb_connection</computeroutput></para>
+</simplesect>
+<simplesect kind="return"><para>Pointer to the properties structure that represents the main APB interconnection. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/apb/nrfx_interconnect_apb.h" line="78" column="32" declfile="soc/interconnect/apb/nrfx_interconnect_apb.h" declline="78" declcolumn="32"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__interconnect__apb_1ga52753c2c894e69c0045a138124cc5a07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnrfx__interconnect__apb__t" kindref="compound">nrfx_interconnect_apb_t</ref> const *</type>
+        <definition>nrfx_interconnect_apb_t const  * nrfx_interconnect_apb_get</definition>
+        <argsstring>(uint32_t addr)</argsstring>
+        <name>nrfx_interconnect_apb_get</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>addr</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting APB bus properties structure by address of any peripheral that is included in. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">addr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Address of the peripheral.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the properties structure that represents the main APB interconnection or NULL if provided address is invalid. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/apb/nrfx_interconnect_apb.h" line="89" column="32" declfile="soc/interconnect/apb/nrfx_interconnect_apb.h" declline="89" declcolumn="32"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__interconnect__apb_1gaec8ccc6c589cd8bfbb7fda9fb6375fd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t nrfx_interconnect_apb_global_num_of_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_interconnect_apb_global_num_of_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting number entries for global domain in APB bus properties array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The number of entries is equal to number of APB buses in global domain which contain DPPIC peripheral.</para>
+</simplesect>
+<simplesect kind="return"><para>Number of entries in APB properties array. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/apb/nrfx_interconnect_apb.h" line="99" column="8" declfile="soc/interconnect/apb/nrfx_interconnect_apb.h" declline="99" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__interconnect__apb_1gaf0c70f51be9c284fc5f0d8e787b84721" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnrfx__interconnect__apb__t" kindref="compound">nrfx_interconnect_apb_t</ref> const *</type>
+        <definition>nrfx_interconnect_apb_t const  * nrf_apb_interconnect_by_idx_global_get</definition>
+        <argsstring>(uint8_t idx)</argsstring>
+        <name>nrf_apb_interconnect_by_idx_global_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting APB bus properties structure by index of APB bus properties array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of entry in APB bus properties array.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the properties structure that represents APB assigned to given index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/apb/nrfx_interconnect_apb.h" line="108" column="32" declfile="soc/interconnect/apb/nrfx_interconnect_apb.h" declline="108" declcolumn="32"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Support for APB bus services. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction and configuration &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="_static/js/ncs.js"
+></script>
+<script src="_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+<link
+  href="_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="#">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction and configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction-and-configuration">
+<h1>Introduction and configuration<a class="headerlink" href="#introduction-and-configuration" title="Permalink to this heading"></a></h1>
+<div class="docutils container">
+<dd><p>nrfx is a standalone set of drivers for peripherals present in Nordic Semiconductor’s SoCs. It originated as an extract from the nRF5 SDK. The intention was to provide drivers that can be used in various environments without the necessity to integrate other parts of the SDK into them. For the user’s convenience, the drivers come with the MDK package. This package contains definitions of register structures and bitfields for all supported SoCs, as well as startup and initialization files for them.</p>
+<p>Refer to the <a class="reference internal" href="drv_supp_matrix.html#nrfx_drv_supp_matrix"><span class="std std-ref">Driver support overview</span></a> to check which drivers are suitable for a given SoC.</p>
+<section id="index_1nrfx_integration">
+<h2>Integration<a class="headerlink" href="#index_1nrfx_integration" title="Permalink to this heading"></a></h2>
+<p id="index_1nrfx_integration">The purpose of nrfx is to make it possible to use the same set of peripheral drivers in various environments, from RTOSes to bare metal applications. Hence, for a given host environment, a light integration layer must be provided that implements certain specific routines, like interrupt management, critical sections, assertions, or logging. This is done by filling a predefined set of macros with proper implementations (or keeping some empty if desired) in files named:<ul class="simple">
+<li><p><a class="reference internal" href="nrfx_api/glue.html#group__nrfx__glue"><span class="std std-ref">nrfx_glue.h</span></a></p></li>
+<li><p><a class="reference internal" href="nrfx_api/log.html#group__nrfx__log"><span class="std std-ref">nrfx_log.h</span></a></p></li>
+</ul>
+</p>
+<p>Templates of these files are provided in the <a class="reference external" href="https://github.com/NordicSemiconductor/nrfx/tree/master/templates">nrfx/templates</a> subfolder. Their customized versions can be placed in any location within the host environment that the used compiler can access via include paths.</p>
+<p>In addition, the following locations should be specified as include paths ([nrfx] stands for the nrfx root folder location): <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">nrfx</span><span class="p">]</span><span class="o">/</span>
+<span class="p">[</span><span class="n">nrfx</span><span class="p">]</span><span class="o">/</span><span class="n">drivers</span><span class="o">/</span><span class="n">include</span>
+<span class="p">[</span><span class="n">nrfx</span><span class="p">]</span><span class="o">/</span><span class="n">mdk</span>
+</pre></div>
+</div>
+</p>
+<p></p>
+</section>
+<section id="index_1nrfx_irq_handlers">
+<h2>IRQ handlers<a class="headerlink" href="#index_1nrfx_irq_handlers" title="Permalink to this heading"></a></h2>
+<p id="index_1nrfx_irq_handlers">The IRQ handlers in all drivers are implemented as ordinary API functions named “nrfx_*_irq_handler”. They can be bound to some structures or called in a specific way according to the requirements of the host environment. To install the handlers in the standard MDK way, you must only add the following line to the <a class="reference internal" href="nrfx_api/glue.html#group__nrfx__glue"><span class="std std-ref">nrfx_glue.h</span></a> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;soc/nrfx_irqs.h&gt;</span>
+</pre></div>
+</div>
+<p>This will cause the preprocessor to properly rename all the IRQ handler functions so that the linker could install them in the vector table.</p>
+</section>
+<section id="index_1nrfx_configuration">
+<h2>Configuration<a class="headerlink" href="#index_1nrfx_configuration" title="Permalink to this heading"></a></h2>
+<p id="index_1nrfx_configuration">The drivers use both dynamic (run time) and static (compile time) configuration.</p>
+<p>Dynamic configuration is done by specifying desired options in configuration structures passed to the drivers during their initialization. Refer to the API reference for a given driver to see the members of its configuration structure.</p>
+<p>Static configuration allows enabling and disabling (excluding their code from compilation) particular drivers or in some cases their specific features, defining default parameters for dynamic configuration, parametrization of logging in particular drivers. It is done by specifying desired values of macros in a file named:</p>
+<p><ul class="simple">
+<li><p>nrfx_config.h</p></li>
+</ul>
+</p>
+<p>This file, similarly to the integration files mentioned above, can be placed in any suitable location within the host environment. The <a class="reference external" href="https://github.com/NordicSemiconductor/nrfx/tree/master/templates">nrfx/templates</a> subfolder contains templates of configuration files for all currently supported Nordic SoCs. These files are included through a common nrfx_config.h file, according to the selected SoC. Refer to the “driver configuration” section in the API reference for a given driver for more information regarding configuration options available for it.</p>
+</section>
+<section id="index_1nrfx_api_change_procedure">
+<h2>API change procedure<a class="headerlink" href="#index_1nrfx_api_change_procedure" title="Permalink to this heading"></a></h2>
+<p id="index_1nrfx_api_change_procedure">Starting from 3.0 release, nrfx API can no longer be considered as stable for minor version updates. Taking into account the potential impact on the end users, APIs are changed in a few stages. Every deprecated API is completely removed from the code base after two minor releases, counting from the one making the functionality obsolete. Refer to the <a class="reference external" href="https://github.com/NordicSemiconductor/nrfx/wiki/API-change-procedure">API change procedure</a> for more details regarding the process.</p>
+</section>
+<section id="index_1nrfx_additional_reqs">
+<h2>Additional requirements<a class="headerlink" href="#index_1nrfx_additional_reqs" title="Permalink to this heading"></a></h2>
+<p id="index_1nrfx_additional_reqs">Nordic SoCs are based on ARM® Cortex™-M series processors. Before you can start developing with nrfx, you must add the CMSIS header files to include paths during the compilation process. Download these files from the following website:</p>
+<p><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ARM-software/CMSIS">ARM® CMSIS repository</a> (CMSIS/Include directory) </p></li>
+</ul>
+</p>
+</section>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unless otherwise stated, nrfx API functions do not provide thread safety themselves. Users are responsible for providing the proper synchronization of the nrfx function calls in a given environment if those are to be used from different contexts.</p>
+</div>
+</dd></div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

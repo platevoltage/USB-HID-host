@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrfx__uart__error__evt__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrfx_uart_error_evt_t</compoundname>
+    <includes local="no">nrfx_uart.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrfx__uart__error__evt__t_1ad4f727c3aab2c33598da4ddfb3a68fc2" prot="public" static="no" mutable="no">
+        <type><ref refid="structnrfx__uart__xfer__evt__t" kindref="compound">nrfx_uart_xfer_evt_t</ref></type>
+        <definition>nrfx_uart_xfer_evt_t nrfx_uart_error_evt_t::rxtx</definition>
+        <argsstring></argsstring>
+        <name>rxtx</name>
+        <qualifiedname>nrfx_uart_error_evt_t::rxtx</qualifiedname>
+        <briefdescription>
+<para>Transfer details, including number of bytes transferred. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="163" column="26" bodyfile="drivers/include/nrfx_uart.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__uart__error__evt__t_1a073bb4c2c9ce0fac7901f229c5ff1cf3" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_uart_error_evt_t::error_mask</definition>
+        <argsstring></argsstring>
+        <name>error_mask</name>
+        <qualifiedname>nrfx_uart_error_evt_t::error_mask</qualifiedname>
+        <briefdescription>
+<para>Mask of error flags that generated the event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="164" column="26" bodyfile="drivers/include/nrfx_uart.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure for the UART error event. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>nrfx_uart_error_evt_t</label>
+        <link refid="structnrfx__uart__error__evt__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rxtx</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx_uart_xfer_evt_t</label>
+        <link refid="structnrfx__uart__xfer__evt__t"/>
+      </node>
+    </collaborationgraph>
+    <location file="drivers/include/nrfx_uart.h" line="161" column="1" bodyfile="drivers/include/nrfx_uart.h" bodystart="162" bodyend="165"/>
+    <listofallmembers>
+      <member refid="structnrfx__uart__error__evt__t_1a073bb4c2c9ce0fac7901f229c5ff1cf3" prot="public" virt="non-virtual"><scope>nrfx_uart_error_evt_t</scope><name>error_mask</name></member>
+      <member refid="structnrfx__uart__error__evt__t_1ad4f727c3aab2c33598da4ddfb3a68fc2" prot="public" virt="non-virtual"><scope>nrfx_uart_error_evt_t</scope><name>rxtx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

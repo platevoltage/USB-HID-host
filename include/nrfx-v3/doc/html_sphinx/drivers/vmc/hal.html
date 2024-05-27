@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VMC HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VPR" href="../vpr/index.html" />
+    <link rel="prev" title="VMC" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">VMC</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">VMC HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">VMC</a></li>
+      <li class="breadcrumb-item active">VMC HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/vmc/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vmc-hal">
+<h1>VMC HAL<a class="headerlink" href="#vmc-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__vmc__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_vmc_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the Volatile Memory Controller (VMC) peripheral. </p>
+<p>Value representing number of RAM sections.</p>
+<p>This symbol is needed to determine elements in enumerators. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t">
+<span class="target" id="group__nrf__vmc__hal_1gad4377b0361228269c1433c626d32954b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_power_t</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Power configuration bits for each section in particular RAM block. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S0">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954bad42031c18771787092e809a9320fb0ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S0</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S0 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S1">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954bacbe4c138b60b4503953ded51ca88d0b1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S1</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S1 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S2">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954baf533b570a94bd76225a91ace6bbe8fac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S2</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S2 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S3">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba2c4c642db07cdcdcca4dfede346e5e00"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S3</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S3 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S4">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954baa3791778057635d80f7c7ca655674242"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S4</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S4 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S5">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba982a6d502227f5ef821cefa97f0c9c4e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S5</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S5 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S6">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba44202bcca38560c48b306382fc9cd726"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S6</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S6 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S7">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954bad79963c72979e2d6c869ed4e7a8e8e38"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S7</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S7 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S8">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954baa242965ae1d55876a975552200425f14"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S8</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S8 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S9">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954baba0e7ab8eb65769a10e9fd76f559ff5a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S9</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S9 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S10">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba54f46c6b2eae5c33fa8dda8dc387948d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S10</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S10 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S11">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba876b33fafefe529ff405efbd44cbcde4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S11</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S11 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S12">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba2d3e806f4ea42b331d660981b685a4fe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S12</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S12 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S13">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba486903da33674447c049ee2953e72e46"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S13</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S13 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S14">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba275c4c46744cc966e34c2ff73101e194"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S14</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S14 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_power_t.NRF_VMC_POWER_S15">
+<span class="target" id="group__nrf__vmc__hal_1ggad4377b0361228269c1433c626d32954ba226d6a34adfcb547dd3c7c193e1ca5ac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_POWER_S15</span></span></span><a class="headerlink" href="#c.nrf_vmc_power_t.NRF_VMC_POWER_S15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep retention on RAM section S15 of the particular RAM block when RAM section is switched off. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t">
+<span class="target" id="group__nrf__vmc__hal_1ga00a7e7671f74627cdde5af2d8642c373"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_retention_t</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Retention configuration bits for each section in particular RAM block. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S0">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a4af6517439d5bac45e06623ee5d63d88"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S0</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S0 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S1">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a27c5081e64719e84f543888a2f18120c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S1</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S1 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S2">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a34436c189daf2b00539fd0775255b7ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S2</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S2 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S3">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a043eb516614bd37f0d61f8ebd28ec5ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S3</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S3 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S4">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373aef5fd88c2649685030809e986513af4f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S4</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S4 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S5">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a80cca363c7031fe1f96e607226ba565d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S5</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S5 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S6">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a3e2a076ca22a0a6978fafa06924865ea"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S6</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S6 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S7">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a353d3204b5b14e3e881db695363a9c9b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S7</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S7 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S8">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a97aac18890a7961ca1a3e4935ee9c07d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S8</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S8 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S9">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373ac6f578c75b0e71e0df1c1abd1d3bf414"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S9</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S9 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S10">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a7610b9117944a28229a23fc1673231c0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S10</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S10 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S11">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373aff19ff29754454604abdd27aa746a237"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S11</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S11 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S12">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a8ec2adbc4305d4fabfcf6f1d97cd85a7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S12</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S12 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S13">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a15c9954a7af9316533e4169b8024c4d0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S13</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S13 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S14">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373ad81ab4927e99c14a124fbccc97c65969"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S14</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S14 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S15">
+<span class="target" id="group__nrf__vmc__hal_1gga00a7e7671f74627cdde5af2d8642c373a3a7258cbd6ee45fa8c6af89b23a85759"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VMC_RETENTION_S15</span></span></span><a class="headerlink" href="#c.nrf_vmc_retention_t.NRF_VMC_RETENTION_S15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep RAM section S15 of the particular RAM block on or off in System ON mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_config">
+<span class="target" id="group__nrf__vmc__hal_1ga567ce41c36cd0b6272cb54ee8b151c63"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_config</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">power_mask</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">retention_mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_config" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting power configuration for the particular RAM block. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Overrides current configuration.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number. </p></li>
+<li><p><strong>power_mask</strong> – <strong>[in]</strong> Bitmask with sections configuration of particular RAM block. <a class="reference internal" href="#group__nrf__vmc__hal_1gad4377b0361228269c1433c626d32954b"><span class="std std-ref">nrf_vmc_power_t</span></a> should be use to prepare this bitmask. </p></li>
+<li><p><strong>retention_mask</strong> – <strong>[in]</strong> Bitmask with sections configuration of particular RAM block. <a class="reference internal" href="#group__nrf__vmc__hal_1ga00a7e7671f74627cdde5af2d8642c373"><span class="std std-ref">nrf_vmc_retention_t</span></a> should be use to prepare this bitmask. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_clear">
+<span class="target" id="group__nrf__vmc__hal_1gacc315aa03e34da6b41c851b19db04667"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing power configuration for the particular RAM block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_power_set">
+<span class="target" id="group__nrf__vmc__hal_1ga0186a5841b029bc803b49d969e7e95b8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_power_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span>, <a class="reference internal" href="#c.nrf_vmc_power_t" title="nrf_vmc_power_t"><span class="n"><span class="pre">nrf_vmc_power_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">sect_power</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_power_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting power configuration for the particular RAM block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number. </p></li>
+<li><p><strong>sect_power</strong> – <strong>[in]</strong> Paricular section of the RAM block. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_power_all_set">
+<span class="target" id="group__nrf__vmc__hal_1ga968e41548a353fa565e297d9c6691a22"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_power_all_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_power_all_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting power configuration for all available RAM blocks. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_power_clear">
+<span class="target" id="group__nrf__vmc__hal_1gaf175661d8003e877a7fbe397c92b659e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_power_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span>, <a class="reference internal" href="#c.nrf_vmc_power_t" title="nrf_vmc_power_t"><span class="n"><span class="pre">nrf_vmc_power_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">sect_power</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_power_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing power configuration for the particular RAM block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number. </p></li>
+<li><p><strong>sect_power</strong> – <strong>[in]</strong> Paricular section of the RAM block. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_power_mask_get">
+<span class="target" id="group__nrf__vmc__hal_1ga8f984797e3cc86f291d86e66700c9738"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_power_mask_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_power_mask_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting power configuration of the particular RAM block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bitmask with power configuration of sections of particular RAM block. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_retention_set">
+<span class="target" id="group__nrf__vmc__hal_1ga9a5fbcc4b90ba5b846027f42cd7da2e6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_retention_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span>, <a class="reference internal" href="#c.nrf_vmc_retention_t" title="nrf_vmc_retention_t"><span class="n"><span class="pre">nrf_vmc_retention_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">sect_retention</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_retention_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting retention configuration for the particular RAM block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number. </p></li>
+<li><p><strong>sect_retention</strong> – <strong>[in]</strong> Paricular section of the RAM block. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_retention_all_set">
+<span class="target" id="group__nrf__vmc__hal_1ga3e86ee398c04d31faa5f2ba30f4eaf52"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_retention_all_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_retention_all_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting retention configuration for all available RAM blocks. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_retention_clear">
+<span class="target" id="group__nrf__vmc__hal_1ga00df31bd2aeb462e9228617c8564f6d0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_retention_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span>, <a class="reference internal" href="#c.nrf_vmc_retention_t" title="nrf_vmc_retention_t"><span class="n"><span class="pre">nrf_vmc_retention_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">sect_retention</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_retention_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing retention configuration for the particular RAM block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number. </p></li>
+<li><p><strong>sect_retention</strong> – <strong>[in]</strong> Paricular section of the RAM block. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vmc_ram_block_retention_mask_get">
+<span class="target" id="group__nrf__vmc__hal_1ga126f9e1b4bb1ea0f2c5d79e398bb6413"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vmc_ram_block_retention_mask_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_VMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">ram_block_num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vmc_ram_block_retention_mask_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting retention configuration of the particular RAM block. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>ram_block_num</strong> – <strong>[in]</strong> RAM block number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Bitmask with retention configuration of sections of particular RAM block </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../vpr/index.html" class="btn btn-neutral float-right" title="VPR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="VMC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

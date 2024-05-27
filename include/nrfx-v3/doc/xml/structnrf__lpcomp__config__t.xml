@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrf__lpcomp__config__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrf_lpcomp_config_t</compoundname>
+    <includes local="no">nrf_lpcomp.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrf__lpcomp__config__t_1aa74af967693de2d0d942b3389eb33038" prot="public" static="no" mutable="no">
+        <type><ref refid="group__nrf__lpcomp__hal_1ga0c957a3dd1132acd90e420b70477cef0" kindref="member">nrf_lpcomp_ref_t</ref></type>
+        <definition>nrf_lpcomp_ref_t nrf_lpcomp_config_t::reference</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <qualifiedname>nrf_lpcomp_config_t::reference</qualifiedname>
+        <briefdescription>
+<para>LPCOMP reference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lpcomp.h" line="193" column="29" bodyfile="hal/nrf_lpcomp.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrf__lpcomp__config__t_1a914c08cbe41a352676020b57ae1ba831" prot="public" static="no" mutable="no">
+        <type><ref refid="group__nrf__lpcomp__hal_1ga98b70e2e8ab4595eb74b92e7036f09b3" kindref="member">nrf_lpcomp_detect_t</ref></type>
+        <definition>nrf_lpcomp_detect_t nrf_lpcomp_config_t::detection</definition>
+        <argsstring></argsstring>
+        <name>detection</name>
+        <qualifiedname>nrf_lpcomp_config_t::detection</qualifiedname>
+        <briefdescription>
+<para>LPCOMP detection type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lpcomp.h" line="194" column="29" bodyfile="hal/nrf_lpcomp.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrf__lpcomp__config__t_1a340e40a459c17d8123384f2a55d7429e" prot="public" static="no" mutable="no">
+        <type><ref refid="group__nrf__lpcomp__hal_1gad24ec3049d0115c6cc04ff6040f99fc8" kindref="member">nrf_lpcomp_hyst_t</ref></type>
+        <definition>nrf_lpcomp_hyst_t nrf_lpcomp_config_t::hyst</definition>
+        <argsstring></argsstring>
+        <name>hyst</name>
+        <qualifiedname>nrf_lpcomp_config_t::hyst</qualifiedname>
+        <briefdescription>
+<para>LPCOMP hysteresis. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hal/nrf_lpcomp.h" line="196" column="29" bodyfile="hal/nrf_lpcomp.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LPCOMP configuration. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="hal/nrf_lpcomp.h" line="191" column="1" bodyfile="hal/nrf_lpcomp.h" bodystart="192" bodyend="198"/>
+    <listofallmembers>
+      <member refid="structnrf__lpcomp__config__t_1a914c08cbe41a352676020b57ae1ba831" prot="public" virt="non-virtual"><scope>nrf_lpcomp_config_t</scope><name>detection</name></member>
+      <member refid="structnrf__lpcomp__config__t_1a340e40a459c17d8123384f2a55d7429e" prot="public" virt="non-virtual"><scope>nrf_lpcomp_config_t</scope><name>hyst</name></member>
+      <member refid="structnrf__lpcomp__config__t_1aa74af967693de2d0d942b3389eb33038" prot="public" virt="non-virtual"><scope>nrf_lpcomp_config_t</scope><name>reference</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

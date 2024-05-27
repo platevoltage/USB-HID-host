@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPIOTE HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GPIOTE HALY" href="haly.html" />
+    <link rel="prev" title="GPIOTE driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">GPIOTE</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">GPIOTE driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">GPIOTE HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">GPIOTE HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">GPIOTE</a></li>
+      <li class="breadcrumb-item active">GPIOTE HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/gpiote/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gpiote-hal">
+<h1>GPIOTE HAL<a class="headerlink" href="#gpiote-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__gpiote__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_gpiote_hal</span></span></dt>
+<dd><p>Hardware access layer (HAL) for managing the GPIOTE peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_INST_GET">
+<span class="target" id="group__nrf__gpiote__hal_1ga129b54403b5f5d17195f2e20809c03a7"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INST_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_GPIOTE_INST_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for getting a pointer to the structure of registers of the GPIOTE peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idx</strong> – <strong>[in]</strong> GPIOTE instance index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the structure of registers of the GPIOTE peripheral. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.GPIOTE_CONFIG_PORT_PIN_Msk">
+<span class="target" id="group__nrf__gpiote__hal_1ga5283347ae35d66ae3323d2f9bb7feb02"></span><span class="sig-name descname"><span class="n"><span class="pre">GPIOTE_CONFIG_PORT_PIN_Msk</span></span></span><a class="headerlink" href="#c.GPIOTE_CONFIG_PORT_PIN_Msk" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mask for covering port and pin bits in registers. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_HAS_LATENCY">
+<span class="target" id="group__nrf__gpiote__hal_1ga9609b228f6c7c0d37c72b92a05e6e0ab"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_HAS_LATENCY</span></span></span><a class="headerlink" href="#c.NRF_GPIOTE_HAS_LATENCY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the latency setting. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_HAS_INT_GROUPS">
+<span class="target" id="group__nrf__gpiote__hal_1gaeec8ff4e1b1e939da62f8b5349ae250e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_HAS_INT_GROUPS</span></span></span><a class="headerlink" href="#c.NRF_GPIOTE_HAS_INT_GROUPS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether GPIOTE interrupt groups are present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_IRQ_GROUP">
+<span class="target" id="group__nrf__gpiote__hal_1ga48eef32af17b9ce053e48c4a085d3264"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_IRQ_GROUP</span></span></span><a class="headerlink" href="#c.NRF_GPIOTE_IRQ_GROUP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating which interrupt group to use. Empty if there are no groups. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_SECURE_SUFFIX">
+<span class="target" id="group__nrf__gpiote__hal_1ga1f0e0b62dd3c93cd57d517d3080a14b9"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_SECURE_SUFFIX</span></span></span><a class="headerlink" href="#c.NRF_GPIOTE_SECURE_SUFFIX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating a TrustZone suffix added to the register name. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_EVENTS_PORT_REG">
+<span class="target" id="group__nrf__gpiote__hal_1ga6707e7a02edff6e4d23fda06c239404c"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENTS_PORT_REG</span></span></span><a class="headerlink" href="#c.NRF_GPIOTE_EVENTS_PORT_REG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating a name of PORT event register to be used. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_INT_PORT_MASK_NAME">
+<span class="target" id="group__nrf__gpiote__hal_1ga5a7a0725786f748e4ee85ae81cc207aa"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_PORT_MASK_NAME</span></span></span><a class="headerlink" href="#c.NRF_GPIOTE_INT_PORT_MASK_NAME" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying interrupt bitmask associated with the PORT event. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_GPIOTE_INT_IN_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1gadfe7ae9295a3508febb160aae12ff0d6"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN_MASK</span></span></span><a class="headerlink" href="#c.NRF_GPIOTE_INT_IN_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying bitmask collecting all IN events interrupts. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpiote_polarity_t">
+<span class="target" id="group__nrf__gpiote__hal_1ga9a424db0997c11092f8f69d52155dd9d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_polarity_t</span></span></span><a class="headerlink" href="#c.nrf_gpiote_polarity_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Polarity for the GPIOTE channel. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_NONE">
+<span class="target" id="group__nrf__gpiote__hal_1gga9a424db0997c11092f8f69d52155dd9dafe99b1b050f3c47625e588a0f14085c5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_POLARITY_NONE</span></span></span><a class="headerlink" href="#c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_NONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>None. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_LOTOHI">
+<span class="target" id="group__nrf__gpiote__hal_1gga9a424db0997c11092f8f69d52155dd9da59dda358a841a81671bd372058b46498"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_POLARITY_LOTOHI</span></span></span><a class="headerlink" href="#c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_LOTOHI" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Low to high. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_HITOLO">
+<span class="target" id="group__nrf__gpiote__hal_1gga9a424db0997c11092f8f69d52155dd9da97c193ac03f0691bea38c2283b55fa8a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_POLARITY_HITOLO</span></span></span><a class="headerlink" href="#c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_HITOLO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High to low. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_TOGGLE">
+<span class="target" id="group__nrf__gpiote__hal_1gga9a424db0997c11092f8f69d52155dd9da00487cd8286ff071ca751cd4a00295d5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_POLARITY_TOGGLE</span></span></span><a class="headerlink" href="#c.nrf_gpiote_polarity_t.NRF_GPIOTE_POLARITY_TOGGLE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Toggle. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpiote_outinit_t">
+<span class="target" id="group__nrf__gpiote__hal_1gab280bbb7269ab98a97e7b47d906ef9aa"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_outinit_t</span></span></span><a class="headerlink" href="#c.nrf_gpiote_outinit_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Initial output value for the GPIOTE channel. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_outinit_t.NRF_GPIOTE_INITIAL_VALUE_LOW">
+<span class="target" id="group__nrf__gpiote__hal_1ggab280bbb7269ab98a97e7b47d906ef9aaae0df1a0e930bfe3b198a9692d9916667"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INITIAL_VALUE_LOW</span></span></span><a class="headerlink" href="#c.nrf_gpiote_outinit_t.NRF_GPIOTE_INITIAL_VALUE_LOW" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Low to high. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_outinit_t.NRF_GPIOTE_INITIAL_VALUE_HIGH">
+<span class="target" id="group__nrf__gpiote__hal_1ggab280bbb7269ab98a97e7b47d906ef9aaa1fc9af8ce3fcd7165b3c090b564e9aa4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INITIAL_VALUE_HIGH</span></span></span><a class="headerlink" href="#c.nrf_gpiote_outinit_t.NRF_GPIOTE_INITIAL_VALUE_HIGH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High to low. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpiote_latency_t">
+<span class="target" id="group__nrf__gpiote__hal_1gae4c435e11fb73e29b2729740eff50207"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_latency_t</span></span></span><a class="headerlink" href="#c.nrf_gpiote_latency_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Latency setting. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_latency_t.NRF_GPIOTE_LATENCY_LOWPOWER">
+<span class="target" id="group__nrf__gpiote__hal_1ggae4c435e11fb73e29b2729740eff50207a959d8dad575961cdf7eba397b04d32d9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_LATENCY_LOWPOWER</span></span></span><a class="headerlink" href="#c.nrf_gpiote_latency_t.NRF_GPIOTE_LATENCY_LOWPOWER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Low Power. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_latency_t.NRF_GPIOTE_LATENCY_LOWLATENCY">
+<span class="target" id="group__nrf__gpiote__hal_1ggae4c435e11fb73e29b2729740eff50207a0f66f665ab7ef5919c5a58811e387cae"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_LATENCY_LOWLATENCY</span></span></span><a class="headerlink" href="#c.nrf_gpiote_latency_t.NRF_GPIOTE_LATENCY_LOWLATENCY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Low Latency. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t">
+<span class="target" id="group__nrf__gpiote__hal_1ga9942884dceccf6c235f66cd780a2bd2a"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_0">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa9bb91d2dfe6686571929e645639c8b9d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_0</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_1">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa1f0a1403222943322d684495f3a50edd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_1</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_2">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aaa433d565fceecc1f6b66ac7ab9e82621"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_2</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_3">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa5052b79eff202542296ec01891149f19"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_3</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_4">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa4c7fb065470f4462dd8c329dc00a6c0b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_4</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_5">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aaef010e51897470096452a7d963c2450e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_5</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_6">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa89079dc4bc9ceccbb49c906e7336ca2b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_6</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_7">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aaa1ee1c7dc315bddcee51d07eedd5f49d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_OUT_7</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_OUT_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Out task 7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_0">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aac95607d1ad881fde39616f52a9717a19"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_0</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_1">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa505d2320176bbf6761d9fe793c030f91"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_1</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_2">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa38de61669cfa61c2be664c2f4caacc2d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_2</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_3">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aadf4f495e75b9e4623ccc93682e30b209"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_3</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_4">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa2b92173d8779498c652a1492a7b307c5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_4</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_5">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aafc494a1da5567682b4ee81ca2487aae0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_5</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_6">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa5cb08bc55237b51d445b5043c841daec"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_6</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_7">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aacaddf966f5fa88f9d6c9fd640d9808f4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_SET_7</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_SET_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set task 7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_0">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa738ba3f27ee177b5342aed8587974b5b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_0</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_1">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa804d36695a1c11ffbfa7f02a3a27038e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_1</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_2">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa441e852bb4c1956ecf00729d61273187"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_2</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_3">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa9bef69cbed6d7629c656c3c37939d73f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_3</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_4">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aad3a65156da13c17ba1334df677a5de7a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_4</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_5">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa5b3fe2d39533c084ee7f567dc9c59e1a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_5</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_6">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa2bd41ccb91f5ff9f523f805c15a7e98c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_6</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_7">
+<span class="target" id="group__nrf__gpiote__hal_1gga9942884dceccf6c235f66cd780a2bd2aa98ccd1ba7b4b9615d32f1c624104f8fd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_TASK_CLR_7</span></span></span><a class="headerlink" href="#c.nrf_gpiote_task_t.NRF_GPIOTE_TASK_CLR_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear task 7. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t">
+<span class="target" id="group__nrf__gpiote__hal_1gafb8cdf47efbb10b2c7167adedcc53b9e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_t</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_0">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ead037d4c4835befb49628eb4f26cb901d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_0</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_1">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea1f3f7f5d560988d8476431c70ce24ddd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_1</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_2">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea23f2bff9cf3366e7e90d30469259ca28"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_2</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_3">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea1cbb689e14eb0032319294b44f90b24b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_3</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_4">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea2f2bb8a9d2ec7b957bce2ca963169be0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_4</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_5">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea53b630f136f8e26dd1e733760d8d2ff6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_5</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_6">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea02160e7cc83387a45fca316af7d0965b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_6</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_7">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea3d7e3841b720c8eb97e2f79032e2726a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_IN_7</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_IN_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>In event 7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_PORT">
+<span class="target" id="group__nrf__gpiote__hal_1ggafb8cdf47efbb10b2c7167adedcc53b9ea5c9d876efe7a641a7727ed6917cc3323"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_EVENT_PORT</span></span></span><a class="headerlink" href="#c.nrf_gpiote_event_t.NRF_GPIOTE_EVENT_PORT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Port event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t">
+<span class="target" id="group__nrf__gpiote__hal_1gac8fb94d0a0cbdadc3fca32874c4ad1c8"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_int_t</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN0_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8adbeca001cf38e6a09e3324640c89fbfe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN0_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN0. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN1_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8a5c25c5ff63d5053cd29f806b79f7bf57"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN1_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN2_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8a64260e6c32c4ee3ecf3d2ea8bc686591"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN2_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN3_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8a24b832a6c0d4fd65720d0b60ae9d691a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN3_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN4_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8a443c71eef54898563c3f49dc4e9b6410"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN4_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN5_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8abf564c03a5de77d965ee255f00b46777"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN5_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN6_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8aa31d216cbee1a4e2354054e0980f968e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN6_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN7_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8a347d6b81ee86b6bd808da9036e979a12"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_IN7_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_IN7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from IN7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_t.NRF_GPIOTE_INT_PORT_MASK">
+<span class="target" id="group__nrf__gpiote__hal_1ggac8fb94d0a0cbdadc3fca32874c4ad1c8a8d642531efba9d3f2102003af2a450a3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_GPIOTE_INT_PORT_MASK</span></span></span><a class="headerlink" href="#c.nrf_gpiote_int_t.NRF_GPIOTE_INT_PORT_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>GPIOTE interrupt from PORT event. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_trigger">
+<span class="target" id="group__nrf__gpiote__hal_1gaafd262deed218a5d1016b28e2e58d389"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_task_t" title="nrf_gpiote_task_t"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for activating the specified GPIOTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_address_get">
+<span class="target" id="group__nrf__gpiote__hal_1ga744932a043aeff264664e91b4de35a9d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_task_t" title="nrf_gpiote_task_t"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified GPIOTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_check">
+<span class="target" id="group__nrf__gpiote__hal_1ga1559e341e960805d18da83d432a1ba1b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_event_t" title="nrf_gpiote_event_t"><span class="n"><span class="pre">nrf_gpiote_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the state of the specified GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event is set. </p></li>
+<li><p><strong>false</strong> – The event is not set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_clear">
+<span class="target" id="group__nrf__gpiote__hal_1ga6afb73e2d078671e7703e1fd4058d606"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_event_t" title="nrf_gpiote_event_t"><span class="n"><span class="pre">nrf_gpiote_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_address_get">
+<span class="target" id="group__nrf__gpiote__hal_1ga519351da19c3da9b79cd388654d365fe"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_event_t" title="nrf_gpiote_event_t"><span class="n"><span class="pre">nrf_gpiote_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_enable">
+<span class="target" id="group__nrf__gpiote__hal_1ga013d965ef3cf9bdfacbd168ddf0e155e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__gpiote__hal_1gac8fb94d0a0cbdadc3fca32874c4ad1c8"><span class="std std-ref">nrf_gpiote_int_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_disable">
+<span class="target" id="group__nrf__gpiote__hal_1ga7caee4eeac2ebbad824ca4eb819c0804"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__gpiote__hal_1gac8fb94d0a0cbdadc3fca32874c4ad1c8"><span class="std std-ref">nrf_gpiote_int_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_enable_check">
+<span class="target" id="group__nrf__gpiote__hal_1ga79704b18e21630ee689004f97b2b2dd3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__gpiote__hal_1gac8fb94d0a0cbdadc3fca32874c4ad1c8"><span class="std std-ref">nrf_gpiote_int_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_group_enable">
+<span class="target" id="group__nrf__gpiote__hal_1ga037d268697089a6118c1e099ff8b9dcf"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_int_group_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">group_idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_int_group_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling interrupts in the specified group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>group_idx</strong> – <strong>[in]</strong> Index of interrupt group to be enabled. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__gpiote__hal_1gac8fb94d0a0cbdadc3fca32874c4ad1c8"><span class="std std-ref">nrf_gpiote_int_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_group_disable">
+<span class="target" id="group__nrf__gpiote__hal_1ga508063f42a084ca80e6e6d71b92b91d5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_int_group_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">group_idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_int_group_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling interrupts in the specified group. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>group_idx</strong> – <strong>[in]</strong> Index of interrupt group to be disabled. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__gpiote__hal_1gac8fb94d0a0cbdadc3fca32874c4ad1c8"><span class="std std-ref">nrf_gpiote_int_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_int_group_enable_check">
+<span class="target" id="group__nrf__gpiote__hal_1ga4fcf8b28778b88dcefb1b809dfd71b93"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_int_group_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">group_idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_int_group_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts from a given group are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>group_idx</strong> – <strong>[in]</strong> Index of interrupt group to be checked. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__gpiote__hal_1gac8fb94d0a0cbdadc3fca32874c4ad1c8"><span class="std std-ref">nrf_gpiote_int_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_subscribe_set">
+<span class="target" id="group__nrf__gpiote__hal_1gac1bbb5d0d172fbaeb2438ffaed269037"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_task_t" title="nrf_gpiote_task_t"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given GPIOTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_subscribe_clear">
+<span class="target" id="group__nrf__gpiote__hal_1ga2491579f899bec6cc0ae50c7aeffb347"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_task_t" title="nrf_gpiote_task_t"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given GPIOTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_publish_set">
+<span class="target" id="group__nrf__gpiote__hal_1ga39b586ec60cdbc7101df1d4a977c86e9"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_event_t" title="nrf_gpiote_event_t"><span class="n"><span class="pre">nrf_gpiote_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_publish_clear">
+<span class="target" id="group__nrf__gpiote__hal_1gaf2fda317a7d0b0cc409b4915cc1a8e9c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_event_t" title="nrf_gpiote_event_t"><span class="n"><span class="pre">nrf_gpiote_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_enable">
+<span class="target" id="group__nrf__gpiote__hal_1ga9795c1bed9892e03977c67bccd6a6d70"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling a GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_disable">
+<span class="target" id="group__nrf__gpiote__hal_1gaf6adcd3c0e9a471e3951b88a831c4510"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling a GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_configure">
+<span class="target" id="group__nrf__gpiote__hal_1ga54b500b582225fc3843efb3342ac027b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin</span></span>, <a class="reference internal" href="#c.nrf_gpiote_polarity_t" title="nrf_gpiote_polarity_t"><span class="n"><span class="pre">nrf_gpiote_polarity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">polarity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring a GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+<li><p><strong>pin</strong> – <strong>[in]</strong> Pin associated with event. </p></li>
+<li><p><strong>polarity</strong> – <strong>[in]</strong> Transition that should generate an event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_pin_get">
+<span class="target" id="group__nrf__gpiote__hal_1ga64784132f8461e6af18945287b43b5e7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_pin_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_pin_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pin associated with a GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pin number. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_event_polarity_get">
+<span class="target" id="group__nrf__gpiote__hal_1gaf2dc87c2ef209b0d3093eb84535ac9b8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpiote_polarity_t" title="nrf_gpiote_polarity_t"><span class="n"><span class="pre">nrf_gpiote_polarity_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_event_polarity_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_event_polarity_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the polarity associated with a GPIOTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Polarity. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_enable">
+<span class="target" id="group__nrf__gpiote__hal_1ga9f1756f4e06f9c10e70b0b2d9afa1dc8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_task_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_task_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling a GPIOTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_disable">
+<span class="target" id="group__nrf__gpiote__hal_1gaac59f62db0c82e474276eaed8cc66ccd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_task_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_task_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling a GPIOTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_configure">
+<span class="target" id="group__nrf__gpiote__hal_1gac2572e65960d3012a9c609d4251e7c04"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_task_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">pin</span></span>, <a class="reference internal" href="#c.nrf_gpiote_polarity_t" title="nrf_gpiote_polarity_t"><span class="n"><span class="pre">nrf_gpiote_polarity_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">polarity</span></span>, <a class="reference internal" href="#c.nrf_gpiote_outinit_t" title="nrf_gpiote_outinit_t"><span class="n"><span class="pre">nrf_gpiote_outinit_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">init_val</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_task_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring a GPIOTE task. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Function is not configuring mode field so task is disabled after this function is called.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+<li><p><strong>pin</strong> – <strong>[in]</strong> Pin associated with event. </p></li>
+<li><p><strong>polarity</strong> – <strong>[in]</strong> Transition that should generate an event. </p></li>
+<li><p><strong>init_val</strong> – <strong>[in]</strong> Initial value of the pin. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_task_force">
+<span class="target" id="group__nrf__gpiote__hal_1gae14d43cda8b1bd8491f44fcdfffe3ef7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_task_force</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span>, <a class="reference internal" href="#c.nrf_gpiote_outinit_t" title="nrf_gpiote_outinit_t"><span class="n"><span class="pre">nrf_gpiote_outinit_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">init_val</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_task_force" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for forcing the specified state on the pin connected to GPIOTE. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+<li><p><strong>init_val</strong> – <strong>[in]</strong> Pin state. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_te_default">
+<span class="target" id="group__nrf__gpiote__hal_1ga99b50fc5127a1654599651a2eb372142"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_te_default</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_te_default" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for resetting a GPIOTE task event configuration to the default state. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_te_is_enabled">
+<span class="target" id="group__nrf__gpiote__hal_1ga3e663e182d9ae1fd10aec6bad6272671"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_te_is_enabled</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_te_is_enabled" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if particular Task-Event is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>idx</strong> – <strong>[in]</strong> Task-Event index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The Task-Event mode is set to Task or Event. </p></li>
+<li><p><strong>false</strong> – The Task-Event mode is set to Disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_out_task_get">
+<span class="target" id="group__nrf__gpiote__hal_1gaaa12c58ec7a644af4cbf749866e9c1c8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpiote_task_t" title="nrf_gpiote_task_t"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_out_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_out_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the OUT task associated with the specified GPIOTE channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Channel index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Requested OUT task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_set_task_get">
+<span class="target" id="group__nrf__gpiote__hal_1gac4004210adba6cc5813d93fd12a1dc4d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpiote_task_t" title="nrf_gpiote_task_t"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_set_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_set_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SET task associated with the specified GPIOTE channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Channel index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Requested SET task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_clr_task_get">
+<span class="target" id="group__nrf__gpiote__hal_1gac3b8715b38908c97aae3f1b85fa9ee9c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpiote_task_t" title="nrf_gpiote_task_t"><span class="n"><span class="pre">nrf_gpiote_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_clr_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_clr_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the CLR task associated with the specified GPIOTE channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Channel index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Requested CLR task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_in_event_get">
+<span class="target" id="group__nrf__gpiote__hal_1ga968dda896c257cf39633e64322276db7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpiote_event_t" title="nrf_gpiote_event_t"><span class="n"><span class="pre">nrf_gpiote_event_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_in_event_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_in_event_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the IN event associated with the specified GPIOTE channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Channel index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Requested IN event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_latency_set">
+<span class="target" id="group__nrf__gpiote__hal_1ga296a418322ac666bfb3f1d0cd95257a1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_latency_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_gpiote_latency_t" title="nrf_gpiote_latency_t"><span class="n"><span class="pre">nrf_gpiote_latency_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">latency</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_latency_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the latency setting. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Available for event mode with rising or falling edge detection on the pin. Toggle task mode can only be used with low latency setting.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>latency</strong> – <strong>[in]</strong> Latency setting to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_gpiote_latency_get">
+<span class="target" id="group__nrf__gpiote__hal_1ga3f56e5a98bf4cbe4c26b54269565460d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_gpiote_latency_t" title="nrf_gpiote_latency_t"><span class="n"><span class="pre">nrf_gpiote_latency_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_gpiote_latency_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_GPIOTE_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_gpiote_latency_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the latency setting. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Latency setting. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="haly.html" class="btn btn-neutral float-right" title="GPIOTE HALY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="GPIOTE driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

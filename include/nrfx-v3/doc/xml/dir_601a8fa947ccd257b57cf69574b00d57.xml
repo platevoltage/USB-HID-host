@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_601a8fa947ccd257b57cf69574b00d57" kind="dir">
+    <compoundname>soc/interconnect/apb</compoundname>
+    <innerfile refid="nrfx__interconnect__apb_8h">nrfx_interconnect_apb.h</innerfile>
+    <innerfile refid="nrfx__interconnect__apb__haltium__application_8h">nrfx_interconnect_apb_haltium_application.h</innerfile>
+    <innerfile refid="nrfx__interconnect__apb__haltium__ext_8h">nrfx_interconnect_apb_haltium_ext.h</innerfile>
+    <innerfile refid="nrfx__interconnect__apb__haltium__flpr_8h">nrfx_interconnect_apb_haltium_flpr.h</innerfile>
+    <innerfile refid="nrfx__interconnect__apb__haltium__global_8h">nrfx_interconnect_apb_haltium_global.h</innerfile>
+    <innerfile refid="nrfx__interconnect__apb__haltium__ppr_8h">nrfx_interconnect_apb_haltium_ppr.h</innerfile>
+    <innerfile refid="nrfx__interconnect__apb__haltium__radiocore_8h">nrfx_interconnect_apb_haltium_radiocore.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/interconnect/apb/"/>
+  </compounddef>
+</doxygen>

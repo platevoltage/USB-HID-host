@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PPIB HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PWM" href="../pwm/index.html" />
+    <link rel="prev" title="PPIB" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">PPIB</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PPIB HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">PPIB</a></li>
+      <li class="breadcrumb-item active">PPIB HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/ppib/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ppib-hal">
+<h1>PPIB HAL<a class="headerlink" href="#ppib-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__ppib__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_ppib_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the PPI Bridge (PPIB) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_PPIB_TASKS_SEND_COUNT">
+<span class="target" id="group__nrf__ppib__hal_1gac82ca53196a456d048f88d07465bb2a0"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASKS_SEND_COUNT</span></span></span><a class="headerlink" href="#c.NRF_PPIB_TASKS_SEND_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of send tasks. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_PPIB_EVENTS_RECEIVE_COUNT">
+<span class="target" id="group__nrf__ppib__hal_1ga75c00b56d9fe42a34ffb8747a48d0ccb"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENTS_RECEIVE_COUNT</span></span></span><a class="headerlink" href="#c.NRF_PPIB_EVENTS_RECEIVE_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of receive events. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t">
+<span class="target" id="group__nrf__ppib__hal_1ga45935a46e3b52a323877df55c68b3a35"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_task_t</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>PPIB tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_0">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35ac967fb4b829e5e24ddd4b1a795c3ec54"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_0</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 0 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_1">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a5e9718a812920b3f9dc99bcfadba5b51"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_1</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 1 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_2">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a1fd3289e8e468c764ee5edcce223a149"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_2</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 2 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_3">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a1f681e72dc613f8ee042aac6c7a29375"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_3</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 3 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_4">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a43397b2369dd6f7b95a83530d17c3a44"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_4</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 4 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_5">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a254a11fd6e40b70db6f6011dd29ea5e1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_5</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 5 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_6">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a9207c4569ec1671caee1cf5494dee3c3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_6</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 6 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_7">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35aa0c11369c15290bed4bcc09ffd8a23ab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_7</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 7 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_8">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a7e8c511889018b7d0c3232776ad2020a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_8</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 8 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_9">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a8087f479c9dd5504869f4b89b07c039a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_9</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 9 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_10">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35ac863dc51316ad29cc97e8c17d25e2e71"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_10</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 10 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_11">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35abba6525a73ebf1e1e543c3fc55f8a5ab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_11</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 11 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_12">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a1a17fb0b87eed055e4084b80bf77a1fb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_12</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 12 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_13">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a2f41e9a26731a28b76cce85c92343c96"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_13</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 13 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_14">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35acf2274e8c48a5a01433530d196db1579"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_14</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 14 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_15">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35af86527ebfa9b37deec1db0204890f8fb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_15</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 15 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_16">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a4656b482f3aff2a4fc82de108fee1192"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_16</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 16 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_17">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a0111a556fc3932f2a5fe3b6fc2d2b455"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_17</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_17" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 17 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_18">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35ab52b151f72ab6050dc4e26042d8dba1f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_18</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_18" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 18 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_19">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a235f8138102c109c081a524ff119e47f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_19</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_19" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 19 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_20">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a37c4335e349e1fd411b3dd94980349e2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_20</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_20" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 20 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_21">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35ab77480c06b1f5362b43a2946e0e8c568"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_21</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 21 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_22">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a3b0d3959f6277d4567356eb70c32f92f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_22</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_22" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 22 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_23">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a36a2a47e5fdd1ed39a7695efc5b3b6fd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_23</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_23" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 23 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_24">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35aabddf62709649d1ef4e640a920a832c9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_24</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_24" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 24 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_25">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a64d064ac72337da9197cc327ce3bd28e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_25</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_25" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 25 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_26">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a82ec4e79bf47fdf770ec7ee6933e3734"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_26</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_26" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 26 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_27">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a6f0cf4812e232e3acbb9e7c2928024e9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_27</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_27" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 27 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_28">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a2a81a209b7487103b9c316070b8c27ef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_28</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_28" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 28 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_29">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a68df682796393c36c077732301822bb6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_29</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_29" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 29 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_30">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35a84f23072e6653035078312c3a85baa8c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_30</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_30" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 30 task. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_31">
+<span class="target" id="group__nrf__ppib__hal_1gga45935a46e3b52a323877df55c68b3a35ab6a69f35e8c08f63d65cab7f399000a9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_TASK_SEND_31</span></span></span><a class="headerlink" href="#c.nrf_ppib_task_t.NRF_PPIB_TASK_SEND_31" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send 31 task. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t">
+<span class="target" id="group__nrf__ppib__hal_1ga75d7c7328cf07a7027cc040616a116c1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_event_t</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>PPIB events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_0">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a074239782eb5cf6398919f3805a83cf7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_0</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_0" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 0 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_1">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1acea9f9def39e052435481cbca2bb7d9a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_1</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 1 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_2">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1adc38f9c27ca59a28d9675b8af56de670"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_2</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 2 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_3">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a373f0602907c8e7a90a0acc9efca4d82"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_3</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 3 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_4">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a2320dc02aee715e24e20904a5952f8b7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_4</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 4 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_5">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1ac50e294c315a49b55af53b3330359f47"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_5</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 5 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_6">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a848ee99ee7c6cc405b5d2354a2bb47d5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_6</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 6 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_7">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a47d45f05573bb8c36017dec3ffb3643c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_7</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 7 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_8">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1acc94478be3b76553ac21f3ff6e2eb16b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_8</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 8 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_9">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a204b9bf34801bd1e9da083c3682a1c2e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_9</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_9" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 9 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_10">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a3e2c640b057ad7f8b237f7fd85e49107"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_10</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_10" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 10 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_11">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a6d70075ef74f0028526b0331e4cae66a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_11</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_11" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 11 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_12">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a705c561790e431b358f0035a41d30d64"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_12</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 12 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_13">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a7debd38c7326236641c7520c61d5a6d5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_13</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_13" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 13 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_14">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a2623898edaeef57a08b8a022aa039ee4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_14</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_14" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 14 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_15">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a0288b4366e8defb3fb0711c4f4b38a7d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_15</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_15" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 15 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_16">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a56f3237d36ff2977a0e61ff48e5c6668"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_16</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 16 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_17">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1aa68747eb0daf319db4733d03b5c91eaf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_17</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_17" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 17 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_18">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a116780ed595b7b1eaa90f4782de9853f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_18</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_18" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 18 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_19">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a2e8bac23757067e683407e41dd522262"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_19</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_19" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 19 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_20">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a511eb69ab379c14981395859bc2581ce"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_20</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_20" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 20 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_21">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a42edc4360b086196fe223c2a418314c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_21</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_21" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 21 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_22">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a263c7e47307139c7f43dffa11838df7e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_22</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_22" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 22 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_23">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a36087ec3fa5f9ac4d79d8f1c6a32998e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_23</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_23" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 23 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_24">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1af4dc1ca434eb7a40ed2c0a415441444b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_24</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_24" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 24 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_25">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a901780ba84fdd58cb2371f07d1f80fbd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_25</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_25" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 25 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_26">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a7d6a50d3d372794cf3fcec353aafb0cf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_26</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_26" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 26 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_27">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a4bdc66340533f3fd83a491d19a7babbb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_27</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_27" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 27 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_28">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a8954e049ef09c52d6e46c4543fe12e24"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_28</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_28" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 28 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_29">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1aaf1fae313242f9a45f837d1a0f70a035"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_29</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_29" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 29 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_30">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1adeb30046c22e139217b4f84eea848abc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_30</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_30" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 30 event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_31">
+<span class="target" id="group__nrf__ppib__hal_1gga75d7c7328cf07a7027cc040616a116c1a26cd865ea65e4a4c7d318727c9a9934f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_EVENT_RECEIVE_31</span></span></span><a class="headerlink" href="#c.nrf_ppib_event_t.NRF_PPIB_EVENT_RECEIVE_31" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive 31 event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t">
+<span class="target" id="group__nrf__ppib__hal_1ga05087306b3120a4639427ff3ce1e3c40"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_send_mask_t</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send task mask. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_0_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a04652f766b2ae1fb43063b106d42c442"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_0_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_0_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_1_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40aef150487d4eeb21363c00d7238253e32"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_1_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_1_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_2_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a269c0d8eec6decb97fa1d218deb01aff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_2_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_2_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_3_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a01493bf03276197e8f0f7d63f9654d93"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_3_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_3_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_4_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40ae0d9d22637ebcd21b899ccbb8d749ba0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_4_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_4_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_5_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a09dc213df2ba826b5c3e4b1b52e187fb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_5_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_5_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_6_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a33dc1e261399e6cd4c3d04dca7d24515"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_6_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_6_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_7_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a0c14df4d0d5e8bb5d0966232183b2302"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_7_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_7_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_8_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a019452967c301820768c82fba2bb6c62"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_8_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_8_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_9_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40afbf1911b7cdcb1d3014b0fc88f2dc4be"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_9_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_9_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_10_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40af5e8fd01dbd2089ce84a0a06f4bb9b97"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_10_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_10_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_11_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a2871fcb97956833e9cdeca8719ba6bd7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_11_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_11_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_12_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a0a2828443ec37317482c49020f2b56fe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_12_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_12_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_13_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a5cce66d02946077321d7bf1074909c95"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_13_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_13_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_14_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a61b7a99b90f09e4ba39c2ddcd8807b86"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_14_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_14_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_15_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a25f8371c182a6b4ca9d7039d1d1750e1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_15_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_15_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_16_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a0cd0673ca4edc26c2997832ceee43654"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_16_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_16_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_17_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40afec2d3f06bcf38450c286bc329786000"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_17_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_17_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_18_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a838f618ccc60a3eb5d06ff107c226080"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_18_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_18_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_19_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40ae3106e2e4f30d94694716298da08fe3d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_19_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_19_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_20_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40af98811887e0ad2411d991056e11fb215"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_20_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_20_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_21_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a0e9f22ef8fe3ac4a3611eafd2dbec8d8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_21_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_21_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_22_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a3cf5dbcee38f109bd8b49b32ba09302f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_22_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_22_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_23_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40adf6cfc38dfd406c0bd09b07256debf82"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_23_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_23_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_24_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a2560f7d2600317b32c776dbe9a48b89d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_24_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_24_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_25_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40aa4e4c809ed092d6cd367d231638e2e0b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_25_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_25_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_26_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40afa602618bf8f2581197f4782d2cf2681"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_26_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_26_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_27_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40ad6de23d41d39846b72eb103d32a1d191"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_27_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_27_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_28_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a36190a1b20473409cfde6fdf178b697e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_28_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_28_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_29_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a721f7de8d4edfb169d00801104904cba"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_29_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_29_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_30_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a1f6b5e948b5b2316a23205849ae475a2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_30_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_30_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_31_MASK">
+<span class="target" id="group__nrf__ppib__hal_1gga05087306b3120a4639427ff3ce1e3c40a3742cbc32c89743e52dc98e912501d94"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_PPIB_SEND_31_MASK</span></span></span><a class="headerlink" href="#c.nrf_ppib_send_mask_t.NRF_PPIB_SEND_31_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_send_task_get">
+<span class="target" id="group__nrf__ppib__hal_1gab9b6fc61aa13f915503e0255003d1b50"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_ppib_task_t" title="nrf_ppib_task_t"><span class="n"><span class="pre">nrf_ppib_task_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_send_task_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_send_task_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the specified PPIB SEND task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Task index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified PPIB SEND task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_receive_event_get">
+<span class="target" id="group__nrf__ppib__hal_1ga100d2f2509748279d1af7aceff3e2494"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_ppib_event_t" title="nrf_ppib_event_t"><span class="n"><span class="pre">nrf_ppib_event_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_receive_event_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_receive_event_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the specified PPIB RECEIVE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Event index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The specified PPIB RECEIVE event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_subscribe_set">
+<span class="target" id="group__nrf__ppib__hal_1ga07d9f843a34eb9ae417e23e868c4b073"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_PPIB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ppib_task_t" title="nrf_ppib_task_t"><span class="n"><span class="pre">nrf_ppib_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> DPPI channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_subscribe_clear">
+<span class="target" id="group__nrf__ppib__hal_1ga9db48a5e413026734b69a9024786c4a4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_PPIB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ppib_task_t" title="nrf_ppib_task_t"><span class="n"><span class="pre">nrf_ppib_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_publish_set">
+<span class="target" id="group__nrf__ppib__hal_1ga284813b07a6cd4f07a6d0594d86fb603"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_PPIB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ppib_event_t" title="nrf_ppib_event_t"><span class="n"><span class="pre">nrf_ppib_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> DPPI channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_publish_clear">
+<span class="target" id="group__nrf__ppib__hal_1ga42f9cf09d2c8953aa4640f962609dc35"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_PPIB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ppib_event_t" title="nrf_ppib_event_t"><span class="n"><span class="pre">nrf_ppib_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_overflow_get_and_clear">
+<span class="target" id="group__nrf__ppib__hal_1gac7553458470e7f1b73586c1b420480f0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_overflow_get_and_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_PPIB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_overflow_get_and_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the task oveflow register for SEND tasks. Task overflow mask is cleared after reading. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of SEND tasks overflow, constructed with <a class="reference internal" href="#group__nrf__ppib__hal_1ga05087306b3120a4639427ff3ce1e3c40"><span class="std std-ref">nrf_ppib_send_mask_t</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ppib_overflow_check">
+<span class="target" id="group__nrf__ppib__hal_1gae17fe05a6ca89657a09f0307f09ee6c2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ppib_overflow_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_PPIB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ppib_overflow_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of overflow for a given SEND task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> SEND task index to be checked for overflow.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The overflow has happened. </p></li>
+<li><p><strong>false</strong> – The overflow has not happened. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pwm/index.html" class="btn btn-neutral float-right" title="PWM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="PPIB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

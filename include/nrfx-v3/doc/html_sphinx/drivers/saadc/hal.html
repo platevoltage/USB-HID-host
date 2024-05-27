@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAADC HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SAADC HALY" href="haly.html" />
+    <link rel="prev" title="SAADC driver" href="driver.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">SAADC</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">SAADC driver</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">SAADC HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">SAADC HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">SAADC</a></li>
+      <li class="breadcrumb-item active">SAADC HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/saadc/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="saadc-hal">
+<h1>SAADC HAL<a class="headerlink" href="#saadc-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__saadc__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_saadc_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the SAADC peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_LIMITS_INT_OFFSET">
+<span class="target" id="group__nrf__saadc__hal_1ga8beaf4b8656ae5a6e08370cd6b93dbe7"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_LIMITS_INT_OFFSET</span></span></span><a class="headerlink" href="#c.NRF_SAADC_LIMITS_INT_OFFSET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying the offset of interrupt bitmask for limits of all channels. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_ALL_CHANNELS_LIMITS_INT_MASK">
+<span class="target" id="group__nrf__saadc__hal_1gac20d814557511379d047a7fae9f50286"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_ALL_CHANNELS_LIMITS_INT_MASK</span></span></span><a class="headerlink" href="#c.NRF_SAADC_ALL_CHANNELS_LIMITS_INT_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying the interrupt bitmask for limits of all channels. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_HAS_ACQTIME_ENUM">
+<span class="target" id="group__nrf__saadc__hal_1gaf8ecd89d6dff458ea7b5758720f2206c"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_HAS_ACQTIME_ENUM</span></span></span><a class="headerlink" href="#c.NRF_SAADC_HAS_ACQTIME_ENUM" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the configuration of acquisition time using predefined values is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_HAS_CONVTIME">
+<span class="target" id="group__nrf__saadc__hal_1ga1ad1584b87bf46e7128b24569c51994f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_HAS_CONVTIME</span></span></span><a class="headerlink" href="#c.NRF_SAADC_HAS_CONVTIME" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the configuration of conversion time is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_HAS_LIN_CAL">
+<span class="target" id="group__nrf__saadc__hal_1ga404180f8c1f70181c1fa18f80fa5c2b2"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_HAS_LIN_CAL</span></span></span><a class="headerlink" href="#c.NRF_SAADC_HAS_LIN_CAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether the configuration of linearity calibration coefficients is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_HAS_AIN_AS_PIN">
+<span class="target" id="group__nrf__saadc__hal_1gad208af8488dff8665cc7d26294101ddb"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_HAS_AIN_AS_PIN</span></span></span><a class="headerlink" href="#c.NRF_SAADC_HAS_AIN_AS_PIN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether configuration of analog input using pin number is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_HAS_DMA_REG">
+<span class="target" id="group__nrf__saadc__hal_1ga55baf1fdbd14824d4bf32a16f01ef33d"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_HAS_DMA_REG</span></span></span><a class="headerlink" href="#c.NRF_SAADC_HAS_DMA_REG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether dedicated DMA register is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_HAS_DMA_EVENTS">
+<span class="target" id="group__nrf__saadc__hal_1ga81f350f2227ba02ecfdef11a9ad99d9f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_HAS_DMA_EVENTS</span></span></span><a class="headerlink" href="#c.NRF_SAADC_HAS_DMA_EVENTS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether SAADC DMA events are present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_HAS_CH_CONFIG_RES">
+<span class="target" id="group__nrf__saadc__hal_1gaa5661e8ffcbe53a029c29d6ba0583c44"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_HAS_CH_CONFIG_RES</span></span></span><a class="headerlink" href="#c.NRF_SAADC_HAS_CH_CONFIG_RES" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol indicating whether SAADC channel resistor control is present. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_CONVTIME_MAX">
+<span class="target" id="group__nrf__saadc__hal_1gad502160997b1d84e2920f7a12b12c1b4"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_CONVTIME_MAX</span></span></span><a class="headerlink" href="#c.NRF_SAADC_CONVTIME_MAX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying maximum value of conversion time. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_LIN_CAL_MAX_COUNT">
+<span class="target" id="group__nrf__saadc__hal_1ga8787fbd8eab6641623e0a879f573623b"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_LIN_CAL_MAX_COUNT</span></span></span><a class="headerlink" href="#c.NRF_SAADC_LIN_CAL_MAX_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying maximum count of linearity calibration coefficients. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_LIN_CAL_MAX">
+<span class="target" id="group__nrf__saadc__hal_1gad5fbfcb2d28ba5939df9d9e690a02918"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_LIN_CAL_MAX</span></span></span><a class="headerlink" href="#c.NRF_SAADC_LIN_CAL_MAX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying maximum value of linearity calibration coefficient. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_8BIT_SAMPLE_WIDTH">
+<span class="target" id="group__nrf__saadc__hal_1ga86e4c313938ca27b03ce26de863d6aaf"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_8BIT_SAMPLE_WIDTH</span></span></span><a class="headerlink" href="#c.NRF_SAADC_8BIT_SAMPLE_WIDTH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying width of the 8-bit sample in bits. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_SAADC_INPUT_DISABLED">
+<span class="target" id="group__nrf__saadc__hal_1gab2b904fd842250f953752e186fd7ba66"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INPUT_DISABLED</span></span></span><a class="headerlink" href="#c.NRF_SAADC_INPUT_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Symbol specifying disconnected analog input. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrf_saadc_input_t">
+<span class="target" id="group__nrf__saadc__hal_1ga28f7a2c0a47d0a5f1254ae6a23fb71e2"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_input_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_input_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog input type. </p>
+</dd></dl>
+
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrf_saadc_value_t">
+<span class="target" id="group__nrf__saadc__hal_1gab991b20f4e170101f92956881889b755"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_value_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_value_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Type of a single ADC conversion result. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_resolution_t">
+<span class="target" id="group__nrf__saadc__hal_1gaeb0690ef4bdb8ec1cfac1f6c6a496630"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_resolution_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_resolution_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Resolution of the analog-to-digital converter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_8BIT">
+<span class="target" id="group__nrf__saadc__hal_1ggaeb0690ef4bdb8ec1cfac1f6c6a496630a9c906fc4ba0c92e8cd641f2b361e0dca"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESOLUTION_8BIT</span></span></span><a class="headerlink" href="#c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_8BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>8 bit resolution. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_10BIT">
+<span class="target" id="group__nrf__saadc__hal_1ggaeb0690ef4bdb8ec1cfac1f6c6a496630a0b1d34632f8e3ef1cf2d4f18a23bd667"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESOLUTION_10BIT</span></span></span><a class="headerlink" href="#c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_10BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>10 bit resolution. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_12BIT">
+<span class="target" id="group__nrf__saadc__hal_1ggaeb0690ef4bdb8ec1cfac1f6c6a496630a07b412d0ffcffd71026ceb4effbdb31e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESOLUTION_12BIT</span></span></span><a class="headerlink" href="#c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_12BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>12 bit resolution. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_14BIT">
+<span class="target" id="group__nrf__saadc__hal_1ggaeb0690ef4bdb8ec1cfac1f6c6a496630a3b01ada0cfa0aba5a95b5b222169756b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESOLUTION_14BIT</span></span></span><a class="headerlink" href="#c.nrf_saadc_resolution_t.NRF_SAADC_RESOLUTION_14BIT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>14 bit resolution. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t">
+<span class="target" id="group__nrf__saadc__hal_1ga62ca4cd30bcc0c4a306135c957f7ed39"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_oversample_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter oversampling mode. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_DISABLED">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39a07bd46d3a4b42947b73e5ffbf77de0bf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_DISABLED</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>No oversampling. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_2X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39ac33692f15f098ea8ef6777c353009a17"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_2X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_2X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 2x. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_4X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39afa0ae6d243f9da65d42e382e10574647"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_4X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_4X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 4x. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_8X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39a678abd8d9f3856e95979fa9cd60d02ea"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_8X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_8X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 8x. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_16X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39a108b3c93033a3f08715e9127c76e9eac"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_16X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_16X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 16x. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_32X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39a2e0670954aafc7b52b37e16737db12a6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_32X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_32X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 32x. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_64X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39ab51b06d2c5bcd8a85c81aac8e5979323"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_64X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_64X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 64x. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_128X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39a301c27ff073e372fb03397683b29222f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_128X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_128X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 128x. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_256X">
+<span class="target" id="group__nrf__saadc__hal_1gga62ca4cd30bcc0c4a306135c957f7ed39ace10f1369e776f3b86de8b69cff6065c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_OVERSAMPLE_256X</span></span></span><a class="headerlink" href="#c.nrf_saadc_oversample_t.NRF_SAADC_OVERSAMPLE_256X" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversample 256x. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_resistor_t">
+<span class="target" id="group__nrf__saadc__hal_1ga1ac6795cf7f0c7c87df12a6c87fb4303"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_resistor_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_resistor_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter channel resistor control. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_DISABLED">
+<span class="target" id="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303ac941d50e00494def50bfb5c2ab32c84d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESISTOR_DISABLED</span></span></span><a class="headerlink" href="#c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bypass resistor ladder. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_PULLDOWN">
+<span class="target" id="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303abfe4b85be11a4f7da453017634a808c0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESISTOR_PULLDOWN</span></span></span><a class="headerlink" href="#c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_PULLDOWN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pull-down to GND. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_PULLUP">
+<span class="target" id="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303a5f5486c3fa0bd560b4d3cf0eead03328"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESISTOR_PULLUP</span></span></span><a class="headerlink" href="#c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_PULLUP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pull-up to VDD. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_VDD1_2">
+<span class="target" id="group__nrf__saadc__hal_1gga1ac6795cf7f0c7c87df12a6c87fb4303a459416062bf0c090f5558d033103bb54"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_RESISTOR_VDD1_2</span></span></span><a class="headerlink" href="#c.nrf_saadc_resistor_t.NRF_SAADC_RESISTOR_VDD1_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set input at VDD/2. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t">
+<span class="target" id="group__nrf__saadc__hal_1gadda2525fbe5db392d1c1980c4a1286a0"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_gain_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor of the analog-to-digital converter input. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_6">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0a51b7e2b28fe46a742870328ad6d48cc2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN1_6</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 1/6. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_5">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0a6b6ea2d94564978e0a04ec27eb36dcaf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN1_5</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 1/5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_4">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0a8bdf3696726cc885b69a8edd16842340"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN1_4</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 1/4. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN2_7">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0ac03a3022d2b16e4e148e0e3f4c2a9030"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN2_7</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN2_7" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 2/7. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_3">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0af07ee87058d9573360b9886f0d197b23"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN1_3</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 1/3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN2_5">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0ae199bbb85013b0d8d22cf70a3dc48c1e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN2_5</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN2_5" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 2/5. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_2">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0a1aafa7a93cf70c82f808db67c74f6e61"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN1_2</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN1_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 1/2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN2_3">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0ad2f1c75838cec0ee85719b7f756bff75"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN2_3</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN2_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 2/3. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN1">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0a49a79897cf1a7f924965c566a41880e7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN1</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 1. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN2">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0aaf44b0f743dd2eb51ef662fc82b9c09d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN2</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 2. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_gain_t.NRF_SAADC_GAIN4">
+<span class="target" id="group__nrf__saadc__hal_1ggadda2525fbe5db392d1c1980c4a1286a0ab24781a885803059e306560ac6ef4de3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_GAIN4</span></span></span><a class="headerlink" href="#c.nrf_saadc_gain_t.NRF_SAADC_GAIN4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain factor 4. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_reference_t">
+<span class="target" id="group__nrf__saadc__hal_1gad540c22a2e06a7828a5ce6c71bc8a5d4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_reference_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_reference_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Reference selection for the analog-to-digital converter. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_reference_t.NRF_SAADC_REFERENCE_INTERNAL">
+<span class="target" id="group__nrf__saadc__hal_1ggad540c22a2e06a7828a5ce6c71bc8a5d4a45e4751bab9abc4fb0e8cf281f2010fc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_REFERENCE_INTERNAL</span></span></span><a class="headerlink" href="#c.nrf_saadc_reference_t.NRF_SAADC_REFERENCE_INTERNAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Internal reference. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_reference_t.NRF_SAADC_REFERENCE_VDD4">
+<span class="target" id="group__nrf__saadc__hal_1ggad540c22a2e06a7828a5ce6c71bc8a5d4aac8f8c9c960da2c5edba27c84b776d45"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_REFERENCE_VDD4</span></span></span><a class="headerlink" href="#c.nrf_saadc_reference_t.NRF_SAADC_REFERENCE_VDD4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>VDD/4 as reference. </p>
+<p>External reference. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_acqtime_t">
+<span class="target" id="group__nrf__saadc__hal_1ga125831a7eb192939bd96d99ab1e7a742"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_acqtime_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_acqtime_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter acquisition time. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_3US">
+<span class="target" id="group__nrf__saadc__hal_1gga125831a7eb192939bd96d99ab1e7a742a91b53f4264eafab02d15d6885db5acbd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_ACQTIME_3US</span></span></span><a class="headerlink" href="#c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_3US" title="Permalink to this definition"></a><br /></dt>
+<dd><p>3 us. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_5US">
+<span class="target" id="group__nrf__saadc__hal_1gga125831a7eb192939bd96d99ab1e7a742a440d0922fa9ede3513dff2c0132e6abf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_ACQTIME_5US</span></span></span><a class="headerlink" href="#c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_5US" title="Permalink to this definition"></a><br /></dt>
+<dd><p>5 us. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_10US">
+<span class="target" id="group__nrf__saadc__hal_1gga125831a7eb192939bd96d99ab1e7a742a7452b8e0b08b260e95c8cdcc949a0eed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_ACQTIME_10US</span></span></span><a class="headerlink" href="#c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_10US" title="Permalink to this definition"></a><br /></dt>
+<dd><p>10 us. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_15US">
+<span class="target" id="group__nrf__saadc__hal_1gga125831a7eb192939bd96d99ab1e7a742a32eb0eead4bd3bff1add85aedbfb34c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_ACQTIME_15US</span></span></span><a class="headerlink" href="#c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_15US" title="Permalink to this definition"></a><br /></dt>
+<dd><p>15 us. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_20US">
+<span class="target" id="group__nrf__saadc__hal_1gga125831a7eb192939bd96d99ab1e7a742abd6f18b68b384ee5cf466f2ddade6e49"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_ACQTIME_20US</span></span></span><a class="headerlink" href="#c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_20US" title="Permalink to this definition"></a><br /></dt>
+<dd><p>20 us. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_40US">
+<span class="target" id="group__nrf__saadc__hal_1gga125831a7eb192939bd96d99ab1e7a742a0dfc455375a35f2747539aeadb9d77cd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_ACQTIME_40US</span></span></span><a class="headerlink" href="#c.nrf_saadc_acqtime_t.NRF_SAADC_ACQTIME_40US" title="Permalink to this definition"></a><br /></dt>
+<dd><p>40 us. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_mode_t">
+<span class="target" id="group__nrf__saadc__hal_1ga4436d07f1135db83c486397781e718c2"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_mode_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_mode_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter channel mode. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_mode_t.NRF_SAADC_MODE_SINGLE_ENDED">
+<span class="target" id="group__nrf__saadc__hal_1gga4436d07f1135db83c486397781e718c2ad0ce3a0327c0393e981db20d43c709f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_MODE_SINGLE_ENDED</span></span></span><a class="headerlink" href="#c.nrf_saadc_mode_t.NRF_SAADC_MODE_SINGLE_ENDED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Single-ended mode. PSELN will be ignored, negative input to ADC shorted to GND. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_mode_t.NRF_SAADC_MODE_DIFFERENTIAL">
+<span class="target" id="group__nrf__saadc__hal_1gga4436d07f1135db83c486397781e718c2a4c57cd1fc309cd665870b257f4c50767"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_MODE_DIFFERENTIAL</span></span></span><a class="headerlink" href="#c.nrf_saadc_mode_t.NRF_SAADC_MODE_DIFFERENTIAL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Differential mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_burst_t">
+<span class="target" id="group__nrf__saadc__hal_1ga46239c9f1d0af686aa09373d68c9a61a"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_burst_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_burst_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter channel burst mode. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_burst_t.NRF_SAADC_BURST_DISABLED">
+<span class="target" id="group__nrf__saadc__hal_1gga46239c9f1d0af686aa09373d68c9a61aa605705545f3c481ada5c0c068c26dd28"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_BURST_DISABLED</span></span></span><a class="headerlink" href="#c.nrf_saadc_burst_t.NRF_SAADC_BURST_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Burst mode is disabled (normal operation). </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_burst_t.NRF_SAADC_BURST_ENABLED">
+<span class="target" id="group__nrf__saadc__hal_1gga46239c9f1d0af686aa09373d68c9a61aa67d75ecddee833d170c2b924ad8b1ef2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_BURST_ENABLED</span></span></span><a class="headerlink" href="#c.nrf_saadc_burst_t.NRF_SAADC_BURST_ENABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Burst mode is enabled. SAADC takes 2^OVERSAMPLE number of samples as fast as it can, and sends the average to Data RAM. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_task_t">
+<span class="target" id="group__nrf__saadc__hal_1gacde3c3040c12e04f9edc2bc92c1b2276"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_task_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_task_t.NRF_SAADC_TASK_START">
+<span class="target" id="group__nrf__saadc__hal_1ggacde3c3040c12e04f9edc2bc92c1b2276a7900b2c3694c7cc4da64f5de28da8b9b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_TASK_START</span></span></span><a class="headerlink" href="#c.nrf_saadc_task_t.NRF_SAADC_TASK_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start the ADC and prepare the result buffer in RAM. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_task_t.NRF_SAADC_TASK_STOP">
+<span class="target" id="group__nrf__saadc__hal_1ggacde3c3040c12e04f9edc2bc92c1b2276a268763796f741cda6eea1a51f348b204"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_TASK_STOP</span></span></span><a class="headerlink" href="#c.nrf_saadc_task_t.NRF_SAADC_TASK_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop the ADC and terminate any ongoing conversion. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_task_t.NRF_SAADC_TASK_SAMPLE">
+<span class="target" id="group__nrf__saadc__hal_1ggacde3c3040c12e04f9edc2bc92c1b2276a53f835ed3f4b6e9ff24d1550ead3c941"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_TASK_SAMPLE</span></span></span><a class="headerlink" href="#c.nrf_saadc_task_t.NRF_SAADC_TASK_SAMPLE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Take one ADC sample. If scan is enabled, all channels are sampled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_task_t.NRF_SAADC_TASK_CALIBRATEOFFSET">
+<span class="target" id="group__nrf__saadc__hal_1ggacde3c3040c12e04f9edc2bc92c1b2276a541cf2b16d6bd1ca797afcb691e47603"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_TASK_CALIBRATEOFFSET</span></span></span><a class="headerlink" href="#c.nrf_saadc_task_t.NRF_SAADC_TASK_CALIBRATEOFFSET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Starts offset auto-calibration. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t">
+<span class="target" id="group__nrf__saadc__hal_1ga54a401b89bf604a64fce520429bbbdd1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_event_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_STARTED">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a8802cfd4ef157b181acf414cff6ff409"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_STARTED</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_STARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The ADC has started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_END">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a3caea189d3feb4fb51f3eeeaa31a7d51"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_END</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_END" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The ADC has filled up the result buffer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_DONE">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a38a3b65b88b278c566528173ee6f3403"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_DONE</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_DONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A conversion task has been completed. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_RESULTDONE">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1af1aea0c0901456d0e677ed29e33e918a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_RESULTDONE</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_RESULTDONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A result is ready to get transferred to RAM. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CALIBRATEDONE">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1abc9496dabfb62fe70c1ab872400bf75b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CALIBRATEDONE</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CALIBRATEDONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calibration is complete. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_STOPPED">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1ab74a57373475fe680c97c82ac7b73938"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_STOPPED</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_STOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The ADC has stopped. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH0_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1adb37680e1256ecb958a572fa385ee739"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH0_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH0_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[0].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH0_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1afeeb02e7df74fb429bf2f01cc45b7f82"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH0_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH0_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[0].LIMIT.LOW. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH1_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1ac39d01a0de5b6705b86bff7f7210e2a9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH1_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH1_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[1].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH1_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1ad247142de8549552b7a7446ed604e4af"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH1_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH1_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[1].LIMIT.LOW. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH2_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1afc3c9fe35a2721ed3618df52b62e6f1f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH2_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH2_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[2].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH2_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1aef66a24727e5dc12d2dcbd3b8a00583f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH2_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH2_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[2].LIMIT.LOW. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH3_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a148cbb2a196f1656413179089b63d6ab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH3_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH3_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[3].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH3_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1ada7b054199e1fa667ddee5bffd790213"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH3_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH3_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[3].LIMIT.LOW. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH4_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a9179d81d5f56dbcb487b45fbb23a6c20"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH4_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH4_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[4].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH4_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a19d836edc59abc15f62cd0630ea58cc8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH4_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH4_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[4].LIMIT.LOW. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH5_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1ae14d0343df57c333a35458ab1cb08a1f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH5_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH5_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[5].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH5_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a0ffc3add15b391667be38015a5f8418e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH5_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH5_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[5].LIMIT.LOW. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH6_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a814747e44cb3ce2dad5bef354eef155e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH6_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH6_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[6].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH6_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a82ef01bcaf54abc8bb1a2f2932651ae4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH6_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH6_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[6].LIMIT.LOW. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH7_LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a2b4acf6c8a8f5ac233849c3e4a260529"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH7_LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH7_LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or above CH[7].LIMIT.HIGH. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH7_LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga54a401b89bf604a64fce520429bbbdd1a0d0e19a21605e1a5f560bbb9d94fbe3f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_EVENT_CH7_LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_event_t.NRF_SAADC_EVENT_CH7_LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Last result is equal or below CH[7].LIMIT.LOW. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t">
+<span class="target" id="group__nrf__saadc__hal_1ga82c6d9ccbed7aa753b044ae4216a52e7"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter interrupt masks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_STARTED">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7aa045e1687b7eaf51827129bccfae99ae"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_STARTED</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_STARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_STARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_END">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a1dfee95542a3a3499cbb5875eb33808d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_END</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_END" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_END event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_DONE">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a1ce20cb57f783d5feae941dec4348920"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_DONE</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_DONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_DONE event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_RESULTDONE">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a0b08e2221943faac470b466d3c59745b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_RESULTDONE</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_RESULTDONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_RESULTDONE event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CALIBRATEDONE">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a3d488af5afe59a781c026af9ebea6f0d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CALIBRATEDONE</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CALIBRATEDONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CALIBRATEDONE event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_STOPPED">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a8bd1e8a4f530a9ecbfdaf9b6dd5dd805"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_STOPPED</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_STOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_STOPPED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH0LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a807ef5f8b39d6d5d05353d817d2b7fd3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH0LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH0LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[0].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH0LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a2ee8aba4ca294b8d94266252268193db"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH0LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH0LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[0].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH1LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a08e9613aa09aa07c0c18fb57e65208e2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH1LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH1LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[1].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH1LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7ae4cee39513094642ccc5490e58adee8e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH1LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH1LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[1].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH2LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a54a04edc15cc38bc4a657657ea4ae34c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH2LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH2LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[2].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH2LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a360826a886f90b76b79b23409fc620f2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH2LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH2LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[2].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH3LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7abedd76d10671c7c1c133533d85d380d8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH3LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH3LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[3].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH3LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7af42b94420fb86b061df28a9b96b2965f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH3LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH3LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[3].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH4LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a5a21ec6f00929f84fdb9ce142bee81be"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH4LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH4LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[4].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH4LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a53150d22c5c0fb63137bd9661a5c0cb1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH4LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH4LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[4].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH5LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7af470bd28c2f8969dc5f48929d9ab118e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH5LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH5LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[5].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH5LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7ae5e6d12e0184a74139ff8f22a143ab7b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH5LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH5LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[5].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH6LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a9f7bfd9b5c7129332bfd67ac87b8d27d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH6LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH6LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[6].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH6LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7af3ad11a95f62e6ca0095217f952319c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH6LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH6LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[6].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH7LIMITH">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7a5f90ab95293f53a04c1c1fad010af3c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH7LIMITH</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH7LIMITH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[7].LIMITH event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH7LIMITL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7ac55d76dc332dc0301d5bb5110033f7c7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_CH7LIMITL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_CH7LIMITL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on EVENTS_CH[7].LIMITL event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_mask_t.NRF_SAADC_INT_ALL">
+<span class="target" id="group__nrf__saadc__hal_1gga82c6d9ccbed7aa753b044ae4216a52e7ae3e630effb1b905a3d661461cc86c4b5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_INT_ALL</span></span></span><a class="headerlink" href="#c.nrf_saadc_int_mask_t.NRF_SAADC_INT_ALL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mask of all interrupts. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_saadc_limit_t">
+<span class="target" id="group__nrf__saadc__hal_1gad3a1aa4df4fa236684487f209f438a3d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_limit_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_limit_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Analog-to-digital converter value limit type. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_limit_t.NRF_SAADC_LIMIT_LOW">
+<span class="target" id="group__nrf__saadc__hal_1ggad3a1aa4df4fa236684487f209f438a3da668f96bfc2e19db0c72fd6c7ebc2a4f6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_LIMIT_LOW</span></span></span><a class="headerlink" href="#c.nrf_saadc_limit_t.NRF_SAADC_LIMIT_LOW" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Low limit type. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_saadc_limit_t.NRF_SAADC_LIMIT_HIGH">
+<span class="target" id="group__nrf__saadc__hal_1ggad3a1aa4df4fa236684487f209f438a3da80f852093bfb4fd581b30f154322cc49"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_SAADC_LIMIT_HIGH</span></span></span><a class="headerlink" href="#c.nrf_saadc_limit_t.NRF_SAADC_LIMIT_HIGH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High limit type. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_task_trigger">
+<span class="target" id="group__nrf__saadc__hal_1gafaffd78a579b5fb3aa119c140d4271d3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_task_t" title="nrf_saadc_task_t"><span class="n"><span class="pre">nrf_saadc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for triggering the specified SAADC task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> SAADC task. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_task_address_get">
+<span class="target" id="group__nrf__saadc__hal_1ga2d7ab93e620dd1357e61015e67c38419"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_task_t" title="nrf_saadc_task_t"><span class="n"><span class="pre">nrf_saadc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified SAADC task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> SAADC task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified SAADC task. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_check">
+<span class="target" id="group__nrf__saadc__hal_1ga302a420e63a91a87aa5a81e3f5aebada"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_event_t" title="nrf_saadc_event_t"><span class="n"><span class="pre">nrf_saadc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the SAADC event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_clear">
+<span class="target" id="group__nrf__saadc__hal_1gafd8a1fe786b649956ebbcc6a905a7054"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_event_t" title="nrf_saadc_event_t"><span class="n"><span class="pre">nrf_saadc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specific SAADC event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> SAADC event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_event_address_get">
+<span class="target" id="group__nrf__saadc__hal_1gadeade61bf67c5bdeea1af3a3cfbfa886"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_event_t" title="nrf_saadc_event_t"><span class="n"><span class="pre">nrf_saadc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified SAADC event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> SAADC event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified SAADC event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_subscribe_set">
+<span class="target" id="group__nrf__saadc__hal_1gaa129d5679cafb3c0d2a0b561c3f59f90"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_task_t" title="nrf_saadc_task_t"><span class="n"><span class="pre">nrf_saadc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given SAADC task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_subscribe_clear">
+<span class="target" id="group__nrf__saadc__hal_1ga73ca056baa1bcd338b41180933724cbd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_task_t" title="nrf_saadc_task_t"><span class="n"><span class="pre">nrf_saadc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given SAADC task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_publish_set">
+<span class="target" id="group__nrf__saadc__hal_1ga9cc7ba9f6ead07f9a11c97a34ba813c7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_event_t" title="nrf_saadc_event_t"><span class="n"><span class="pre">nrf_saadc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given SAADC event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_publish_clear">
+<span class="target" id="group__nrf__saadc__hal_1gad675daf087af3c40989b5a75eb163d42"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_event_t" title="nrf_saadc_event_t"><span class="n"><span class="pre">nrf_saadc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given SAADC event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_limit_event_get">
+<span class="target" id="group__nrf__saadc__hal_1ga55a1e59db07bbcee1c6a0ae2f6c9bea1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_saadc_event_t" title="nrf_saadc_event_t"><span class="n"><span class="pre">nrf_saadc_event_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_limit_event_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <a class="reference internal" href="#c.nrf_saadc_limit_t" title="nrf_saadc_limit_t"><span class="n"><span class="pre">nrf_saadc_limit_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">limit_type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_limit_event_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SAADC channel monitoring limit events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number. </p></li>
+<li><p><strong>limit_type</strong> – <strong>[in]</strong> Low limit or high limit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The SAADC channel monitoring limit event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_input_set">
+<span class="target" id="group__nrf__saadc__hal_1ga4aabfc8ebe63a4e31e55188ec4fc4d9c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_channel_input_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <a class="reference internal" href="#c.nrf_saadc_input_t" title="nrf_saadc_input_t"><span class="n"><span class="pre">nrf_saadc_input_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pselp</span></span>, <a class="reference internal" href="#c.nrf_saadc_input_t" title="nrf_saadc_input_t"><span class="n"><span class="pre">nrf_saadc_input_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pseln</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_channel_input_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the input pins for the specified SAADC channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number. </p></li>
+<li><p><strong>pselp</strong> – <strong>[in]</strong> Positive input. </p></li>
+<li><p><strong>pseln</strong> – <strong>[in]</strong> Negative input. Set to <a class="reference internal" href="#group__nrf__saadc__hal_1gab2b904fd842250f953752e186fd7ba66"><span class="std std-ref">NRF_SAADC_INPUT_DISABLED</span></a> in single ended mode. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_pos_input_set">
+<span class="target" id="group__nrf__saadc__hal_1ga727fff4c406e29364c28ad51f4422108"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_channel_pos_input_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <a class="reference internal" href="#c.nrf_saadc_input_t" title="nrf_saadc_input_t"><span class="n"><span class="pre">nrf_saadc_input_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">pselp</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_channel_pos_input_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the positive input pin for the specified SAADC channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number. </p></li>
+<li><p><strong>pselp</strong> – <strong>[in]</strong> Positive input. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_limits_set">
+<span class="target" id="group__nrf__saadc__hal_1ga4c26cdf7597a21a26f0656dcd0211fd1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_channel_limits_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="n"><span class="pre">low</span></span>, <span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="n"><span class="pre">high</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_channel_limits_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the SAADC channel monitoring limits. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number. </p></li>
+<li><p><strong>low</strong> – <strong>[in]</strong> Low limit. </p></li>
+<li><p><strong>high</strong> – <strong>[in]</strong> High limit. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_set">
+<span class="target" id="group__nrf__saadc__hal_1gaabd7bf41a8bcbcd011e0b4b0625ad8b2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_int_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_int_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the configuration of SAADC interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Interrupts configuration to be set. Use <a class="reference internal" href="#group__nrf__saadc__hal_1ga82c6d9ccbed7aa753b044ae4216a52e7"><span class="std std-ref">nrf_saadc_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_enable">
+<span class="target" id="group__nrf__saadc__hal_1gaa8487e94e0de1dd9fc3cb9eda33a896d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling specified SAADC interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__saadc__hal_1ga82c6d9ccbed7aa753b044ae4216a52e7"><span class="std std-ref">nrf_saadc_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_enable_check">
+<span class="target" id="group__nrf__saadc__hal_1ga3a9a24e83f68aa22fad03a04648bad51"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__saadc__hal_1ga82c6d9ccbed7aa753b044ae4216a52e7"><span class="std std-ref">nrf_saadc_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_int_disable">
+<span class="target" id="group__nrf__saadc__hal_1gaae53ced5f63daece6fcb751ac7ed6918"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__saadc__hal_1ga82c6d9ccbed7aa753b044ae4216a52e7"><span class="std std-ref">nrf_saadc_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_limit_int_get">
+<span class="target" id="group__nrf__saadc__hal_1gab80147c8bd32b89c716f66e0f44664b2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_limit_int_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <a class="reference internal" href="#c.nrf_saadc_limit_t" title="nrf_saadc_limit_t"><span class="n"><span class="pre">nrf_saadc_limit_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">limit_type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_limit_int_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for generating masks for SAADC channel limit interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – <strong>[in]</strong> SAADC channel number. </p></li>
+<li><p><strong>limit_type</strong> – <strong>[in]</strong> Limit type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Interrupt mask. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_busy_check">
+<span class="target" id="group__nrf__saadc__hal_1gab25084e697b176775ed9ebf6b8b9a3fd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_busy_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_busy_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking whether the SAADC is busy. </p>
+<p>This function checks whether the analog-to-digital converter is busy with a conversion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The SAADC is busy. </p></li>
+<li><p><strong>false</strong> – The SAADC is not busy. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_enable">
+<span class="target" id="group__nrf__saadc__hal_1ga5fd952bc71c0d7bfc1227570b8e74f6e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the SAADC. </p>
+<p>The analog-to-digital converter must be enabled before use.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_disable">
+<span class="target" id="group__nrf__saadc__hal_1ga44b8bee69dcb4efea99b2996eecf7956"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the SAADC. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_enable_check">
+<span class="target" id="group__nrf__saadc__hal_1ga37805e60b6f56abe9faed4aa1e9ce61c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the SAADC is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The SAADC is enabled. </p></li>
+<li><p><strong>false</strong> – The SAADC is not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_buffer_init">
+<span class="target" id="group__nrf__saadc__hal_1gac1986dcb3b95d37d79d55c0263680867"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_buffer_init</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_value_t" title="nrf_saadc_value_t"><span class="n"><span class="pre">nrf_saadc_value_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_buffer_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the SAADC result buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the result buffer. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the buffer (in 8-bit or 16-bit samples). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_buffer_pointer_set">
+<span class="target" id="group__nrf__saadc__hal_1ga1facfe7d84b1304b2bb4dc2d14111e8a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_buffer_pointer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_value_t" title="nrf_saadc_value_t"><span class="n"><span class="pre">nrf_saadc_value_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_buffer_pointer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the SAADC result buffer pointer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the result buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_buffer_pointer_get">
+<span class="target" id="group__nrf__saadc__hal_1ga2a76ad513d6670515127f3b97810667e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_saadc_value_t" title="nrf_saadc_value_t"><span class="n"><span class="pre">nrf_saadc_value_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_buffer_pointer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_buffer_pointer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SAADC result buffer pointer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the result buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_amount_get">
+<span class="target" id="group__nrf__saadc__hal_1gab0c2fd3c8bd02b9ea19876ff6a856e98"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the number of samples written to the result buffer since the previous START task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of 8-bit or 16-bit samples written to the buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_resolution_set">
+<span class="target" id="group__nrf__saadc__hal_1gae3a1f1453c20051e27cb75ce2616fe33"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_resolution_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_resolution_t" title="nrf_saadc_resolution_t"><span class="n"><span class="pre">nrf_saadc_resolution_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">resolution</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_resolution_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the SAADC sample resolution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>resolution</strong> – <strong>[in]</strong> Bit resolution. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_resolution_get">
+<span class="target" id="group__nrf__saadc__hal_1ga9c6df1f0637afe78a841e59d6c0d05da"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_saadc_resolution_t" title="nrf_saadc_resolution_t"><span class="n"><span class="pre">nrf_saadc_resolution_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_resolution_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_resolution_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the SAADC sample resolution. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sample resolution. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_set">
+<span class="target" id="group__nrf__saadc__hal_1ga73dd0c72c90270e07a4fccbb88a7e635"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_oversample_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_saadc_oversample_t" title="nrf_saadc_oversample_t"><span class="n"><span class="pre">nrf_saadc_oversample_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">oversample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_oversample_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the oversampling feature. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>oversample</strong> – <strong>[in]</strong> Oversampling mode. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_get">
+<span class="target" id="group__nrf__saadc__hal_1gae2e2bd4002cb6badb4ce4c65d630d1d5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_saadc_oversample_t" title="nrf_saadc_oversample_t"><span class="n"><span class="pre">nrf_saadc_oversample_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_oversample_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_oversample_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the oversampling feature configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Oversampling configuration. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_oversample_sample_count_get">
+<span class="target" id="group__nrf__saadc__hal_1ga2111f43b238ee2297026937fd63122ae"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_oversample_sample_count_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_saadc_oversample_t" title="nrf_saadc_oversample_t"><span class="n"><span class="pre">nrf_saadc_oversample_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">oversample</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_oversample_sample_count_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the sample count needed for one averaged result for a given oversampling configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oversample</strong> – <strong>[in]</strong> Oversampling configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Sample count. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_continuous_mode_enable">
+<span class="target" id="group__nrf__saadc__hal_1gafe3f681a38517ddd7a7b510ff028f630"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_continuous_mode_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">cc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_continuous_mode_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the continuous sampling. </p>
+<p>This function configures the SAADC internal timer to automatically take new samples at a fixed sample rate. Trigger the START task to begin continuous sampling. To stop the sampling, trigger the STOP task.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The internal timer can only be used when a single input channel is enabled.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>cc</strong> – <strong>[in]</strong> Capture and compare value. Sample rate is 16 MHz/cc. Valid <code class="docutils literal notranslate"><span class="pre">CC</span></code> range is from 80 to 2047. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_continuous_mode_enable_check">
+<span class="target" id="group__nrf__saadc__hal_1gaed86f2ee2f007709d6743c431bf9a6fe"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_continuous_mode_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_continuous_mode_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the continuous sampling is enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The continuous sampling is enabled. </p></li>
+<li><p><strong>false</strong> – The continuous sampling is disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_continuous_mode_disable">
+<span class="target" id="group__nrf__saadc__hal_1ga2d83cf54c0286dc51724f910a9155056"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_continuous_mode_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_continuous_mode_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the continuous sampling. </p>
+<p>New samples can still be acquired by manually triggering the SAMPLE task or by PPI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_linearity_calibration_coeff_set">
+<span class="target" id="group__nrf__saadc__hal_1ga1032292d6a90f73e484c7d6afaa2cb34"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_linearity_calibration_coeff_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">coeff</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_linearity_calibration_coeff_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting linearity calibration coefficient. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Coefficient number. </p></li>
+<li><p><strong>coeff</strong> – <strong>[in]</strong> Value of the coefficient. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_linearity_calibration_coeff_get">
+<span class="target" id="group__nrf__saadc__hal_1gad11784fbf6f342900ce6fe4339a9ed1c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_linearity_calibration_coeff_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_linearity_calibration_coeff_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting linearity calibration coefficient. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Coefficient number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Value of the coefficient. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_init">
+<span class="target" id="group__nrf__saadc__hal_1ga941ace352581ba7295b0f3c09a3570f1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_channel_init</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <a class="reference internal" href="#c.nrf_saadc_channel_config_t" title="nrf_saadc_channel_config_t"><span class="n"><span class="pre">nrf_saadc_channel_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_channel_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the SAADC channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number. </p></li>
+<li><p><strong>config</strong> – <strong>[in]</strong> Pointer to the channel configuration structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_burst_set">
+<span class="target" id="group__nrf__saadc__hal_1ga0e2c3e00c21adb8298fcf13eb618bb93"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_burst_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_SAADC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span>, <a class="reference internal" href="#c.nrf_saadc_burst_t" title="nrf_saadc_burst_t"><span class="n"><span class="pre">nrf_saadc_burst_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">burst</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_burst_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the burst mode for the specified channel. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel number. </p></li>
+<li><p><strong>burst</strong> – <strong>[in]</strong> Burst mode setting. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_value_min_get">
+<span class="target" id="group__nrf__saadc__hal_1ga428c82af7d71a2d4ac62fea00d0ec66b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_value_min_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_saadc_resolution_t" title="nrf_saadc_resolution_t"><span class="n"><span class="pre">nrf_saadc_resolution_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">resolution</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_value_min_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the minimum value of the conversion result. </p>
+<p>The minimum value of the conversion result depends on the configured resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resolution</strong> – <strong>[in]</strong> Bit resolution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum value of the conversion result. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_saadc_value_max_get">
+<span class="target" id="group__nrf__saadc__hal_1gafee2b4a40ff7fdb6c5b8ade61b859878"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">int16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_value_max_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_saadc_resolution_t" title="nrf_saadc_resolution_t"><span class="n"><span class="pre">nrf_saadc_resolution_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">resolution</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_saadc_value_max_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the maximum value of the conversion result. </p>
+<p>The maximum value of the conversion result depends on the configured resolution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resolution</strong> – <strong>[in]</strong> Bit resolution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum value of the conversion result. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_saadc_config_t">
+<span class="target" id="structnrf__saadc__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_config_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_saadc.h&gt;</em></div>
+<p>Analog-to-digital converter configuration structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_config_t.resolution">
+<span class="target" id="structnrf__saadc__config__t_1abb581f8000e50e9d7a89d7989f55bc65"></span><a class="reference internal" href="#c.nrf_saadc_resolution_t" title="nrf_saadc_resolution_t"><span class="n"><span class="pre">nrf_saadc_resolution_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resolution</span></span></span><a class="headerlink" href="#c.nrf_saadc_config_t.resolution" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Resolution of samples. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_config_t.oversample">
+<span class="target" id="structnrf__saadc__config__t_1ac282df937ab47948e862fcef947a3eb4"></span><a class="reference internal" href="#c.nrf_saadc_oversample_t" title="nrf_saadc_oversample_t"><span class="n"><span class="pre">nrf_saadc_oversample_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">oversample</span></span></span><a class="headerlink" href="#c.nrf_saadc_config_t.oversample" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Oversampling configuration. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_config_t.buffer">
+<span class="target" id="structnrf__saadc__config__t_1ad6b1dd308fafe74389a34ba293e254f2"></span><a class="reference internal" href="#c.nrf_saadc_value_t" title="nrf_saadc_value_t"><span class="n"><span class="pre">nrf_saadc_value_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">buffer</span></span></span><a class="headerlink" href="#c.nrf_saadc_config_t.buffer" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to sample buffer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_config_t.buffer_size">
+<span class="target" id="structnrf__saadc__config__t_1a96c9fb56653b319575fd4c2889add0c0"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buffer_size</span></span></span><a class="headerlink" href="#c.nrf_saadc_config_t.buffer_size" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Size of the sample buffer. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t">
+<span class="target" id="structnrf__saadc__channel__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_saadc_channel_config_t</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_saadc.h&gt;</em></div>
+<p>Analog-to-digital converter channel configuration structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.resistor_p">
+<span class="target" id="structnrf__saadc__channel__config__t_1ac9f8de092917bc7e736c891a368eb062"></span><a class="reference internal" href="#c.nrf_saadc_resistor_t" title="nrf_saadc_resistor_t"><span class="n"><span class="pre">nrf_saadc_resistor_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resistor_p</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.resistor_p" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Resistor value on positive input. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.resistor_n">
+<span class="target" id="structnrf__saadc__channel__config__t_1a59748a13af1d7cacc4123629d4ee9c39"></span><a class="reference internal" href="#c.nrf_saadc_resistor_t" title="nrf_saadc_resistor_t"><span class="n"><span class="pre">nrf_saadc_resistor_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resistor_n</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.resistor_n" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Resistor value on negative input. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.gain">
+<span class="target" id="structnrf__saadc__channel__config__t_1ab18afcc483838dffbb0929d7b77a9d58"></span><a class="reference internal" href="#c.nrf_saadc_gain_t" title="nrf_saadc_gain_t"><span class="n"><span class="pre">nrf_saadc_gain_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gain</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.gain" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Gain control value. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.reference">
+<span class="target" id="structnrf__saadc__channel__config__t_1a051bcd2ef1076949870168b4fbc83df2"></span><a class="reference internal" href="#c.nrf_saadc_reference_t" title="nrf_saadc_reference_t"><span class="n"><span class="pre">nrf_saadc_reference_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reference</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.reference" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Reference control value. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.acq_time">
+<span class="target" id="structnrf__saadc__channel__config__t_1aa8bf05f1ebe7a17509fc15dce8c4a3c1"></span><a class="reference internal" href="#c.nrf_saadc_acqtime_t" title="nrf_saadc_acqtime_t"><span class="n"><span class="pre">nrf_saadc_acqtime_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">acq_time</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.acq_time" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Acquisition time. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.mode">
+<span class="target" id="structnrf__saadc__channel__config__t_1aa9ca4469bd541c3628ca841f71995c4c"></span><a class="reference internal" href="#c.nrf_saadc_mode_t" title="nrf_saadc_mode_t"><span class="n"><span class="pre">nrf_saadc_mode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.mode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SAADC mode. Single-ended or differential. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.burst">
+<span class="target" id="structnrf__saadc__channel__config__t_1a1302832da87878d08d264a9e92def254"></span><a class="reference internal" href="#c.nrf_saadc_burst_t" title="nrf_saadc_burst_t"><span class="n"><span class="pre">nrf_saadc_burst_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">burst</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.burst" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Burst mode configuration. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_saadc_channel_config_t.conv_time">
+<span class="target" id="structnrf__saadc__channel__config__t_1ababede938a937ce30052a4477747838b"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">conv_time</span></span></span><a class="headerlink" href="#c.nrf_saadc_channel_config_t.conv_time" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Conversion time. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="haly.html" class="btn btn-neutral float-right" title="SAADC HALY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="driver.html" class="btn btn-neutral" title="SAADC driver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

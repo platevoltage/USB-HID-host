@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__i2s" kind="group">
+    <compoundname>nrfx_i2s</compoundname>
+    <title>I2S driver</title>
+    <innerclass refid="structnrfx__i2s__config__t" prot="public">nrfx_i2s_config_t</innerclass>
+    <innerclass refid="structnrfx__i2s__t" prot="public">nrfx_i2s_t</innerclass>
+    <innergroup refid="group__nrfx__i2s__config">I2S peripheral driver configuration</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624" prot="public" static="no">
+        <type><ref refid="structnrfy__i2s__xfer__desc__t" kindref="compound">nrfy_i2s_xfer_desc_t</ref></type>
+        <definition>typedef nrfy_i2s_xfer_desc_t nrfx_i2s_buffers_t</definition>
+        <argsstring></argsstring>
+        <name>nrfx_i2s_buffers_t</name>
+        <briefdescription>
+<para>I2S driver buffers structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="100" column="30" bodyfile="drivers/include/nrfx_i2s.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_i2s_data_handler_t) (nrfx_i2s_buffers_t const *p_released, uint32_t status)</definition>
+        <argsstring>)(nrfx_i2s_buffers_t const *p_released, uint32_t status)</argsstring>
+        <name>nrfx_i2s_data_handler_t</name>
+        <briefdescription>
+<para>I2S driver data handler type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A data handling function of this type must be specified during the initialization of the driver. The driver will call this function when it finishes using buffers passed to it by the application, and when it needs to be provided with buffers for the next part of the transfer.</para>
+<para><simplesect kind="note"><para>The <computeroutput>p_released</computeroutput> pointer passed to this function is temporary and will be invalid after the function returns, hence it cannot be stored and used later. If needed, the pointed content (that is, buffers pointers) must be copied instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_released</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure with pointers to buffers passed previously to the driver that will no longer be accessed by it (they can be now safely released or used for another purpose, in particular for a next part of the transfer). This pointer will be NULL if the application did not supply the buffers for the next part of the transfer (via a call to <ref refid="group__nrfx__i2s_1ga0368f13344a759012a7fc3d343107e9c" kindref="member">nrfx_i2s_next_buffers_set</ref>) since the previous time the data handler signaled such need. This means that data corruption occurred (the previous buffers are used for the second time) and no buffers can be released at the moment. Both pointers in this structure are NULL when the handler is called for the first time after a transfer is started, because no data has been transferred yet at this point. In all successive calls, the pointers specify what has been sent (TX) and what has been received (RX) in the part of the transfer that has just been completed (provided that a given direction is enabled, see <ref refid="group__nrfx__i2s_1ga5baeb8fd2ee28b71d125694bce59b84e" kindref="member">nrfx_i2s_start</ref>). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Since the peripheral is stopped asynchronously, buffers that are released after the call to <ref refid="group__nrfx__i2s_1ga7bee70318aad2b9850953a5b5e7189c1" kindref="member">nrfx_i2s_stop</ref> are not used entirely. In this case, only a part (if any) of the TX buffer has been actually transmitted and only a part (if any) of the RX buffer is filled with received data. </para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bit field describing the current status of the transfer. It can be 0 or a combination of the following flags:<itemizedlist>
+<listitem><para><ref refid="group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772" kindref="member">NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</ref></para>
+</listitem><listitem><para><ref refid="group__nrfx__i2s_1ga8d2c208fb63ad2ebd76a9c0a67794b2e" kindref="member">NRFX_I2S_STATUS_TRANSFER_STOPPED</ref> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="222" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__i2s_1ga88819734bc482dd9759aa882c97a1410" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_i2s_init</definition>
+        <argsstring>(nrfx_i2s_t const *p_instance, nrfx_i2s_config_t const *p_config, nrfx_i2s_data_handler_t handler)</argsstring>
+        <name>nrfx_i2s_init</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__i2s__config__t" kindref="compound">nrfx_i2s_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" kindref="member">nrfx_i2s_data_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the I2S driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data handler provided by the user. Must not be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_ALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. Deprecated - use <ref refid="group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd" kindref="member">NRFX_ERROR_ALREADY</ref> instead. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_PARAM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The requested combination of configuration options is not allowed by the I2S peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="239" column="12" declfile="drivers/include/nrfx_i2s.h" declline="239" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1ga34af2bbee22e4db7f50c9a48db04411d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_i2s_uninit</definition>
+        <argsstring>(nrfx_i2s_t const *p_instance)</argsstring>
+        <name>nrfx_i2s_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the I2S driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="248" column="6" declfile="drivers/include/nrfx_i2s.h" declline="248" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1gab813cd49b74aca4865f0ffc79f114de2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_i2s_init_check</definition>
+        <argsstring>(nrfx_i2s_t const *p_instance)</argsstring>
+        <name>nrfx_i2s_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the I2S driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="258" column="6" declfile="drivers/include/nrfx_i2s.h" declline="258" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1ga5baeb8fd2ee28b71d125694bce59b84e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_i2s_start</definition>
+        <argsstring>(nrfx_i2s_t const *p_instance, nrfx_i2s_buffers_t const *p_initial_buffers, uint8_t flags)</argsstring>
+        <name>nrfx_i2s_start</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624" kindref="member">nrfx_i2s_buffers_t</ref> const *</type>
+          <declname>p_initial_buffers</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Function for starting the continuous I2S transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The I2S data transfer can be performed in one of three modes: RX (reception) only, TX (transmission) only, or in both directions simultaneously. The mode is selected by specifying a proper buffer for a given direction in the call to this function or by passing NULL instead if this direction is to be disabled.</para>
+<para>The length of the buffer (which is a common value for RX and TX if both directions are enabled) is specified in 32-bit words. One 32-bit memory word can either contain four 8-bit samples, two 16-bit samples, or one right-aligned 24-bit sample sign-extended to a 32-bit value. For a detailed memory mapping for different supported configurations, see the Product Specification.</para>
+<para><simplesect kind="note"><para>Peripherals using EasyDMA (including I2S) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will fail with the error code NRFX_ERROR_INVALID_ADDR.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_initial_buffers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure specifying the buffers to be used in the initial part of the transfer (buffers for all consecutive parts are provided through the data handler). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer options (0 for default settings). Currently, no additional flags are available.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Transfer was already started or the driver has not been initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_ADDR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffers are not placed in the Data RAM region. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="295" column="12" declfile="drivers/include/nrfx_i2s.h" declline="295" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1ga0368f13344a759012a7fc3d343107e9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_i2s_next_buffers_set</definition>
+        <argsstring>(nrfx_i2s_t const *p_instance, nrfx_i2s_buffers_t const *p_buffers)</argsstring>
+        <name>nrfx_i2s_next_buffers_set</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__i2s_1gaca3a368969e064afa6d1dec580f89624" kindref="member">nrfx_i2s_buffers_t</ref> const *</type>
+          <declname>p_buffers</declname>
+        </param>
+        <briefdescription>
+<para>Function for supplying the buffers to be used in the next part of the transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application must call this function when the data handler receives <ref refid="group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772" kindref="member">NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</ref> in the <computeroutput>status</computeroutput> parameter. The call can be done immediately from the data handler function or later, but it has to be done before the I2S peripheral finishes processing the buffers supplied previously. Otherwise, data corruption will occur.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_buffers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure specifying the buffers to be used in the upcoming part of the transfer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the buffers were already supplied or the peripheral is currently being stopped.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="group__nrfx__i2s_1ga115c01398906f34e2b2782ab42d5f82d" kindref="member">nrfx_i2s_data_handler_t</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="361" column="12" declfile="drivers/include/nrfx_i2s.h" declline="361" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__i2s_1ga7bee70318aad2b9850953a5b5e7189c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_i2s_stop</definition>
+        <argsstring>(nrfx_i2s_t const *p_instance)</argsstring>
+        <name>nrfx_i2s_stop</name>
+        <param>
+          <type><ref refid="structnrfx__i2s__t" kindref="compound">nrfx_i2s_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for stopping the I2S transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="369" column="6" declfile="drivers/include/nrfx_i2s.h" declline="369" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__i2s_1ga5a80e2998842bd1f4c0926f09fd65098" prot="public" static="no">
+        <name>NRFX_I2S_INSTANCE</name>
+        <param><defname>id</defname></param>
+        <initializer>{                                                           \
+    .p_reg        = <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, I2S, id),             \
+    .drv_inst_idx = <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRFX_I2S, id, _INST_IDX),   \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an I2S driver instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="113" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__i2s_1ga253c33055db81ff561ce871fa9304fd0" prot="public" static="no">
+        <name>NRFX_I2S_DEFAULT_CONFIG</name>
+        <param><defname>_pin_sck</defname></param>
+        <param><defname>_pin_lrck</defname></param>
+        <param><defname>_pin_mck</defname></param>
+        <param><defname>_pin_sdout</defname></param>
+        <param><defname>_pin_sdin</defname></param>
+        <initializer>{                                                                                     \
+    .sck_pin      = _pin_sck,                                                         \
+    .lrck_pin     = _pin_lrck,                                                        \
+    .mck_pin      = _pin_mck,                                                         \
+    .sdout_pin    = _pin_sdout,                                                       \
+    .sdin_pin     = _pin_sdin,                                                        \
+    .irq_priority = NRFX_I2S_DEFAULT_CONFIG_IRQ_PRIORITY,                             \
+    .mode         = <ref refid="group__nrf__i2s__hal_1gga05fa70f696366c5a06fa5f5e673735afa24a0b56d47e1d15b9b5c9b9d3775d4b2" kindref="member">NRF_I2S_MODE_MASTER</ref>,                                              \
+    .format       = <ref refid="group__nrf__i2s__hal_1gga18ab6f73e00677525e1ab53f24dfc1cca68f5e22fc456e548528bf1037201ae68" kindref="member">NRF_I2S_FORMAT_I2S</ref>,                                               \
+    .alignment    = <ref refid="group__nrf__i2s__hal_1ggae48fd73f7f8f0c2f321f192e4b9ed190aa0c153dfb284d0433cf811e257f68e92" kindref="member">NRF_I2S_ALIGN_LEFT</ref>,                                               \
+    .sample_width = <ref refid="group__nrf__i2s__hal_1ggac06986979fa6e2b0f4dd1f444b95ef00a736f17419ddfa2cd390715b0b5c933eb" kindref="member">NRF_I2S_SWIDTH_16BIT</ref>,                                             \
+    .channels     = <ref refid="group__nrf__i2s__hal_1gga60b286e35e447040e992a3ded4375dbea1c11023af3fc2f8d9bd8bad901275234" kindref="member">NRF_I2S_CHANNELS_LEFT</ref>,                                            \
+    .mck_setup    = <ref refid="group__nrf__i2s__hal_1gga1e7fb828b72fa48367cbaeed264f9372aa02748b1a696e23de61f2587c972cb80" kindref="member">NRF_I2S_MCK_32MDIV8</ref>,                                              \
+    .ratio        = <ref refid="group__nrf__i2s__hal_1gga11ab985aa62eb48d2177d6784e9a1820a2e0d2025041a5f77159649b23c4e3be1" kindref="member">NRF_I2S_RATIO_32X</ref>,                                                \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__i2s__hal_1gae6fd9e57a9e93488c6200e98a1c53c60" kindref="member">NRF_I2S_HAS_CLKCONFIG</ref>,                                           \
+                     (.clksrc = <ref refid="group__nrf__i2s__hal_1ggad0c72277d28dba147ebb0696a425c38ca006d0a833b037022286e7c7cb196b1ef" kindref="member">NRF_I2S_CLKSRC_PCLK32M</ref>,                               \
+                      .enable_bypass = false,),                                       \
+                     ())                                                              \
+}</initializer>
+        <briefdescription>
+<para>I2S driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up I2S with the following options:<itemizedlist>
+<listitem><para>master mode</para>
+</listitem><listitem><para>i2s data format</para>
+</listitem><listitem><para>left alignment</para>
+</listitem><listitem><para>sample width 16 bit</para>
+</listitem><listitem><para>left channel enabled</para>
+</listitem><listitem><para>MCK frequency 4 MHz</para>
+</listitem><listitem><para>LRCK frequency 125 kHz</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_lrck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LRCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_mck</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MCK pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sdout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDOUT pin number. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_sdin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SDIN pin number. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="145" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__i2s_1ga7bc726913d2d940afc2ecbd9112c9772" prot="public" static="no">
+        <name>NRFX_I2S_STATUS_NEXT_BUFFERS_NEEDED</name>
+        <initializer>(1UL &lt;&lt; 0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The application must provide buffers that are to be used in the next part of the transfer. A call to <ref refid="group__nrfx__i2s_1ga0368f13344a759012a7fc3d343107e9c" kindref="member">nrfx_i2s_next_buffers_set</ref> must be done before the currently used buffers are completely processed (that is, the time remaining for supplying the next buffers depends on the used size of the buffers). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="166" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__i2s_1ga8d2c208fb63ad2ebd76a9c0a67794b2e" prot="public" static="no">
+        <name>NRFX_I2S_STATUS_TRANSFER_STOPPED</name>
+        <initializer>(1UL &lt;&lt; 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The I2S peripheral has been stopped and all buffers that were passed to the driver have been released. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_i2s.h" line="173" column="9" bodyfile="drivers/include/nrfx_i2s.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Inter-IC Sound (I2S) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

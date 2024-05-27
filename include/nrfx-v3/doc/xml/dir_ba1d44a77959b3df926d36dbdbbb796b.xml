@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_ba1d44a77959b3df926d36dbdbbb796b" kind="dir">
+    <compoundname>soc/interconnect</compoundname>
+    <innerdir refid="dir_601a8fa947ccd257b57cf69574b00d57">soc/interconnect/apb</innerdir>
+    <innerdir refid="dir_545b61743e3291032fe7cde25c2d2bbe">soc/interconnect/dppic_ppib</innerdir>
+    <innerdir refid="dir_ad1c5a599632b337e2d44c3c895c9c45">soc/interconnect/ipct</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/interconnect/"/>
+  </compounddef>
+</doxygen>

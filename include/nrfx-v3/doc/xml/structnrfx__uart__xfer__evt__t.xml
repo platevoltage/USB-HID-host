@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrfx__uart__xfer__evt__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrfx_uart_xfer_evt_t</compoundname>
+    <includes local="no">nrfx_uart.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrfx__uart__xfer__evt__t_1a05a15feccdabb60796668198457dcfd0" prot="public" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* nrfx_uart_xfer_evt_t::p_data</definition>
+        <argsstring></argsstring>
+        <name>p_data</name>
+        <qualifiedname>nrfx_uart_xfer_evt_t::p_data</qualifiedname>
+        <briefdescription>
+<para>Pointer to memory used for transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="156" column="14" bodyfile="drivers/include/nrfx_uart.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__uart__xfer__evt__t_1a60e1043ae68becea83e1868e6ee2e482" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_uart_xfer_evt_t::bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <qualifiedname>nrfx_uart_xfer_evt_t::bytes</qualifiedname>
+        <briefdescription>
+<para>Number of bytes transfered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_uart.h" line="157" column="15" bodyfile="drivers/include/nrfx_uart.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure for the UART transfer completion event. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="drivers/include/nrfx_uart.h" line="154" column="1" bodyfile="drivers/include/nrfx_uart.h" bodystart="155" bodyend="158"/>
+    <listofallmembers>
+      <member refid="structnrfx__uart__xfer__evt__t_1a60e1043ae68becea83e1868e6ee2e482" prot="public" virt="non-virtual"><scope>nrfx_uart_xfer_evt_t</scope><name>bytes</name></member>
+      <member refid="structnrfx__uart__xfer__evt__t_1a05a15feccdabb60796668198457dcfd0" prot="public" virt="non-virtual"><scope>nrfx_uart_xfer_evt_t</scope><name>p_data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

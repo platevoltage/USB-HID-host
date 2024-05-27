@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AUXPLL HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HSFLL HAL" href="../hsfll/hal.html" />
+    <link rel="prev" title="CLOCK HAL" href="../clock/hal.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../clock/index.html">CLOCK</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../clock/driver.html">CLOCK driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../clock/hal.html">CLOCK HAL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">AUXPLL HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../hsfll/hal.html">HSFLL HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../oscillators/hal.html">OSCILLATORS HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="../clock/index.html">CLOCK</a></li>
+      <li class="breadcrumb-item active">AUXPLL HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/auxpll/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="auxpll-hal">
+<h1>AUXPLL HAL<a class="headerlink" href="#auxpll-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__auxpll__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_auxpll_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the Auxiliary Phase Locked Loop (AUXPLL) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_t">
+<span class="target" id="group__nrf__auxpll__hal_1ga00833a2371cfb56ad8392461a153a653"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_task_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_START">
+<span class="target" id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a3b6fe6b7b0b11c19bdc26efa5aff628b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_TASK_START</span></span></span><a class="headerlink" href="#c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start the AUXPLL. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_STOP">
+<span class="target" id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653aa382be4b6b65e33b874833db020f96a1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_TASK_STOP</span></span></span><a class="headerlink" href="#c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop the AUXPLL. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_NEW_FINE">
+<span class="target" id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653aedc2e6778a964e9f224772ba3665a861"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_TASK_FREQ_NEW_FINE</span></span></span><a class="headerlink" href="#c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_NEW_FINE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Change fine frequency. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_NEW_BASE">
+<span class="target" id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a9a601d4cf882b804b3ce1163385015f4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_TASK_FREQ_NEW_BASE</span></span></span><a class="headerlink" href="#c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_NEW_BASE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Change base frequency. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_INC_START">
+<span class="target" id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a5f796cfaf2591a10c3905887376fe1f2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_TASK_FREQ_INC_START</span></span></span><a class="headerlink" href="#c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_INC_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start automated frequency increment. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_INC_STOP">
+<span class="target" id="group__nrf__auxpll__hal_1gga00833a2371cfb56ad8392461a153a653a073e29219a3c4b61574615550322b2a9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_TASK_FREQ_INC_STOP</span></span></span><a class="headerlink" href="#c.nrf_auxpll_task_t.NRF_AUXPLL_TASK_FREQ_INC_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Stop automated frequency increment. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_auxpll_event_t">
+<span class="target" id="group__nrf__auxpll__hal_1ga139a93ec776aed9979a96f249af7a7eb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_event_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_event_t.NRF_AUXPLL_EVENT_STARTED">
+<span class="target" id="group__nrf__auxpll__hal_1gga139a93ec776aed9979a96f249af7a7eba60727d2a8ba4ef7e24223d3d4c3c59cd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_EVENT_STARTED</span></span></span><a class="headerlink" href="#c.nrf_auxpll_event_t.NRF_AUXPLL_EVENT_STARTED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event indicating that AUXPLL started. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_event_t.NRF_AUXPLL_EVENT_STOPPED">
+<span class="target" id="group__nrf__auxpll__hal_1gga139a93ec776aed9979a96f249af7a7eba4eb448c77a1249e3a7587fb531231557"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_EVENT_STOPPED</span></span></span><a class="headerlink" href="#c.nrf_auxpll_event_t.NRF_AUXPLL_EVENT_STOPPED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event indicating that AUXPLL stopped. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_event_t.NRF_AUXPLL_EVENT_LOCKED">
+<span class="target" id="group__nrf__auxpll__hal_1gga139a93ec776aed9979a96f249af7a7eba10b3a66f4e4b99953dc87324d893100e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_EVENT_LOCKED</span></span></span><a class="headerlink" href="#c.nrf_auxpll_event_t.NRF_AUXPLL_EVENT_LOCKED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event indicating that AUXPLL locked. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_mask_t">
+<span class="target" id="group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_mask_t.NRF_AUXPLL_INT_STARTED_MASK">
+<span class="target" id="group__nrf__auxpll__hal_1gga7326955aff7345645d8d76517932c6b4a41a2aad86c95d96b7ba672d38f7f8e26"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_INT_STARTED_MASK</span></span></span><a class="headerlink" href="#c.nrf_auxpll_int_mask_t.NRF_AUXPLL_INT_STARTED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL interrupt for STARTED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_mask_t.NRF_AUXPLL_INT_STOPPED_MASK">
+<span class="target" id="group__nrf__auxpll__hal_1gga7326955aff7345645d8d76517932c6b4a9ce7de1f8dce973007adc5941202535b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_INT_STOPPED_MASK</span></span></span><a class="headerlink" href="#c.nrf_auxpll_int_mask_t.NRF_AUXPLL_INT_STOPPED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL interrupt for STOPPED event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_mask_t.NRF_AUXPLL_INT_LOCKED_MASK">
+<span class="target" id="group__nrf__auxpll__hal_1gga7326955aff7345645d8d76517932c6b4aab3640b376bcbe3da83764e9e4fe6c8e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_INT_LOCKED_MASK</span></span></span><a class="headerlink" href="#c.nrf_auxpll_int_mask_t.NRF_AUXPLL_INT_LOCKED_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL interrupt for LOCKED event. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_auxpll_status_mask_t">
+<span class="target" id="group__nrf__auxpll__hal_1ga89d83049d7868404bb730cb84cfe1007"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_status_mask_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_status_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL STATUS register bit masks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_status_mask_t.NRF_AUXPLL_STATUS_MODE_MASK">
+<span class="target" id="group__nrf__auxpll__hal_1gga89d83049d7868404bb730cb84cfe1007ab41bf07aeecd2e53d3e70ba7d89409ff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_STATUS_MODE_MASK</span></span></span><a class="headerlink" href="#c.nrf_auxpll_status_mask_t.NRF_AUXPLL_STATUS_MODE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL mode indication. 1 - Locked mode, 0 - Freerunning mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_status_mask_t.NRF_AUXPLL_STATUS_PLL_RUNNING_MASK">
+<span class="target" id="group__nrf__auxpll__hal_1gga89d83049d7868404bb730cb84cfe1007aa947d04dc88ec6ed6c5091d50815933e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_STATUS_PLL_RUNNING_MASK</span></span></span><a class="headerlink" href="#c.nrf_auxpll_status_mask_t.NRF_AUXPLL_STATUS_PLL_RUNNING_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL running indication. 1 - PLL running, 0 - PLL not running. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_status_mask_t.MRF_AUXPLL_STATUS_FREQUENCY_ACTUAL_MASK">
+<span class="target" id="group__nrf__auxpll__hal_1gga89d83049d7868404bb730cb84cfe1007a170a2eacf65dea78acca8e8f610d82ee"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MRF_AUXPLL_STATUS_FREQUENCY_ACTUAL_MASK</span></span></span><a class="headerlink" href="#c.nrf_auxpll_status_mask_t.MRF_AUXPLL_STATUS_FREQUENCY_ACTUAL_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Actual fractional PLL divider ratio. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t">
+<span class="target" id="group__nrf__auxpll__hal_1ga110addb039fdde0e61dca7ac7e65c8bf"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_outsel_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL output prescaler ratio. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_DISABLED">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfaf3d10cf09ba00de6e13198551923c1d6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_DISABLED</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divider disabled. Bypassed external clock still supported. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_1">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa787893926c3c1966a884777ae90686fc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_1</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_1" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 1 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_2">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa5ad90e060fd2c30f515995d4099bc75f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_2</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_2" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 2 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_3">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa7cf4e8eff8b232d793fb8f3cf1262655"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_3</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_3" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 3 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_4">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa7e84123fc81645b61627b4b56772e51e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_4</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_4" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 4 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_6">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa9252a43e35dc24a55a33ca5be359266e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_6</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_6" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 6 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_8">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfaa4f6cc99f06d587a8c228ef525cf0f08"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_8</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_8" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 8 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_12">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfac9ba4b25748f74b9ae4d30d22bc17a8c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_12</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_12" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 12 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_16">
+<span class="target" id="group__nrf__auxpll__hal_1gga110addb039fdde0e61dca7ac7e65c8bfa7e41547471066b52a7009c3510e579bb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_OUTSEL_DIV_16</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_t.NRF_AUXPLL_CTRL_OUTSEL_DIV_16" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Divide by 16 </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_mode_t">
+<span class="target" id="group__nrf__auxpll__hal_1ga4dbf54a08320cdb915cce469bb2a3833"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_mode_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_mode_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL freerunning mode control. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_mode_t.NRF_AUXPLL_CTRL_MODE_AUTO">
+<span class="target" id="group__nrf__auxpll__hal_1gga4dbf54a08320cdb915cce469bb2a3833ac6acd4f21176bad110aa67d5832d5c92"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_MODE_AUTO</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_mode_t.NRF_AUXPLL_CTRL_MODE_AUTO" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Automatically handled by the AUXPLL peripheral. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_mode_t.NRF_AUXPLL_CTRL_MODE_FREERUN">
+<span class="target" id="group__nrf__auxpll__hal_1gga4dbf54a08320cdb915cce469bb2a3833ac37c4825cf045045b2f09b5dae796f7f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_MODE_FREERUN</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_mode_t.NRF_AUXPLL_CTRL_MODE_FREERUN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep AUXPLL in freerunning mode. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_mode_t.NRF_AUXPLL_CTRL_MODE_LOCKED">
+<span class="target" id="group__nrf__auxpll__hal_1gga4dbf54a08320cdb915cce469bb2a3833a1917965bad039b4dae780fb2a400e005"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_CTRL_MODE_LOCKED</span></span></span><a class="headerlink" href="#c.nrf_auxpll_ctrl_mode_t.NRF_AUXPLL_CTRL_MODE_LOCKED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Keep AUXPLL in locked mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_auxpll_divider_range_t">
+<span class="target" id="group__nrf__auxpll__hal_1ga0b0233ccc0dbd1827401be561dfa44b7"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_divider_range_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_divider_range_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>AUXPLL Loop divider base settings. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_LOW">
+<span class="target" id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7ae1882ffed2f4f34ba549340635791786"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_DIVIDER_RANGE_LOW</span></span></span><a class="headerlink" href="#c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_LOW" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Low range divider setting. Fractional divider in the range 3..4 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_MID">
+<span class="target" id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7a11ad56dd2b96d4a7f9527c58528e1abe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_DIVIDER_RANGE_MID</span></span></span><a class="headerlink" href="#c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_MID" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mid range divider setting. Fractional divider in the range 4..5 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_HIGH">
+<span class="target" id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7a7085c6393ddbb57c08f0c6b1d054b1e7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_DIVIDER_RANGE_HIGH</span></span></span><a class="headerlink" href="#c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_HIGH" title="Permalink to this definition"></a><br /></dt>
+<dd><p>High range divider setting. Fractional divider in the range 5..6 </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_MAX">
+<span class="target" id="group__nrf__auxpll__hal_1gga0b0233ccc0dbd1827401be561dfa44b7a673d8bc7bf0db2b8cdade1291adb8dcc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_AUXPLL_DIVIDER_RANGE_MAX</span></span></span><a class="headerlink" href="#c.nrf_auxpll_divider_range_t.NRF_AUXPLL_DIVIDER_RANGE_MAX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Maximum static divider setting. Fractional division not supported. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_trigger">
+<span class="target" id="group__nrf__auxpll__hal_1gaea4ddc341e17b6f10a867a025ee50527"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_task_t" title="nrf_auxpll_task_t"><span class="n"><span class="pre">nrf_auxpll_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for activating the specified AUXPLL task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_task_address_get">
+<span class="target" id="group__nrf__auxpll__hal_1gab420ff4daeb0acd4cae06be94a0ae987"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_task_t" title="nrf_auxpll_task_t"><span class="n"><span class="pre">nrf_auxpll_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified AUXPLL task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> The specified task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_event_clear">
+<span class="target" id="group__nrf__auxpll__hal_1ga8adf4d621c7e8c8d7b9a76c1eb1b24e8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_event_t" title="nrf_auxpll_event_t"><span class="n"><span class="pre">nrf_auxpll_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified AUXPLL event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_event_check">
+<span class="target" id="group__nrf__auxpll__hal_1ga1f950ef4f2f16dd388cd309b481d2510"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_event_t" title="nrf_auxpll_event_t"><span class="n"><span class="pre">nrf_auxpll_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the AUXPLL event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_event_address_get">
+<span class="target" id="group__nrf__auxpll__hal_1ga3b67754ec3060a32d78f10f3010760a4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_event_t" title="nrf_auxpll_event_t"><span class="n"><span class="pre">nrf_auxpll_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified AUXPLL event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> The specified event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_enable">
+<span class="target" id="group__nrf__auxpll__hal_1ga0ae47a49f04c20a2b4dc9ccfff2cf14a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4"><span class="std std-ref">nrf_auxpll_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_disable">
+<span class="target" id="group__nrf__auxpll__hal_1ga676c5fb5d7f0fe08e4fccf82bd7af6b7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4"><span class="std std-ref">nrf_auxpll_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_enable_check">
+<span class="target" id="group__nrf__auxpll__hal_1gaa4bc60bc8694ecce051777023a3fa7cf"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4"><span class="std std-ref">nrf_auxpll_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true requested interrupts are enabled. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>false requested interrupts are disabled. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_int_pending_check">
+<span class="target" id="group__nrf__auxpll__hal_1gadb36e8e2a3ff5c6fa7b4b7d9746721af"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_int_pending_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_int_pending_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are pending. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__auxpll__hal_1ga7326955aff7345645d8d76517932c6b4"><span class="std std-ref">nrf_auxpll_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true requested interrupts are pending. </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>false requested interrupts are not pending. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_status_get">
+<span class="target" id="group__nrf__auxpll__hal_1gad34dab532935eaeae43cb76e61ba57a2"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_status_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_status_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting AUXPLL status. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The AUXPLL STATUS register value. Use <a class="reference internal" href="#group__nrf__auxpll__hal_1ga89d83049d7868404bb730cb84cfe1007"><span class="std std-ref">nrf_auxpll_status_mask_t</span></a> values for bit masking. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_get">
+<span class="target" id="group__nrf__auxpll__hal_1ga6faf0bf81ee5075ef3fa54a107389c9c"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_config_t" title="nrf_auxpll_config_t"><span class="n"><span class="pre">nrf_auxpll_config_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_cfg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the AUXPLL configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_cfg</strong> – <strong>[out]</strong> Pointer to the structure to be filled with current AUXPLL configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_set">
+<span class="target" id="group__nrf__auxpll__hal_1ga266f286ffaf6891d66a8b0acbf174dda"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_config_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_config_t" title="nrf_auxpll_config_t"><span class="n"><span class="pre">nrf_auxpll_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_cfg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_config_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AUXPLL configuration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_cfg</strong> – <strong>[in]</strong> Pointer to the structure with AUXPLL configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_trim_ctune_set">
+<span class="target" id="group__nrf__auxpll__hal_1ga90e037c94c5d79f9e99c90e6ebccce0a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_trim_ctune_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_trim_ctune_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AUXPLL ring oscillator core process corner tuning. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> tuning frequency value. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_trim_ctune_get">
+<span class="target" id="group__nrf__auxpll__hal_1ga009cc5192d245990cdef0154fdd14a23"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_trim_ctune_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_trim_ctune_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the AUXPLL ring oscillator core process corner tuning. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The AUXPLL ring oscillator core process corner tuning value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_frequency_set">
+<span class="target" id="group__nrf__auxpll__hal_1ga3e306b9ccb57dde387d6043e5f8d5efe"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_frequency_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_frequency_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AUXPLL fractional PLL divider ratio tuning. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> Fractional divider ratio. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_frequency_get">
+<span class="target" id="group__nrf__auxpll__hal_1ga66f2cba55b729699377f5f5c9df7b4d5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_frequency_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_frequency_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the AUXPLL fractional PLL divider ratio. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Fractional divider ratio. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_freqinc_set">
+<span class="target" id="group__nrf__auxpll__hal_1ga2d9df7b43bc7ab5043970dd79f39ddc8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_freqinc_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_freqinc_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AUXPLL frequency increment value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> Signed 8-bit frequency increment, applied to current value of FREQUENCY register. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_freqinc_get">
+<span class="target" id="group__nrf__auxpll__hal_1gaee7e190c03c72049db9bd190358b09fd"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_freqinc_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_freqinc_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the AUXPLL frequency increment value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Signed 8-bit frequency increment. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_freqinc_period_set">
+<span class="target" id="group__nrf__auxpll__hal_1ga0714101e5b11664b5ed7d62f2cd9274a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_freqinc_period_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_freqinc_period_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AUXPLL frequency increment period. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> Frequency increment period in 1 us steps. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_freqinc_period_get">
+<span class="target" id="group__nrf__auxpll__hal_1gad7b1219e2e02389b7f603ebcefa7b23a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_freqinc_period_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_freqinc_period_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the AUXPLL frequency increment period value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Frequency increment period. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_set">
+<span class="target" id="group__nrf__auxpll__hal_1ga89a038128bbcf6d6060e44e7e2ccb001"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_outsel_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_ctrl_outsel_t" title="nrf_auxpll_ctrl_outsel_t"><span class="n"><span class="pre">nrf_auxpll_ctrl_outsel_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AUXPLL output prescaler. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> Prescaler ratio. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_outsel_get">
+<span class="target" id="group__nrf__auxpll__hal_1ga58bb555226de8e2c53d7d27359bc61e0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_auxpll_ctrl_outsel_t" title="nrf_auxpll_ctrl_outsel_t"><span class="n"><span class="pre">nrf_auxpll_ctrl_outsel_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_outsel_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_outsel_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the AUXPLL output prescaler value. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Prescaler ratio. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_mode_set">
+<span class="target" id="group__nrf__auxpll__hal_1gadde772559f66a0c3192ccf4106344f6b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_mode_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_auxpll_ctrl_mode_t" title="nrf_auxpll_ctrl_mode_t"><span class="n"><span class="pre">nrf_auxpll_ctrl_mode_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_mode_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AUXPLL mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> AUXPLL running mode. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_ctrl_mode_get">
+<span class="target" id="group__nrf__auxpll__hal_1ga25947ecad40fce8a75bea61885fdedd3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="#c.nrf_auxpll_ctrl_mode_t" title="nrf_auxpll_ctrl_mode_t"><span class="n"><span class="pre">nrf_auxpll_ctrl_mode_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_ctrl_mode_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_ctrl_mode_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the AUXPLL mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>AUXPLL running mode. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_lock">
+<span class="target" id="group__nrf__auxpll__hal_1gaa6ce2278918e16a0d77638b28cff1f2f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_lock</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_lock" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Enable LOCK for mirrored AUXPLL registers. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_unlock">
+<span class="target" id="group__nrf__auxpll__hal_1ga022f5a242f3a44e3c2e611c274587372"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_unlock</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_unlock" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Disable the lock after configuring all AUXPLL mirrored registers. </p>
+<p>The individual mirrored registers can be updated any time when the lock is disabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_auxpll_lock_check">
+<span class="target" id="group__nrf__auxpll__hal_1ga2c5776fa7f4b3698a537e97ed2643b2a"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_lock_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_AUXPLL_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_auxpll_lock_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Check if mirrored AUXPLL registers are locked. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The AUXPLL mirrored register lock enabled. </p></li>
+<li><p><strong>false</strong> – The AUXPLL mirrored register lock disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_t">
+<span class="target" id="structnrf__auxpll__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_auxpll_config_t</span></span></span><a class="headerlink" href="#c.nrf_auxpll_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_auxpll.h&gt;</em></div>
+<p>AUXPLL configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_t.outdrive">
+<span class="target" id="structnrf__auxpll__config__t_1a6dc2786c9084dde3b23b82430a9ba727"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">outdrive</span></span></span><a class="headerlink" href="#c.nrf_auxpll_config_t.outdrive" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Output buffer drive strength selection. Range 0..3 </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_t.current_tune">
+<span class="target" id="structnrf__auxpll__config__t_1a398ee24eeb3da8b3852045c0296601e3"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">current_tune</span></span></span><a class="headerlink" href="#c.nrf_auxpll_config_t.current_tune" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Constant current tune for ring oscillator. Range 0..15 </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_t.sdm_off">
+<span class="target" id="structnrf__auxpll__config__t_1a884c993c4797508f7873a25582317d17"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sdm_off</span></span></span><a class="headerlink" href="#c.nrf_auxpll_config_t.sdm_off" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Turn off sigma delta modulation </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_t.dither_off">
+<span class="target" id="structnrf__auxpll__config__t_1ad8b3d4f51f19175ffc0b305ca3487399"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dither_off</span></span></span><a class="headerlink" href="#c.nrf_auxpll_config_t.dither_off" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Turn off dither in sigma delta modulator </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_auxpll_config_t.range">
+<span class="target" id="structnrf__auxpll__config__t_1a92632e5218bcfc9d846315369283e76f"></span><a class="reference internal" href="#c.nrf_auxpll_divider_range_t" title="nrf_auxpll_divider_range_t"><span class="n"><span class="pre">nrf_auxpll_divider_range_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">range</span></span></span><a class="headerlink" href="#c.nrf_auxpll_config_t.range" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Loop divider base settings </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../hsfll/hal.html" class="btn btn-neutral float-right" title="HSFLL HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../clock/hal.html" class="btn btn-neutral" title="CLOCK HAL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

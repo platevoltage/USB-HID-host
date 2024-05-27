@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECB HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="EGU" href="../egu/index.html" />
+    <link rel="prev" title="ECB" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">ECB</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ECB HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">ECB</a></li>
+      <li class="breadcrumb-item active">ECB HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/ecb/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ecb-hal">
+<h1>ECB HAL<a class="headerlink" href="#ecb-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__ecb__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_ecb_hal</span></span></dt>
+<dd><p>Hardware access layer (HAL) for managing the Advanced Encryption Standard (AES) Electronic Codebook (ECB) peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_TASK_STARTECB">
+<span class="target" id="group__nrf__ecb__hal_1gaaf98e25ae8e6841feb37b37861e5a323"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_TASK_STARTECB</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_TASK_STARTECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the STARTECB task. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_TASK_START">
+<span class="target" id="group__nrf__ecb__hal_1ga51f8743f705dee195d7a6e2e40484092"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_TASK_START</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_TASK_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the START task. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_TASK_STOPECB">
+<span class="target" id="group__nrf__ecb__hal_1ga8e2f1bdd5b6b3c5e6d51d15c2525b151"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_TASK_STOPECB</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_TASK_STOPECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the STOPECB task. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_TASK_STOP">
+<span class="target" id="group__nrf__ecb__hal_1gad256a3d6af34b09315237c72e03223e0"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_TASK_STOP</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_TASK_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the STOP task. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_EVENT_ENDECB">
+<span class="target" id="group__nrf__ecb__hal_1gae73940f346eadeebf5cc74213377db9e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_EVENT_ENDECB</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_EVENT_ENDECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the ENDECB event. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_EVENT_END">
+<span class="target" id="group__nrf__ecb__hal_1ga3bdbc23a728ead472df18d2c07deebaa"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_EVENT_END</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_EVENT_END" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the END event. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_EVENT_ERRORECB">
+<span class="target" id="group__nrf__ecb__hal_1ga3985c099eed272ad2eee813a00e807d6"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_EVENT_ERRORECB</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_EVENT_ERRORECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the ERRORECB event. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_EVENT_ERROR">
+<span class="target" id="group__nrf__ecb__hal_1gab1b1702f584df0f99e5a56864515fcf8"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_EVENT_ERROR</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_EVENT_ERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the ERROR event. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_KEY">
+<span class="target" id="group__nrf__ecb__hal_1gae1fba4801d875aea0943ebeb24d723b8"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_KEY</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_KEY" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the KEY register. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_IN_PTR">
+<span class="target" id="group__nrf__ecb__hal_1ga53cb0779e632fa5fea8d7865a092008f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_IN_PTR</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_IN_PTR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the IN.PTR register. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_IN_AMOUNT">
+<span class="target" id="group__nrf__ecb__hal_1gad4c82e7ee32e2e30cf041cc65a1dfe03"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_IN_AMOUNT</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_IN_AMOUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the IN.AMOUNT register. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_OUT_PTR">
+<span class="target" id="group__nrf__ecb__hal_1gaa6f33d1d8ea9c4b73c4a2f5b0a015a31"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_OUT_PTR</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_OUT_PTR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the OUT.PTR register. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_OUT_AMOUNT">
+<span class="target" id="group__nrf__ecb__hal_1ga89a89c17f8637517757bd00d74ba66ec"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_OUT_AMOUNT</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_OUT_AMOUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the OUT.AMOUNT register. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_ECB_HAS_ECBDATAPTR">
+<span class="target" id="group__nrf__ecb__hal_1ga8c3d2c0f70f3acc8e3a7e1f3eeaff94f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_HAS_ECBDATAPTR</span></span></span><a class="headerlink" href="#c.NRF_ECB_HAS_ECBDATAPTR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Presence of the ECBDATAPTR register. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ecb_task_t">
+<span class="target" id="group__nrf__ecb__hal_1gac4ecf0d83e451302bfae6d2b54ed546c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_task_t</span></span></span><a class="headerlink" href="#c.nrf_ecb_task_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ECB tasks. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_task_t.NRF_ECB_TASK_STARTECB">
+<span class="target" id="group__nrf__ecb__hal_1ggac4ecf0d83e451302bfae6d2b54ed546ca338e621bc5d40864b2e0e43f3ef11d1f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_TASK_STARTECB</span></span></span><a class="headerlink" href="#c.nrf_ecb_task_t.NRF_ECB_TASK_STARTECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for starting the ECB block encryption. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_task_t.NRF_ECB_TASK_START">
+<span class="target" id="group__nrf__ecb__hal_1ggac4ecf0d83e451302bfae6d2b54ed546ca80a17abd080cb436d7fc488c8bb28f4d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_TASK_START</span></span></span><a class="headerlink" href="#c.nrf_ecb_task_t.NRF_ECB_TASK_START" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for starting the ECB block encryption. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_task_t.NRF_ECB_TASK_STOPECB">
+<span class="target" id="group__nrf__ecb__hal_1ggac4ecf0d83e451302bfae6d2b54ed546ca0d7751481f61e9318922e7ab77eb8b39"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_TASK_STOPECB</span></span></span><a class="headerlink" href="#c.nrf_ecb_task_t.NRF_ECB_TASK_STOPECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for stopping the ECB block encryption. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_task_t.NRF_ECB_TASK_STOP">
+<span class="target" id="group__nrf__ecb__hal_1ggac4ecf0d83e451302bfae6d2b54ed546ca8f4773a1e9ec7b0b66585185499cefb5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_TASK_STOP</span></span></span><a class="headerlink" href="#c.nrf_ecb_task_t.NRF_ECB_TASK_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Task for stopping the ECB block encryption. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_t">
+<span class="target" id="group__nrf__ecb__hal_1gaeb64b50b89500a23e71c5c41002a0af2"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_event_t</span></span></span><a class="headerlink" href="#c.nrf_ecb_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ECB events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_t.NRF_ECB_EVENT_ENDECB">
+<span class="target" id="group__nrf__ecb__hal_1ggaeb64b50b89500a23e71c5c41002a0af2a6c670ee1eb1a525fa8b621f79f7e95c6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_EVENT_ENDECB</span></span></span><a class="headerlink" href="#c.nrf_ecb_event_t.NRF_ECB_EVENT_ENDECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ECB block encrypt complete. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_t.NRF_ECB_EVENT_ERRORECB">
+<span class="target" id="group__nrf__ecb__hal_1ggaeb64b50b89500a23e71c5c41002a0af2ae1e165c2ec808e92aea02ae5b6af7439"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_EVENT_ERRORECB</span></span></span><a class="headerlink" href="#c.nrf_ecb_event_t.NRF_ECB_EVENT_ERRORECB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ECB block encrypt aborted because of a STOPECB task or due to an error. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_t.NRF_ECB_EVENT_END">
+<span class="target" id="group__nrf__ecb__hal_1ggaeb64b50b89500a23e71c5c41002a0af2a0112d42da8b9b75c0d3f21e575f643f1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_EVENT_END</span></span></span><a class="headerlink" href="#c.nrf_ecb_event_t.NRF_ECB_EVENT_END" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ECB block encrypt complete. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_t.NRF_ECB_EVENT_ERROR">
+<span class="target" id="group__nrf__ecb__hal_1ggaeb64b50b89500a23e71c5c41002a0af2a6de90b30a562a730033f4acbd844c567"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_EVENT_ERROR</span></span></span><a class="headerlink" href="#c.nrf_ecb_event_t.NRF_ECB_EVENT_ERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ECB block encrypt aborted because of a STOPECB task or due to an error. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_mask_t">
+<span class="target" id="group__nrf__ecb__hal_1ga91ca43c848863f0c0ce970054f33b478"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_int_mask_t</span></span></span><a class="headerlink" href="#c.nrf_ecb_int_mask_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>ECB interrupts. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_mask_t.NRF_ECB_INT_ENDECB_MASK">
+<span class="target" id="group__nrf__ecb__hal_1gga91ca43c848863f0c0ce970054f33b478a568a063e1a79d57acddddefbe65c8e27"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_INT_ENDECB_MASK</span></span></span><a class="headerlink" href="#c.nrf_ecb_int_mask_t.NRF_ECB_INT_ENDECB_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ENDECB event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_mask_t.NRF_ECB_INT_ERRORECB_MASK">
+<span class="target" id="group__nrf__ecb__hal_1gga91ca43c848863f0c0ce970054f33b478a68880909012bfb1e6a36f131820e9efd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_INT_ERRORECB_MASK</span></span></span><a class="headerlink" href="#c.nrf_ecb_int_mask_t.NRF_ECB_INT_ERRORECB_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ERRORECB event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_mask_t.NRF_ECB_INT_END_MASK">
+<span class="target" id="group__nrf__ecb__hal_1gga91ca43c848863f0c0ce970054f33b478a7b78be029fcf6179329ac034e1e9b95c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_INT_END_MASK</span></span></span><a class="headerlink" href="#c.nrf_ecb_int_mask_t.NRF_ECB_INT_END_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on END event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_mask_t.NRF_ECB_INT_ERROR_MASK">
+<span class="target" id="group__nrf__ecb__hal_1gga91ca43c848863f0c0ce970054f33b478a625ac92ff666d0fde139e515486d5efd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_ECB_INT_ERROR_MASK</span></span></span><a class="headerlink" href="#c.nrf_ecb_int_mask_t.NRF_ECB_INT_ERROR_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt on ERROR event. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_task_trigger">
+<span class="target" id="group__nrf__ecb__hal_1gaf192ddaeac6403b793f1f5f3fe8687cb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_task_t" title="nrf_ecb_task_t"><span class="n"><span class="pre">nrf_ecb_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for activating the specified ECB task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_task_address_get">
+<span class="target" id="group__nrf__ecb__hal_1ga718830ff53e97e283dc82aa36c7f4427"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_task_t" title="nrf_ecb_task_t"><span class="n"><span class="pre">nrf_ecb_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified ECB task register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Requested task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_clear">
+<span class="target" id="group__nrf__ecb__hal_1ga3d14a076be4bfc8f08221a1ded6a5160"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_event_t" title="nrf_ecb_event_t"><span class="n"><span class="pre">nrf_ecb_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the specified ECB event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_check">
+<span class="target" id="group__nrf__ecb__hal_1ga90ef309d7ab03fc57decfda2cda0d516"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_event_t" title="nrf_ecb_event_t"><span class="n"><span class="pre">nrf_ecb_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the state of the ECB event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_event_address_get">
+<span class="target" id="group__nrf__ecb__hal_1gae95d992775c99eb76db324632edd54e8"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_event_t" title="nrf_ecb_event_t"><span class="n"><span class="pre">nrf_ecb_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified ECB event register. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Requested event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_enable">
+<span class="target" id="group__nrf__ecb__hal_1ga4ddd691e3f86b9e4d706eefbf95d7e7e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="#group__nrf__ecb__hal_1ga91ca43c848863f0c0ce970054f33b478"><span class="std std-ref">nrf_ecb_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_disable">
+<span class="target" id="group__nrf__ecb__hal_1ga2622bab1db3db81c0431240d2e3e1053"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="#group__nrf__ecb__hal_1ga91ca43c848863f0c0ce970054f33b478"><span class="std std-ref">nrf_ecb_int_mask_t</span></a> values for bit masking. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_int_enable_check">
+<span class="target" id="group__nrf__ecb__hal_1ga536f0db41a066ef0f09ffedc12085479"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="#group__nrf__ecb__hal_1ga91ca43c848863f0c0ce970054f33b478"><span class="std std-ref">nrf_ecb_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_data_pointer_set">
+<span class="target" id="group__nrf__ecb__hal_1ga60c24f78d6cce8a37696017e4d4ea5d6"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_data_pointer_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_data_pointer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pointer to the ECB data buffer. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The buffer has to be placed in the Data RAM region. For description of the data structure in this buffer, see the Product Specification.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the ECB data buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_data_pointer_get">
+<span class="target" id="group__nrf__ecb__hal_1gaa162cb7821e54755c378ed5eecd677e1"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_data_pointer_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_data_pointer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to the ECB data buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the ECB data buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_key_set">
+<span class="target" id="group__nrf__ecb__hal_1gae20d640a432668714bca3554ea4bcded"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_key_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_key</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_key_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the AES key. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_key</strong> – <strong>[in]</strong> Pointer to the AES 128-bit key value. The key shall be stored in big endian byte order. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_in_ptr_set">
+<span class="target" id="group__nrf__ecb__hal_1ga047a8041657af0eef52bec01fae045fe"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_in_ptr_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_in_ptr_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pointer to a job list containing unencrypted ECB data structure in Encryption mode or encrypted ECB data structure in Decryption mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_job</strong> – <strong>[in]</strong> Pointer to a job list. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_in_ptr_get">
+<span class="target" id="group__nrf__ecb__hal_1ga4590a4ccb6dc4416d955f989fed4b45f"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_in_ptr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_in_ptr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to job list containing unencrypted ECB data structure in Encryption mode or encrypted ECB data structure in Decryption mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to a job list. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_in_amount_get">
+<span class="target" id="group__nrf__ecb__hal_1ga883ac07a3e2db180e3ba3c50aae83b4e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_in_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_in_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting number of bytes read from the input data, not including the job list structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes read from the input data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_out_ptr_set">
+<span class="target" id="group__nrf__ecb__hal_1ga514222bacd9f83686cdb6f699421252d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_out_ptr_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_out_ptr_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the pointer to a job list containing encrypted ECB data structure in Encryption mode or decrypted ECB data structure in Decryption mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_job</strong> – <strong>[in]</strong> Pointer to a job list. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_out_ptr_get">
+<span class="target" id="group__nrf__ecb__hal_1gaf9da5cba0f135ce37fb7866ac5d3c137"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="../../nrfx_api/vdma.html#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_out_ptr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_out_ptr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to a job list containing encrypted ECB data structure in Encryption mode or decrypted ECB data structure in Decryption mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the job list. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_out_amount_get">
+<span class="target" id="group__nrf__ecb__hal_1gac2b097a3b9f27ecf2575e434dfbd3ddf"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_out_amount_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_out_amount_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting number of bytes available in the output data, not including the job list structure. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of bytes available in the output data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_subscribe_set">
+<span class="target" id="group__nrf__ecb__hal_1ga1859cfd6afa9ddd143661b9c089266a5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_task_t" title="nrf_ecb_task_t"><span class="n"><span class="pre">nrf_ecb_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for a given ECB task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_subscribe_clear">
+<span class="target" id="group__nrf__ecb__hal_1ga41212c13c2456d8da5729ef465cccbea"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_task_t" title="nrf_ecb_task_t"><span class="n"><span class="pre">nrf_ecb_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the subscribe configuration for a given ECB task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_publish_set">
+<span class="target" id="group__nrf__ecb__hal_1ga3fbe83f2accb07e50084e3bc7062aabb"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_event_t" title="nrf_ecb_event_t"><span class="n"><span class="pre">nrf_ecb_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for a given ECB event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_ecb_publish_clear">
+<span class="target" id="group__nrf__ecb__hal_1gab3d8177e957e0495aa2b84c581b71013"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_ecb_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_ECB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrf_ecb_event_t" title="nrf_ecb_event_t"><span class="n"><span class="pre">nrf_ecb_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_ecb_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing the publish configuration for a given ECB event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../egu/index.html" class="btn btn-neutral float-right" title="EGU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="ECB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

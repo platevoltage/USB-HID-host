@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrfx__interconnect__ppib__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrfx_interconnect_ppib_t</compoundname>
+    <includes local="no">nrfx_interconnect_dppic_ppib.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrfx__interconnect__ppib__t_1a3cba67c35330c7335f2b122701a1c1ab" prot="public" static="no" mutable="no">
+        <type>NRF_PPIB_Type *</type>
+        <definition>NRF_PPIB_Type* nrfx_interconnect_ppib_t::p_ppib1</definition>
+        <argsstring></argsstring>
+        <name>p_ppib1</name>
+        <qualifiedname>nrfx_interconnect_ppib_t::p_ppib1</qualifiedname>
+        <briefdescription>
+<para>First PPIB peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="53" column="20" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__ppib__t_1a9ebba11ade55e0c6cf7c4a42fe2807b8" prot="public" static="no" mutable="no">
+        <type>NRF_PPIB_Type *</type>
+        <definition>NRF_PPIB_Type* nrfx_interconnect_ppib_t::p_ppib2</definition>
+        <argsstring></argsstring>
+        <name>p_ppib2</name>
+        <qualifiedname>nrfx_interconnect_ppib_t::p_ppib2</qualifiedname>
+        <briefdescription>
+<para>Second PPIB peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="54" column="20" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__ppib__t_1aade0de66e4d19fa861034f32df564b80" prot="public" static="no" mutable="no">
+        <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref></type>
+        <definition>nrfx_atomic_t nrfx_interconnect_ppib_t::channels_mask</definition>
+        <argsstring></argsstring>
+        <name>channels_mask</name>
+        <qualifiedname>nrfx_interconnect_ppib_t::channels_mask</qualifiedname>
+        <briefdescription>
+<para>Mask of configurable channels between the first and the second PPIB instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="55" column="21" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__ppib__t_1a4fda084bbd30c4b15caf313e0d30a71b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nrfx_interconnect_ppib_t::allocate_flag[PPIB_CHANNEL_MAX_COUNT]</definition>
+        <argsstring>[PPIB_CHANNEL_MAX_COUNT]</argsstring>
+        <name>allocate_flag</name>
+        <qualifiedname>nrfx_interconnect_ppib_t::allocate_flag</qualifiedname>
+        <briefdescription>
+<para>Virtual channels assigned to each of PPIB channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="56" column="21" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PPIB interconnect properties structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="51" column="1" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="52" bodyend="57"/>
+    <listofallmembers>
+      <member refid="structnrfx__interconnect__ppib__t_1a4fda084bbd30c4b15caf313e0d30a71b" prot="public" virt="non-virtual"><scope>nrfx_interconnect_ppib_t</scope><name>allocate_flag</name></member>
+      <member refid="structnrfx__interconnect__ppib__t_1aade0de66e4d19fa861034f32df564b80" prot="public" virt="non-virtual"><scope>nrfx_interconnect_ppib_t</scope><name>channels_mask</name></member>
+      <member refid="structnrfx__interconnect__ppib__t_1a3cba67c35330c7335f2b122701a1c1ab" prot="public" virt="non-virtual"><scope>nrfx_interconnect_ppib_t</scope><name>p_ppib1</name></member>
+      <member refid="structnrfx__interconnect__ppib__t_1a9ebba11ade55e0c6cf7c4a42fe2807b8" prot="public" virt="non-virtual"><scope>nrfx_interconnect_ppib_t</scope><name>p_ppib2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

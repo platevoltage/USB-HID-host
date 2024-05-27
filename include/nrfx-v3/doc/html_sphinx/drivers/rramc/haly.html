@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RRAMC HALY &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="RTC" href="../rtc/index.html" />
+    <link rel="prev" title="RRAMC HAL" href="hal.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">RRAMC</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="driver.html">RRAMC driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">RRAMC HAL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">RRAMC HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">RRAMC</a></li>
+      <li class="breadcrumb-item active">RRAMC HALY</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/rramc/haly.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rramc-haly">
+<h1>RRAMC HALY<a class="headerlink" href="#rramc-haly" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfy__rramc"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfy_rramc</span></span></dt>
+<dd><p>Hardware access layer with cache and barrier support for managing the RRAMC peripheral. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFY_RRAMC_BYTES_IN_WORD">
+<span class="target" id="group__nrfy__rramc_1gaaae60441c517528dbd0662d8487af734"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFY_RRAMC_BYTES_IN_WORD</span></span></span><a class="headerlink" href="#c.NRFY_RRAMC_BYTES_IN_WORD" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Value representing the number of bytes in a word. </p>
+<p>It is used in loops iterating over bytes contained in a word or in word-alignment checks. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFY_RRAMC_WORDS_IN_BUFER_LINE">
+<span class="target" id="group__nrfy__rramc_1ga5d873fc61f133d0530fd4a5b87210b31"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFY_RRAMC_WORDS_IN_BUFER_LINE</span></span></span><a class="headerlink" href="#c.NRFY_RRAMC_WORDS_IN_BUFER_LINE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Value representing the number of words in a buffer line. </p>
+<p>It is used in loops iterating over words contained in buffer lines. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFY_RRAMC_RRAM_BASE_ADDRESS">
+<span class="target" id="group__nrfy__rramc_1ga9a997c0d1c0c088358f717b9c42610cd"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFY_RRAMC_RRAM_BASE_ADDRESS</span></span></span><a class="headerlink" href="#c.NRFY_RRAMC_RRAM_BASE_ADDRESS" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Value representing resistive random access memory (RRAM) base address. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFY_RRAMC_READY_NEXT_TIMEOUT_DEFAULT">
+<span class="target" id="group__nrfy__rramc_1gad31f089506257d7e13a8cec5e0b78bb8"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFY_RRAMC_READY_NEXT_TIMEOUT_DEFAULT</span></span></span><a class="headerlink" href="#c.NRFY_RRAMC_READY_NEXT_TIMEOUT_DEFAULT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Default value for waiting for a next write. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_configure">
+<span class="target" id="group__nrfy__rramc_1ga19c06143888395071f6c0933ded38de6"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_configure</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="#c.nrfy_rramc_config_t" title="nrfy_rramc_config_t"><span class="n"><span class="pre">nrfy_rramc_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_configure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for configuring the RRAMC. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure of configuration of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_int_init">
+<span class="target" id="group__nrfy__rramc_1ga9167e32a8276595d32b3e9438ae9ad3a"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_int_init</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">irq_priority</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">enable</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_int_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the specified RRAMC interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be initialized. </p></li>
+<li><p><strong>irq_priority</strong> – <strong>[in]</strong> Interrupt priority. </p></li>
+<li><p><strong>enable</strong> – <strong>[in]</strong> True if interrupts associated with the event mask are to be enabled, false otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_int_uninit">
+<span class="target" id="group__nrfy__rramc_1ga0cda186bb4b891aad89cbf058dc2629e"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_int_uninit</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_int_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the RRAMC interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_events_process">
+<span class="target" id="group__nrfy__rramc_1ga5b11c7ea48e5ee65a18242dd8e7c4ff5"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_events_process</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_events_process" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for processing the specified RRAMC events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of events to be processed, created by <a class="reference internal" href="../../nrfx_api/common_nrfy.html#group__nrfy__common_1ga0c6f93867e58ecfb266f70393b408c03"><span class="std std-ref">NRFY_EVENT_TO_INT_BITMASK()</span></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of events that were generated and processed. To be checked against the result of <a class="reference internal" href="../../nrfx_api/common_nrfy.html#group__nrfy__common_1ga0c6f93867e58ecfb266f70393b408c03"><span class="std std-ref">NRFY_EVENT_TO_INT_BITMASK()</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_byte_write">
+<span class="target" id="group__nrfy__rramc_1ga66bd5e7add685e6dbc0db2cae4c6e055"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_byte_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_byte_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing a single byte to RRAM. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to where data is to be written. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> Value to be written. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_bytes_write">
+<span class="target" id="group__nrfy__rramc_1ga2b778e799f5d223a1b5d743bd612863d"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_bytes_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">src</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">num_bytes</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_bytes_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing consecutive bytes to RRAM. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to where data is to be written. </p></li>
+<li><p><strong>src</strong> – <strong>[in]</strong> Pointer to data to be copied. </p></li>
+<li><p><strong>num_bytes</strong> – <strong>[in]</strong> Number of bytes to be written. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_byte_read">
+<span class="target" id="group__nrfy__rramc_1gaa1eda0611bb72612d4bd6659e26be124"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_byte_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_byte_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading a byte from the RRAM. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – <strong>[in]</strong> Address of the byte to be read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Value read from RRAM. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_word_write">
+<span class="target" id="group__nrfy__rramc_1gaa2abdd3d326c98f9c8d518652cc266b8"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_word_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_word_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing a 32-bit word to RRAM. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to where data is to be written. Must be word-aligned. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> Value to be written. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_words_write">
+<span class="target" id="group__nrfy__rramc_1gaff9ec5df1eddd8319decca185d55f99f"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_words_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">src</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">num_words</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_words_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing consecutive 32-bit words to RRAM. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the source of the code being executed, the CPU may be halted during the operation. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address to where data is to be written. Must be word-aligned. </p></li>
+<li><p><strong>src</strong> – <strong>[in]</strong> Pointer to data to be copied. Must be word-aligned. </p></li>
+<li><p><strong>num_words</strong> – <strong>[in]</strong> Number of words to be written. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_word_read">
+<span class="target" id="group__nrfy__rramc_1ga149407b06fe990d30edc1279b3de7ede"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_word_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_word_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading a 32-bit word from the RRAM. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – <strong>[in]</strong> Address of the word to be read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Value read from RRAM. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_buffer_read">
+<span class="target" id="group__nrfy__rramc_1ga185185cedabee28fd39c576b7fb0b98d"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_buffer_read</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dst</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">address</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">num_bytes</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_buffer_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading a given number of bytes from the RRAM into the specified buffer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dst</strong> – <strong>[out]</strong> Pointer to the buffer to store the data. </p></li>
+<li><p><strong>address</strong> – <strong>[in]</strong> Address of the first byte to be read. </p></li>
+<li><p><strong>num_bytes</strong> – <strong>[in]</strong> Number of bytes to be read. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_otp_word_read">
+<span class="target" id="group__nrfy__rramc_1gafc58ecc87cb385a47158bd0a90382fb3"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_otp_word_read</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_otp_word_read" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading a word from the OTP in UICR. </p>
+<p>OTP is a region of the UICR present in some chips. This function must be used to read word data from this region since unaligned accesses are not available on the OTP RRAM area.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – <strong>[in]</strong> Address (index) in OTP table from which a word is to be read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>The</strong> – contents at <code class="docutils literal notranslate"><span class="pre">index</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_otp_word_write">
+<span class="target" id="group__nrfy__rramc_1ga48c084c490fac5b38b9d2743452e81bf"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_otp_word_write</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">index</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_otp_word_write" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for writing a 32-bit word at index position to OTP region in UICR. </p>
+<p>The OTP is only able to write ‘0’ to bits in the UICR that are erased (set to ‘1’). It cannot rewrite a bit back to ‘1’. This function checks if the value currently residing at the specified index can be transformed to the desired value without any ‘0’ to ‘1’ transitions. If yes, then perform the write operation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>index</strong> – <strong>[in]</strong> Address (index) in OTP table to which a word it to be written. </p></li>
+<li><p><strong>value</strong> – <strong>[in]</strong> Value to be written.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Word can be written into the specified OTP index address. </p></li>
+<li><p><strong>false</strong> – Word cannot be written into the specified OTP index address. Erase UICR or change index address. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_task_trigger">
+<span class="target" id="group__nrfy__rramc_1ga2cc909a13bf9f39c150887953de11d0e"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_task_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_task_t" title="nrf_rramc_task_t"><span class="n"><span class="pre">nrf_rramc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_task_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga489e48359c21e9aeab721abf8110252f"><span class="std std-ref">nrf_rramc_task_trigger</span></a>  Function for activating the specified RRAMC task.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task to be activated.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_task_address_get">
+<span class="target" id="group__nrfy__rramc_1ga4f51679fde6eaa07d36380397e33ffea"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_task_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_task_t" title="nrf_rramc_task_t"><span class="n"><span class="pre">nrf_rramc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1gabca757c359aa7a33adfcc6556f8c0fb0"><span class="std std-ref">nrf_rramc_task_address_get</span></a>  Function for getting the address of the specified RRAMC task register.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> RRAMC task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified task register.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_event_clear">
+<span class="target" id="group__nrfy__rramc_1gafe77eb5524dab3baddb6c95bf666196e"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_event_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_event_t" title="nrf_rramc_event_t"><span class="n"><span class="pre">nrf_rramc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_event_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga6a5a2e22bbd6b8d5af4c27fa64f1a9d8"><span class="std std-ref">nrf_rramc_event_clear</span></a>  Function for clearing the specified RRAMC event.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the peripheral register structure. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to clear.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_event_check">
+<span class="target" id="group__nrfy__rramc_1ga27b224a7c23ec00b20a5ffa694418022"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_event_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_event_t" title="nrf_rramc_event_t"><span class="n"><span class="pre">nrf_rramc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_event_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga1f57b36da161e1cf21c82aa3876efb77"><span class="std std-ref">nrf_rramc_event_check</span></a>  Function for retrieving the state of the RRAMC event.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The event has been generated. </p></li>
+<li><p><strong>false</strong> – The event has not been generated.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_event_address_get">
+<span class="target" id="group__nrfy__rramc_1gac565e284dec238c420da2500f1337ade"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_event_address_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_event_t" title="nrf_rramc_event_t"><span class="n"><span class="pre">nrf_rramc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga3eb129f51c08e58c4cc381768eb60dc5"><span class="std std-ref">nrf_rramc_event_address_get</span></a>  Function for getting the address of the specified RRAMC event register.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the peripheral register structure. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Requested event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Address of the specified event register.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_int_enable">
+<span class="target" id="group__nrfy__rramc_1ga51695e35aff5ddc63cba1f42ddafa6a9"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga3f7f69bc71658a8215e67943284662f7"><span class="std std-ref">nrf_rramc_int_enable</span></a>  Function for enabling the specified interrupts.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the peripheral register structure. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. Use <a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb"><span class="std std-ref">nrf_rramc_int_mask_t</span></a> values for bit masking.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_int_disable">
+<span class="target" id="group__nrfy__rramc_1ga36eee26b3abb37c8afe4f39ff2ba6123"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga02dcfb8913610a45e1f11db523e921d8"><span class="std std-ref">nrf_rramc_int_disable</span></a>  Function for disabling the specified interrupts.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the peripheral register structure. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. Use <a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb"><span class="std std-ref">nrf_rramc_int_mask_t</span></a> values for bit masking.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_int_enable_check">
+<span class="target" id="group__nrfy__rramc_1gab0a4a38d509722c7936b4b7f1a67ab65"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga5c5b504644d49c61de9703237c6d25ee"><span class="std std-ref">nrf_rramc_int_enable_check</span></a>  Function for checking if the specified interrupts are enabled.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked. Use <a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga95ceba960c4e94ed070157dee96947cb"><span class="std std-ref">nrf_rramc_int_mask_t</span></a> values for bit masking.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_subscribe_set">
+<span class="target" id="group__nrfy__rramc_1gad00e3c2620e742d73011c7483e252dcc"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_task_t" title="nrf_rramc_task_t"><span class="n"><span class="pre">nrf_rramc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga7ae9f5e904859c825e76cd71a1bdccf9"><span class="std std-ref">nrf_rramc_subscribe_set</span></a>  Function for setting the subscribe configuration for a wakeup RRAMC task.  </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not every task has its corresponding subscribe register. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to subscribe events.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_subscribe_clear">
+<span class="target" id="group__nrfy__rramc_1ga083503310d11fef38501bf26ac669d3f"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_subscribe_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_task_t" title="nrf_rramc_task_t"><span class="n"><span class="pre">nrf_rramc_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_subscribe_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga572ef364bcf9cb3953a045a5b58fb749"><span class="std std-ref">nrf_rramc_subscribe_clear</span></a>  Function for clearing the subscribe configuration for a wakeup RRAMC task.  </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not every task has its corresponding subscribe register. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task for which to clear the configuration.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_publish_set">
+<span class="target" id="group__nrfy__rramc_1ga574f5472f1aa9660d2d1c43f43a650be"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_event_t" title="nrf_rramc_event_t"><span class="n"><span class="pre">nrf_rramc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">channel</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1gacc11dfa1e7e8921b6e21a1bb9f7cf1d9"><span class="std std-ref">nrf_rramc_publish_set</span></a>  Function for setting the publish configuration for a wokenup RRAMC event.  </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not every event has its corresponding publish register. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to set the configuration. </p></li>
+<li><p><strong>channel</strong> – <strong>[in]</strong> Channel through which to publish the event.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_publish_clear">
+<span class="target" id="group__nrfy__rramc_1gab885047cdee855783027cb053749a784"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_publish_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_event_t" title="nrf_rramc_event_t"><span class="n"><span class="pre">nrf_rramc_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_publish_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga2aca81a5db0d6d818307cd50f825bbf1"><span class="std std-ref">nrf_rramc_publish_clear</span></a>  Function for clearing the publish configuration for a wokenup RRAMC event.  </p>
+</div>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not every event has its corresponding publish register. Refer to the Product Specification for more information.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event for which to clear the configuration.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_ready_check">
+<span class="target" id="group__nrfy__rramc_1ga417e2945722e3f32594432c53378047f"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_ready_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_ready_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1gae3dd53c1f48d343e31268ab9fe3102d5"><span class="std std-ref">nrf_rramc_ready_check</span></a>  Function for checking current RRAMC operation status.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Current operation is completed, and RRAMC is ready. </p></li>
+<li><p><strong>false</strong> – RRAMC is busy.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_write_ready_check">
+<span class="target" id="group__nrfy__rramc_1gac634ab6f6fa10e7e0f1a051f0c7436f1"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_write_ready_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_write_ready_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga3334d9ee37c8e0f156f1cddc9aa8f438"><span class="std std-ref">nrf_rramc_write_ready_check</span></a>  Function for checking whether RRAMC is ready to accept a new write operation.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – RRAMC is ready to accept a new write operation. </p></li>
+<li><p><strong>false</strong> – RRAMC cannot accept any write operation now.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_error_access_addr_get">
+<span class="target" id="group__nrfy__rramc_1ga3bed8dedd9da88b44c989bf8b790aac0"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_error_access_addr_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_error_access_addr_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga7b3734fcb2edf3e513d48328718fe5fe"><span class="std std-ref">nrf_rramc_error_access_addr_get</span></a>  Fuction for checking the address of the first access error.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Access error address.   </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_empty_buffer_check">
+<span class="target" id="group__nrfy__rramc_1ga747a3316d85d8a56693be88314afcf85"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_empty_buffer_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_empty_buffer_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1gafad2c8c47ca125eec3724f54c62b891f"><span class="std std-ref">nrf_rramc_empty_buffer_check</span></a>  Function for checking whether the internal write-buffer has been committed to RRAM and is now empty.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The internal write-buffer is empty and has no content that needs to be commited. </p></li>
+<li><p><strong>false</strong> – The internal write-buffer has data that needs to be committed.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_config_get">
+<span class="target" id="group__nrfy__rramc_1gaa9da502ddb63209cf1bb7f67368f92a0"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_config_t" title="nrf_rramc_config_t"><span class="n"><span class="pre">nrf_rramc_config_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga600344f5d63d15447e2a49bd1bc87b91"><span class="std std-ref">nrf_rramc_config_get</span></a>  Function for getting the RRAMC peripheral configuration.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[out]</strong> Pointer to the structure to be filled with RRAMC configuration data.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_config_set">
+<span class="target" id="group__nrfy__rramc_1gab392a12b6967d3941df3da97563e7b6a"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_config_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_config_t" title="nrf_rramc_config_t"><span class="n"><span class="pre">nrf_rramc_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_config_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga4aa89554145d84b6df4178a36bc46e99"><span class="std std-ref">nrf_rramc_config_set</span></a>  Function for setting the RRAMC peripheral configuration.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with configuration to be set.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_ready_next_timeout_get">
+<span class="target" id="group__nrfy__rramc_1ga850f0dda759800de54d93ae5c08eadcb"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_ready_next_timeout_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_ready_next_timeout_t" title="nrf_rramc_ready_next_timeout_t"><span class="n"><span class="pre">nrf_rramc_ready_next_timeout_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_ready_next_timeout_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga04efa9e62632c8b8dff3d62382d448d6"><span class="std std-ref">nrf_rramc_ready_next_timeout_get</span></a>  Function for getting preload timeout value for waiting for a next write.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[out]</strong> Pointer to the structure to be filled with information about preload timeout value.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_ready_next_timeout_set">
+<span class="target" id="group__nrfy__rramc_1ga03cde39cd9e261db8809c94eedb5c167"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_ready_next_timeout_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_ready_next_timeout_t" title="nrf_rramc_ready_next_timeout_t"><span class="n"><span class="pre">nrf_rramc_ready_next_timeout_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_ready_next_timeout_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga66be625abc1ee4292bd40e299dbe4ac7"><span class="std std-ref">nrf_rramc_ready_next_timeout_set</span></a>  Function for setting preload timeout value for waiting for a next write.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure filled with information about$ preload timeout value.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_power_config_get">
+<span class="target" id="group__nrfy__rramc_1gaa0c37843b5ac4166bf3ab282f5279b31"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_power_config_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_power_t" title="nrf_rramc_power_t"><span class="n"><span class="pre">nrf_rramc_power_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_power_config_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga0d04aaa18a1463ca07cdc2292a7d38f2"><span class="std std-ref">nrf_rramc_power_config_get</span></a>  Function for getting the RRAMC power configuration.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[out]</strong> Pointer to the structure to be filled with information about power configuration.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_power_config_set">
+<span class="target" id="group__nrfy__rramc_1ga07232ed7ebf9e34f839700d505c4dc61"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_power_config_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span>, <a class="reference internal" href="hal.html#c.nrf_rramc_power_t" title="nrf_rramc_power_t"><span class="n"><span class="pre">nrf_rramc_power_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_power_config_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1ga5aa5b43d22070041f92b7396758ed8a9"><span class="std std-ref">nrf_rramc_power_config_set</span></a>  Function for setting the RRAMC power configuration.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure filled with information about power configuration.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_erase_all_check">
+<span class="target" id="group__nrfy__rramc_1ga7f2a25496830677514bd8c4bbe7ce04a"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_erase_all_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_erase_all_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1gaad0e37d917d80c370ffbc37d22dfe6c8"><span class="std std-ref">nrf_rramc_erase_all_check</span></a>  Function for checking if the erasing operation of the whole RRAM main block has been started.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Erase of chip started. </p></li>
+<li><p><strong>false</strong> – No operation.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfy_rramc_erase_all_set">
+<span class="target" id="group__nrfy__rramc_1ga0bb5185bd0839a14a7022f985664387b"></span><span class="pre">NRFY_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_erase_all_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">NRF_RRAMC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_reg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfy_rramc_erase_all_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p><div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="hal.html#group__nrf__rramc__hal_1gabd91f162fa4e8bb5800e5ad46a10ac2d"><span class="std std-ref">nrf_rramc_erase_all_set</span></a>  Function for erasing whole RRAM main block, that includes the SICR and the UICR.  </p>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_reg</strong> – <strong>[in]</strong> Pointer to the structure of registers of the peripheral.   </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfy_rramc_config_t">
+<span class="target" id="structnrfy__rramc__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfy_rramc_config_t</span></span></span><a class="headerlink" href="#c.nrfy_rramc_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfy_rramc.h&gt;</em></div>
+<p>RRAMC configuration structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_rramc_config_t.config">
+<span class="target" id="structnrfy__rramc__config__t_1a0b7ed0323a1c9e182a4cb043637c02f1"></span><a class="reference internal" href="hal.html#c.nrf_rramc_config_t" title="nrf_rramc_config_t"><span class="n"><span class="pre">nrf_rramc_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">config</span></span></span><a class="headerlink" href="#c.nrfy_rramc_config_t.config" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mode and buffer size configuration. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_rramc_config_t.preload_timeout">
+<span class="target" id="structnrfy__rramc__config__t_1a8c977fbc8e286e5c8f64bb60ef7cd3ae"></span><a class="reference internal" href="hal.html#c.nrf_rramc_ready_next_timeout_t" title="nrf_rramc_ready_next_timeout_t"><span class="n"><span class="pre">nrf_rramc_ready_next_timeout_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preload_timeout</span></span></span><a class="headerlink" href="#c.nrfy_rramc_config_t.preload_timeout" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Preload timeout value for waiting for a next write. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfy_rramc_config_t.power">
+<span class="target" id="structnrfy__rramc__config__t_1a4f1c454f02155658476be11b73d942db"></span><a class="reference internal" href="hal.html#c.nrf_rramc_power_t" title="nrf_rramc_power_t"><span class="n"><span class="pre">nrf_rramc_power_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">power</span></span></span><a class="headerlink" href="#c.nrfy_rramc_config_t.power" title="Permalink to this definition"></a><br /></dt>
+<dd><p>RRAMC power configuration. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rtc/index.html" class="btn btn-neutral float-right" title="RTC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hal.html" class="btn btn-neutral" title="RRAMC HAL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

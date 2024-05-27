@@ -1,0 +1,563 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__qdec" kind="group">
+    <compoundname>nrfx_qdec</compoundname>
+    <title>QDEC driver</title>
+    <innerclass refid="structnrfx__qdec__t" prot="public">nrfx_qdec_t</innerclass>
+    <innerclass refid="structnrfx__qdec__config__t" prot="public">nrfx_qdec_config_t</innerclass>
+    <innerclass refid="structnrfx__qdec__sample__data__evt__t" prot="public">nrfx_qdec_sample_data_evt_t</innerclass>
+    <innerclass refid="structnrfx__qdec__report__data__evt__t" prot="public">nrfx_qdec_report_data_evt_t</innerclass>
+    <innerclass refid="structnrfx__qdec__event__t" prot="public">nrfx_qdec_event_t</innerclass>
+    <innergroup refid="group__nrfx__qdec__config">QDEC peripheral driver configuration</innergroup>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__qdec_1ga354a2c759d2adfad4c3740a10905d2d0" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_qdec_event_handler_t) (nrfx_qdec_event_t event, void *p_context)</definition>
+        <argsstring>)(nrfx_qdec_event_t event, void *p_context)</argsstring>
+        <name>nrfx_qdec_event_handler_t</name>
+        <briefdescription>
+<para>QDEC event handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>QDEC event structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="168" column="9" bodyfile="drivers/include/nrfx_qdec.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__qdec_1gacfca2f0d54aa4882f7b44fd9e2ebda9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_qdec_init</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, nrfx_qdec_config_t const *p_config, nrfx_qdec_event_handler_t handler, void *p_context)</argsstring>
+        <name>nrfx_qdec_init</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__qdec__config__t" kindref="compound">nrfx_qdec_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__qdec_1ga354a2c759d2adfad4c3740a10905d2d0" kindref="member">nrfx_qdec_event_handler_t</ref></type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>p_context</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Must not be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Context passed to event handler.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_ALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. Deprecated - use <ref refid="group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd" kindref="member">NRFX_ERROR_ALREADY</ref> instead. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="183" column="12" declfile="drivers/include/nrfx_qdec.h" declline="183" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga4972ee2770d433a976cc88a7ebd5db34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_qdec_reconfigure</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, nrfx_qdec_config_t const *p_config)</argsstring>
+        <name>nrfx_qdec_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="structnrfx__qdec__config__t" kindref="compound">nrfx_qdec_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is enabled and cannot be reconfigured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="198" column="12" declfile="drivers/include/nrfx_qdec.h" declline="198" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1gaa2dd7789a95f09cfbed25f76a4371886" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_uninit</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance)</argsstring>
+        <name>nrfx_qdec_uninit</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is uninitialized.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="208" column="6" declfile="drivers/include/nrfx_qdec.h" declline="208" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1gadda1286ee501f8313d05018164f7f2ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_qdec_init_check</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance)</argsstring>
+        <name>nrfx_qdec_init_check</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for checking if the QDEC driver instance is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="218" column="6" declfile="drivers/include/nrfx_qdec.h" declline="218" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga291447322d3fe1c3c53c2f49d812dec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_enable</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance)</argsstring>
+        <name>nrfx_qdec_enable</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for enabling QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is uninitialized or enabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="227" column="6" declfile="drivers/include/nrfx_qdec.h" declline="227" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga2f7b3dcdf851cfaca061fc8058b8526d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_disable</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance)</argsstring>
+        <name>nrfx_qdec_disable</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <briefdescription>
+<para>Function for disabling QDEC. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is uninitialized or disabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="236" column="6" declfile="drivers/include/nrfx_qdec.h" declline="236" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga1b6c67c544f564ffe63877b3e2466904" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_qdec_accumulators_read</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, int32_t *p_acc, uint32_t *p_accdbl)</argsstring>
+        <name>nrfx_qdec_accumulators_read</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type>int32_t *</type>
+          <declname>p_acc</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>p_accdbl</declname>
+        </param>
+        <briefdescription>
+<para>Function for reading accumulated transitions from the QDEC peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Function asserts if module is not enabled. </para>
+</simplesect>
+<simplesect kind="note"><para>Accumulators are cleared after reading.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_acc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the accumulated transitions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">p_accdbl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to store the accumulated double transitions. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="248" column="6" declfile="drivers/include/nrfx_qdec.h" declline="248" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1gaefc9f5be950ff81704a8198cf4168d6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_qdec_task_address_get</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, nrf_qdec_task_t task)</argsstring>
+        <name>nrfx_qdec_task_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qdec__hal_1ga0dcaa13487193b622caad861a5f4cf31" kindref="member">nrf_qdec_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified QDEC task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>QDEC task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="275" column="29" bodyfile="drivers/include/nrfx_qdec.h" bodystart="275" bodyend="279" declfile="drivers/include/nrfx_qdec.h" declline="260" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__qdec_1ga211791cab0e8b6d15da6300157e399f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_qdec_event_address_get</definition>
+        <argsstring>(nrfx_qdec_t const *p_instance, nrf_qdec_event_t event)</argsstring>
+        <name>nrfx_qdec_event_address_get</name>
+        <param>
+          <type><ref refid="structnrfx__qdec__t" kindref="compound">nrfx_qdec_t</ref> const *</type>
+          <declname>p_instance</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrf__qdec__hal_1gae87c0c925cac2e5e1833534e51e7d1e4" kindref="member">nrf_qdec_event_t</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Function for returning the address of the specified QDEC event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_instance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the driver instance structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>QDEC event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Event address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="281" column="29" bodyfile="drivers/include/nrfx_qdec.h" bodystart="281" bodyend="285" declfile="drivers/include/nrfx_qdec.h" declline="271" declcolumn="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__qdec_1ga70bf21ce3170766d15a49e8dd5157fb1" prot="public" static="no">
+        <name>NRFX_QDEC_INSTANCE</name>
+        <param><defname>id</defname></param>
+        <initializer>{                                                            \
+    .p_reg        = <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRF_, QDEC, id),             \
+    .drv_inst_idx = <ref refid="group__nrfx__utils_1ga5ea61d0994f6fb1ab5ed59d44f6a7ce9" kindref="member">NRFX_CONCAT</ref>(NRFX_QDEC, id, _INST_IDX),   \
+}</initializer>
+        <briefdescription>
+<para>Macro for creating an instance of the QDEC driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="102" column="9" bodyfile="drivers/include/nrfx_qdec.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__qdec_1ga1fea8e0ef3500f7f65758083ec30fe7c" prot="public" static="no">
+        <name>NRFX_QDEC_DEFAULT_CONFIG</name>
+        <param><defname>_pin_a</defname></param>
+        <param><defname>_pin_b</defname></param>
+        <param><defname>_pin_led</defname></param>
+        <initializer>{                                                                \
+    .reportper          = <ref refid="group__nrf__qdec__hal_1ggae6e5e701c319afebe0117d4ec868b0bca01778bd2208621da40f5cf43fa5dbe2b" kindref="member">NRF_QDEC_REPORTPER_10</ref>,                 \
+    .sampleper          = <ref refid="group__nrf__qdec__hal_1ggacc2b3f0fab27a73d628dcb64b7d6ee48abadf210e80ff9f5b0c131cc91e6d8c4f" kindref="member">NRF_QDEC_SAMPLEPER_16384US</ref>,            \
+    .psela              = _pin_a,                                \
+    .pselb              = _pin_b,                                \
+    .pselled            = _pin_led,                              \
+    .ledpre             = 500,                                   \
+    .ledpol             = <ref refid="group__nrf__qdec__hal_1gga46dc0c4003ff86c492e0e28d6a2c5ae5aadef855450bc04335300c88f77ac17df" kindref="member">NRF_QDEC_LEPOL_ACTIVE_HIGH</ref>,            \
+    .dbfen              = <ref refid="group__nrf__qdec__hal_1gga7050e63cd770970f389de07c6fb3cdeaabc2439c5bd1c52ee7621f5d9dbe7613a" kindref="member">NRF_QDEC_DBFEN_DISABLE</ref>,                \
+    .sample_inten       = false,                                 \
+    .reportper_inten    = true,                                  \
+    .interrupt_priority = NRFX_QDEC_DEFAULT_CONFIG_IRQ_PRIORITY, \
+}</initializer>
+        <briefdescription>
+<para>QDEC driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up QDEC with the following options:<itemizedlist>
+<listitem><para>report period: 10 samples</para>
+</listitem><listitem><para>sampling period: 16384 us</para>
+</listitem><listitem><para>LED enabled for 500 us before sampling</para>
+</listitem><listitem><para>LED polarity: active high</para>
+</listitem><listitem><para>debouncing filter disabled</para>
+</listitem><listitem><para>sample ready interrupt disabled</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for A encoder channel input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for B encoder channel input. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_led</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pin for LED output. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_qdec.h" line="123" column="9" bodyfile="drivers/include/nrfx_qdec.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Quadrature Decoder (QDEC) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

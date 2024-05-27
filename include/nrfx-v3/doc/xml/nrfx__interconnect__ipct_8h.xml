@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__interconnect__ipct_8h" kind="file" language="C++">
+    <compoundname>nrfx_interconnect_ipct.h</compoundname>
+    <includes local="no">nrfx.h</includes>
+    <includes refid="nrf__ipct_8h" local="no">hal/nrf_ipct.h</includes>
+    <includes refid="nrfx__interconnect__apb_8h" local="no">soc/interconnect/apb/nrfx_interconnect_apb.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>soc/interconnect/ipct/nrfx_interconnect_ipct.h</label>
+        <link refid="nrfx__interconnect__ipct_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nrfx.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structnrfx__interconnect__ipct__t" prot="public">nrfx_interconnect_ipct_t</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__interconnect__ipct_1ga30e8c21b8218a53bd51e027f52064b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>nrf_domain_t</type>
+        <definition>nrf_domain_t nrfx_interconnect_ipct_domain_get</definition>
+        <argsstring>(nrfx_interconnect_ipct_t const *p_ipct_prop)</argsstring>
+        <name>nrfx_interconnect_ipct_domain_get</name>
+        <param>
+          <type><ref refid="structnrfx__interconnect__ipct__t" kindref="compound">nrfx_interconnect_ipct_t</ref> const *</type>
+          <declname>p_ipct_prop</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the domain to which the specified IPCT belongs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_ipct_prop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to IPCT properties structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Domain that includes the specified IPCT. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/ipct/nrfx_interconnect_ipct.h" line="67" column="14" declfile="soc/interconnect/ipct/nrfx_interconnect_ipct.h" declline="67" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__interconnect__ipct_1ga49f045ece6ac6eef51493a02f8c2ea2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnrfx__interconnect__ipct__t" kindref="compound">nrfx_interconnect_ipct_t</ref> const *</type>
+        <definition>nrfx_interconnect_ipct_t const  * nrfx_interconnect_ipct_get</definition>
+        <argsstring>(nrfx_interconnect_apb_t const *p_apb_prop)</argsstring>
+        <name>nrfx_interconnect_ipct_get</name>
+        <param>
+          <type><ref refid="structnrfx__interconnect__apb__t" kindref="compound">nrfx_interconnect_apb_t</ref> const *</type>
+          <declname>p_apb_prop</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting IPCT properties structure by pointer to APB bus properties structure to which this particular IPCT belongs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_apb_prop</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to APB properties structure.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the IPCT properties structure that belongs to the specified APB bus. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/ipct/nrfx_interconnect_ipct.h" line="77" column="33" declfile="soc/interconnect/ipct/nrfx_interconnect_ipct.h" declline="77" declcolumn="33"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__interconnect__ipct_1gafe3c829d13637d4950e7191b7bee4ec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t nrfx_interconnect_ipct_global_num_of_get</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_interconnect_ipct_global_num_of_get</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting number entries for global domain in IPCT peripheral properties array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Number of entries in global IPCT peripheral properties array. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/ipct/nrfx_interconnect_ipct.h" line="85" column="8" declfile="soc/interconnect/ipct/nrfx_interconnect_ipct.h" declline="85" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__interconnect__ipct_1gae556e10723e2431a41f19c192828c24e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structnrfx__interconnect__ipct__t" kindref="compound">nrfx_interconnect_ipct_t</ref> const *</type>
+        <definition>nrfx_interconnect_ipct_t const  * nrfx_interconnect_ipct_global_by_idx_get</definition>
+        <argsstring>(uint8_t idx)</argsstring>
+        <name>nrfx_interconnect_ipct_global_by_idx_get</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting IPCT properties structure by index of IPCT peripheral properties array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Index of entry in IPCT peripheral properties array.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the properties structure that represents IPCT assigned to given index. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/ipct/nrfx_interconnect_ipct.h" line="95" column="33" declfile="soc/interconnect/ipct/nrfx_interconnect_ipct.h" declline="95" declcolumn="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2022<sp/>-<sp/>2024,<sp/>Nordic<sp/>Semiconductor<sp/>ASA</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>SPDX-License-Identifier:<sp/>BSD-3-Clause</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>1.<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>2.<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>3.<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>copyright<sp/>holder<sp/>nor<sp/>the<sp/>names<sp/>of<sp/>its</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from<sp/>this</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>HOLDER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>NRFX_INTERCONNECT_IPCT_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_INTERCONNECT_IPCT_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;nrfx.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;hal/nrf_ipct.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;soc/interconnect/apb/nrfx_interconnect_apb.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_interconnect_ipct<sp/>IPCT<sp/>support</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrfx</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/>@brief<sp/><sp/><sp/>Support<sp/>for<sp/>IPCT<sp/>interconnection<sp/>services.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">/**<sp/>@brief<sp/>IPCT<sp/>properties<sp/>structure.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="structnrfx__interconnect__ipct__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>NRF_IPCT_Type<sp/>*<sp/>p_ipct;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>IPCT<sp/>instance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref><sp/>*<sp/>p_ipct_channels;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>mask<sp/>of<sp/>available<sp/>IPCT<sp/>channels.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipct_pub_channels_mask;<sp/></highlight><highlight class="comment">///&lt;<sp/>Mask<sp/>of<sp/>configurable<sp/>IPCT<sp/>publish<sp/>channels.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ipct_sub_channels_mask;<sp/></highlight><highlight class="comment">///&lt;<sp/>Mask<sp/>of<sp/>configurable<sp/>IPCT<sp/>subscribe<sp/>channels.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}<sp/><ref refid="structnrfx__interconnect__ipct__t" kindref="compound">nrfx_interconnect_ipct_t</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>the<sp/>domain<sp/>to<sp/>which<sp/>the<sp/>specified<sp/>IPCT<sp/>belongs.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_ipct_prop<sp/>Pointer<sp/>to<sp/>IPCT<sp/>properties<sp/>structure.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>@return<sp/>Domain<sp/>that<sp/>includes<sp/>the<sp/>specified<sp/>IPCT.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">nrf_domain_t<sp/><ref refid="group__nrfx__interconnect__ipct_1ga30e8c21b8218a53bd51e027f52064b6f" kindref="member">nrfx_interconnect_ipct_domain_get</ref>(<ref refid="structnrfx__interconnect__ipct__t" kindref="compound">nrfx_interconnect_ipct_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_ipct_prop);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>IPCT<sp/>properties<sp/>structure<sp/>by<sp/>pointer<sp/>to<sp/>APB<sp/>bus<sp/>properties</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>structure<sp/>to<sp/>which<sp/>this<sp/>particular<sp/>IPCT<sp/>belongs.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>p_apb_prop<sp/>Pointer<sp/>to<sp/>APB<sp/>properties<sp/>structure.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>@return<sp/>Pointer<sp/>to<sp/>the<sp/>IPCT<sp/>properties<sp/>structure<sp/>that<sp/>belongs<sp/>to<sp/>the<sp/>specified<sp/>APB<sp/>bus.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><ref refid="structnrfx__interconnect__ipct__t" kindref="compound">nrfx_interconnect_ipct_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="group__nrfx__interconnect__ipct_1ga49f045ece6ac6eef51493a02f8c2ea2c" kindref="member">nrfx_interconnect_ipct_get</ref>(<ref refid="structnrfx__interconnect__apb__t" kindref="compound">nrfx_interconnect_apb_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>p_apb_prop);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="79"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>number<sp/>entries<sp/>for<sp/>global<sp/>domain<sp/>in<sp/>IPCT<sp/>peripheral<sp/>properties</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>array.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>entries<sp/>in<sp/>global<sp/>IPCT<sp/>peripheral<sp/>properties<sp/>array.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="group__nrfx__interconnect__ipct_1gafe3c829d13637d4950e7191b7bee4ec8" kindref="member">nrfx_interconnect_ipct_global_num_of_get</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>for<sp/>getting<sp/>IPCT<sp/>properties<sp/>structure<sp/>by<sp/>index<sp/>of<sp/>IPCT<sp/>peripheral<sp/>properties</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>array.</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>@param[in]<sp/>idx<sp/>Index<sp/>of<sp/>entry<sp/>in<sp/>IPCT<sp/>peripheral<sp/>properties<sp/>array.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>@return<sp/>Pointer<sp/>to<sp/>the<sp/>properties<sp/>structure<sp/>that<sp/>represents<sp/>IPCT<sp/>assigned<sp/>to<sp/>given<sp/>index.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><ref refid="structnrfx__interconnect__ipct__t" kindref="compound">nrfx_interconnect_ipct_t</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="group__nrfx__interconnect__ipct_1gae556e10723e2431a41f19c192828c24e" kindref="member">nrfx_interconnect_ipct_global_by_idx_get</ref>(uint8_t<sp/>idx);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>NRFX_INTERCONNECT_IPCT_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="soc/interconnect/ipct/nrfx_interconnect_ipct.h"/>
+  </compounddef>
+</doxygen>

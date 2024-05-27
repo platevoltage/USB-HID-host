@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structnrfx__interconnect__dppic__t" kind="struct" language="C++" prot="public">
+    <compoundname>nrfx_interconnect_dppic_t</compoundname>
+    <includes local="no">nrfx_interconnect_dppic_ppib.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__t_1aa7586f367758e508864d36a53dd2d32c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nrfx_interconnect_dppic_t::apb_index</definition>
+        <argsstring></argsstring>
+        <name>apb_index</name>
+        <qualifiedname>nrfx_interconnect_dppic_t::apb_index</qualifiedname>
+        <briefdescription>
+<para>APB index to which DPPIC belongs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="69" column="22" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__t_1a0f3e5db2173b3a3318e0b34ac620fcb5" prot="public" static="no" mutable="no">
+        <type>NRF_DPPIC_Type *</type>
+        <definition>NRF_DPPIC_Type* nrfx_interconnect_dppic_t::dppic</definition>
+        <argsstring></argsstring>
+        <name>dppic</name>
+        <qualifiedname>nrfx_interconnect_dppic_t::dppic</qualifiedname>
+        <briefdescription>
+<para>DPPIC peripheral that belongs to a given domain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="70" column="21" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__t_1a48f0b7bf7ed0692e0cad5647812544c5" prot="public" static="no" mutable="no">
+        <type><ref refid="group__nrfx__glue_1ga5c369f6aae1199f71a2b1899dd65cc15" kindref="member">nrfx_atomic_t</ref></type>
+        <definition>nrfx_atomic_t nrfx_interconnect_dppic_t::channels_mask</definition>
+        <argsstring></argsstring>
+        <name>channels_mask</name>
+        <qualifiedname>nrfx_interconnect_dppic_t::channels_mask</qualifiedname>
+        <briefdescription>
+<para>Mask of configurable DPPIC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="71" column="22" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__t_1aadb88207639479adf093e125e33671f9" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t nrfx_interconnect_dppic_t::allocate_flag[NRF_DPPI_CH_NUM_MAX]</definition>
+        <argsstring>[NRF_DPPI_CH_NUM_MAX]</argsstring>
+        <name>allocate_flag</name>
+        <qualifiedname>nrfx_interconnect_dppic_t::allocate_flag</qualifiedname>
+        <briefdescription>
+<para>Virtual channels assigned to each of DPPIC channels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="72" column="22" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structnrfx__interconnect__dppic__t_1a62214959b69acf0a0c50e5cd7427b631" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t nrfx_interconnect_dppic_t::apb_size</definition>
+        <argsstring></argsstring>
+        <name>apb_size</name>
+        <qualifiedname>nrfx_interconnect_dppic_t::apb_size</qualifiedname>
+        <briefdescription>
+<para>Size of APB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="73" column="22" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>DPPIC properties structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" line="67" column="1" bodyfile="soc/interconnect/dppic_ppib/nrfx_interconnect_dppic_ppib.h" bodystart="68" bodyend="74"/>
+    <listofallmembers>
+      <member refid="structnrfx__interconnect__dppic__t_1aadb88207639479adf093e125e33671f9" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_t</scope><name>allocate_flag</name></member>
+      <member refid="structnrfx__interconnect__dppic__t_1aa7586f367758e508864d36a53dd2d32c" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_t</scope><name>apb_index</name></member>
+      <member refid="structnrfx__interconnect__dppic__t_1a62214959b69acf0a0c50e5cd7427b631" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_t</scope><name>apb_size</name></member>
+      <member refid="structnrfx__interconnect__dppic__t_1a48f0b7bf7ed0692e0cad5647812544c5" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_t</scope><name>channels_mask</name></member>
+      <member refid="structnrfx__interconnect__dppic__t_1a0f3e5db2173b3a3318e0b34ac620fcb5" prot="public" virt="non-virtual"><scope>nrfx_interconnect_dppic_t</scope><name>dppic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

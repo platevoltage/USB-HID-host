@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VPR CSR VEVIF HAL &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../../../_static/js/ncs.js"
+></script>
+<script src="../../../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="WDT" href="../../../wdt/index.html" />
+    <link rel="prev" title="VPR CSR VTIM HAL" href="../vtim/hal.html" />
+<link
+  href="../../../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../vmc/index.html">VMC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">VPR</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../hal.html">VPR HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../haly.html">VPR HALY</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../vevif/driver.html">VEVIF driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../clic/hal.html">VPR CLIC HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../hal.html">VPR CSR HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vio/hal.html">VPR CSR VIO HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vtim/hal.html">VPR CSR VTIM HAL</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">VPR CSR VEVIF HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">VPR</a></li>
+      <li class="breadcrumb-item active">VPR CSR VEVIF HAL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/drivers/vpr/csr/vevif/hal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vpr-csr-vevif-hal">
+<h1>VPR CSR VEVIF HAL<a class="headerlink" href="#vpr-csr-vevif-hal" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_vpr_csr_vevif_hal</span></span></dt>
+<dd><p>Hardware access layer for managing the VPR RISC-V CPU Control and Status Registers for VPR Event Interface (VPR CSR VEVIF). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VPR_CSR_VEVIF_EVENT_TASK_COUNT">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gaa4833bf38124cfeed8e1daaea1ae2112"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VPR_CSR_VEVIF_EVENT_TASK_COUNT</span></span></span><a class="headerlink" href="#c.NRF_VPR_CSR_VEVIF_EVENT_TASK_COUNT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of VEVIF events/tasks. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_tasks_get">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gabafca7258929aa36346bdf49c39ea179"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_tasks_get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_tasks_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting mask of pending VEVIF tasks. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mask of pending VEVIF tasks. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_tasks_clear">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1ga98487f5eda5c139e6f4c89ad2a86bfd0"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_tasks_clear</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_tasks_clear" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for clearing mask of pending VEVIF tasks. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of VEVIF tasks to be cleared. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_tasks_set">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gada18d7ea39d48ae1f32da2478782beb3"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_tasks_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_tasks_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting pending VEVIF tasks. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – <strong>[in]</strong> VEVIF tasks value to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_events_get">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gafb0611a7f92354b2749509f193cb380b"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_events_get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_events_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting mask of triggered VEVIF events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mask of triggered VEVIF events. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_events_set">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gad9c0fda674757f1a3aa50a6fbd8b0a7e"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_events_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_events_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting triggered VEVIF events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – <strong>[in]</strong> VEVIF events value to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_events_trigger">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1ga3fd367271a421b34d836f8aa6a726287"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_events_trigger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_events_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for triggering VEVIF events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of VEVIF events to be triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_events_buffered_set">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gaa0f9a9df172ccbf1b78614a0c80c9fb7"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_events_buffered_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_events_buffered_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting buffered triggered VEVIF events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – <strong>[in]</strong> Buffered VEVIF events value to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_events_buffered_dirty_check">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1ga782ae49b5eb059d7811d4ea22587ea74"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_events_buffered_dirty_check</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_events_buffered_dirty_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for retrieving the dirty status of buffered VEVIF events. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Return values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true</strong> – Buffer is dirty. </p></li>
+<li><p><strong>false</strong> – Buffer is clean. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_subscribe_get">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gab2da4e020c74d5ac705ee88912682510"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_subscribe_get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_subscribe_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the subscribe configuration for VEVIF. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mask of tasks with enabled subscription. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_subscribe_set">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gae2d7c671468f10e1d9f097712d49f395"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_subscribe_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_subscribe_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the subscribe configuration for VEVIF. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – <strong>[in]</strong> VEVIF subscription configuration mask to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_publish_get">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gacda1c343802537d97990017ab2f4b989"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_publish_get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_publish_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the publish configuration for VEVIF. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Mask of events with enabled publication. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_publish_set">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1ga91039a46b752dbce13cb7d899c6217b4"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_publish_set</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_publish_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for setting the publish configuration for VEVIF. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – <strong>[in]</strong> VEVIF publication configuration mask to be set. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_int_enable">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1ga99621cabec0ac8b9cddaa4d9d68ddd0d"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_int_enable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_int_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_int_disable">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gad4320805c283507ef07092ad90fc71b5"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_int_disable</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_int_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the specified interrupts. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vpr_csr_vevif_int_enable_check">
+<span class="target" id="group__nrf__vpr__csr__vevif__hal_1gaf22b15a2f52fe17e6a1a2ff78806fe76"></span><span class="pre">NRF_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vpr_csr_vevif_int_enable_check</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">mask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vpr_csr_vevif_int_enable_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking it the specified interrupts are enabled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> – <strong>[in]</strong> Mask of interrupts to be checked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of enabled interrupts. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../wdt/index.html" class="btn btn-neutral float-right" title="WDT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../vtim/hal.html" class="btn btn-neutral" title="VPR CSR VTIM HAL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

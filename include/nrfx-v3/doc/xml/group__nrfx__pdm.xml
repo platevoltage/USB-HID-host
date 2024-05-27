@@ -1,0 +1,539 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__nrfx__pdm" kind="group">
+    <compoundname>nrfx_pdm</compoundname>
+    <title>PDM driver</title>
+    <innerclass refid="structnrfx__pdm__evt__t" prot="public">nrfx_pdm_evt_t</innerclass>
+    <innerclass refid="structnrfx__pdm__config__t" prot="public">nrfx_pdm_config_t</innerclass>
+    <innergroup refid="group__nrfx__pdm__config">PDM peripheral driver configuration</innergroup>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__nrfx__pdm_1ga1af0465836194329a34d4d4c96a4ae91" prot="public" static="no" strong="no">
+        <type></type>
+        <name>nrfx_pdm_error_t</name>
+        <enumvalue id="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91ac5a21e69633247017ebba68fa41c655f" prot="public">
+          <name>NRFX_PDM_NO_ERROR</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>No error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__nrfx__pdm_1gga1af0465836194329a34d4d4c96a4ae91a7199474b0f4f36346ac05f59cc91ca8c" prot="public">
+          <name>NRFX_PDM_ERROR_OVERFLOW</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Overflow error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>PDM error type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="55" column="1" bodyfile="drivers/include/nrfx_pdm.h" bodystart="56" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* nrfx_pdm_event_handler_t) (nrfx_pdm_evt_t const *p_evt)</definition>
+        <argsstring>)(nrfx_pdm_evt_t const *p_evt)</argsstring>
+        <name>nrfx_pdm_event_handler_t</name>
+        <briefdescription>
+<para>Handler for the PDM interface ready events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This event handler is called on a buffer request, an error or when a buffer is full and ready to be processed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_evt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the PDM event structure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="138" column="9" bodyfile="drivers/include/nrfx_pdm.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__nrfx__pdm_1gaa57ad2808b90d8236ebad625af2c5c30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_pdm_init</definition>
+        <argsstring>(nrfx_pdm_config_t const *p_config, nrfx_pdm_event_handler_t event_handler)</argsstring>
+        <name>nrfx_pdm_init</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <param>
+          <type><ref refid="group__nrfx__pdm_1gacb123d64e8a37b71340201172c2fcc98" kindref="member">nrfx_pdm_event_handler_t</ref></type>
+          <declname>event_handler</declname>
+        </param>
+        <briefdescription>
+<para>Function for initializing the PDM interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the initial configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">event_handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event handler provided by the user. Cannot be NULL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initialization was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_ALREADY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is already initialized. Deprecated - use <ref refid="group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd" kindref="member">NRFX_ERROR_ALREADY</ref> instead. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_PARAM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid configuration was specified. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="153" column="12" declfile="drivers/include/nrfx_pdm.h" declline="153" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1gacbf87ead5f29641b4d046ee9a3af3d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_pdm_reconfigure</definition>
+        <argsstring>(nrfx_pdm_config_t const *p_config)</argsstring>
+        <name>nrfx_pdm_reconfigure</name>
+        <param>
+          <type><ref refid="structnrfx__pdm__config__t" kindref="compound">nrfx_pdm_config_t</ref> const *</type>
+          <declname>p_config</declname>
+        </param>
+        <briefdescription>
+<para>Function for reconfiguring the PDM interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">p_config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the structure with the configuration.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reconfiguration was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There is ongoing sampling and driver cannot be reconfigured. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_PARAM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid configuration was specified. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="166" column="12" declfile="drivers/include/nrfx_pdm.h" declline="166" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga037b116dc1c1fbd971ce4d7fea6e3dd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void nrfx_pdm_uninit</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_pdm_uninit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for uninitializing the PDM interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function stops PDM sampling, if it is in progress. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="173" column="6" declfile="drivers/include/nrfx_pdm.h" declline="173" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1gad70f5cd179d3555811e91ec78d5b3fbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nrfx_pdm_init_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_pdm_init_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for checking if the PDM interface is initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interface is already initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interface is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="181" column="6" declfile="drivers/include/nrfx_pdm.h" declline="181" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga883a05a1f04ebc572b84fadee2b6e270" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE uint32_t</type>
+        <definition>NRFX_STATIC_INLINE uint32_t nrfx_pdm_task_address_get</definition>
+        <argsstring>(nrf_pdm_task_t task)</argsstring>
+        <name>nrfx_pdm_task_address_get</name>
+        <param>
+          <type><ref refid="group__nrf__pdm__hal_1ga6848dcee43c9bb51bf52965d7ec07609" kindref="member">nrf_pdm_task_t</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Function for getting the address of a PDM interface task. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">task</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Task.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Task address. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="236" column="29" bodyfile="drivers/include/nrfx_pdm.h" bodystart="236" bodyend="239" declfile="drivers/include/nrfx_pdm.h" declline="190" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga16b7b3d1dcaae6d3a851863809aade1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NRFX_STATIC_INLINE bool</type>
+        <definition>NRFX_STATIC_INLINE bool nrfx_pdm_enable_check</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_pdm_enable_check</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for getting the state of the PDM interface. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PDM interface is enabled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The PDM interface is disabled. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="241" column="25" bodyfile="drivers/include/nrfx_pdm.h" bodystart="241" bodyend="244" declfile="drivers/include/nrfx_pdm.h" declline="198" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga296fabdbaca15179a54777be2d6b38a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_pdm_start</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_pdm_start</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for starting the PDM sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling was started successfully or was already in progress. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous start/stop operation is in progress. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="206" column="12" declfile="drivers/include/nrfx_pdm.h" declline="206" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga5d121481d6baf27a1c3a1df56a0658a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_pdm_stop</definition>
+        <argsstring>(void)</argsstring>
+        <name>nrfx_pdm_stop</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Function for stopping the PDM sampling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When this function is called, the PDM interface is stopped after finishing the current frame. The event handler function might be called once more after calling this function.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sampling was stopped successfully or was already stopped before. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous start/stop operation is in progress. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="218" column="12" declfile="drivers/include/nrfx_pdm.h" declline="218" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__nrfx__pdm_1ga6a35f8ef97b4ee2774d34473c0d213b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__nrfx__error__codes_1ga2449720f8fa17b22243218068459a24b" kindref="member">nrfx_err_t</ref></type>
+        <definition>nrfx_err_t nrfx_pdm_buffer_set</definition>
+        <argsstring>(int16_t *buffer, uint16_t buffer_length)</argsstring>
+        <name>nrfx_pdm_buffer_set</name>
+        <param>
+          <type>int16_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>buffer_length</declname>
+        </param>
+        <briefdescription>
+<para>Function for supplying the sample buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this function after every buffer request event.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the receive buffer. Cannot be NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">buffer_length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the receive buffer in 16-bit words.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NRFX_SUCCESS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer was applied successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer was already supplied or the peripheral is currently being stopped. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_STATE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver was not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NRFX_ERROR_INVALID_PARAM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid parameters were provided. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="233" column="12" declfile="drivers/include/nrfx_pdm.h" declline="233" declcolumn="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__pdm_1ga7a3a3c0637a11c96fec6657741474790" prot="public" static="no">
+        <name>NRFX_PDM_MAX_BUFFER_SIZE</name>
+        <initializer>32767</initializer>
+        <briefdescription>
+<para>Maximum supported PDM buffer size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="52" column="9" bodyfile="drivers/include/nrfx_pdm.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__pdm_1gaf135d07d0d96e8c7b7f743284acc2465" prot="public" static="no">
+        <name>NRFX_PDM_DEFAULT_CONFIG</name>
+        <param><defname>_pin_clk</defname></param>
+        <param><defname>_pin_din</defname></param>
+        <initializer>{                                                               \
+    .mode               = <ref refid="group__nrf__pdm__hal_1ggadc5bd87887dfb140a868d6ba14df0a42a4958b92efb70f1debb0147cea68eb459" kindref="member">NRF_PDM_MODE_MONO</ref>,                    \
+    .edge               = <ref refid="group__nrf__pdm__hal_1ggacf1325c08d54c6953c2446dacf835217a0b89e686051d527a7e5f2f9fe10072fb" kindref="member">NRF_PDM_EDGE_LEFTFALLING</ref>,             \
+    .clk_pin            = _pin_clk,                             \
+    .din_pin            = _pin_din,                             \
+    .clock_freq         = <ref refid="group__nrf__pdm__hal_1gga6703930305da65cc2f258ad1f68f863da93c505a45c079de603a778e538f916c2" kindref="member">NRF_PDM_FREQ_1032K</ref>,                   \
+    .gain_l             = <ref refid="group__nrf__pdm__hal_1gaf2dbf0024fadb324a3575bdce121b720" kindref="member">NRF_PDM_GAIN_DEFAULT</ref>,                 \
+    .gain_r             = <ref refid="group__nrf__pdm__hal_1gaf2dbf0024fadb324a3575bdce121b720" kindref="member">NRF_PDM_GAIN_DEFAULT</ref>,                 \
+    .interrupt_priority = NRFX_PDM_DEFAULT_CONFIG_IRQ_PRIORITY, \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__pdm__hal_1gaa83396f4675042ff22c8b3cf2f72a4da" kindref="member">NRF_PDM_HAS_RATIO_CONFIG</ref>,                  \
+                     (.ratio = <ref refid="group__nrf__pdm__hal_1ggaa440ffa5a57cc209736e6d66ff1b9088aa165fd177221dc7be65cf727fd8be40a" kindref="member">NRF_PDM_RATIO_64X</ref>,), ())         \
+    <ref refid="group__nrfx__utils_1ga3759226de0d998545425ded334168058" kindref="member">NRFX_COND_CODE_1</ref>(<ref refid="group__nrf__pdm__hal_1gaf67a901cdd622ecdb230c578b08b9fe2" kindref="member">NRF_PDM_HAS_MCLKCONFIG</ref>,                    \
+                     (.mclksrc = <ref refid="group__nrf__pdm__hal_1gga2de024db84f169477a537aef3f1a0a92a2a5d19fc35b24eee2d2f7a6e71c99638" kindref="member">NRF_PDM_MCLKSRC_PCLK32M</ref>,), ()) \
+}</initializer>
+        <briefdescription>
+<para>PDM driver default configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This configuration sets up PDM with the following options:<itemizedlist>
+<listitem><para>mono mode</para>
+</listitem><listitem><para>data sampled on the clock falling edge</para>
+</listitem><listitem><para>frequency: 1.032 MHz</para>
+</listitem><listitem><para>standard gain</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_clk</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>CLK output pin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_pin_din</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>DIN input pin. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="drivers/include/nrfx_pdm.h" line="114" column="9" bodyfile="drivers/include/nrfx_pdm.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Pulse Density Modulation (PDM) peripheral driver. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

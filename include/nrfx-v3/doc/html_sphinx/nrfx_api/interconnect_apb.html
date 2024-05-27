@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APB bus support &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../_static/js/ncs.js"
+></script>
+<script src="../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IPCT support" href="interconnect_ipct.html" />
+    <link rel="prev" title="nrfx_glue.h" href="glue.html" />
+<link
+  href="../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Drivers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">nrfx API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="atomic.html">Atomic operations API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bitmask.html">Bitmask module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html">Common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_configuration.html">Common configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_nrfy.html">Common nrfy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coredep.html">Core-dependent functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_codes.html">Global Error Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flag32_allocator.html">Generic flag allocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glue.html">nrfx_glue.h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gppi.html">Generic PPI Layer</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">APB bus support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interconnect_ipct.html">IPCT support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">nrfx_log.h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prs.html">Peripheral Resource Sharing (PRS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ram_ctrl.html">Generic RAM control layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reset_reason.html">Generic Reset Reason layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="vdma.html">Generic Vector DMA layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="index.html">nrfx API</a></li>
+      <li class="breadcrumb-item active">APB bus support</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/nrfx_api/interconnect_apb.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="apb-bus-support">
+<h1>APB bus support<a class="headerlink" href="#apb-bus-support" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__interconnect__apb"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_interconnect_apb</span></span></dt>
+<dd><p>Support for APB bus services. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_domain_get">
+<span class="target" id="group__nrfx__interconnect__apb_1ga80461e5c8c76ee1907b650b2e801d69f"></span><span class="n"><span class="pre">nrf_domain_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_interconnect_apb_domain_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_interconnect_apb_t" title="nrfx_interconnect_apb_t"><span class="n"><span class="pre">nrfx_interconnect_apb_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_apb_prop</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_interconnect_apb_domain_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the domain to which the specified APB bus belongs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_apb_prop</strong> – <strong>[in]</strong> Pointer to APB properties structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Domain that includes the specified APB. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_main_get">
+<span class="target" id="group__nrfx__interconnect__apb_1ga0d84449ec7dffd96915359dccb346977"></span><a class="reference internal" href="#c.nrfx_interconnect_apb_t" title="nrfx_interconnect_apb_t"><span class="n"><span class="pre">nrfx_interconnect_apb_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_interconnect_apb_main_get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_interconnect_apb_main_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the main APB interconnection. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some domains the connection between different APBs is realized via additional bus which is called here <code class="docutils literal notranslate"><span class="pre">main_apb_connection</span></code></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pointer to the properties structure that represents the main APB interconnection. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_get">
+<span class="target" id="group__nrfx__interconnect__apb_1ga52753c2c894e69c0045a138124cc5a07"></span><a class="reference internal" href="#c.nrfx_interconnect_apb_t" title="nrfx_interconnect_apb_t"><span class="n"><span class="pre">nrfx_interconnect_apb_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_interconnect_apb_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">addr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_interconnect_apb_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting APB bus properties structure by address of any peripheral that is included in. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr</strong> – <strong>[in]</strong> Address of the peripheral.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the properties structure that represents the main APB interconnection or NULL if provided address is invalid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_global_num_of_get">
+<span class="target" id="group__nrfx__interconnect__apb_1gaec8ccc6c589cd8bfbb7fda9fb6375fd1"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_interconnect_apb_global_num_of_get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_interconnect_apb_global_num_of_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting number entries for global domain in APB bus properties array. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of entries is equal to number of APB buses in global domain which contain DPPIC peripheral.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of entries in APB properties array. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_apb_interconnect_by_idx_global_get">
+<span class="target" id="group__nrfx__interconnect__apb_1gaf0c70f51be9c284fc5f0d8e787b84721"></span><a class="reference internal" href="#c.nrfx_interconnect_apb_t" title="nrfx_interconnect_apb_t"><span class="n"><span class="pre">nrfx_interconnect_apb_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_apb_interconnect_by_idx_global_get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_apb_interconnect_by_idx_global_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting APB bus properties structure by index of APB bus properties array. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idx</strong> – <strong>[in]</strong> Index of entry in APB bus properties array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the properties structure that represents APB assigned to given index. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_t">
+<span class="target" id="structnrfx__interconnect__apb__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_interconnect_apb_t</span></span></span><a class="headerlink" href="#c.nrfx_interconnect_apb_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_interconnect_apb.h&gt;</em></div>
+<p>APB bus properties structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_t.p_dppi">
+<span class="target" id="structnrfx__interconnect__apb__t_1a5e9f172a80e6e668ba0c91b36de0f6c1"></span><span class="n"><span class="pre">NRF_DPPIC_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_dppi</span></span></span><a class="headerlink" href="#c.nrfx_interconnect_apb_t.p_dppi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>DPPIC peripheral that belongs to given APB. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_t.p_dppi_channels">
+<span class="target" id="structnrfx__interconnect__apb__t_1a974385eab633e442b7b615d3c9a0d6a7"></span><a class="reference internal" href="glue.html#c.nrfx_atomic_t" title="nrfx_atomic_t"><span class="n"><span class="pre">nrfx_atomic_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_dppi_channels</span></span></span><a class="headerlink" href="#c.nrfx_interconnect_apb_t.p_dppi_channels" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the mask of available DPPI channels. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_t.dppi_pub_channels_mask">
+<span class="target" id="structnrfx__interconnect__apb__t_1a89a6ea1bdc0aba5c401b3ce904bdc373"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dppi_pub_channels_mask</span></span></span><a class="headerlink" href="#c.nrfx_interconnect_apb_t.dppi_pub_channels_mask" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mask of configurable DPPI publish channels. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_t.dppi_sub_channels_mask">
+<span class="target" id="structnrfx__interconnect__apb__t_1afb9570a27f69c21c2a09635d3cdcbbd9"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dppi_sub_channels_mask</span></span></span><a class="headerlink" href="#c.nrfx_interconnect_apb_t.dppi_sub_channels_mask" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mask of configurable DPPI subscribe channels. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_t.p_ppib">
+<span class="target" id="structnrfx__interconnect__apb__t_1ade5758751eed6cd275f2c9862c1d2957"></span><span class="n"><span class="pre">NRF_PPIB_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_ppib</span></span></span><a class="headerlink" href="#c.nrfx_interconnect_apb_t.p_ppib" title="Permalink to this definition"></a><br /></dt>
+<dd><p>PPIB peripheral that belongs to given APB. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_interconnect_apb_t.size">
+<span class="target" id="structnrfx__interconnect__apb__t_1ad006bec5e324f707bd9b59b175e297b8"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><a class="headerlink" href="#c.nrfx_interconnect_apb_t.size" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Size of APB. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="interconnect_ipct.html" class="btn btn-neutral float-right" title="IPCT support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="glue.html" class="btn btn-neutral" title="nrfx_glue.h" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generic Vector DMA layer &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../_static/js/ncs.js"
+></script>
+<script src="../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MVDMA HAL" href="../drivers/mvdma/hal.html" />
+    <link rel="prev" title="MVDMA" href="../drivers/mvdma/index.html" />
+<link
+  href="../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Drivers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">nrfx API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="atomic.html">Atomic operations API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bitmask.html">Bitmask module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common.html">Common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_configuration.html">Common configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="common_nrfy.html">Common nrfy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="coredep.html">Core-dependent functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_codes.html">Global Error Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flag32_allocator.html">Generic flag allocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glue.html">nrfx_glue.h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gppi.html">Generic PPI Layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interconnect_apb.html">APB bus support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="interconnect_ipct.html">IPCT support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="log.html">nrfx_log.h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prs.html">Peripheral Resource Sharing (PRS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ram_ctrl.html">Generic RAM control layer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reset_reason.html">Generic Reset Reason layer</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Generic Vector DMA layer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../drivers/index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="../drivers/mvdma/index.html">MVDMA</a></li>
+      <li class="breadcrumb-item active">Generic Vector DMA layer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/nrfx_api/vdma.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generic-vector-dma-layer">
+<h1>Generic Vector DMA layer<a class="headerlink" href="#generic-vector-dma-layer" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrf__vdma"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrf_vdma</span></span></dt>
+<dd><p>Helper layer that provides the common functionality for Vector DMA (VDMA). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VDMA_BUFFER_SIZE_MASK">
+<span class="target" id="group__nrf__vdma_1ga10f526fc917cb0982d788a3e4083a110"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_BUFFER_SIZE_MASK</span></span></span><a class="headerlink" href="#c.NRF_VDMA_BUFFER_SIZE_MASK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Maximum size of VDMA buffer. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VDMA_REDUCED_JOB_SIZE">
+<span class="target" id="group__nrf__vdma_1ga7c340f3c00583e46cfbf56a9e11570bd"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_REDUCED_JOB_SIZE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_VDMA_REDUCED_JOB_SIZE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for computing size of the array of reduced job structures. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>count</strong> – <strong>[in]</strong> Number of jobs to be stored in reduced job list. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VDMA_JOB_ELEMENT">
+<span class="target" id="group__nrf__vdma_1ga3353cd7e0d2fcdcf0319c5065b33968d"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_JOB_ELEMENT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size</span></span>, <span class="n"><span class="pre">attribute</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_VDMA_JOB_ELEMENT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for defining an element of a job list. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Pointer to the buffer. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the transfer. </p></li>
+<li><p><strong>attribute</strong> – <strong>[in]</strong> Attribute mask.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Two words of the job descriptor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRF_VDMA_REDUCED_JOB_INIT_ELEMENT">
+<span class="target" id="group__nrf__vdma_1gaf0d87e01eb0a3f470eac76a69c042b8c"></span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_REDUCED_JOB_INIT_ELEMENT</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size</span></span>, <span class="n"><span class="pre">attribute</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRF_VDMA_REDUCED_JOB_INIT_ELEMENT" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for defining initial element of reduced job list. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Job buffer. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the job buffer. </p></li>
+<li><p><strong>attribute</strong> – <strong>[in]</strong> Attributes of the job.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Two words of the job descriptor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_VDMA_PERIPH_JOB">
+<span class="target" id="group__nrf__vdma_1gab7fc78877d26519e1709d51190979dc8"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_VDMA_PERIPH_JOB</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_VDMA_PERIPH_JOB" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for defining a job for transfer engaging peripheral. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>addr</strong> – <strong>[in]</strong> Starting address. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of a DMA job.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Two words which contains address, size and the descriptor byte. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_reduced_t">
+<span class="target" id="group__nrf__vdma_1ga145cc526139348f5bc7e15c6e1b7a9fb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_reduced_t</span></span></span><a class="headerlink" href="#c.nrf_vdma_job_reduced_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Type describing VDMA job with fixed attributes and length. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t">
+<span class="target" id="group__nrf__vdma_1ga9b496442550fec4ecc584eccb09a1c81"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_attributes_t</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>VDMA attributes. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only one attribute can be set for the job. </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_PLAIN_DATA">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a6b814047ee4e40da85b6ba8e35726869"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_PLAIN_DATA</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_PLAIN_DATA" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data is not modified. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_BYTE_SWAP">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a19d26b8da07a9b0a446ae67d24755dd2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_BYTE_SWAP</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_BYTE_SWAP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data bytes are swapped. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_JOB_LIST">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a3526922095bafacea5e292556c276973"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_JOB_LIST</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_JOB_LIST" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Allows chaining of joblists. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_BUFFER_FILL">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a10a465bc239cc0649218ff4ec75c493c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_BUFFER_FILL</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_BUFFER_FILL" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Insters zeros into sink data buffers. Sink job attribute only. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_FIXED_ATTR">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81adbe8eb5be69a391c4b18cbb14a020c59"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_FIXED_ATTR</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_FIXED_ATTR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Identical job attributes and sizes for all jobs in the list. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_CRC">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a554ae57471070e0cf103843dce4721fa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_CRC</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_CRC" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CRC checksum is calculated on all data in the source list. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_STATIC_ADDR">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81a57c425b2cb0988e2f108a909a6da57c9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_STATIC_ADDR</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_STATIC_ADDR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Memory address is fixed for the entirety of the job. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_PLAIN_DATA_BUF_WRITE">
+<span class="target" id="group__nrf__vdma_1gga9b496442550fec4ecc584eccb09a1c81aa0390dad9dac9cec6ab3eeba4b974192"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_ATTRIBUTE_PLAIN_DATA_BUF_WRITE</span></span></span><a class="headerlink" href="#c.nrf_vdma_attributes_t.NRF_VDMA_ATTRIBUTE_PLAIN_DATA_BUF_WRITE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used to get better write performance when many short bursts are beiing sent. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrf_vdma_ext_attribute_t">
+<span class="target" id="group__nrf__vdma_1ga714b825dd7ad39cfdefae5bee49cefb7"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_ext_attribute_t</span></span></span><a class="headerlink" href="#c.nrf_vdma_ext_attribute_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>VDMA extended attributes. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This attributes can be combined with each other and with standard attribute </p>
+</div>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_ext_attribute_t.NRF_VDMA_EXT_ATTRIBUTE_PERIPHERAL_MODE">
+<span class="target" id="group__nrf__vdma_1gga714b825dd7ad39cfdefae5bee49cefb7ab71d0599cf41694842fdbe231c88f3df"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_EXT_ATTRIBUTE_PERIPHERAL_MODE</span></span></span><a class="headerlink" href="#c.nrf_vdma_ext_attribute_t.NRF_VDMA_EXT_ATTRIBUTE_PERIPHERAL_MODE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrf_vdma_ext_attribute_t.NRF_VDMA_EXT_ATTRIBUTE_EVENT_ENABLE">
+<span class="target" id="group__nrf__vdma_1gga714b825dd7ad39cfdefae5bee49cefb7a6f070ba82213feaad075ded53866d677"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRF_VDMA_EXT_ATTRIBUTE_EVENT_ENABLE</span></span></span><a class="headerlink" href="#c.nrf_vdma_ext_attribute_t.NRF_VDMA_EXT_ATTRIBUTE_EVENT_ENABLE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_fill">
+<span class="target" id="group__nrf__vdma_1gae96e77eb1953e710a13bc7309ae9c765"></span><span class="pre">__STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_fill</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">attributes</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vdma_job_fill" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for filling the specified structure of the job with given job parameters. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_job</strong> – <strong>[out]</strong> Pointer to the structure of the job to be filled. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Job buffer. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the job buffer. </p></li>
+<li><p><strong>attributes</strong> – <strong>[in]</strong> Attributes of the job. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_reduced_init">
+<span class="target" id="group__nrf__vdma_1ga64d115124857548c03b60756e8dbaedb"></span><span class="pre">__STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_reduced_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_vdma_job_reduced_t" title="nrf_vdma_job_reduced_t"><span class="n"><span class="pre">nrf_vdma_job_reduced_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">size</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n"><span class="pre">attributes</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vdma_job_reduced_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the specified structure of the job with fixed attributes. </p>
+<p>First element of reduced job list occupies space for two elements.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use <a class="reference internal" href="#group__nrf__vdma_1ga2189b5334b84372385f8d39d6d2ae0dc"><span class="std std-ref">nrf_vdma_job_terminate()</span></a> to terminate reduced job list.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_job</strong> – <strong>[out]</strong> Pointer to the reduced structure of the job to be filled. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Job buffer. </p></li>
+<li><p><strong>size</strong> – <strong>[in]</strong> Size of the job buffer. </p></li>
+<li><p><strong>attributes</strong> – <strong>[in]</strong> Additional attribute of the job. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_reduced_fill">
+<span class="target" id="group__nrf__vdma_1ga308ad35e42b4f887945c94a9db063bc9"></span><span class="pre">__STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_reduced_fill</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_vdma_job_reduced_t" title="nrf_vdma_job_reduced_t"><span class="n"><span class="pre">nrf_vdma_job_reduced_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vdma_job_reduced_fill" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for filling the specified reduced structure of the job with given buffer pointer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_job</strong> – <strong>[out]</strong> Pointer to the reduced structure of the job to be filled. </p></li>
+<li><p><strong>p_buffer</strong> – <strong>[in]</strong> Job buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_buffer_get">
+<span class="target" id="group__nrf__vdma_1gaf5ed29f6483508da6e519619a15b3f23"></span><span class="pre">__STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_buffer_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vdma_job_buffer_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the pointer to the buffer associated with specified job. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_job</strong> – <strong>[in]</strong> Pointer to the structure of the specified job.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pointer to the job buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_size_get">
+<span class="target" id="group__nrf__vdma_1gac25de0a1312420ec81e9b0499cff6c80"></span><span class="pre">__STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_size_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vdma_job_size_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the size of the buffer associated with specified job. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_job</strong> – <strong>[in]</strong> Pointer to the structure of the specified job.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Size of the job buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_terminate">
+<span class="target" id="group__nrf__vdma_1ga2189b5334b84372385f8d39d6d2ae0dc"></span><span class="pre">__STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_terminate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vdma_job_terminate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for terminating the specified job. </p>
+<p>When VectorDMA encounters job that is terminated, processing of the job list stops.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_job</strong> – <strong>[out]</strong> Pointer to the structure of the job to be terminated. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_link">
+<span class="target" id="group__nrf__vdma_1ga49c9595dcd73fe99618c5e7960996369"></span><span class="pre">__STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_link</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job</span></span>, <a class="reference internal" href="#c.nrf_vdma_job_t" title="nrf_vdma_job_t"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_job_linked</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrf_vdma_job_link" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for linking the job with another job. </p>
+<p>When VectorDMA encounters job that is linked to another job, execution of the linked job starts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_job</strong> – <strong>[out]</strong> Pointer to the structure of the job to become link. </p></li>
+<li><p><strong>p_job_linked</strong> – <strong>[in]</strong> Pointer to the structure of the job to be linked. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_t">
+<span class="target" id="structnrf__vdma__job__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrf_vdma_job_t</span></span></span><a class="headerlink" href="#c.nrf_vdma_job_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrf_vdma.h&gt;</em></div>
+<p>Structure describing VDMA job. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_t.p_buffer">
+<span class="target" id="structnrf__vdma__job__t_1a27fafa4c6f8dcf30c51fcc66d318d76a"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_buffer</span></span></span><a class="headerlink" href="#c.nrf_vdma_job_t.p_buffer" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the VDMA job buffer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_t.size">
+<span class="target" id="structnrf__vdma__job__t_1a3c4a7a59dcbcaa2a6f9d8909aac36025"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><a class="headerlink" href="#c.nrf_vdma_job_t.size" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Size of the job buffer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrf_vdma_job_t.attributes">
+<span class="target" id="structnrf__vdma__job__t_1a137e1708aeb086c32323d3fd03a6c90c"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">attributes</span></span></span><a class="headerlink" href="#c.nrf_vdma_job_t.attributes" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Attributes of the job. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../drivers/mvdma/hal.html" class="btn btn-neutral float-right" title="MVDMA HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../drivers/mvdma/index.html" class="btn btn-neutral" title="MVDMA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

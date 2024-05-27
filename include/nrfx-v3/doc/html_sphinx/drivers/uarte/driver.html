@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UARTE driver &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="UARTE HAL" href="hal.html" />
+    <link rel="prev" title="UARTE" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twi/index.html">TWI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">UARTE</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">UARTE driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">UARTE HAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="haly.html">UARTE HALY</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">UARTE</a></li>
+      <li class="breadcrumb-item active">UARTE driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/uarte/driver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uarte-driver">
+<h1>UARTE driver<a class="headerlink" href="#uarte-driver" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__uarte"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_uarte</span></span></dt>
+<dd><p>UARTE peripheral driver. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_UARTE_INSTANCE">
+<span class="target" id="group__nrfx__uarte_1gae703f44b0377aff75ae0b53c38488ffb"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_INSTANCE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_UARTE_INSTANCE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for creating a UARTE driver instance. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_UARTE_DEFAULT_CONFIG">
+<span class="target" id="group__nrfx__uarte_1ga707a68ab1d952435a3e372d59c93262f"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_DEFAULT_CONFIG</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">_pin_tx</span></span>, <span class="n"><span class="pre">_pin_rx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_UARTE_DEFAULT_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>UARTE driver default configuration. </p>
+<p>This configuration sets up UARTE with the following options:<ul class="simple">
+<li><p>hardware flow control disabled</p></li>
+<li><p>no parity bit</p></li>
+<li><p>one stop bit</p></li>
+<li><p>baudrate: 115200</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_pin_tx</strong> – <strong>[in]</strong> TX pin. </p></li>
+<li><p><strong>_pin_rx</strong> – <strong>[in]</strong> RX pin. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_UARTE_INST_HANDLER_GET">
+<span class="target" id="group__nrfx__uarte_1ga0e19db933b507f33418e827f28867191"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_INST_HANDLER_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_UARTE_INST_HANDLER_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro returning UARTE interrupt handler. </p>
+<p>param[in] idx UARTE index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Interrupt handler. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_handler_t">
+<span class="target" id="group__nrfx__uarte_1ga82d5e19e10c37084a54b102871c15731"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_event_handler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#c.nrfx_uarte_event_t" title="nrfx_uarte_event_t"><span class="n"><span class="pre">nrfx_uarte_event_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_event</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_context</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.nrfx_uarte_event_handler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>UARTE interrupt event handler. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param p_event<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>[in]</strong> Pointer to event structure. Event is allocated on the stack so it is available only within the context of the event handler. </p>
+</dd>
+<dt class="field-even">Param p_context<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>[in]</strong> Context passed to the interrupt handler, set on initialization. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t">
+<span class="target" id="group__nrfx__uarte_1ga11a91e3594938e682dc90b8d2efaa762"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_evt_type_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Types of UARTE driver events. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_TX_DONE">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a45e67c5ce7924b80c49c65ed142191b8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_TX_DONE</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_TX_DONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Requested TX transfer completed. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_DONE">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a611da59f7c1ac9071506a5a6ec63f240"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_RX_DONE</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_DONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Requested RX transfer completed. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_ERROR">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a2fb5fbdaa0163d8be3957c49ea5b17d3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_ERROR</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_ERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error reported by UART peripheral. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_BUF_REQUEST">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762ab8129f86b0848abf0ba7431798010b68"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_RX_BUF_REQUEST</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_BUF_REQUEST" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Request for a RX buffer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_DISABLED">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a4742d2486f4a9955b927669be87e0a78"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_RX_DISABLED</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_DISABLED" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receiver is disabled. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_BUF_TOO_LATE">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762aaaa23762f18f22a0f534cf4912b2da1d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_RX_BUF_TOO_LATE</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_BUF_TOO_LATE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>RX buffer request handled too late. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_BYTE">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a0a868bf956cab8e6abdd6f982d5c2a95"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_RX_BYTE</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_RX_BYTE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Byte was received. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_TRIGGER">
+<span class="target" id="group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762aae7ac2a90cf9bc065e6ece2766675dff"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_UARTE_EVT_TRIGGER</span></span></span><a class="headerlink" href="#c.nrfx_uarte_evt_type_t.NRFX_UARTE_EVT_TRIGGER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Result of <a class="reference internal" href="#group__nrfx__uarte_1ga8c7ebbe367bba4f5aaaabd765cfdebd4"><span class="std std-ref">nrfx_uarte_int_trigger</span></a>. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_init">
+<span class="target" id="group__nrfx__uarte_1gab4d3196116ca4553cf67390be5814052"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_uarte_config_t" title="nrfx_uarte_config_t"><span class="n"><span class="pre">nrfx_uarte_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span>, <a class="reference internal" href="#c.nrfx_uarte_event_handler_t" title="nrfx_uarte_event_handler_t"><span class="n"><span class="pre">nrfx_uarte_event_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event_handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the UARTE driver. </p>
+<p>This function configures UARTE but peripheral is kept disabled to reduce power consumption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the initial configuration. </p></li>
+<li><p><strong>event_handler</strong> – <strong>[in]</strong> Event handler provided by the user. If not provided driver works in blocking mode.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization was successful. </p></li>
+<li><p><strong>NRFX_ERROR_ALREADY</strong> – The driver is already initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is already initialized. Deprecated - use <a class="reference internal" href="../../nrfx_api/error_codes.html#group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd"><span class="std std-ref">NRFX_ERROR_ALREADY</span></a> instead. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_PARAM</strong> – Invalid configuration. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – Some other peripheral with the same instance ID is already in use. This is possible only if <a class="reference internal" href="../../nrfx_api/prs.html#group__nrfx__prs"><span class="std std-ref">Peripheral Resource Sharing (PRS)</span></a> module is enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_reconfigure">
+<span class="target" id="group__nrfx__uarte_1ga39141e1fcab086cfb096e3a5fd220f83"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_reconfigure</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_uarte_config_t" title="nrfx_uarte_config_t"><span class="n"><span class="pre">nrfx_uarte_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_reconfigure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reconfiguring the UARTE driver. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Reconfiguration was successful. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The driver is during transfer. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is uninitialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_uninit">
+<span class="target" id="group__nrfx__uarte_1gaa31a9d9e52bfa9196f0dd13bb574eb4d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_uninit</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the UARTE driver. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_init_check">
+<span class="target" id="group__nrfx__uarte_1ga0db0cdc31de6692a60e2edea7e3e15d3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_init_check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_init_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the UARTE driver instance is initialized. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Instance is already initialized. </p></li>
+<li><p><strong>false</strong> – Instance is not initialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_task_address_get">
+<span class="target" id="group__nrfx__uarte_1ga5fff2a3784029ba3bfb596428d1bc698"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_task_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_uarte_task_t" title="nrf_uarte_task_t"><span class="n"><span class="pre">nrf_uarte_task_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">task</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_task_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified UARTE task. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>task</strong> – <strong>[in]</strong> Task.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Task address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_address_get">
+<span class="target" id="group__nrfx__uarte_1ga3318e17ee8dc0e700acf91be6b2c6c0a"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_event_address_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="hal.html#c.nrf_uarte_event_t" title="nrf_uarte_event_t"><span class="n"><span class="pre">nrf_uarte_event_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_event_address_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the address of the specified UARTE event. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>event</strong> – <strong>[in]</strong> Event.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Event address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_tx">
+<span class="target" id="group__nrfx__uarte_1ga0b292e16625db4d43372101d14cc7a62"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_tx</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_tx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for sending data over UARTE. </p>
+<p>If an event handler is provided in <a class="reference internal" href="#group__nrfx__uarte_1gab4d3196116ca4553cf67390be5814052"><span class="std std-ref">nrfx_uarte_init()</span></a> call, this function returns immediately (unless special flags are used) and the handler is called when the transfer is done. Otherwise, the transfer is performed in blocking mode, that is, this function returns when the transfer is finished.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Peripherals using EasyDMA (including UARTE) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function will attempt to use the cache buffer provided in the configuration and if it is not available it will return error.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To achieve the lowest power consumption, transmitter is stopped and peripheral is disabled (if receiver is not used) when transfer is completed.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_data</strong> – <strong>[in]</strong> Pointer to data. </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Number of bytes to send. Maximum possible length is dependent on the used SoC (see the MAXCNT register description in the Product Specification). The driver checks it with assertion. </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> Option flags. See Flags used for .</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization was successful. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – Driver is busy transferring the data. </p></li>
+<li><p><strong>NRFX_ERROR_FORBIDDEN</strong> – The transfer was aborted from a different context (blocking mode only) or transfer cannot be performed due to driver state, configuration or transfer parameters. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_ADDR</strong> – p_data does not point to RAM buffer and cache buffer is not provided or attempted to use non DMA buffer with linked transfer (see NRFX_UARTE_TX_LINK). </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_LENGTH</strong> – Flag NRFX_UARTE_TX_EARLY_RETURN is used but <code class="docutils literal notranslate"><span class="pre">length</span></code> exceeds internal buffer size. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_tx_in_progress">
+<span class="target" id="group__nrfx__uarte_1gaa581a3dd85162dc91d287458d19df656"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_tx_in_progress</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_tx_in_progress" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if UARTE is currently transmitting. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The UARTE is transmitting. </p></li>
+<li><p><strong>false</strong> – The UARTE is not transmitting. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_tx_abort">
+<span class="target" id="group__nrfx__uarte_1ga576b4e16f016e6a06149e89c1bb72d16"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_tx_abort</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">sync</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_tx_abort" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for aborting any ongoing transmission. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When abortion is not synchronous, the <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a45e67c5ce7924b80c49c65ed142191b8"><span class="std std-ref">NRFX_UARTE_EVT_TX_DONE</span></a> event will be generated in non-blocking mode. It will contain the number of bytes sent until the abort was called. If NRFX_UARTE_TX_LINK flag was used for the transfer and linked transfer have not started yet, there will be the second <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a45e67c5ce7924b80c49c65ed142191b8"><span class="std std-ref">NRFX_UARTE_EVT_TX_DONE</span></a> event with length equal to 0. The event handler will be called from the UARTE interrupt context.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>sync</strong> – <strong>[in]</strong> If true operation is synchronous. Transmitter is stopped upon function return and no event is generated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Successfully initiated abort or when transmitter synchronously stopped. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – Attempt to asynchronously abort when no transfer is active. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_enable">
+<span class="target" id="group__nrfx__uarte_1gad9c4adc4f62622df1d6c4f4d16160976"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_enable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rx_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the receiver. </p>
+<p>The event handler will be called from the caller context with the <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762ab8129f86b0848abf0ba7431798010b68"><span class="std std-ref">NRFX_UARTE_EVT_RX_BUF_REQUEST</span></a> event. The user may respond and provide a buffer using <a class="reference internal" href="#group__nrfx__uarte_1gad807914470b77a67b387692cbe110133"><span class="std std-ref">nrfx_uarte_rx_buffer_set</span></a>. An error is returned if buffer is not provided. After that, the receiver is started and another <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762ab8129f86b0848abf0ba7431798010b68"><span class="std std-ref">NRFX_UARTE_EVT_RX_BUF_REQUEST</span></a> is generated. If a new buffer is not provided, then the receiver is disabled once the first buffer becomes full. If a new buffer is provided, then the receiver will seamlessly switch to a new buffer (using a hardware shortcut).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If transmitter is inactive then peripheral is disabled after receiver is stopped to achieve the lowest power consumption.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> Option flags. See Flags used for .</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Receiver successfully enabled. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – When receiver is already enabled. </p></li>
+<li><p><strong>NRFX_ERROR_NO_MEM</strong> – When buffer was not provided. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_buffer_set">
+<span class="target" id="group__nrfx__uarte_1gad807914470b77a67b387692cbe110133"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_buffer_set</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rx_buffer_set" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for providing reception buffer. </p>
+<p>The function should be called as a response to the <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762ab8129f86b0848abf0ba7431798010b68"><span class="std std-ref">NRFX_UARTE_EVT_RX_BUF_REQUEST</span></a> event. If the function is called before enabling the receiver, the first buffer is configured. If the function is called and there is no active buffer but the receiver is enabled but not started, it starts reception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_data</strong> – <strong>[in]</strong> Pointer to a buffer. </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Buffer length.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Buffer successfully set. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – Buffer provided without pending request. </p></li>
+<li><p><strong>NRFX_ERROR_TIMEOUT</strong> – Buffer provided too late. Receiver is being disabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx">
+<span class="target" id="group__nrfx__uarte_1ga1e605ee5a6e23572d958b3971a4faaf5"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_data</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for receiving data over UARTE. </p>
+<p>If an event handler is provided in the <a class="reference internal" href="#group__nrfx__uarte_1gab4d3196116ca4553cf67390be5814052"><span class="std std-ref">nrfx_uarte_init()</span></a> call, this function returns immediately and the handler is called when the transfer is done. Otherwise, the transfer is performed in blocking mode, that is this function returns when the transfer is finished. Blocking mode is not using interrupt so there is no context switching inside the function. The receive buffer pointer is double-buffered in non-blocking mode. The secondary buffer can be set immediately after starting the transfer and will be filled when the primary buffer is full. The double-buffering feature allows receiving data continuously.</p>
+<p><dl>
+<dt class="sig sig-object cpp">
+<em><span class="pre">Deprecated:</span></em></dt>
+<dd><p>Use <a class="reference internal" href="#group__nrfx__uarte_1gad9c4adc4f62622df1d6c4f4d16160976"><span class="std std-ref">nrfx_uarte_rx_enable</span></a> and <a class="reference internal" href="#group__nrfx__uarte_1gad807914470b77a67b387692cbe110133"><span class="std std-ref">nrfx_uarte_rx_buffer_set</span></a>.</p>
+</dd></dl>
+
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Peripherals using EasyDMA (including UARTE) require the transfer buffers to be placed in the Data RAM region. If this condition is not met, this function fails with the error code NRFX_ERROR_INVALID_ADDR.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When the double-buffering feature is used and the UARTE interrupt is processed with a delay (for example, due to a higher priority interrupt) long enough for both buffers to get filled completely, the event handler will be invoked only once, to notify that the first buffer has been filled. This is because from hardware perspective it is impossible to deduce in such case if the second buffer was also filled completely or not. To prevent this from happening, keep the UARTE interrupt latency low or use large enough reception buffers.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_data</strong> – <strong>[in]</strong> Pointer to data. </p></li>
+<li><p><strong>length</strong> – <strong>[in]</strong> Number of bytes to receive. Maximum possible length is dependent on the used SoC (see the MAXCNT register description in the Product Specification). The driver checks it with assertion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization is successful. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The driver is already receiving (and the secondary buffer has already been set in non-blocking mode). </p></li>
+<li><p><strong>NRFX_ERROR_FORBIDDEN</strong> – The transfer is aborted from a different context (blocking mode only). </p></li>
+<li><p><strong>NRFX_ERROR_INTERNAL</strong> – The UARTE peripheral reports an error. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_ADDR</strong> – p_data does not point to RAM buffer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_ready">
+<span class="target" id="group__nrfx__uarte_1gaf898b4e1e3f58477c9c427524449f448"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_ready</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_rx_amount</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rx_ready" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for testing the receiver state in blocking mode. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_rx_amount</strong> – <strong>[out]</strong> Pointer to the variable to be filled with the number of received bytes. Can be NULL.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – The receiving operation is completed. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The receiver did not complete the operation. </p></li>
+<li><p><strong>NRFX_ERROR_FORBIDDEN</strong> – Operation is not supporting in the current configuration. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_abort">
+<span class="target" id="group__nrfx__uarte_1ga74fe76caea2d085ac247ebf456d4553a"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_abort</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">disable_all</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n"><span class="pre">sync</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rx_abort" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for aborting any ongoing reception. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a611da59f7c1ac9071506a5a6ec63f240"><span class="std std-ref">NRFX_UARTE_EVT_RX_DONE</span></a> event will be generated in non-blocking mode. It will contain number of bytes received until the abort was called. The event handler will be called from the UARTE interrupt context.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When the double-buffering feature is used and the UARTE interrupt is processed with a delay (for example, due to a higher priority interrupt) long enough for the first buffer to be filled completely, the event handler will be supplied with the pointer to the first buffer and the number of bytes received in the second buffer. This is because from hardware perspective it is impossible to deduce the reception of which buffer has been aborted. To prevent this from happening, keep the UARTE interrupt latency low or use large enough reception buffers.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>disable_all</strong> – <strong>[in]</strong> If true, UARTE is stopped. If false and there is a second RX buffer provided, only the first transfer is stopped. </p></li>
+<li><p><strong>sync</strong> – <strong>[in]</strong> If true, receiver is disabled synchronously.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Successfully initiate disabling or disabled (synchronous mode). </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – Receiver was not enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_errorsrc_get">
+<span class="target" id="group__nrfx__uarte_1gaf5738c62ee62b5d8c46193f268410185"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_errorsrc_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_errorsrc_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reading error source mask. </p>
+<p>Mask contains values from <a class="reference internal" href="hal.html#group__nrf__uarte__hal_1ga83eec8b883f6b2e77e4baa39b65d9cb0"><span class="std std-ref">nrf_uarte_error_mask_t</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Function must be used in the blocking mode only. In case of non-blocking mode, an error event is generated. Function clears error sources after reading.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask of reported errors. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_new_data_check">
+<span class="target" id="group__nrfx__uarte_1gaef4d454ab63a92188be22ded0ad5241b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_new_data_check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rx_new_data_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if there was new RX data since the last check. </p>
+<p>Function checks <a class="reference internal" href="hal.html#group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aad82cb8f90030dfd0a66ac658a29722ec"><span class="std std-ref">NRF_UARTE_EVENT_RXDRDY</span></a> event and clears it if it was set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – At least one byte was received since the last check. </p></li>
+<li><p><strong>false</strong> – No new data was received since the last check. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rxdrdy_enable">
+<span class="target" id="group__nrfx__uarte_1gaa41a1b20f41894a8fab1380f7e532cb9"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rxdrdy_enable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rxdrdy_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a0a868bf956cab8e6abdd6f982d5c2a95"><span class="std std-ref">NRFX_UARTE_EVT_RX_BYTE</span></a> event. </p>
+<p>The function enables the <a class="reference internal" href="hal.html#group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aad82cb8f90030dfd0a66ac658a29722ec"><span class="std std-ref">NRF_UARTE_EVENT_RXDRDY</span></a> hardware event which is generated whenever a byte is received in RXD registers. The event indicates only that data is received, hence it must not be used yet because it may not be present yet in the RAM buffer handled by the EasyDMA. The event can be used only to detect a receiver activity. The event can be enabled at any time. Enabling it may increase the number of interrupts (after each received byte).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there were a receiver activity prior to enabling the <a class="reference internal" href="hal.html#group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aad82cb8f90030dfd0a66ac658a29722ec"><span class="std std-ref">NRF_UARTE_EVENT_RXDRDY</span></a> event, the <a class="reference internal" href="hal.html#group__nrf__uarte__hal_1gga1189b14604f6051467bc91b337c45d6aad82cb8f90030dfd0a66ac658a29722ec"><span class="std std-ref">NRF_UARTE_EVENT_RXDRDY</span></a> event may already be set and the <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a0a868bf956cab8e6abdd6f982d5c2a95"><span class="std std-ref">NRFX_UARTE_EVT_RX_BYTE</span></a> will be triggered immediately. To avoid that, it is recommended to clear that event by calling the <a class="reference internal" href="#group__nrfx__uarte_1gaef4d454ab63a92188be22ded0ad5241b"><span class="std std-ref">nrfx_uarte_rx_new_data_check</span></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rxdrdy_disable">
+<span class="target" id="group__nrfx__uarte_1gaf76092d25f48dda7671bfaf426545367"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rxdrdy_disable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_rxdrdy_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a0a868bf956cab8e6abdd6f982d5c2a95"><span class="std std-ref">NRFX_UARTE_EVT_RX_BYTE</span></a> event. </p>
+<p>The function disables the RXDRDY hardware event. See the <a class="reference internal" href="#group__nrfx__uarte_1gaa41a1b20f41894a8fab1380f7e532cb9"><span class="std std-ref">nrfx_uarte_rxdrdy_enable</span></a> for more details. The event can be disabled at any time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_uarte_int_trigger">
+<span class="target" id="group__nrfx__uarte_1ga8c7ebbe367bba4f5aaaabd765cfdebd4"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_int_trigger</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_uarte_t" title="nrfx_uarte_t"><span class="n"><span class="pre">nrfx_uarte_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_uarte_int_trigger" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for triggering UARTE interrupt. </p>
+<p>Function can be used to jump into UARTE interrupt context. User handler is called with the event <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762aae7ac2a90cf9bc065e6ece2766675dff"><span class="std std-ref">NRFX_UARTE_EVT_TRIGGER</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_ERROR_FORBIDDEN</strong> – Failure. User handler is not configured. </p></li>
+<li><p><strong>NRFX_SUCCESS</strong> – If interrupt is successfully triggered. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_t">
+<span class="target" id="structnrfx__uarte__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure for the UARTE driver instance. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_t.p_reg">
+<span class="target" id="structnrfx__uarte__t_1a2d611b499819c377f4b882ff9fa09759"></span><span class="n"><span class="pre">NRF_UARTE_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_reg</span></span></span><a class="headerlink" href="#c.nrfx_uarte_t.p_reg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to a structure with UARTE registers. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_t.drv_inst_idx">
+<span class="target" id="structnrfx__uarte__t_1ae4222eca99a420b82ff85d604f149cea"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">drv_inst_idx</span></span></span><a class="headerlink" href="#c.nrfx_uarte_t.drv_inst_idx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Index of the driver instance. For internal use only. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t">
+<span class="target" id="structnrfx__uarte__rx__cache__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_cache_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure used internally to handle reception through cache buffers. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t.user">
+<span class="target" id="structnrfx__uarte__rx__cache__t_1a24e8fcb9c3eceb86926115ab0f8729e2"></span><a class="reference internal" href="haly.html#c.nrfy_uarte_buffer_t" title="nrfy_uarte_buffer_t"><span class="n"><span class="pre">nrfy_uarte_buffer_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">user</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t.user" title="Permalink to this definition"></a><br /></dt>
+<dd><p>User buffers. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t.cache">
+<span class="target" id="structnrfx__uarte__rx__cache__t_1a6c536d0e337333ccec48a242d2ff6aea"></span><a class="reference internal" href="haly.html#c.nrfy_uarte_buffer_t" title="nrfy_uarte_buffer_t"><span class="n"><span class="pre">nrfy_uarte_buffer_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cache</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t.cache" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Cache buffers. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t.cache_len">
+<span class="target" id="structnrfx__uarte__rx__cache__t_1a4bb5b021d0db08315de4ce2751d8b1f2"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cache_len</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t.cache_len" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Single cache buffer length. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t.started">
+<span class="target" id="structnrfx__uarte__rx__cache__t_1ae86bee32ae19e2dada91e99f2a37cc2a"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">started</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t.started" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for tracking progress of the current user buffer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t.received">
+<span class="target" id="structnrfx__uarte__rx__cache__t_1a923f2ef7a111ab425666a82b29c47738"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">received</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t.received" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Amount of received data in the current user buffer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t.idx">
+<span class="target" id="structnrfx__uarte__rx__cache__t_1a6305e044f544b2a67c0dd6d5457cbfea"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">idx</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t.idx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Used for determining which cache buffer to use. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_cache_t.buf_req">
+<span class="target" id="structnrfx__uarte__rx__cache__t_1a0dae16dca449d4eae9e7dcb07afcb0f5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">buf_req</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_cache_t.buf_req" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flag indicate that next user buffer should be requested. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t">
+<span class="target" id="structnrfx__uarte__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_config_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure for the UARTE configuration. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.txd_pin">
+<span class="target" id="structnrfx__uarte__config__t_1acaf52661a99cf6313134f3b1e6b16683"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">txd_pin</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.txd_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TXD pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.rxd_pin">
+<span class="target" id="structnrfx__uarte__config__t_1a4b5f4809314d4167e4c55978af7ddcb3"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rxd_pin</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.rxd_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>RXD pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.rts_pin">
+<span class="target" id="structnrfx__uarte__config__t_1a10e452a70d34e99d5b06d487d1901db6"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rts_pin</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.rts_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>RTS pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.cts_pin">
+<span class="target" id="structnrfx__uarte__config__t_1a8bb8b84a3bf3c0d666257532f65ba165"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cts_pin</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.cts_pin" title="Permalink to this definition"></a><br /></dt>
+<dd><p>CTS pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.p_context">
+<span class="target" id="structnrfx__uarte__config__t_1a5343d6c5c47d562b367043a43cfdf43b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_context</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.p_context" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Context passed to interrupt handler. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.tx_cache">
+<span class="target" id="structnrfx__uarte__config__t_1a77dfe884044396ad3751e700bc5d87b8"></span><a class="reference internal" href="haly.html#c.nrfy_uarte_buffer_t" title="nrfy_uarte_buffer_t"><span class="n"><span class="pre">nrfy_uarte_buffer_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tx_cache</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.tx_cache" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TX cache buffer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.rx_cache">
+<span class="target" id="structnrfx__uarte__config__t_1ab729157b52c332baaabe4b3fdabe9b44"></span><a class="reference internal" href="haly.html#c.nrfy_uarte_buffer_t" title="nrfy_uarte_buffer_t"><span class="n"><span class="pre">nrfy_uarte_buffer_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rx_cache</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.rx_cache" title="Permalink to this definition"></a><br /></dt>
+<dd><p>RX cache buffer. </p>
+<p>A buffer to store flushed RX data. The buffer is also used when the input RX buffer is from an address space that cannot be handled by the DMA. A buffer size must be at least 5 bytes which is the size of the HW FIFO, and should be bigger if expected to be used as cache when an input RX buffer cannot be used for the DMA. If not provided, then bytes left in the FIFO after a receiver is disabled will be discarded, and reception will not be performed if the input RX buffer cannot be used by the DMA. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.p_rx_cache_scratch">
+<span class="target" id="structnrfx__uarte__config__t_1afd19fef185269f42abd67b740b13e800"></span><a class="reference internal" href="#c.nrfx_uarte_rx_cache_t" title="nrfx_uarte_rx_cache_t"><span class="n"><span class="pre">nrfx_uarte_rx_cache_t</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_rx_cache_scratch</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.p_rx_cache_scratch" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Static RAM memory area used for receiving data through RX cache buffer. Can be NULL if RX caching is not used. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.baudrate">
+<span class="target" id="structnrfx__uarte__config__t_1a63c27058290737e899870cad8cc3fb48"></span><a class="reference internal" href="hal.html#c.nrf_uarte_baudrate_t" title="nrf_uarte_baudrate_t"><span class="n"><span class="pre">nrf_uarte_baudrate_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">baudrate</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.baudrate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Baud rate. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.config">
+<span class="target" id="structnrfx__uarte__config__t_1a1f4d075918cacbb5f56527675c7a1538"></span><a class="reference internal" href="hal.html#c.nrf_uarte_config_t" title="nrf_uarte_config_t"><span class="n"><span class="pre">nrf_uarte_config_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">config</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.config" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Peripheral configuration. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.skip_psel_cfg">
+<span class="target" id="structnrfx__uarte__config__t_1aa2fa236b3e2df3bbce4eaf929eb0fdb1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_psel_cfg</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.skip_psel_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip pin selection configuration. </p>
+<p>When set to true, the driver does not modify pin select registers in the peripheral. Those registers are supposed to be set up externally before the driver is initialized. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When both GPIO configuration and pin selection are to be skipped, the structure fields that specify pins can be omitted, as they are ignored anyway. </p>
+</div>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.skip_gpio_cfg">
+<span class="target" id="structnrfx__uarte__config__t_1a2490d193352d69a34412f16a39b0ab9f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_gpio_cfg</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.skip_gpio_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip GPIO configuration of pins. </p>
+<p>When set to true, the driver does not modify any GPIO parameters of the used pins. Those parameters are supposed to be configured externally before the driver is initialized. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.tx_stop_on_end">
+<span class="target" id="structnrfx__uarte__config__t_1abfaf2c41612a912620f5736f3f72ae30"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tx_stop_on_end</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.tx_stop_on_end" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Indicates that the STOPTX task is PPIed with ENDTX event. </p>
+<p>If SHORT exists, then it will be used by the driver, otherwise (D)PPI connection must be setup by the user. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_config_t.interrupt_priority">
+<span class="target" id="structnrfx__uarte__config__t_1a5d5a3effde79033c520b67b2ad476e87"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interrupt_priority</span></span></span><a class="headerlink" href="#c.nrfx_uarte_config_t.interrupt_priority" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt priority. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_evt_t">
+<span class="target" id="structnrfx__uarte__rx__evt__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_evt_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_evt_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure for <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a611da59f7c1ac9071506a5a6ec63f240"><span class="std std-ref">NRFX_UARTE_EVT_RX_DONE</span></a> event. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_evt_t.p_buffer">
+<span class="target" id="structnrfx__uarte__rx__evt__t_1a6c4fac051eca7fef4072e91cb0fbe1f8"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_buffer</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_evt_t.p_buffer" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the received data. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_evt_t.length">
+<span class="target" id="structnrfx__uarte__rx__evt__t_1a871bf27bdb6682f943060738fc92c9ab"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">length</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_evt_t.length" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Amount of received data. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_tx_evt_t">
+<span class="target" id="structnrfx__uarte__tx__evt__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_tx_evt_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_tx_evt_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure for the <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a45e67c5ce7924b80c49c65ed142191b8"><span class="std std-ref">NRFX_UARTE_EVT_TX_DONE</span></a> event. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_tx_evt_t.p_buffer">
+<span class="target" id="structnrfx__uarte__tx__evt__t_1ab03791a89d8acf3aaa3feb19990912d9"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_buffer</span></span></span><a class="headerlink" href="#c.nrfx_uarte_tx_evt_t.p_buffer" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to the transferred data. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_tx_evt_t.length">
+<span class="target" id="structnrfx__uarte__tx__evt__t_1acc9336a7f55ad2b5253f8b99d2b92f05"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">length</span></span></span><a class="headerlink" href="#c.nrfx_uarte_tx_evt_t.length" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Amount of transferred data. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_tx_evt_t.flags">
+<span class="target" id="structnrfx__uarte__tx__evt__t_1ac87a7f4834ad6770959ccf9e22129f73"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flags</span></span></span><a class="headerlink" href="#c.nrfx_uarte_tx_evt_t.flags" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flags. See Flags used for . </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_error_evt_t">
+<span class="target" id="structnrfx__uarte__error__evt__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_error_evt_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_error_evt_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure for the <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a2fb5fbdaa0163d8be3957c49ea5b17d3"><span class="std std-ref">NRFX_UARTE_EVT_ERROR</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_error_evt_t.rx">
+<span class="target" id="structnrfx__uarte__error__evt__t_1a95e1ffd87cd9cab4612cfbbb96c3b7bb"></span><a class="reference internal" href="haly.html#c.nrfy_uarte_buffer_t" title="nrfy_uarte_buffer_t"><span class="n"><span class="pre">nrfy_uarte_buffer_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rx</span></span></span><a class="headerlink" href="#c.nrfx_uarte_error_evt_t.rx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Transfer details, including number of bytes received. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_error_evt_t.error_mask">
+<span class="target" id="structnrfx__uarte__error__evt__t_1a70b30b80b0ea8bbd04ce24079694b4e6"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">error_mask</span></span></span><a class="headerlink" href="#c.nrfx_uarte_error_evt_t.error_mask" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Mask of error flags that generated the event. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_disabled_evt_t">
+<span class="target" id="structnrfx__uarte__rx__disabled__evt__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_rx_disabled_evt_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_disabled_evt_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure for the <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a4742d2486f4a9955b927669be87e0a78"><span class="std std-ref">NRFX_UARTE_EVT_RX_DISABLED</span></a>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_rx_disabled_evt_t.flush_cnt">
+<span class="target" id="structnrfx__uarte__rx__disabled__evt__t_1a05b28b78af59f184b8c0ae5db3facf9c"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flush_cnt</span></span></span><a class="headerlink" href="#c.nrfx_uarte_rx_disabled_evt_t.flush_cnt" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of bytes flushed from RX FIFO. </p>
+<p>They will be copied to the next provided buffer if NRFX_UARTE_RX_ENABLE_KEEP_FIFO_CONTENT is set. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_t">
+<span class="target" id="structnrfx__uarte__event__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_uarte_event_t</span></span></span><a class="headerlink" href="#c.nrfx_uarte_event_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_uarte.h&gt;</em></div>
+<p>Structure for UARTE event. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_t.type">
+<span class="target" id="structnrfx__uarte__event__t_1ab8e5ec416848bc95e9946e0114c32111"></span><a class="reference internal" href="#c.nrfx_uarte_evt_type_t" title="nrfx_uarte_evt_type_t"><span class="n"><span class="pre">nrfx_uarte_evt_type_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><a class="headerlink" href="#c.nrfx_uarte_event_t.type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event type. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_t.rx">
+<span class="target" id="structnrfx__uarte__event__t_1a05c8c0592bf0f808e636129193d7935f"></span><a class="reference internal" href="#c.nrfx_uarte_rx_evt_t" title="nrfx_uarte_rx_evt_t"><span class="n"><span class="pre">nrfx_uarte_rx_evt_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rx</span></span></span><a class="headerlink" href="#c.nrfx_uarte_event_t.rx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data for <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a611da59f7c1ac9071506a5a6ec63f240"><span class="std std-ref">NRFX_UARTE_EVT_RX_DONE</span></a>. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_t.tx">
+<span class="target" id="structnrfx__uarte__event__t_1a0c50cc71d2e9ba03e7a421938922e302"></span><a class="reference internal" href="#c.nrfx_uarte_tx_evt_t" title="nrfx_uarte_tx_evt_t"><span class="n"><span class="pre">nrfx_uarte_tx_evt_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tx</span></span></span><a class="headerlink" href="#c.nrfx_uarte_event_t.tx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data for <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a45e67c5ce7924b80c49c65ed142191b8"><span class="std std-ref">NRFX_UARTE_EVT_TX_DONE</span></a>. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_t.error">
+<span class="target" id="structnrfx__uarte__event__t_1aad52eb62a0c308bf4100d10320f33a6f"></span><a class="reference internal" href="#c.nrfx_uarte_error_evt_t" title="nrfx_uarte_error_evt_t"><span class="n"><span class="pre">nrfx_uarte_error_evt_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">error</span></span></span><a class="headerlink" href="#c.nrfx_uarte_event_t.error" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data for <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a2fb5fbdaa0163d8be3957c49ea5b17d3"><span class="std std-ref">NRFX_UARTE_EVT_ERROR</span></a>. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_t.rx_disabled">
+<span class="target" id="structnrfx__uarte__event__t_1aef9d216da82a76d22f93c5b57f708aed"></span><a class="reference internal" href="#c.nrfx_uarte_rx_disabled_evt_t" title="nrfx_uarte_rx_disabled_evt_t"><span class="n"><span class="pre">nrfx_uarte_rx_disabled_evt_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rx_disabled</span></span></span><a class="headerlink" href="#c.nrfx_uarte_event_t.rx_disabled" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Data for <a class="reference internal" href="#group__nrfx__uarte_1gga11a91e3594938e682dc90b8d2efaa762a4742d2486f4a9955b927669be87e0a78"><span class="std std-ref">NRFX_UARTE_EVT_RX_DISABLED</span></a>. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_uarte_event_t.data">
+<span class="target" id="structnrfx__uarte__event__t_1afdf2aab1ff8a1f11a4ee8a70e74cff6b"></span><span class="k"><span class="pre">union</span></span><span class="w"> </span><a class="reference internal" href="#c.nrfx_uarte_event_t" title="nrfx_uarte_event_t"><span class="n"><span class="pre">nrfx_uarte_event_t</span></span></a><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">[anonymous]</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><a class="headerlink" href="#c.nrfx_uarte_event_t.data" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Union to store event data. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hal.html" class="btn btn-neutral float-right" title="UARTE HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="UARTE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

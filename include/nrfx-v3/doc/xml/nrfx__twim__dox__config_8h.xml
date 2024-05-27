@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="nrfx__twim__dox__config_8h" kind="file" language="C++">
+    <compoundname>nrfx_twim_dox_config.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__nrfx__twim__config_1gaaa5d67343fd7031cae330218090c76f4" prot="public" static="no">
+        <name>NRFX_TWIM_ENABLED</name>
+        <briefdescription>
+<para>Set to 1 to activate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="13" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1ga95502fba2a709bd047be1de9a38ba578" prot="public" static="no">
+        <name>NRFX_TWIM0_ENABLED</name>
+        <briefdescription>
+<para>Enable TWIM0 instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to 1 to activate.</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="21" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1ga78988c3cb7df6dfbcf2fa8db915ef9ed" prot="public" static="no">
+        <name>NRFX_TWIM1_ENABLED</name>
+        <briefdescription>
+<para>Enable TWIM1 instance. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to 1 to activate.</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="29" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1ga0f95d997b9650fce333fd3729ef1863e" prot="public" static="no">
+        <name>NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY</name>
+        <briefdescription>
+<para>Interrupt priority. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Following options are available:<itemizedlist>
+<listitem><para>0 - 0 (highest)</para>
+</listitem><listitem><para>1 - 1</para>
+</listitem><listitem><para>2 - 2</para>
+</listitem><listitem><para>3 - 3</para>
+</listitem><listitem><para>4 - 4</para>
+</listitem><listitem><para>5 - 5</para>
+</listitem><listitem><para>6 - 6</para>
+</listitem><listitem><para>7 - 7</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="45" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1ga34630c33679cf3adfd4758e75d346a11" prot="public" static="no">
+        <name>NRFX_TWIM_CONFIG_LOG_ENABLED</name>
+        <briefdescription>
+<para>Enables logging in the module. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set to 1 to activate.</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="53" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1gabcd8fa11fd900b03bcc4b407df6dedea" prot="public" static="no">
+        <name>NRFX_TWIM_CONFIG_LOG_LEVEL</name>
+        <briefdescription>
+<para>Default Severity level. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Following options are available:<itemizedlist>
+<listitem><para>0 - Off</para>
+</listitem><listitem><para>1 - Error</para>
+</listitem><listitem><para>2 - Warning</para>
+</listitem><listitem><para>3 - Info</para>
+</listitem><listitem><para>4 - Debug</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="66" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1gae927a45ba929a860463c8639fbf7a739" prot="public" static="no">
+        <name>NRFX_TWIM_CONFIG_INFO_COLOR</name>
+        <briefdescription>
+<para>ANSI escape code prefix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Following options are available:<itemizedlist>
+<listitem><para>0 - Default</para>
+</listitem><listitem><para>1 - Black</para>
+</listitem><listitem><para>2 - Red</para>
+</listitem><listitem><para>3 - Green</para>
+</listitem><listitem><para>4 - Yellow</para>
+</listitem><listitem><para>5 - Blue</para>
+</listitem><listitem><para>6 - Magenta</para>
+</listitem><listitem><para>7 - Cyan</para>
+</listitem><listitem><para>8 - White</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="83" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1gad34fef507600a6e42a8be5fdc58e4ee2" prot="public" static="no">
+        <name>NRFX_TWIM_CONFIG_DEBUG_COLOR</name>
+        <briefdescription>
+<para>ANSI escape code prefix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Following options are available:<itemizedlist>
+<listitem><para>0 - Default</para>
+</listitem><listitem><para>1 - Black</para>
+</listitem><listitem><para>2 - Red</para>
+</listitem><listitem><para>3 - Green</para>
+</listitem><listitem><para>4 - Yellow</para>
+</listitem><listitem><para>5 - Blue</para>
+</listitem><listitem><para>6 - Magenta</para>
+</listitem><listitem><para>7 - Cyan</para>
+</listitem><listitem><para>8 - White</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="100" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__nrfx__twim__config_1ga7365a24d9ef1f6e34a42fc1ed5b48995" prot="public" static="no">
+        <name>NRFX_TWIM_NRF52_ANOMALY_109_WORKAROUND_ENABLED</name>
+        <briefdescription>
+<para>Enables nRF52 anomaly 109 workaround for TWIM. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The workaround uses interrupts to wake up the CPU by catching the start event of zero-frequency transmission, clear the peripheral, set desired frequency, start the peripheral, and the proper transmission. See more in the Errata document or Anomaly 109 Addendum located at <ulink url="https://infocenter.nordicsemi.com/">https://infocenter.nordicsemi.com/</ulink></para>
+<para>Set to 1 to activate.</para>
+<para><simplesect kind="note"><para>This is an NRF_CONFIG macro. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="doc/config_dox/nrfx_twim_dox_config.h" line="115" column="9" bodyfile="doc/config_dox/nrfx_twim_dox_config.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>@defgroup<sp/>nrfx_twim_config<sp/>TWIM<sp/>peripheral<sp/>driver<sp/>configuration</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>@{</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>@ingroup<sp/>nrfx_twim</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="7"><highlight class="comment">/**<sp/>@brief<sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/>Set<sp/>to<sp/>1<sp/>to<sp/>activate.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment">/**<sp/>@brief<sp/>Enable<sp/>TWIM0<sp/>instance</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>Set<sp/>to<sp/>1<sp/>to<sp/>activate.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM0_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="23"><highlight class="comment">/**<sp/>@brief<sp/>Enable<sp/>TWIM1<sp/>instance</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/><sp/>Set<sp/>to<sp/>1<sp/>to<sp/>activate.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM1_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="31"><highlight class="comment">/**<sp/>@brief<sp/>Interrupt<sp/>priority</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/><sp/>Following<sp/>options<sp/>are<sp/>available:</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>-<sp/>0<sp/>-<sp/>0<sp/>(highest)</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>-<sp/>1<sp/>-<sp/>1</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>-<sp/>2<sp/>-<sp/>2</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>-<sp/>3<sp/>-<sp/>3</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>-<sp/>4<sp/>-<sp/>4</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>-<sp/>5<sp/>-<sp/>5</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>-<sp/>6<sp/>-<sp/>6</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>-<sp/>7<sp/>-<sp/>7</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_DEFAULT_CONFIG_IRQ_PRIORITY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="47"><highlight class="comment">/**<sp/>@brief<sp/>Enables<sp/>logging<sp/>in<sp/>the<sp/>module.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*<sp/><sp/>Set<sp/>to<sp/>1<sp/>to<sp/>activate.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_CONFIG_LOG_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="55"><highlight class="comment">/**<sp/>@brief<sp/>Default<sp/>Severity<sp/>level</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/><sp/>Following<sp/>options<sp/>are<sp/>available:</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>-<sp/>0<sp/>-<sp/>Off</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>-<sp/>1<sp/>-<sp/>Error</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>-<sp/>2<sp/>-<sp/>Warning</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>-<sp/>3<sp/>-<sp/>Info</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>-<sp/>4<sp/>-<sp/>Debug</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_CONFIG_LOG_LEVEL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment">/**<sp/>@brief<sp/>ANSI<sp/>escape<sp/>code<sp/>prefix.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/><sp/>Following<sp/>options<sp/>are<sp/>available:</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>-<sp/>0<sp/>-<sp/>Default</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>-<sp/>1<sp/>-<sp/>Black</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>-<sp/>2<sp/>-<sp/>Red</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>-<sp/>3<sp/>-<sp/>Green</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>-<sp/>4<sp/>-<sp/>Yellow</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>-<sp/>5<sp/>-<sp/>Blue</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>-<sp/>6<sp/>-<sp/>Magenta</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/>-<sp/>7<sp/>-<sp/>Cyan</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/>-<sp/>8<sp/>-<sp/>White</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_CONFIG_INFO_COLOR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="85"><highlight class="comment">/**<sp/>@brief<sp/>ANSI<sp/>escape<sp/>code<sp/>prefix.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/>*<sp/><sp/>Following<sp/>options<sp/>are<sp/>available:</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/>*<sp/>-<sp/>0<sp/>-<sp/>Default</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/>*<sp/>-<sp/>1<sp/>-<sp/>Black</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/>*<sp/>-<sp/>2<sp/>-<sp/>Red</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>-<sp/>3<sp/>-<sp/>Green</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*<sp/>-<sp/>4<sp/>-<sp/>Yellow</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/>*<sp/>-<sp/>5<sp/>-<sp/>Blue</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/>-<sp/>6<sp/>-<sp/>Magenta</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*<sp/>-<sp/>7<sp/>-<sp/>Cyan</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/>-<sp/>8<sp/>-<sp/>White</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_CONFIG_DEBUG_COLOR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="103"><highlight class="comment">/**<sp/>@brief<sp/>Enables<sp/>nRF52<sp/>anomaly<sp/>109<sp/>workaround<sp/>for<sp/>TWIM.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/>The<sp/>workaround<sp/>uses<sp/>interrupts<sp/>to<sp/>wake<sp/>up<sp/>the<sp/>CPU<sp/>by<sp/>catching</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*<sp/>the<sp/>start<sp/>event<sp/>of<sp/>zero-frequency<sp/>transmission,<sp/>clear<sp/>the<sp/></highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/>peripheral,<sp/>set<sp/>desired<sp/>frequency,<sp/>start<sp/>the<sp/>peripheral,<sp/>and</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/>the<sp/>proper<sp/>transmission.<sp/>See<sp/>more<sp/>in<sp/>the<sp/>Errata<sp/>document<sp/>or</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/>Anomaly<sp/>109<sp/>Addendum<sp/>located<sp/>at<sp/>https://infocenter.nordicsemi.com/</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/><sp/>Set<sp/>to<sp/>1<sp/>to<sp/>activate.</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/>@note<sp/>This<sp/>is<sp/>an<sp/>NRF_CONFIG<sp/>macro.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NRFX_TWIM_NRF52_ANOMALY_109_WORKAROUND_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="118"><highlight class="comment">/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="doc/config_dox/nrfx_twim_dox_config.h"/>
+  </compounddef>
+</doxygen>

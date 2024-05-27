@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TWI driver &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="../../_static/js/ncs.js"
+></script>
+<script src="../../_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TWI HAL" href="hal.html" />
+    <link rel="prev" title="TWI" href="index.html" />
+<link
+  href="../../_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="../../_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="../../_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="../../search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="../../index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../aar/index.html">AAR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../acl/index.html">ACL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../adc/index.html">ADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bellboard/index.html">BELLBOARD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bprot/index.html">BPROT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cache/index.html">CACHE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ccm/index.html">CCM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../clock/index.html">CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comp/index.html">COMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cracen/index.html">CRACEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ctrlap/index.html">CTRL-AP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dcnf/index.html">DCNF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dppi/index.html">DPPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecb/index.html">ECB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../egu/index.html">EGU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exmif/index.html">EXMIF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fpu/index.html">FPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpio/index.html">GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpiote/index.html">GPIOTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../grtc/index.html">GRTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../i2s/index.html">I2S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../icr/index.html">ICR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipc/index.html">IPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ipct/index.html">IPCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kmu/index.html">KMU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lpcomp/index.html">LPCOMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lrc/index.html">LRC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../memconf/index.html">MEMCONF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpc/index.html">MPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mpu/index.html">MPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mutex/index.html">MUTEX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mvdma/index.html">MVDMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mwu/index.html">MWU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nfct/index.html">NFCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nvmc/index.html">NVMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pdm/index.html">PDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../power/index.html">POWER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppi/index.html">PPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ppib/index.html">PPIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pwm/index.html">PWM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qdec/index.html">QDEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qspi/index.html">QSPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../radio/index.html">RADIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ramc/index.html">RAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../resetinfo/index.html">RESETINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rng/index.html">RNG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rramc/index.html">RRAMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rtc/index.html">RTC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../saadc/index.html">SAADC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spi/index.html">SPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spim/index.html">SPIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spis/index.html">SPIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spu/index.html">SPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../stm/index.html">STM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../systick/index.html">SYSTICK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tampc/index.html">TAMPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tbm/index.html">TBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tdm/index.html">TDM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../temp/index.html">TEMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timer/index.html">TIMER</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">TWI</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">TWI driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hal.html">TWI HAL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../twim/index.html">TWIM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../twis/index.html">TWIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uart/index.html">UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uarte/index.html">UARTE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbd/index.html">USBD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../usbhs/index.html">USBHS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vmc/index.html">VMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vpr/index.html">VPR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../wdt/index.html">WDT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../nrfx_api/index.html">nrfx API</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Drivers</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TWI</a></li>
+      <li class="breadcrumb-item active">TWI driver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/drivers/twi/driver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="twi-driver">
+<h1>TWI driver<a class="headerlink" href="#twi-driver" title="Permalink to this heading"></a></h1>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__nrfx__twi"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">nrfx_twi</span></span></dt>
+<dd><p>Two Wire Interface master (TWI) peripheral driver. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-defines">Defines</p>
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_INSTANCE">
+<span class="target" id="group__nrfx__twi_1ga17d7bcc8bc35e3fabf8aa077f957330e"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_INSTANCE</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TWI_INSTANCE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for creating a TWI master driver instance. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_DEFAULT_CONFIG">
+<span class="target" id="group__nrfx__twi_1ga06897416b475f64c397f6ac2aa0cd51b"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_DEFAULT_CONFIG</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">_pin_scl</span></span>, <span class="n"><span class="pre">_pin_sda</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TWI_DEFAULT_CONFIG" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TWI master driver instance default configuration. </p>
+<p>This configuration sets up TWI with the following options:<ul class="simple">
+<li><p>clock frequency: 100 kHz</p></li>
+<li><p>disable bus holding after uninit</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_pin_scl</strong> – <strong>[in]</strong> SCL pin. </p></li>
+<li><p><strong>_pin_sda</strong> – <strong>[in]</strong> SDA pin. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER">
+<span class="target" id="group__nrfx__twi_1gaff494666514193a68dbb7b43b4da256d"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER</span></span></span><a class="headerlink" href="#c.NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flag indicating that the interrupt after each transfer will be suppressed, and the event handler will not be called. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_FLAG_TX_NO_STOP">
+<span class="target" id="group__nrfx__twi_1ga3c919cd69c51f64039324fda37da1a29"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_FLAG_TX_NO_STOP</span></span></span><a class="headerlink" href="#c.NRFX_TWI_FLAG_TX_NO_STOP" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flag indicating that the TX transfer will not end with a stop condition. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_FLAG_SUSPEND">
+<span class="target" id="group__nrfx__twi_1ga5684cab698a35c770a78854e348c2408"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_FLAG_SUSPEND</span></span></span><a class="headerlink" href="#c.NRFX_TWI_FLAG_SUSPEND" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flag indicating that the transfer will be suspended. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_XFER_DESC_TX">
+<span class="target" id="group__nrfx__twi_1gaa9406d59abbc1f914a47edcb573ef683"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_DESC_TX</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">p_data</span></span>, <span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TWI_XFER_DESC_TX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for setting the TX transfer descriptor. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_XFER_DESC_RX">
+<span class="target" id="group__nrfx__twi_1ga9496c7354553841d40495f025f626dcf"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_DESC_RX</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">p_data</span></span>, <span class="n"><span class="pre">length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TWI_XFER_DESC_RX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for setting the RX transfer descriptor. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_XFER_DESC_TXRX">
+<span class="target" id="group__nrfx__twi_1ga55f782b6a418104c143b4aafb2648e4a"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_DESC_TXRX</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">p_tx</span></span>, <span class="n"><span class="pre">tx_len</span></span>, <span class="n"><span class="pre">p_rx</span></span>, <span class="n"><span class="pre">rx_len</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TWI_XFER_DESC_TXRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for setting the TX-RX transfer descriptor. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_XFER_DESC_TXTX">
+<span class="target" id="group__nrfx__twi_1gae5c32acc87146cdd3de969ad60085e08"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_DESC_TXTX</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">addr</span></span>, <span class="n"><span class="pre">p_tx</span></span>, <span class="n"><span class="pre">tx_len</span></span>, <span class="n"><span class="pre">p_tx2</span></span>, <span class="n"><span class="pre">tx_len2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TWI_XFER_DESC_TXTX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro for setting the TX-TX transfer descriptor. </p>
+</dd></dl>
+
+<dl class="c macro">
+<dt class="sig sig-object c" id="c.NRFX_TWI_INST_HANDLER_GET">
+<span class="target" id="group__nrfx__twi_1ga4b21ab166f6bbf178c291c00bdecc16b"></span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_INST_HANDLER_GET</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">idx</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.NRFX_TWI_INST_HANDLER_GET" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Macro returning TWI interrupt handler. </p>
+<p>param[in] idx TWI index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Interrupt handler. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="c type">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_handler_t">
+<span class="target" id="group__nrfx__twi_1ga8124b21b85a7fdd038ca11e8a65f35ba"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_evt_handler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#c.nrfx_twi_evt_t" title="nrfx_twi_evt_t"><span class="n"><span class="pre">nrfx_twi_evt_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_event</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_context</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#c.nrfx_twi_evt_handler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TWI event handler prototype. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_type_t">
+<span class="target" id="group__nrfx__twi_1ga7aa1ed323e67b973f5dcfe80fe21e7f4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_evt_type_t</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_type_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TWI master driver event types. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_DONE">
+<span class="target" id="group__nrfx__twi_1gga7aa1ed323e67b973f5dcfe80fe21e7f4a6f50db79773a3ca43f8d78c4a7064510"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_EVT_DONE</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_DONE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Transfer completed event. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_ADDRESS_NACK">
+<span class="target" id="group__nrfx__twi_1gga7aa1ed323e67b973f5dcfe80fe21e7f4a3ab204968c724cc0467715bdcd1f152c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_EVT_ADDRESS_NACK</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_ADDRESS_NACK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error event: NACK received after sending the address. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_DATA_NACK">
+<span class="target" id="group__nrfx__twi_1gga7aa1ed323e67b973f5dcfe80fe21e7f4a4fa4f698d6c60e5a032f953ff2be61d2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_EVT_DATA_NACK</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_DATA_NACK" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error event: NACK received after sending a data byte. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_OVERRUN">
+<span class="target" id="group__nrfx__twi_1gga7aa1ed323e67b973f5dcfe80fe21e7f4a219f33b07b265bf3b2fc3a19043774d9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_EVT_OVERRUN</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_OVERRUN" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error event: The unread data is replaced by new data. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_BUS_ERROR">
+<span class="target" id="group__nrfx__twi_1gga7aa1ed323e67b973f5dcfe80fe21e7f4a47b8c8e31248fe102b0166f9afcb5de0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_EVT_BUS_ERROR</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_type_t.NRFX_TWI_EVT_BUS_ERROR" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error event: An unexpected transition occurred on the bus. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="c enum">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_type_t">
+<span class="target" id="group__nrfx__twi_1gaf227c5ab481c56715097ba08a0ae2bac"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_xfer_type_t</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_type_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TWI master driver transfer types. </p>
+<p><em>Values:</em></p>
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_TX">
+<span class="target" id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca212037ca48f014677c8d9efd647fd72a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_TX</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_TX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TX transfer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_RX">
+<span class="target" id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2bacac11390a9257b1036b10cd77eaee53e2a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_RX</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_RX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>RX transfer. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_TXRX">
+<span class="target" id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca8339203b38c17da2f0793f02661b0e83"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_TXRX</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_TXRX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TX transfer followed by RX transfer with repeated start. </p>
+</dd></dl>
+
+<dl class="c enumerator">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_TXTX">
+<span class="target" id="group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca81c31707f88003a02ccc7fcd7beb0e1c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRFX_TWI_XFER_TXTX</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_type_t.NRFX_TWI_XFER_TXTX" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TX transfer followed by TX transfer with repeated start. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_init">
+<span class="target" id="group__nrfx__twi_1gaf88045a2dfe68bb08f9f340b1cf46e78"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_twi_config_t" title="nrfx_twi_config_t"><span class="n"><span class="pre">nrfx_twi_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span>, <a class="reference internal" href="#c.nrfx_twi_evt_handler_t" title="nrfx_twi_evt_handler_t"><span class="n"><span class="pre">nrfx_twi_evt_handler_t</span></span></a><span class="w"> </span><span class="n"><span class="pre">event_handler</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_context</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_init" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for initializing the TWI driver instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the initial configuration. </p></li>
+<li><p><strong>event_handler</strong> – <strong>[in]</strong> Event handler provided by the user. If NULL, blocking mode is enabled. </p></li>
+<li><p><strong>p_context</strong> – <strong>[in]</strong> Context passed to event handler.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Initialization is successful. </p></li>
+<li><p><strong>NRFX_ERROR_ALREADY</strong> – The driver is already initialized. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is already initialized. Deprecated - use <a class="reference internal" href="../../nrfx_api/error_codes.html#group__nrfx__error__codes_1gga2449720f8fa17b22243218068459a24badc3fc33e8a7dc8b9a9547fe07b437efd"><span class="std std-ref">NRFX_ERROR_ALREADY</span></a> instead. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – Some other peripheral with the same instance ID is already in use. This is possible only if <a class="reference internal" href="../../nrfx_api/prs.html#group__nrfx__prs"><span class="std std-ref">Peripheral Resource Sharing (PRS)</span></a> module is enabled. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_reconfigure">
+<span class="target" id="group__nrfx__twi_1gaca8c7ed413224911dd989f525eca75c2"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_reconfigure</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_twi_config_t" title="nrfx_twi_config_t"><span class="n"><span class="pre">nrfx_twi_config_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_reconfigure" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for reconfiguring the TWI instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_config</strong> – <strong>[in]</strong> Pointer to the structure with the configuration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Reconfiguration was successful. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The driver is during transaction. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – The driver is uninitialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_uninit">
+<span class="target" id="group__nrfx__twi_1ga504295f2b045ce9cd57e91b335721da8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_uninit</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for uninitializing the TWI instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_init_check">
+<span class="target" id="group__nrfx__twi_1ga74f9c2116576ef7e29d2bc6a08d53643"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_init_check</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_init_check" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking if the TWI driver instance is initialized. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – Instance is already initialized. </p></li>
+<li><p><strong>false</strong> – Instance is not initialized. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_enable">
+<span class="target" id="group__nrfx__twi_1ga3eed30998bb2f651f6db3725ef3c81bb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_enable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_enable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for enabling the TWI instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_disable">
+<span class="target" id="group__nrfx__twi_1gac3e0d49b07922c82a6ad35f2c5ed3a63"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_disable</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_disable" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for disabling the TWI instance. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer">
+<span class="target" id="group__nrfx__twi_1ga5c9b6d700f27de583917838647057658"></span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_xfer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span>, <a class="reference internal" href="#c.nrfx_twi_xfer_desc_t" title="nrfx_twi_xfer_desc_t"><span class="n"><span class="pre">nrfx_twi_xfer_desc_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_xfer_desc</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_xfer" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for performing a TWI transfer. </p>
+<p>The following transfer types can be configured (<a class="reference internal" href="#structnrfx__twi__xfer__desc__t_1a3959af41675fdabe42c9207ce0bc6963"><span class="std std-ref">nrfx_twi_xfer_desc_t::type</span></a>):<ul class="simple">
+<li><p><a class="reference internal" href="#group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca8339203b38c17da2f0793f02661b0e83"><span class="std std-ref">NRFX_TWI_XFER_TXRX</span></a> - Write operation followed by a read operation (without STOP condition in between).</p></li>
+<li><p><a class="reference internal" href="#group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca81c31707f88003a02ccc7fcd7beb0e1c"><span class="std std-ref">NRFX_TWI_XFER_TXTX</span></a> - Write operation followed by a write operation (without STOP condition in between).</p></li>
+<li><p><a class="reference internal" href="#group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca212037ca48f014677c8d9efd647fd72a"><span class="std std-ref">NRFX_TWI_XFER_TX</span></a> - Write operation (with or without STOP condition).</p></li>
+<li><p><a class="reference internal" href="#group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2bacac11390a9257b1036b10cd77eaee53e2a"><span class="std std-ref">NRFX_TWI_XFER_RX</span></a> - Read operation (with STOP condition).</p></li>
+</ul>
+</p>
+<p>
+Additional options are provided using the flags parameter:<ul class="simple">
+<li><p><a class="reference internal" href="#group__nrfx__twi_1gaff494666514193a68dbb7b43b4da256d"><span class="std std-ref">NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER</span></a> - No user event handler after transfer completion. In most cases, this also means no interrupt at the end of the transfer.</p></li>
+<li><p><a class="reference internal" href="#group__nrfx__twi_1ga3c919cd69c51f64039324fda37da1a29"><span class="std std-ref">NRFX_TWI_FLAG_TX_NO_STOP</span></a> - No stop condition after TX transfer.</p></li>
+<li><p><a class="reference internal" href="#group__nrfx__twi_1ga5684cab698a35c770a78854e348c2408"><span class="std std-ref">NRFX_TWI_FLAG_SUSPEND</span></a> - Transfer will be suspended. This allows for combining multiple transfers into one transaction. Only transactions with the same direction can be combined. To finish the transaction, call the function without this flag.</p></li>
+</ul>
+</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TX-RX and TX-TX transfers are supported only in non-blocking mode.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some flag combinations are invalid:<ul class="simple">
+<li><p><a class="reference internal" href="#group__nrfx__twi_1ga3c919cd69c51f64039324fda37da1a29"><span class="std std-ref">NRFX_TWI_FLAG_TX_NO_STOP</span></a> with <a class="reference internal" href="#structnrfx__twi__xfer__desc__t_1a3959af41675fdabe42c9207ce0bc6963"><span class="std std-ref">nrfx_twi_xfer_desc_t::type</span></a> different than <a class="reference internal" href="#group__nrfx__twi_1ggaf227c5ab481c56715097ba08a0ae2baca212037ca48f014677c8d9efd647fd72a"><span class="std std-ref">NRFX_TWI_XFER_TX</span></a></p></li>
+</ul>
+</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure. </p></li>
+<li><p><strong>p_xfer_desc</strong> – <strong>[in]</strong> Pointer to the transfer descriptor. </p></li>
+<li><p><strong>flags</strong> – <strong>[in]</strong> Transfer options (0 for default settings).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – The procedure is successful. </p></li>
+<li><p><strong>NRFX_ERROR_BUSY</strong> – The driver is not ready for a new transfer. </p></li>
+<li><p><strong>NRFX_ERROR_NOT_SUPPORTED</strong> – The provided parameters are not supported. </p></li>
+<li><p><strong>NRFX_ERROR_INTERNAL</strong> – An unexpected transition occurred on the bus. </p></li>
+<li><p><strong>NRFX_ERROR_INVALID_STATE</strong> – Other direction of transaction is suspended on the bus. </p></li>
+<li><p><strong>NRFX_ERROR_DRV_TWI_ERR_OVERRUN</strong> – The unread data is replaced by new data (TXRX and RX) </p></li>
+<li><p><strong>NRFX_ERROR_DRV_TWI_ERR_ANACK</strong> – Negative acknowledgement (NACK) is received after sending the address in polling mode. </p></li>
+<li><p><strong>NRFX_ERROR_DRV_TWI_ERR_DNACK</strong> – Negative acknowledgement (NACK) is received after sending a data byte in polling mode. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_is_busy">
+<span class="target" id="group__nrfx__twi_1ga7ad4c5f8afa8fc13a02a0a67a024c67e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_is_busy</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_is_busy" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for checking the TWI driver state. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> TWI instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>true</strong> – The TWI driver is currently busy performing a transfer. </p></li>
+<li><p><strong>false</strong> – The TWI driver is ready for a new transfer. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_data_count_get">
+<span class="target" id="group__nrfx__twi_1gae8fb5691723bce5cce250e78aa9c14aa"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_data_count_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_data_count_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for getting the transferred data count. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Data count. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_stopped_event_get">
+<span class="target" id="group__nrfx__twi_1ga7e850f6480a6d7ff7cd430da75679922"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_stopped_event_get</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#c.nrfx_twi_t" title="nrfx_twi_t"><span class="n"><span class="pre">nrfx_twi_t</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">p_instance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_stopped_event_get" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for returning the address of a STOPPED TWI event. </p>
+<p>A STOPPED event can be used to detect the end of a transfer if the <a class="reference internal" href="#group__nrfx__twi_1gaff494666514193a68dbb7b43b4da256d"><span class="std std-ref">NRFX_TWI_FLAG_NO_XFER_EVT_HANDLER</span></a> option is used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_instance</strong> – <strong>[in]</strong> Pointer to the driver instance structure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>STOPPED event address. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="c function">
+<dt class="sig sig-object c" id="c.nrfx_twi_bus_recover">
+<span class="target" id="group__nrfx__twi_1ga1666c4226c3dea9c82abcc11c80ed850"></span><span class="pre">NRFX_STATIC_INLINE</span><span class="w"> </span><a class="reference internal" href="../../nrfx_api/error_codes.html#c.nrfx_err_t" title="nrfx_err_t"><span class="n"><span class="pre">nrfx_err_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_bus_recover</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">scl_pin</span></span>, <span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="n"><span class="pre">sda_pin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.nrfx_twi_bus_recover" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Function for recovering the bus. </p>
+<p>This function checks if the bus is not stuck because of a slave holding the SDA line in the low state, and if needed it performs required number of pulses on the SCL line to make the slave release the SDA line. Finally, the function generates a STOP condition on the bus to put it into a known state.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function can be used only if the TWI driver is uninitialized.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scl_pin</strong> – <strong>[in]</strong> SCL pin number. </p></li>
+<li><p><strong>sda_pin</strong> – <strong>[in]</strong> SDA pin number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return values<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>NRFX_SUCCESS</strong> – Bus recovery was successful. </p></li>
+<li><p><strong>NRFX_ERROR_INTERNAL</strong> – Bus recovery failed. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_twi_t">
+<span class="target" id="structnrfx__twi__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_t</span></span></span><a class="headerlink" href="#c.nrfx_twi_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_twi.h&gt;</em></div>
+<p>Structure for the TWI master driver instance. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_t.p_twi">
+<span class="target" id="structnrfx__twi__t_1a1c64e58d60faaa603bb46f82208253bd"></span><span class="n"><span class="pre">NRF_TWI_Type</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_twi</span></span></span><a class="headerlink" href="#c.nrfx_twi_t.p_twi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to a structure with TWI registers. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_t.drv_inst_idx">
+<span class="target" id="structnrfx__twi__t_1a0d398f9e12d39689ca0bf671adc4cc2e"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">drv_inst_idx</span></span></span><a class="headerlink" href="#c.nrfx_twi_t.drv_inst_idx" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Index of the driver instance. For internal use only. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t">
+<span class="target" id="structnrfx__twi__config__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_config_t</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_twi.h&gt;</em></div>
+<p>Structure for the configuration of the TWI master driver instance. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t.scl">
+<span class="target" id="structnrfx__twi__config__t_1aefb260d2f5cdb0d93d685faa82e04902"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">scl</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t.scl" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SCL pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t.sda">
+<span class="target" id="structnrfx__twi__config__t_1a1674b720ed81a9185c12d5e1327ac33a"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sda</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t.sda" title="Permalink to this definition"></a><br /></dt>
+<dd><p>SDA pin number. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t.frequency">
+<span class="target" id="structnrfx__twi__config__t_1aba041b6237dd90e202d91ee34914e030"></span><a class="reference internal" href="hal.html#c.nrf_twi_frequency_t" title="nrf_twi_frequency_t"><span class="n"><span class="pre">nrf_twi_frequency_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">frequency</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t.frequency" title="Permalink to this definition"></a><br /></dt>
+<dd><p>TWI frequency. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t.interrupt_priority">
+<span class="target" id="structnrfx__twi__config__t_1ad695ba152dcc3c8adb2cf476fcdb89ea"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">interrupt_priority</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t.interrupt_priority" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interrupt priority. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t.hold_bus_uninit">
+<span class="target" id="structnrfx__twi__config__t_1ab9a46a34d1b00a2c98aead56c43975c4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hold_bus_uninit</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t.hold_bus_uninit" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Hold pull up state on GPIO pins after uninit. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t.skip_gpio_cfg">
+<span class="target" id="structnrfx__twi__config__t_1a9220e4bc44f74979567b885e46dd9cab"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_gpio_cfg</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t.skip_gpio_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip GPIO configuration of pins. </p>
+<p>When set to true, the driver does not modify any GPIO parameters of the used pins. Those parameters are supposed to be configured externally before the driver is initialized. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_config_t.skip_psel_cfg">
+<span class="target" id="structnrfx__twi__config__t_1a00e28f92c2b696c42080ecc62b01572f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">skip_psel_cfg</span></span></span><a class="headerlink" href="#c.nrfx_twi_config_t.skip_psel_cfg" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Skip pin selection configuration. </p>
+<p>When set to true, the driver does not modify pin select registers in the peripheral. Those registers are supposed to be set up externally before the driver is initialized. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When both GPIO configuration and pin selection are to be skipped, the structure fields that specify pins can be omitted, as they are ignored anyway. </p>
+</div>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_desc_t">
+<span class="target" id="structnrfx__twi__xfer__desc__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_xfer_desc_t</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_desc_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_twi.h&gt;</em></div>
+<p>Structure for a TWI transfer descriptor. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_desc_t.type">
+<span class="target" id="structnrfx__twi__xfer__desc__t_1a3959af41675fdabe42c9207ce0bc6963"></span><a class="reference internal" href="#c.nrfx_twi_xfer_type_t" title="nrfx_twi_xfer_type_t"><span class="n"><span class="pre">nrfx_twi_xfer_type_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_desc_t.type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Type of transfer. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_desc_t.address">
+<span class="target" id="structnrfx__twi__xfer__desc__t_1a8325a3d43f54f0ed6c7d210840e1c10f"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">address</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_desc_t.address" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Slave address. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_desc_t.primary_length">
+<span class="target" id="structnrfx__twi__xfer__desc__t_1acf0f8fdc02260d5ec902c83c4340436d"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">primary_length</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_desc_t.primary_length" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of bytes transferred. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_desc_t.secondary_length">
+<span class="target" id="structnrfx__twi__xfer__desc__t_1aaf2ce5a6ac5e85532ba5c74fe12c6369"></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">secondary_length</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_desc_t.secondary_length" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Number of bytes transferred. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_desc_t.p_primary_buf">
+<span class="target" id="structnrfx__twi__xfer__desc__t_1acf64e125d6f0e6a0f417a6e2751c0149"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_primary_buf</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_desc_t.p_primary_buf" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to transferred data. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_xfer_desc_t.p_secondary_buf">
+<span class="target" id="structnrfx__twi__xfer__desc__t_1a64eb4755832509030aa241655dc9d438"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">p_secondary_buf</span></span></span><a class="headerlink" href="#c.nrfx_twi_xfer_desc_t.p_secondary_buf" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Pointer to transferred data. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="c struct">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_t">
+<span class="target" id="structnrfx__twi__evt__t"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nrfx_twi_evt_t</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_t" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;nrfx_twi.h&gt;</em></div>
+<p>Structure for a TWI event. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_t.type">
+<span class="target" id="structnrfx__twi__evt__t_1ae8fa4d9919d8d449ff2730d676588117"></span><a class="reference internal" href="#c.nrfx_twi_evt_type_t" title="nrfx_twi_evt_type_t"><span class="n"><span class="pre">nrfx_twi_evt_type_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_t.type" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Event type. </p>
+</dd></dl>
+
+<dl class="c var">
+<dt class="sig sig-object c" id="c.nrfx_twi_evt_t.xfer_desc">
+<span class="target" id="structnrfx__twi__evt__t_1acbe2be06dc3b466b19682b3541882af8"></span><a class="reference internal" href="#c.nrfx_twi_xfer_desc_t" title="nrfx_twi_xfer_desc_t"><span class="n"><span class="pre">nrfx_twi_xfer_desc_t</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">xfer_desc</span></span></span><a class="headerlink" href="#c.nrfx_twi_evt_t.xfer_desc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Transfer details. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hal.html" class="btn btn-neutral float-right" title="TWI HAL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="TWI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="../../_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

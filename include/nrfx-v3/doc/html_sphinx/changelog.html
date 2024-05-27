@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog &mdash; nrfx  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/nordic.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/nrfx.css" type="text/css" /> 
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+<script
+  type="text/javascript"
+  src="_static/js/ncs.js"
+></script>
+<script src="_static/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Driver support overview" href="drv_supp_matrix.html" />
+    <link rel="prev" title="Introduction and configuration" href="index.html" />
+<link
+  href="_static/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="shortcut icon"
+  href="_static/images/favicon.ico"
+/>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+<div class="announcement">
+</div>
+<div class="d-print-none ncs-header">
+  <div class="container-xl ncs-header-top">
+    <div class="row h-100">
+      <div class="d-none d-md-block col-2">
+        <div class="bg-white py-4 px-3 ml-2 ncs-header-logo">
+          <img
+            class="ncs-header-logo"
+            src="_static/images/nordic-logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div
+        class="col-8 col-md-7 pl-md-4 d-flex align-self-center justify-content-center"
+      >
+        <form class="w-75" action="search.html" method="get">
+          <div class="form-group">
+            <input
+              type="text"
+              name="q"
+              class="ncs-search-input form-control"
+              placeholder="Search all docs..."
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+<a href="index.html">
+  nrfx
+</a>
+  <div class="version">
+    3.5
+  </div>
+<div id="searchbox" role="search">
+  <div class="searchformwrapper">
+    <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+  </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">[3.5.0] - 2024-05-10</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">[3.4.0] - 2024-03-08</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">[3.3.0] - 2023-12-21</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">[3.2.0] - 2023-10-02</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">[3.1.0] - 2023-06-28</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">[3.0.0] - 2023-04-25</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">[2.11.0] - 2023-04-07</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id26">[2.10.0] - 2022-10-25</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id30">[2.9.0] - 2022-07-19</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id34">[2.8.0] - 2022-04-05</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id35">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id38">[2.7.0] - 2021-12-16</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id42">[2.6.0] - 2021-11-22</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id43">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id45">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id46">[2.5.0] - 2021-05-05</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id47">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id50">[2.4.0] - 2020-11-13</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id51">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id52">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id53">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id54">[2.3.0] - 2020-08-19</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id55">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id56">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id57">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id58">[2.2.0] - 2020-04-28</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id59">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id60">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id61">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id62">[2.1.0] - 2020-01-24</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id63">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id64">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id65">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id66">[2.0.0] - 2019-11-06</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id67">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id68">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removed">Removed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id69">[1.8.1] - 2019-10-21</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id70">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id71">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id72">[1.8.0] - 2019-08-27</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id73">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id74">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id75">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id76">[1.7.2] - 2019-07-25</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id77">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id78">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id79">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id80">[1.7.1] - 2019-04-08</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id81">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id82">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id83">[1.7.0] - 2019-03-29</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id84">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id85">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id86">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id87">[1.6.2] - 2019-02-12</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id88">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id89">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id90">[1.6.1] - 2019-01-29</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id91">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id92">[1.6.0] - 2019-01-18</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id93">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id94">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id95">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id96">[1.5.0] - 2018-12-12</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id97">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id98">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id99">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id100">[1.4.0] - 2018-11-30</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id101">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id102">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id103">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id104">[1.3.1] - 2018-09-28</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id105">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id106">[1.3.0] - 2018-09-21</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id107">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id108">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id109">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id110">[1.2.0] - 2018-09-06</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id111">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id112">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id113">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id114">[1.1.0] - 2018-06-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id115">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id116">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id117">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id118">[1.0.0] - 2018-03-21</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id119">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id120">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id121">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id122">[0.8.0] - 2017-12-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id123">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id124">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id125">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id126">Removed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id127">[0.7.0] - 2017-10-20</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id128">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drv_supp_matrix.html">Driver support overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nrfx</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Changelog</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading"></a></h1>
+<p>All notable changes to this project are documented in this file.</p>
+<section id="id1">
+<h2>[3.5.0] - 2024-05-10<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<section id="added">
+<h3>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added function for freeing all allocated channels in the WDT driver.</p></li>
+<li><p>Added HAL for AUXPLL peripheral.</p></li>
+<li><p>Added support for nRF54H20 and nRF54L15 in the AAR HAL.</p></li>
+</ul>
+</section>
+<section id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.64.0.</p></li>
+<li><p>Changed default implementation of the core-dependent delay loop for the VPR cores. Now, the VTIM peripheral is utilized instead of CPU spinning.</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed 1 MHz clock frequency configuration setting in the TWIM driver. Now, the supported pins are checked only if GPIO or PSEL configuration is specified.</p></li>
+<li><p>Fixed overridden write mode in the RRAMC HALY. Now, the configured write mode is preserved before the write operation and restored afterwards.</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>[3.4.0] - 2024-03-08<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<section id="id3">
+<h3>Added<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF54H20 and nRF54L15.</p></li>
+<li><p>Added support for changing the sub-power mode in the POWER driver.</p></li>
+<li><p>Added support for sleep configuration in the GRTC driver.</p></li>
+<li><p>Added HAL for TDM peripheral.</p></li>
+<li><p>Implemented a workaround for the anomaly 159 on the nRF5340 SoC in the QSPI driver.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Changed<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.63.2.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Fixed<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed extended configuration setting in the SPIM driver. Now extended configuration is applied correctly when only a subset of extended features is available.</p></li>
+</ul>
+</section>
+</section>
+<section id="id6">
+<h2>[3.3.0] - 2023-12-21<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<section id="id7">
+<h3>Added<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF54H20 Eng A and nRF54L15 Eng A.</p></li>
+<li><p>Added HALs for BELLBOARD, CRACEN, CTRLAP, EXMIF, GLITCHDET, GRTC, HSFLL, IPCT, LRCCONF, MEMCONF, MPC, MVDMA, PPIB, RAMC, RESETINFO, RRAMC, STM, TAMPC, TBM, UICR and, VPR.</p></li>
+<li><p>Added HALYs for BELLBOARD, GRTC, MVDMA, RRAMC, TBM, and VPR.</p></li>
+<li><p>Added drivers for BELLBOARD, GRTC, RRAMC, TBM, and VEVIF.</p></li>
+<li><p>Added the nrfx_ids helper layer to facilitate developing generic code that performs inter-domain signalling.</p></li>
+<li><p>Added possibility to use TX link feature without (D)PPI connection in the UARTE driver.</p></li>
+<li><p>Added possibility to get callback called on each byte received in the UARTE driver.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Changed<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.60.3.</p></li>
+<li><p>Changed the default nrfx API version to 3.1.0.</p></li>
+<li><p>Changed how the buffers are provided to the I2S driver. Now, the buffer size must be passed alongside pointers to the next buffers.</p></li>
+<li><p>Improved peripheral power management in the PWM driver. Now, the peripheral is enabled only during playback.</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Fixed<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed the workaround for nRF52840 anomaly 215 and nRF5340 anomaly 215 in the QSPI driver. Now, the custom instruction functions do not risk triggering anomalies.</p></li>
+<li><p>Fixed a missing CTRLAP reset reason for nRF91 in the POWER HAL.</p></li>
+<li><p>Fixed incorrect assertion in the TWIS driver. Now, the driver status can be checked when the driver is idle.</p></li>
+<li><p>Restored workaround for nRF52 anomaly 55 in the I2S driver.</p></li>
+</ul>
+</section>
+</section>
+<section id="id10">
+<h2>[3.2.0] - 2023-10-02<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
+<section id="id11">
+<h3>Added<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added multi-instance support for the GPIOTE driver.</p></li>
+<li><p>Added the nrfx_ram_ctrl helper layer to facilitate developing generic code that controls the power and retention settings of RAM blocks.</p></li>
+<li><p>Introduced the NRFX_TIMER_BASE_FREQUENCY_GET() and NRFX_SPIM_BASE_FREQUENCY_GET() macros for getting base frequencies in Hz for the specified TIMER and SPIM instances.</p></li>
+<li><p>Added a function for checking whether the specified voltage regulator is enabled in the REGULATORS HAL.</p></li>
+<li><p>Added a function for checking whether an inductor is connected to the DCC pin in the REGULATORS HAL.</p></li>
+<li><p>Added a function for checking if the detected voltage is below or above the threshold of VPOF (POF Comparator’s threshold voltage) in the REGULATORS HAL.</p></li>
+<li><p>Added a function for powering on all RAM blocks in the VMC HAL.</p></li>
+<li><p>Added missing entries in enumerators for RAM sections in the VMC HAL.</p></li>
+<li><p>Added the new nrfx_wdt_stop() function to the WDT driver that stops the watchdog.</p></li>
+<li><p>Added the new nrfx_wdt_uninit() function to the WDT driver that uninitializes the watchdog.</p></li>
+<li><p>Added the new nrfy_wdt_task_stop_enable_set() function to the WDT HALY that enables or disables stopping the watchdog.</p></li>
+<li><p>Added functions for retrieving pointers to the receive and transmit buffers in the TWIS HAL.</p></li>
+<li><p>Added functions for checking whether given instance is initialized to all of the drivers.</p></li>
+<li><p>Added individual functions for setting reference selection, external reference, detection type and enabling hysteresis in the LPCOMP HAL. Now they are supposed to be used instead of nrf_lpcomp_configure() function.</p></li>
+<li><p>Added a blocking mode to the CLOCK driver. The mode is initialized when a user handler is set to NULL.</p></li>
+<li><p>Added a new member to the configuration structure of the QSPI driver. The new configuration member determines time in milliseconds when a timeout of the QSPI operation occurs.</p></li>
+<li><p>Added the new nrfx_qspi_timeout_signal() function to the QSPI driver that signals premature QSPI operation timeout.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Changed<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.58.0.</p></li>
+<li><p>Overhauled the UARTE driver. Extended the UARTE driver with various modes of operations including: mixing of blocking and non-blocking transfers, linking transfers, continuous reception, low power operation.</p></li>
+<li><p>Changed all functions’ parameters in the GPIOTE driver. A pointer to nrfx_gpiote_t structure was added as the first parameter in all functions. Now functions without the pointer to nrfx_gpiote_t structure as the first argument are deprecated.</p></li>
+<li><p>Changed functions for setting and reading the GPREGRET registers in the POWER HAL. Now there are only two functions, nrf_power_gpregret_set() for setting and nrf_power_gpregret_get() for reading. A new <code class="docutils literal notranslate"><span class="pre">reg_num</span></code> argument was added to both of them.</p></li>
+<li><p>Replaced nrf_regulators_dcdcen_set() and nrf_regulators_dcdcen_vddh_set() functions with nrf_regulators_vreg_enable_set().</p></li>
+<li><p>Replaced nrf_regulators_pofcon_set() and nrf_regulators_pofcon_vddh_set() functions with nrf_regulators_config_set().</p></li>
+<li><p>Replaced nrf_regulators_pofcon_get() function with nrf_regulators_pof_config_get().</p></li>
+<li><p>Renamed nrf_regulators_mainregstatus_get() function to nrf_regulators_main_status_get().</p></li>
+<li><p>Renamed NRF_REGULATORS_POTHR_V{XY} macros to NRF_REGULATORS_POF<em>THR</em>{X}V{Y}.</p></li>
+<li><p>Renamed NRF_REGULATORS_PORTHRVDDH_V{XY} macros to NRF_REGULATORS_POF_THR<em>VDDH</em>{X}V{Y}.</p></li>
+<li><p>Renamed nrf_regulators_pof_thrvddh_t structure to nrf_regulators_pof_thr_vddh_t.</p></li>
+<li><p>Renamed macros indicating features presence in the REGULATORS HAL.</p></li>
+<li><p>Changed a default value of the source reference structure member from 1.8V to 1.2V in the COMP driver configuration structure.</p></li>
+<li><p>Changed a prototype of an event handler in the WDT driver. The new prototype accepts an event type, requests and a pointer to the context. A previous version is deprecated.</p></li>
+<li><p>Changed a prototype of the nrfx_wdt_init() function in the WDT driver. The new prototype accepts a pointer to the instance, a pointer to the configuration, an event handler and a pointer to the context. A previous version is deprecated.</p></li>
+<li><p>Replaced the nrf_wdt_task_stop_enable() function with nrf_wdt_task_stop_enable_set(). Now it takes a boolean parameter.</p></li>
+<li><p>Replaced the deprecated NRFX_ERROR_ALREADY_INITIALIZED error code with the new NRFX_ERROR_ALREADY one.</p></li>
+<li><p>Changed the organization of configuration structure members in the LPCOMP driver.</p></li>
+<li><p>Changed the definition of nrf_saadc_value_t type in the SAADC HAL. Now pointer to the buffer holding conversion results is a void* instead of int16_t*.</p></li>
+<li><p>Changed the return value in all drivers in case initialization functions have already been executed. Now the NRFX_ERROR_ALREADY error code will be returned instead of NRFX_ERROR_INVALID_STATE.</p></li>
+<li><p>Changed the way that the QSPI peripheral is activated. Now the driver activates the peripheral instance before the first transfer or when the nrfx_qspi_activate() function is called.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h3>Fixed<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed the device failing to reconnect to the host after USB cable being reconnected in the USBD driver.</p></li>
+<li><p>Fixed configuration of the external reference in nrfx_comp_init() and nrfx_comp_reconfigure() functions. Now the differential mode can be enabled in the COMP driver.</p></li>
+<li><p>Fixed support for P0.18, P0.20, and P0.28-P0.30 pins in the GPIOTE driver for nRF52820 SoC.</p></li>
+<li><p>Fixed events being forwarded to the user callback despite having their interrupts disabled in the QDEC driver.</p></li>
+</ul>
+</section>
+</section>
+<section id="id14">
+<h2>[3.1.0] - 2023-06-28<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h2>
+<section id="id15">
+<h3>Added<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the HALY layer for the NFCT. HALY is an extension of the HAL layer that aggregates basic hardware use cases within single functions. Now it is used instead of HAL in the NFCT drivers.</p></li>
+<li><p>Added the NRFX_IN_RANGE() macro for checking if a given value is in a given range.</p></li>
+<li><p>Added functions for writing a word to the flash and reading a buffer, word, halfword, and byte in the NVMC HAL.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>Changed<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.55.0.</p></li>
+<li><p>Modified the power management in the SPIM driver. Now the nrfx_spim_abort() function must be called once all expected transactions using the NRFX_SPIM_FLAG_NO_XFER_EVT_HANDLER, NRFX_SPIM_FLAG_HOLD_XFER, or NRFX_SPIM_FLAG_REPEATED_XFER option flags are finalized.</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>Fixed<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed a workaround for the anomaly 109 on the nRF52 family in the SPIM and SPIS drivers.</p></li>
+<li><p>Fixed the NRFX_TIMER_FREQUENCY_STATIC_CHECK() and NRFX_SPIM_FREQUENCY_STATIC_CHECK() macros.</p></li>
+<li><p>Fixed the nrfx_wdt_reconfigure() function that was returning the NRFX_ERROR_INVALID_STATE error code when the driver instance has been initialized.</p></li>
+<li><p>Fixed the nrfx_pwm_stopped_check() function when used without user’s handler function.</p></li>
+</ul>
+</section>
+</section>
+<section id="id18">
+<h2>[3.0.0] - 2023-04-25<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h2>
+<section id="id19">
+<h3>Added<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the HALY layer for the following peripherals: COMP, DPPI, GPIO, GPIOTE, I2S, LPCOMP, PDM, PWM, QDEC, RTC, SAADC, SPIM, TEMP, TIMER, TWIM, UARTE, WDT. HALY is an extension of the HAL layer that aggregates basic hardware use cases within single functions. Now it is used instead of HAL in the corresponding drivers.</p></li>
+<li><p>Added functions for reconfiguring a peripheral outside of the initialization process in the following drivers: COMP, PDM, PWM, QDEC, QSPI, SPI, SPIM, SPIS, TIMER, TWI, TWIM, TWIS, UART, UARTE, WDT.</p></li>
+<li><p>Added multi-instance support for the I2S and QDEC drivers. Now a pointer to the driver instance needs to be specified in all relevant functions.</p></li>
+<li><p>Added the reportper_inten member to the configuration structure for the QDEC driver. It allows to explicitly enable interrupts associated with the REPORTRDY peripheral event.</p></li>
+<li><p>Added the NRFX_ERROR_FORBIDDEN error being returned from the nrfx_spim_init() function when a user attempts to configure a hardware-controlled and software-controlled chip select simultaneously.</p></li>
+<li><p>Added the NRFX_TIMER_FREQUENCY_STATIC_CHECK() macro to statically check if the given frequency is achievable for the specified TIMER instance.</p></li>
+<li><p>Added the NRFX_TWIM_XFER_DESC() macro to support creation of any type of TWIM transaction for the TWIM driver.</p></li>
+<li><p>Added auxiliary macros NRFX_KHZ_TO_HZ() and NRFX_MHZ_TO_HZ() for converting specified frequency value to Hertz.</p></li>
+<li><p>Added auxiliary macros for sophisticated handling of the preprocessor symbols to <code class="docutils literal notranslate"><span class="pre">nrfx_utils.h</span></code>.</p></li>
+<li><p>Added functions for getting the number of available channels and groups for a given peripheral instance in the DPPIC HAL.</p></li>
+<li><p>Added functions for getting the SEQSTART tasks and SEQEND events associated with a specified sequence index in the PWM HAL.</p></li>
+<li><p>Added the nrf_rtc_capture_task_get() function for getting the CAPTURE task associated with the specified CC channel in the RTC HAL.</p></li>
+<li><p>Added functions for managing the non-maskable watchdog interrupts in the WDT HAL.</p></li>
+<li><p>Added functions for getting the address of peripheral tasks and events in the EGU HAL.</p></li>
+<li><p>Added a function for enabling the watchdog STOP task in the WDT HAL.</p></li>
+<li><p>Added a function for getting the bitmask of all watchdog requests’ statuses in the WDT HAL.</p></li>
+<li><p>Added a function for clearing the event and task endpoints for a given channel in the GPPI helper.</p></li>
+</ul>
+</section>
+<section id="id20">
+<h3>Changed<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Renamed a macro from NRFX_VOLTAGE_THRESHOLD_TO_INT() to NRFX_COMP_VOLTAGE_THRESHOLD_TO_INT() in the COMP HAL.</p></li>
+<li><p>Renamed functions for getting the task of event address in the following drivers: CLOCK, GPIOTE, PPI, SPIM, TWIM. Now they follow a common scheme.</p></li>
+<li><p>Renamed configuration structure members <code class="docutils literal notranslate"><span class="pre">hal</span></code> and <code class="docutils literal notranslate"><span class="pre">hal_config</span></code>, containing low-level peripheral settings, to <code class="docutils literal notranslate"><span class="pre">config</span></code> in the LPCOMP and UARTE drivers.</p></li>
+<li><p>Renamed a function from nrfx_pwm_is_stopped() to nrfx_pwm_stopped_check() in the PWM driver.</p></li>
+<li><p>Renamed a symbol from NRF_QDEC_LED_NOT_CONNECTED to NRF_QDEC_PIN_NOT_CONNECTED in the QDEC HAL. Now it is consistent with other, similar symbols.</p></li>
+<li><p>Changed the way the API version to be used is specified. Now the following dedicated symbols shall be defined to form the API version as a numerical value: NRFX_CONFIG_API_VER_MAJOR, NRFX_CONFIG_API_VER_MINOR, NRFX_CONFIG_API_VER_MICRO.</p></li>
+<li><p>Changed prototypes of several functions in the UARTE driver. Now all functions have a return value, and some of them accept additional parameters.</p></li>
+<li><p>Changed a type of configuration structure members that hold a pin number from <code class="docutils literal notranslate"><span class="pre">uint8_t</span></code> to <code class="docutils literal notranslate"><span class="pre">uint32_t</span></code> in the following drivers: I2S, PWM, SPIM.</p></li>
+<li><p>Changed the prototypes of the nrf_i2s_pins_set() and nrf_i2s_configure() functions in the I2S HAL. Now they accept a pointer to the configuration structure instead of several individual parameters.</p></li>
+<li><p>Changed a default value of the <code class="docutils literal notranslate"><span class="pre">gain</span></code> structure member from <code class="docutils literal notranslate"><span class="pre">1/6</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> in the SAADC driver configuration structure.</p></li>
+<li><p>Changed a type of the configuration structure member specifying the clock frequency from an enumeration to an unsigned integer in the TIMER driver. Now the timer clock frequency must be specified in Hertz. Use the NRFX_TIMER_FREQUENCY_STATIC_CHECK() macro to check if the requested frequency is achievable for a given TIMER instance.</p></li>
+<li><p>Changed a type of the configuration structure member specifying the clock frequency from an enumeration to an unsigned integer in the SPIM driver. Now the clock signal frequency must be specified in Hertz. Use the NRFX_SPIM_FREQUENCY_STATIC_CHECK() macro to check if the requested frequency is achievable for a given SPIM instance.</p></li>
+<li><p>Changed the prototype of the NRFX_TIMER_DEFAULT_CONFIG() macro in the TIMER driver. Now the desired timer clock frequency in Hertz needs to be specified as a parameter.</p></li>
+<li><p>Changed a prototype of the WDT driver callback. Now a bitmask specifying which reload request caused the timeout is provided.</p></li>
+<li><p>Changed the prototype of the initialization and callback functions of the QDEC driver. Now the user context can be provided and accessed during the interrupt handler execution.</p></li>
+<li><p>Removed the deprecated nrf_gpio_pin_mcu_select() function and the corresponding nrf_gpio_pin_mcusel_t enumerator. Use the nrf_gpio_pin_control_select() function and the nrf_gpio_pin_sel_t enumerator instead.</p></li>
+<li><p>Removed the deprecated and spurious NRF_QDEC_REPORTPER_DISABLED symbol from the QDEC HAL.</p></li>
+<li><p>Removed the deprecated nrf_qdec_pio_assign() function from the QDEC HAL. Use the nrf_qdec_pins_set() function instead.</p></li>
+<li><p>Removed the deprecated nrf_timer_frequency_set() and nrf_timer_frequency_get() functions in the TIMER HAL. Use nrf_timer_prescaler_set() and nrf_timer_prescaler_get() instead.</p></li>
+<li><p>Removed symbols that mark a pin as unused in the following drivers: I2S, PWM, SPIM, SPIS. Now the HAL variant should be used instead.</p></li>
+<li><p>Removed deprecated functions from the GPIOTE driver. Use new functions instead.</p></li>
+<li><p>Removed the deprecated callback prototype in the IPC driver. Use a new variant instead.</p></li>
+<li><p>Removed the following redundant functions from the PWM driver: nrfx_pwm_sequence_values_update(), nrfx_pwm_sequence_length_update(), nrfx_pwm_sequence_repeats_update(), nrfx_pwm_sequence_end_delay_update(). Use the nrfx_pwm_sequence_update() function instead.</p></li>
+<li><p>Moved static inline functions from the header file to the source file in the GPPI helper.</p></li>
+<li><p>Refactored the method of configuring pins that should use inverted polarity in the PWM driver. Now an array inside driver configuration structure needs to be used instead of masking the pin number value. As a consequence, the NRFX_PWM_PIN_INVERTED symbol was removed.</p></li>
+<li><p>Renamed configuration structure members used for setting peripheral pins in the following drivers: PDM, TWIM, TWIS, UARTE. Now they use a common scheme.</p></li>
+<li><p>Renamed the nrf_wdt_started() and nrf_wdt_request_status() functions in the WDT HAL. Now they are named as nrf_wdt_started_check() and nrf_wdt_request_status_check() respectively.</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3>Fixed<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed a misleading description for the nrf_rtc_event_disable() function in the RTC HAL. It accepts a bitmask of events instead of a single event.</p></li>
+</ul>
+</section>
+</section>
+<section id="id22">
+<h2>[2.11.0] - 2023-04-07<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h2>
+<section id="id23">
+<h3>Added<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for the nRF9161 and nRF9131 SiPs. Use <code class="docutils literal notranslate"><span class="pre">NRF9120_XXAA</span></code> as the compilation symbol.</p></li>
+<li><p>Implemented a workaround for the anomaly 161 on the nRF5340 SoC in the RESET HAL.</p></li>
+</ul>
+</section>
+<section id="id24">
+<h3>Changed<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.53.1.</p></li>
+</ul>
+</section>
+<section id="id25">
+<h3>Fixed<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removed a spurious function call causing aborting of endpoints in the SUSPEND event for the USBD driver.</p></li>
+</ul>
+</section>
+</section>
+<section id="id26">
+<h2>[2.10.0] - 2022-10-25<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h2>
+<section id="id27">
+<h3>Added<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added NRFX_CONFIG_API_VER_2_9 and NRFX_CONFIG_API_VER_2_10 symbols that guard API-breaking changes. Deprecated API is used by default.</p></li>
+<li><p>Added new signature for the event handler in the IPC driver that accepts event index instead of event bitmask. The previous signature is deprecated.</p></li>
+<li><p>Added nrfx_ipc_gpmem_get() function that is used to get data from the GPMEM register in IPC. It should be now used instead of nrfx_ipc_mem_get(), which is deprecated.</p></li>
+<li><p>Added samples for the following drivers: EGU, PWM, RNG, SAADC, SPIM, SPIS, TEMP, TIMER, TWIM, TWIS, UARTE. They are a part of <code class="docutils literal notranslate"><span class="pre">zephyrproject-rtos/hal_nordic/nrfx</span></code> repository.</p></li>
+<li><p>Introduced the NRFX_{PERIPH}_INST_HANDLER_GET() macro for getting interrupt handler associated with the specified driver instance.</p></li>
+<li><p>Introduced the NRFX_{PERIPH}_INST_GET() macro for getting pointer to the structure of the registers of the specified peripheral.</p></li>
+<li><p>Introduced the NRF_TIMER_PRESCALER_CALCULATE() macro for computing prescaler value for given TIMER base frequency and desired frequency.</p></li>
+<li><p>Introduced the NRF_TIMER_BASE_FREQUENCY_GET() macro for getting base frequency in Hz for the specified TIMER instance.</p></li>
+<li><p>Added missing NRFX_RESET_REASON_CTRLAP_MASK in nrfx_reset_reason_mask_t for nRF9160.</p></li>
+<li><p>Added missing NRFX_RESET_REASON_SREQ_MASK in nrfx_reset_reason_mask_t.</p></li>
+</ul>
+</section>
+<section id="id28">
+<h3>Changed<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.51.0.</p></li>
+<li><p>Refactored the TIMER driver to allow user handler to be NULL.</p></li>
+<li><p>Removed magic numbers from nrf_twim_event_t type in TWIM HAL.</p></li>
+</ul>
+</section>
+<section id="id29">
+<h3>Fixed<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed the NRFX_ROUNDED_DIV() macro for negative numbers.</p></li>
+<li><p>Disabled array bounds warning for nrf_clock_is_running() function that was false positive in GCC 12 and above.</p></li>
+</ul>
+</section>
+</section>
+<section id="id30">
+<h2>[2.9.0] - 2022-07-19<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h2>
+<section id="id31">
+<h3>Added<a class="headerlink" href="#id31" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added configuration parameter NRFX_NFCT_PARAM_ID_FDT_MIN that allows settting the value of the FRAMEDELAYMIN register.</p></li>
+<li><p>Added nrf_gpio_pin_sel_t enumerator. It should be now used instead of nrf_gpio_pin_mcusel_t, which is deprecated.</p></li>
+<li><p>Added nrf_gpio_pin_control_select() function. It should be now used instead of nrf_gpio_pin_mcu_select(), which is deprecated.</p></li>
+<li><p>Added NRF_TIMER_CC_COUNT_MAX symbol that specifies maximum number of available compare channels.</p></li>
+<li><p>Added NRF_TIMER_ALL_CHANNELS_INT_MASK symbol that is used for creating the interrupt bitmask for all compare channels.</p></li>
+<li><p>Added nrf_timer_prescaler_set() and nrf_timer_prescaler_get() functions that are used for setting and retrieving the prescaler factor. They should be now used instead of nrf_timer_frequency_set() and nrf_timer_frequency_get(), which are deprecated.</p></li>
+<li><p>Added NRFX_MAX(), NRFX_MIN() and NRFX_ABS() macros.</p></li>
+</ul>
+</section>
+<section id="id32">
+<h3>Changed<a class="headerlink" href="#id32" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.47.0.</p></li>
+</ul>
+</section>
+<section id="id33">
+<h3>Fixed<a class="headerlink" href="#id33" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed logging level in nrfx_uart_init() and nrfx_uarte_init() functions. It was reduced from warning to info.</p></li>
+<li><p>Fixed IO3 level used in nrfx_qspi_mem_busy_check(). The line is now kept high to prevent memory status from being read incorrectly.</p></li>
+</ul>
+</section>
+</section>
+<section id="id34">
+<h2>[2.8.0] - 2022-04-05<a class="headerlink" href="#id34" title="Permalink to this heading"></a></h2>
+<section id="id35">
+<h3>Added<a class="headerlink" href="#id35" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added function for getting the currently configured channels in the SAADC driver.</p></li>
+<li><p>Added callback for the RXFRAMESTART event in the NFCT driver.</p></li>
+<li><p>Added function for transmitting the NFC frame with specified number of bits in the NFCT driver.</p></li>
+<li><p>Added functions for getting and setting SEL_RES auto response configuration in the NFCT HAL.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h3>Changed<a class="headerlink" href="#id36" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Refactored calibration procedure in the SAADC driver, so it retains previously configured mode.</p></li>
+<li><p>Improved management of low frequency clock source during initialization in the CLOCK driver. Compatible source that already runs or is starting during initialization is now used without reconfiguration.</p></li>
+<li><p>Improved software-managed triggering of the START task on an END event in the SAADC driver.</p></li>
+</ul>
+</section>
+<section id="id37">
+<h3>Fixed<a class="headerlink" href="#id37" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed event processing order in the SAADC driver. Previously, incorrect buffer might have been filled when double-buffered sampling was used with END event and START task being connected through (D)PPI.</p></li>
+<li><p>Fixed the limits feature that could be spuriously triggered during calibration procedure in the SAADC driver.</p></li>
+</ul>
+</section>
+</section>
+<section id="id38">
+<h2>[2.7.0] - 2021-12-16<a class="headerlink" href="#id38" title="Permalink to this heading"></a></h2>
+<section id="id39">
+<h3>Added<a class="headerlink" href="#id39" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added new fields in the driver configuration structures to allow skipping GPIO and/or PSEL register configuration. Affected drivers: I2S, PDM, PWM, QDEC, QSPI, SPI, SPIM, SPIS, TWI, TWIM, TWIS, UART, UARTE.</p></li>
+</ul>
+</section>
+<section id="id40">
+<h3>Changed<a class="headerlink" href="#id40" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.44.2.</p></li>
+</ul>
+</section>
+<section id="id41">
+<h3>Fixed<a class="headerlink" href="#id41" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed the inability to start subsequent simple mode conversion from the user callback context in the SAADC driver.</p></li>
+</ul>
+</section>
+</section>
+<section id="id42">
+<h2>[2.6.0] - 2021-11-22<a class="headerlink" href="#id42" title="Permalink to this heading"></a></h2>
+<section id="id43">
+<h3>Added<a class="headerlink" href="#id43" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added new functions for the GPIOTE peripheral management in the GPIOTE driver. Legacy API is now deprecated.</p></li>
+<li><p>Added support for the TIMER CC channels 6 and 7.</p></li>
+<li><p>Added the nrfx_flag32_allocator helper layer to unify resource allocation mechanism across several drivers.</p></li>
+<li><p>Added functions for getting shortcut bitmask associated with specified channel in the TIMER HAL.</p></li>
+<li><p>Added functions for channel allocation and deallocation in the nrfx_gppi helper layer.</p></li>
+<li><p>Added the nrf_gpio_reconfigure() function for selective reconfiguration of the specified pin.</p></li>
+<li><p>Introduced the NRFX_CLOCK_CONFIG_CT_ENABLED symbol for enabling the calibration timer support in the CLOCK driver. The symbol is enabled by default on supported SoCs.</p></li>
+<li><p>Introduced the NRFX_CTZ and NRFX_CLZ macros to allow providing custom implementation for these functionalities. By default <code class="docutils literal notranslate"><span class="pre">__RBIT()</span></code> and <code class="docutils literal notranslate"><span class="pre">__CLZ()</span></code> CMSIS macros are used.</p></li>
+<li><p>Introduced the NRFX_ATOMIC_CAS macro to allow providing custom implementation for atomic compare-and-swap functionality.</p></li>
+<li><p>Implemented workaround for the nRF9160 anomaly 7 in the NVMC driver.</p></li>
+</ul>
+</section>
+<section id="id44">
+<h3>Changed<a class="headerlink" href="#id44" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.44.1.</p></li>
+</ul>
+</section>
+<section id="id45">
+<h3>Fixed<a class="headerlink" href="#id45" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed missing disabling of interrupts in the nrfx_qspi_lfm_start() and nrfx_qspi_lfm_xfer() functions.</p></li>
+<li><p>Fixed manual sample fetching when REPORTPER is disabled in the QDEC driver.</p></li>
+<li><p>Fixed a race condition in the NFCT driver when starting the transfer.</p></li>
+</ul>
+</section>
+</section>
+<section id="id46">
+<h2>[2.5.0] - 2021-05-05<a class="headerlink" href="#id46" title="Permalink to this heading"></a></h2>
+<section id="id47">
+<h3>Added<a class="headerlink" href="#id47" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for double-buffered transfers in the QSPI driver.</p></li>
+<li><p>Added support for one-by-one channel configuration in the SAADC driver.</p></li>
+<li><p>Added critical sections for channel allocation and deallocation in the DPPI driver.</p></li>
+<li><p>Added support for generating documentation in the RST format using Sphinx tool.</p></li>
+<li><p>Added high-drive pin configuration in the QSPI, TWIM, and SPIM drivers.</p></li>
+<li><p>Added report period setting of 1 sample in the QDEC HAL.</p></li>
+<li><p>Implemented workaround for nRF53 Series anomaly 121 in the QSPI driver.</p></li>
+</ul>
+</section>
+<section id="id48">
+<h3>Changed<a class="headerlink" href="#id48" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.40.2.</p></li>
+<li><p>Removed implicit channel deallocation during initialization in the GPIOTE driver.</p></li>
+<li><p>Restricted pins that are supported for specific configuration on nRF5340 in the QSPI, TWIM, and SPIM drivers.</p></li>
+<li><p>Aligned IRQ handler symbols to new naming scheme for nRF53 Series.</p></li>
+</ul>
+</section>
+<section id="id49">
+<h3>Fixed<a class="headerlink" href="#id49" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed register access sequence in the COMP driver.</p></li>
+<li><p>Fixed memory corruption when uninitialized channel was freed in the GPIOTE driver.</p></li>
+<li><p>Fixed spurious access of DCX pin for every instance of the peripheral when extended features were enabled in the SPIM driver.</p></li>
+<li><p>Fixed overwrite of MCUSEL configuration in the nrf_gpio_cfg() function.</p></li>
+<li><p>Fixed driver behavior for zero-length transfer in the TWIM driver.</p></li>
+<li><p>Fixed internal state handling when transfer is aborted before finishing in the TWI and TWIM drivers.</p></li>
+<li><p>Corrected assertions for MPS requirements in the USBD driver.</p></li>
+<li><p>Corrected symbol describing maximum data payload for a full-speed isochronous endpoint in the USBD driver.</p></li>
+</ul>
+</section>
+</section>
+<section id="id50">
+<h2>[2.4.0] - 2020-11-13<a class="headerlink" href="#id50" title="Permalink to this heading"></a></h2>
+<section id="id51">
+<h3>Added<a class="headerlink" href="#id51" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the channel allocator feature in the GPIOTE driver.</p></li>
+<li><p>Added support for registers associated with the Direction Finding feature in the RADIO HAL.</p></li>
+<li><p>Added support for the SUBSCRIBE and PUBLISH registers in the following HALs: AAR, CCM, ECB, RADIO, and RNG.</p></li>
+<li><p>Added support for the LATENCY register present on nRF5340 in the GPIOTE driver and the GPIOTE HAL.</p></li>
+<li><p>Implemented workaround for nRF53 Series anomaly 53 in the POWER driver.</p></li>
+</ul>
+</section>
+<section id="id52">
+<h3>Changed<a class="headerlink" href="#id52" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to 8.37.0.</p></li>
+</ul>
+</section>
+<section id="id53">
+<h3>Fixed<a class="headerlink" href="#id53" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed unused parameters in the PPI, CLOCK, SPIM and POWER drivers to resolve compilation warnings, such as ‘flags’ in the SPIM driver.</p></li>
+<li><p>Fixed a race condition in the COMP driver when interrupt occured before update of the driver internal state.</p></li>
+<li><p>Fixed minor C++ compilation warnings in the drivers.</p></li>
+<li><p>Fixed implementation of workaround for nRF52 Series anomaly 197 in the POWER HAL, which was applied in incorrect configuration.</p></li>
+<li><p>Fixed implementation of workaround for nRF53 Series anomaly 4 in the CLOCK driver, which was applied in incorrect configuration.</p></li>
+<li><p>Fixed the incorrect signature of the nrf_clock_alwaysrun_set() function.</p></li>
+</ul>
+</section>
+</section>
+<section id="id54">
+<h2>[2.3.0] - 2020-08-19<a class="headerlink" href="#id54" title="Permalink to this heading"></a></h2>
+<section id="id55">
+<h3>Added<a class="headerlink" href="#id55" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF52805.</p></li>
+<li><p>Implemented workaround for nRF52 Series anomaly 197 in the POWER HAL.</p></li>
+<li><p>Implemented workaround for nRF52 Series anomalies 211 and 223 in the USBD driver.</p></li>
+<li><p>Added support for the nRF53 Series in the QSPI HAL.</p></li>
+<li><p>Added function in the GPIO HAL that returns port index.</p></li>
+<li><p>Introduced a QSPI HAL symbol that indicates the availability of the QSPI mode 1.</p></li>
+<li><p>Introduced shortcut functionality in the CCM HAL.</p></li>
+<li><p>Added function in the TIMER HAL for setting the specified shortcuts.</p></li>
+<li><p>Added optional two-stage start procedure of the LFXO in the CLOCK driver.</p></li>
+</ul>
+</section>
+<section id="id56">
+<h3>Changed<a class="headerlink" href="#id56" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to 8.35.0.</p></li>
+<li><p>Divided network and application core-specific functionalities for nRF5340 in the RESET HAL and the reset reason helper.</p></li>
+</ul>
+</section>
+<section id="id57">
+<h3>Fixed<a class="headerlink" href="#id57" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrected assertions in the NVMC driver.</p></li>
+<li><p>Corrected return types in the CCM HAL.</p></li>
+<li><p>Fixed setting of program memory access mode for secure code in the NVMC driver.</p></li>
+<li><p>Removed usage of the NRF_UICR symbol on non-secure targets in address validity checks in the NVMC driver.</p></li>
+<li><p>Fixed an error message in the SPIM driver that prevented successful compilation with logging enabled.</p></li>
+<li><p>Fixed unused parameters in the PPI HAL.</p></li>
+</ul>
+</section>
+</section>
+<section id="id58">
+<h2>[2.2.0] - 2020-04-28<a class="headerlink" href="#id58" title="Permalink to this heading"></a></h2>
+<section id="id59">
+<h3>Added<a class="headerlink" href="#id59" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF52820.</p></li>
+<li><p>Added possibility to use the nRF52833 DK in development for nRF52820. LEDs and buttons in this DK use GPIOs that are not present in the actual nRF52820 device, so accesses to these need special handling in the GPIO HAL.</p></li>
+<li><p>Added the nrfx_reset_reason helper layer, to facilitate developing generic code that uses the RESETREAS register.</p></li>
+<li><p>Implemented workarounds for nRF52 Series anomalies 170 and 196 in the I2S driver.</p></li>
+<li><p>Added implicit casting of uint32_t to unsigned long in log messages, to prevent compiler warnings.</p></li>
+<li><p>Added missing secure and non-secure peripheral symbol translations for nRF5340 and nRF9160.</p></li>
+<li><p>Added functions in the NVMC driver for reading and writing halfword data from the OTP region of the UICR.</p></li>
+</ul>
+</section>
+<section id="id60">
+<h3>Changed<a class="headerlink" href="#id60" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to 8.32.1.</p></li>
+<li><p>Improved documentation regarding double-buffered reception in the UARTE driver.</p></li>
+<li><p>Unified policy of pin cleanup procedure during uninitialization of the drivers. Now every driver restores utilized pins to default setting.</p></li>
+<li><p>Removed support for revision Engineering A of nRF52840 in the USBD driver.</p></li>
+<li><p>Changed selected while() loops to NRFX_WAIT_FOR() macro in the SPIM, UARTE and CLOCK drivers to improve robustness.</p></li>
+</ul>
+</section>
+<section id="id61">
+<h3>Fixed<a class="headerlink" href="#id61" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed assertions that check write addresses in the NVMC driver. Now the UICR memory region is handled properly.</p></li>
+<li><p>Fixed a race condition in the CLOCK driver when requested clock was stopped during ramp-up from high priority interrupt.</p></li>
+<li><p>Fixed assertions that check pin numbers in the GPIO HAL and GPIOTE driver. Now noncontiguous groups of available pin numbers are handled properly.</p></li>
+<li><p>Fixed assertion that checks correctness of limit setting in the SAADC driver.</p></li>
+<li><p>Fixed spurious callback invocation when the SPIM driver was reinitialized to blocking mode from non-blocking mode.</p></li>
+<li><p>Fixed missing workaround for I2S STOP anomaly for nRF52833.</p></li>
+<li><p>Fixed handling of NRFX_SPIM_FLAG_HOLD_XFER setting in the blocking mode of the SPIM driver.</p></li>
+<li><p>Fixed void pointer cast in the CLOCK HAL, which could cause memory corruption with specific compiler settings.</p></li>
+<li><p>Fixed definition of the NRF_CLOCK_LFCLK_Synth value, to make it available also in builds for nRF5340.</p></li>
+</ul>
+</section>
+</section>
+<section id="id62">
+<h2>[2.1.0] - 2020-01-24<a class="headerlink" href="#id62" title="Permalink to this heading"></a></h2>
+<section id="id63">
+<h3>Added<a class="headerlink" href="#id63" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added HALs for DCNF, OSCILLATORS, USBREG, and VREQCTRL.</p></li>
+<li><p>Added support for 1-MHz clock frequency in TWIM.</p></li>
+<li><p>Introduced the NRFX_I2S_STATUS_TRANSFER_STOPPED flag in the I2S driver.</p></li>
+<li><p>Introduced the nrfx_power_compat layer that allows use of the nrfx_power API with new SoC.</p></li>
+<li><p>Added encryption support in the QSPI driver.</p></li>
+<li><p>Added support for USBD in nRF5340.</p></li>
+<li><p>Expanded HALs to cover new functions in nRF5340: GPIO, I2S, PDM, POWER, QSPI, and REGULATORS.</p></li>
+<li><p>Introduced new clock management system in the CLOCK driver.</p></li>
+<li><p>Introduced new audio clock configuration settings in the I2S and PDM drivers for nRF5340.</p></li>
+<li><p>Implemented workaround for nRF5340 anomaly 4 in the CLOCK driver.</p></li>
+<li><p>Implemented workaround for nRF5340 anomaly 10 in the CCM HAL.</p></li>
+<li><p>Implemented workaround for nRF9160 anomaly 21 and nRF5340 anomaly 6 in the NVMC HAL.</p></li>
+<li><p>Implemented workaround for nRF9160 anomaly 23 and nRF5340 anomaly 44 in the UARTE driver.</p></li>
+<li><p>Introduced the NRFX_TWIM_NO_SPURIOUS_STOP_CHECK flag in the TWIM driver.</p></li>
+<li><p>Added functions for getting shortcut configuration in the TWIM HAL.</p></li>
+</ul>
+</section>
+<section id="id64">
+<h3>Changed<a class="headerlink" href="#id64" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to 8.30.2.</p></li>
+<li><p>Reorganized templates of nrfx_config header files for different SoCs. Now they are included through one common file according to the selected SoC.</p></li>
+<li><p>Improved the UARTE driver to consume less current after the driver uninitialization. Now all clocks are disabled properly after uninitialization.</p></li>
+<li><p>Improved the GPIOTE driver robustness by setting the LATCH functionality to be used by default.</p></li>
+<li><p>Changed names of the frequency divider symbols in the QSPI HAL to reflect the new frequencies in nRF5340. Old API names were preserved and are still supported.</p></li>
+<li><p>Improved spurious STOP condition handling in the TWIM driver.</p></li>
+<li><p>Improved sampling procedure in the advanced blocking mode in the SAADC driver.</p></li>
+<li><p>Improved calibration procedure in the SAADC driver for nRF5340 and nRF9160.</p></li>
+</ul>
+</section>
+<section id="id65">
+<h3>Fixed<a class="headerlink" href="#id65" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed address assertions in NVMC driver for the nRF5340 network core.</p></li>
+<li><p>Fixed an issue in the TWI driver that would make the driver stuck when a premature STOP condition was generated by a slave device. The driver now handles this situation properly and signals that a bus error occurred.</p></li>
+<li><p>Fixed the stopping procedure in the PWM driver. Previously in very specific circumstances the PWM output might be not stopped at all or might be immediately restarted.</p></li>
+</ul>
+</section>
+</section>
+<section id="id66">
+<h2>[2.0.0] - 2019-11-06<a class="headerlink" href="#id66" title="Permalink to this heading"></a></h2>
+<section id="id67">
+<h3>Added<a class="headerlink" href="#id67" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF5340.</p></li>
+<li><p>Added HALs for: CACHE, FPU, MUTEX, and RESET.</p></li>
+<li><p>Added driver and HAL for IPC.</p></li>
+<li><p>Added possibility to configure in UART and UARTE the number of stop bits and the type of parity, when a given SoC allows it.</p></li>
+<li><p>Added function in the GPIO HAL for selecting the MCU to control the specified pin.</p></li>
+<li><p>Added support for ONESHOT register in the TIMER HAL.</p></li>
+<li><p>Added support for LIST feature in HALs for SPIS and TWIS.</p></li>
+<li><p>Added possibility to choose TIMER instance used for workarounds in the NFCT driver.</p></li>
+</ul>
+</section>
+<section id="id68">
+<h3>Changed<a class="headerlink" href="#id68" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to 8.29.0.</p></li>
+<li><p>Enhanced PWM driver API: added the “p_context” parameter to the event handler.</p></li>
+<li><p>Updated address and task getters in all HALs to return values as uint32_t type.</p></li>
+<li><p>Updated all HAL functions to take the pointer to the structure of registers of the peripheral as their first argument.</p></li>
+<li><p>Changed __STATIC_INLINE symbol to NRF_STATIC_INLINE for HALs and NRFX_STATIC_INLINE for drivers.</p></li>
+<li><p>Refactored the SAADC driver and HAL.</p></li>
+<li><p>Refactored the WDT driver and HAL to support multiple instances.</p></li>
+<li><p>Changed nrfx_gpiote_init() function to take the interrupt priority as its parameter. Previously this priority was an nrfx_config option.</p></li>
+<li><p>Changed nrf_usbd_ep_all_disable() function to disable really all endpoints. Use nrf_usbd_ep_default_config() to restore the default endpoint configuration.</p></li>
+<li><p>Updated nrfx_gpiote_out_init() and nrfx_gpiote_in_init() return codes. Now NRFX_ERROR_INVALID_STATE is changed to NRFX_ERROR_BUSY.</p></li>
+<li><p>Replaced the SWI/EGU driver with one for EGU only.</p></li>
+<li><p>Aligned symbol names for default IRQ priority in nrfx_config. These symbols are now adhering to the following standard: NRFX_xxx_DEFAULT_CONFIG_IRQ_PRIORITY.</p></li>
+<li><p>Changed the way of configuring the MISO pin pull setting in SPI and SPIM drivers. Now it can be set separately for each instance.</p></li>
+</ul>
+</section>
+<section id="removed">
+<h3>Removed<a class="headerlink" href="#removed" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removed deprecated functions from drivers: TWI and TWIM. See migration guide for details.</p></li>
+<li><p>Removed deprecated functions from HALs: ECB, NVMC, and TEMP. See migration guide for details.</p></li>
+<li><p>Removed redundant bariers in the nrfx_usbd driver.</p></li>
+<li><p>Removed the default configuration values for drivers from the nrfx_config header files.</p></li>
+</ul>
+</section>
+</section>
+<section id="id69">
+<h2>[1.8.1] - 2019-10-21<a class="headerlink" href="#id69" title="Permalink to this heading"></a></h2>
+<section id="id70">
+<h3>Added<a class="headerlink" href="#id70" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added functions in the GPIOTE driver for getting task or event for the specified GPIO pin.</p></li>
+</ul>
+</section>
+<section id="id71">
+<h3>Changed<a class="headerlink" href="#id71" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.27.1.</p></li>
+<li><p>Moved the nrfx_gppi helper from helpers/nrfx_gppi/ to helpers/.</p></li>
+<li><p>Changed the interrupt initialization in the GPIOTE driver, so that mapping of the GPIOTEx_IRQn enumeration values is no longer needed for nRF9160.</p></li>
+</ul>
+</section>
+</section>
+<section id="id72">
+<h2>[1.8.0] - 2019-08-27<a class="headerlink" href="#id72" title="Permalink to this heading"></a></h2>
+<section id="id73">
+<h3>Added<a class="headerlink" href="#id73" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF52833.</p></li>
+<li><p>Added bus recovery feature in the TWI and TWIM drivers.</p></li>
+<li><p>Added the nrfx_gppi helper layer to facilitate developing generic code that can utilize PPI or DPPI, depending on which interface is available in a given SoC.</p></li>
+</ul>
+</section>
+<section id="id74">
+<h3>Changed<a class="headerlink" href="#id74" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.27.0.</p></li>
+</ul>
+</section>
+<section id="id75">
+<h3>Fixed<a class="headerlink" href="#id75" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed an issue in the TWIM driver that would make the driver stuck when a premature STOP condition was generated by a slave device. The driver now handles this situation properly and signals that a bus error occurred.</p></li>
+<li><p>Fixed a frame timing bug in the NFCT driver. Previously, the timing of the SENS_RES response could be violated after the NFCT peripheral was put to the Sleep state with the SLP_REQ command.</p></li>
+</ul>
+</section>
+</section>
+<section id="id76">
+<h2>[1.7.2] - 2019-07-25<a class="headerlink" href="#id76" title="Permalink to this heading"></a></h2>
+<section id="id77">
+<h3>Added<a class="headerlink" href="#id77" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added functions in the DPPI, GPIOTE, PPI, RTC, and TIMER HALs for getting tasks and events specified by index.</p></li>
+<li><p>Added the possibility of suspending transfers in the TWI driver. This allows combining several transfers into one continuous TWI transaction.</p></li>
+<li><p>Added termination of transfers at deinitialization of the UARTE driver.</p></li>
+<li><p>Added buffer alignment checks in the QSPI driver.</p></li>
+<li><p>Introduced the NRFX_OFFSETOF macro that duplicates the functionality of the built-in offsetof() mechanism, but can be used without issues also with non-constant expressions.</p></li>
+<li><p>Added an alternative way of ending the DMA transfer loop in the USBD driver.</p></li>
+<li><p>Added the CTSTARTED and CTSTOPPED events to the CLOCK HAL.</p></li>
+</ul>
+</section>
+<section id="id78">
+<h3>Changed<a class="headerlink" href="#id78" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removed an assertion that prevented setting the data payload size of isochronous endpoints to zero, to fulfill requirements of the USB 2.0 specification, paragraph 5.6.3.</p></li>
+<li><p>Declared the tx_buffer_length field in the UART driver’s control block as volatile to prevent issues in case of compilation with high optimization level.</p></li>
+</ul>
+</section>
+<section id="id79">
+<h3>Fixed<a class="headerlink" href="#id79" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed an incorrect conversion of frequency values in the RADIO HAL.</p></li>
+<li><p>Fixed an incorrectly enabled interrupt in the QSPI driver.</p></li>
+<li><p>Corrected the LFCLK source selection values in the template configuration file for nRF9160.</p></li>
+<li><p>Fixed support for external LFCLK sources for nRF52811.</p></li>
+</ul>
+</section>
+</section>
+<section id="id80">
+<h2>[1.7.1] - 2019-04-08<a class="headerlink" href="#id80" title="Permalink to this heading"></a></h2>
+<section id="id81">
+<h3>Added<a class="headerlink" href="#id81" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added functions in the NVMC driver for getting the flash page size, the count of pages and the total flash size.</p></li>
+</ul>
+</section>
+<section id="id82">
+<h3>Fixed<a class="headerlink" href="#id82" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed handling of short unaligned write requests (1 or 2 bytes in length) in the nrfx_nvmc_bytes_write() function.</p></li>
+</ul>
+</section>
+</section>
+<section id="id83">
+<h2>[1.7.0] - 2019-03-29<a class="headerlink" href="#id83" title="Permalink to this heading"></a></h2>
+<section id="id84">
+<h3>Added<a class="headerlink" href="#id84" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added drivers for NVMC and TEMP.</p></li>
+<li><p>Added HALs: AAR and FICR.</p></li>
+<li><p>Added support for the custom instruction long frame mode in the QSPI driver.</p></li>
+</ul>
+</section>
+<section id="id85">
+<h3>Changed<a class="headerlink" href="#id85" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Reworked HAL for NVMC. Now it can be used for all SoCs supported by nrfx.</p></li>
+<li><p>Reworked HAL for TEMP.</p></li>
+<li><p>Improved documentation. Now it is more precise and can be generated without warnings with newer versions of doxygen.</p></li>
+<li><p>Improved the UARTE driver to consume less current after the TX operation. Now at the end of the transmission the transmitter is turned off by the STOPTX task.</p></li>
+<li><p>Improved C++ support in drivers. Now fields in structures are filled up in the correct order.</p></li>
+<li><p>Changed to size_t the type used for holding the amount of data in the TWIS driver.</p></li>
+</ul>
+</section>
+<section id="id86">
+<h3>Fixed<a class="headerlink" href="#id86" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed a race condition in the USBD driver. It could occur when an IN transfer was interrupted by an OUT transaction, which in turn was interrupted by a process with a higher priority.</p></li>
+</ul>
+</section>
+</section>
+<section id="id87">
+<h2>[1.6.2] - 2019-02-12<a class="headerlink" href="#id87" title="Permalink to this heading"></a></h2>
+<section id="id88">
+<h3>Added<a class="headerlink" href="#id88" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the possibility to use the macro NRFX_COREDEP_DELAY_US_LOOP_CYCLES to specify the number of cycles consumed by one iteration of the internal loop in the function nrfx_coredep_delay_us().</p></li>
+</ul>
+</section>
+<section id="id89">
+<h3>Changed<a class="headerlink" href="#id89" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.24.1.</p></li>
+</ul>
+</section>
+</section>
+<section id="id90">
+<h2>[1.6.1] - 2019-01-29<a class="headerlink" href="#id90" title="Permalink to this heading"></a></h2>
+<section id="id91">
+<h3>Fixed<a class="headerlink" href="#id91" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed an issue in the NFCT driver that caused a performance loss on nRF52832. The interrupt configuration is now properly restored after the NRFX_NFCT_EVT_FIELD_LOST event.</p></li>
+</ul>
+</section>
+</section>
+<section id="id92">
+<h2>[1.6.0] - 2019-01-18<a class="headerlink" href="#id92" title="Permalink to this heading"></a></h2>
+<section id="id93">
+<h3>Added<a class="headerlink" href="#id93" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF52811.</p></li>
+<li><p>Added support for the legacy peripherals SPI, TWI, and UART in nRF52810.</p></li>
+<li><p>Added support for SAMPLERATE in nrf_saadc.h.</p></li>
+<li><p>Added clearing of the STOPPED event in the nrfx_saadc_init() function to prevent driver deadlock in some cases.</p></li>
+<li><p>Added HALs: BPROT, MPU, MWU.</p></li>
+<li><p>Added function for reading the pin input buffer configuration in the GPIO HAL.</p></li>
+<li><p>Implemented workaround for nRF9160 anomaly 1 in the I2S driver.</p></li>
+</ul>
+</section>
+<section id="id94">
+<h3>Changed<a class="headerlink" href="#id94" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved handling of hardware anomalies in the USBD driver.</p></li>
+<li><p>Updated MDK to version 8.23.1.</p></li>
+</ul>
+</section>
+<section id="id95">
+<h3>Fixed<a class="headerlink" href="#id95" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed the condition in NRFX_WAIT_FOR in the nrfx_saadc_abort() function. The macro now correctly waits for a stop of the driver.</p></li>
+<li><p>Fixed the pending interrupt clearing in NVIC in the nrfx_usbd_stop() function. The driver now correctly handles power management.</p></li>
+<li><p>Fixed the case when nrfx_uarte_tx_in_progress() function would return an incorrect value. The driver now correctly updates the tx_buffer_length variable internally.</p></li>
+</ul>
+</section>
+</section>
+<section id="id96">
+<h2>[1.5.0] - 2018-12-12<a class="headerlink" href="#id96" title="Permalink to this heading"></a></h2>
+<section id="id97">
+<h3>Added<a class="headerlink" href="#id97" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added support for nRF9160.</p></li>
+<li><p>Added allocator for DPPI.</p></li>
+<li><p>Added HALs: DPPI, KMU, REGULATORS, SPU, VMC.</p></li>
+<li><p>Added support for DPPI subscription and publishing in HALs related to nRF9160.</p></li>
+<li><p>Added support for instances 2 and 3 in SPIS, TWIM, TWIS, and UARTE drivers.</p></li>
+</ul>
+</section>
+<section id="id98">
+<h3>Changed<a class="headerlink" href="#id98" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to version 8.21.1.</p></li>
+</ul>
+</section>
+<section id="id99">
+<h3>Fixed<a class="headerlink" href="#id99" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrected NRFX_I2S_CONFIG_RATIO value in nrfx_config.h. It now correctly uses supported value.</p></li>
+</ul>
+</section>
+</section>
+<section id="id100">
+<h2>[1.4.0] - 2018-11-30<a class="headerlink" href="#id100" title="Permalink to this heading"></a></h2>
+<section id="id101">
+<h3>Added<a class="headerlink" href="#id101" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the nrfx_is_word_aligned() function for checking whether an address is word-aligned.</p></li>
+<li><p>Added HAL for ACL.</p></li>
+<li><p>Added functions for disabling and re-enabling interrupts in the SWI driver.</p></li>
+<li><p>Added possibility to completely remove interrupt handling from the WDT driver.</p></li>
+</ul>
+</section>
+<section id="id102">
+<h3>Changed<a class="headerlink" href="#id102" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated the documentation for the nrfx_uarte_rx() function. It now correctly reflects the actual behavior of the function.</p></li>
+</ul>
+</section>
+<section id="id103">
+<h3>Fixed<a class="headerlink" href="#id103" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrected the type of the nrfx_uarte_xfer_evt_t structure field that holds the amount of transferred bytes.</p></li>
+<li><p>Corrected the way of disabling interrupts in the NFCT driver when moving the peripheral to the disabled state.</p></li>
+<li><p>Fixed a typo in the name of the bmRequest field in the nrfx_usbd_setup_t structure. The new correct name is bRequest.</p></li>
+<li><p>Fixed the nrfx_ppi_channel_fork_assign() function. It now accepts also pre-programmed channels.</p></li>
+<li><p>Fixed handling of long custom instruction responses in the QSPI driver.</p></li>
+<li><p>Fixed a bug affecting the conversion of time to ticks in the TIMER HAL.</p></li>
+</ul>
+</section>
+</section>
+<section id="id104">
+<h2>[1.3.1] - 2018-09-28<a class="headerlink" href="#id104" title="Permalink to this heading"></a></h2>
+<section id="id105">
+<h3>Fixed<a class="headerlink" href="#id105" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrected the type of nrfx_usbd_ep_status_get() return value.</p></li>
+<li><p>Corrected calls to undefined macros in NFCT and USBD drivers.</p></li>
+</ul>
+</section>
+</section>
+<section id="id106">
+<h2>[1.3.0] - 2018-09-21<a class="headerlink" href="#id106" title="Permalink to this heading"></a></h2>
+<section id="id107">
+<h3>Added<a class="headerlink" href="#id107" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added HAL and driver for NFCT.</p></li>
+<li><p>Added driver for USBD.</p></li>
+<li><p>Added function for setting the burst mode in the SAADC HAL.</p></li>
+<li><p>Added the NRFX_ARRAY_SIZE macro.</p></li>
+</ul>
+</section>
+<section id="id108">
+<h3>Changed<a class="headerlink" href="#id108" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Moved the implementation of nrfx_power_clock_irq_handler() to nrfx_power.c, removed nrfx_power_clock.c.</p></li>
+</ul>
+</section>
+<section id="id109">
+<h3>Fixed<a class="headerlink" href="#id109" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Replaced ARRAY_SIZE macro calls with NRFX_ARRAY_SIZE ones.</p></li>
+</ul>
+</section>
+</section>
+<section id="id110">
+<h2>[1.2.0] - 2018-09-06<a class="headerlink" href="#id110" title="Permalink to this heading"></a></h2>
+<section id="id111">
+<h3>Added<a class="headerlink" href="#id111" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added function for checking if a specific channel is enabled in the GPIOTE HAL.</p></li>
+<li><p>Added support for using the QDEC driver without LED.</p></li>
+<li><p>Added functions for modifying only the event endpoint or only the task endpoint in the PPI HAL.</p></li>
+<li><p>Added function for reading the pin pull configuration in the GPIO HAL.</p></li>
+</ul>
+</section>
+<section id="id112">
+<h3>Changed<a class="headerlink" href="#id112" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrected ISOSPLIT enumerator names in the USBD HAL.</p></li>
+</ul>
+</section>
+<section id="id113">
+<h3>Fixed<a class="headerlink" href="#id113" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed a double buffering bug that occurred in the UARTE driver after the RX abort.</p></li>
+<li><p>Fixed the TXRX transfers in the TWIM driver. They can now be started after transfers that are not ended with the stop condition.</p></li>
+</ul>
+</section>
+</section>
+<section id="id114">
+<h2>[1.1.0] - 2018-06-15<a class="headerlink" href="#id114" title="Permalink to this heading"></a></h2>
+<section id="id115">
+<h3>Added<a class="headerlink" href="#id115" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Implemented workaround for nRF52832 and nRF52840 anomaly 194 in the I2S driver.</p></li>
+<li><p>Implemented workaround for nRF52840 anomaly 195 in the SPIM driver.</p></li>
+<li><p>Added HALs for CCM, ECB, and RADIO.</p></li>
+<li><p>Extended HALs for GPIO, PPI, SAADC, and USBD.</p></li>
+<li><p>Added support for external LFCLK sources.</p></li>
+</ul>
+</section>
+<section id="id116">
+<h3>Changed<a class="headerlink" href="#id116" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrected handling of transfer lengths in the TWI driver.</p></li>
+<li><p>Updated MDK to version 8.17.0.</p></li>
+</ul>
+</section>
+<section id="id117">
+<h3>Fixed<a class="headerlink" href="#id117" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed logging in the PPI driver.</p></li>
+<li><p>Fixed SPIM interrupt definition for nRF52810.</p></li>
+<li><p>Fixed Slave Select configuration in the SPIM driver.</p></li>
+<li><p>Corrected default settings for NRF_SPIM3.</p></li>
+<li><p>Fixed a typo in the UARTE TXDRDY event definition.</p></li>
+<li><p>Corrected the TIMEOUT event clearing in the WDT interrupt handler.</p></li>
+</ul>
+</section>
+</section>
+<section id="id118">
+<h2>[1.0.0] - 2018-03-21<a class="headerlink" href="#id118" title="Permalink to this heading"></a></h2>
+<section id="id119">
+<h3>Added<a class="headerlink" href="#id119" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the NRFX_WAIT_FOR macro to improve the time-out functionality in QSPI and SAADC drivers.</p></li>
+<li><p>Added glue layer macros for checking and modifying the pending status of interrupts.</p></li>
+<li><p>Added new enumeration values for interrupts and events in the UARTE HAL.</p></li>
+<li><p>Implemented workarounds for nRF52 anomalies 192 and 201 in the CLOCK driver.</p></li>
+<li><p>Implemented workaround for nRF52840 anomaly 122 in the QSPI driver.</p></li>
+<li><p>Implemented workaround for nRF52840 anomaly 198 in the SPIM driver.</p></li>
+</ul>
+</section>
+<section id="id120">
+<h3>Changed<a class="headerlink" href="#id120" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to 8.16.0.</p></li>
+<li><p>Extended input pin configuration in the GPIOTE driver.</p></li>
+<li><p>Unified the way of checking if a required event handler was provided. Now, all drivers do it with assertions.</p></li>
+<li><p>Changed the RNG bias correction configuration option to be enabled by default.</p></li>
+<li><p>Refactored the ADC driver and HAL.</p></li>
+<li><p>Corrected assertions in the TIMER driver to make it usable in debug version with PPI.</p></li>
+<li><p>Improved buffer handling in the I2S driver. The API of the driver has been slightly modified.</p></li>
+<li><p>Enhanced SPIS driver API: added the “p_context” parameter, allowed NULL pointers for zero-length buffers.</p></li>
+</ul>
+</section>
+<section id="id121">
+<h3>Fixed<a class="headerlink" href="#id121" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed result value casting in the TEMP HAL.</p></li>
+<li><p>Fixed types of conversion result and buffer size in the ADC HAL and driver.</p></li>
+<li><p>Fixed time-out in the SAADC driver in abort function.</p></li>
+</ul>
+</section>
+</section>
+<section id="id122">
+<h2>[0.8.0] - 2017-12-20<a class="headerlink" href="#id122" title="Permalink to this heading"></a></h2>
+<section id="id123">
+<h3>Added<a class="headerlink" href="#id123" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added XIP support in the QSPI driver.</p></li>
+<li><p>Implemented Errata 132 in the CLOCK driver.</p></li>
+<li><p>Added function for checking if a TIMER instance is enabled.</p></li>
+<li><p>Added extended SPIM support.</p></li>
+</ul>
+</section>
+<section id="id124">
+<h3>Changed<a class="headerlink" href="#id124" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Updated MDK to 8.15.0. Introduced Segger Embedded Studio startup files.</p></li>
+<li><p>Updated drivers: COMP, PWM, QDEC, SAADC, SPIS, TIMER, TWI, TWIS.</p></li>
+<li><p>Changed the type used for transfer lengths to ‘size_t’ in drivers: SPI, SPIM, SPIS, TWI, TWIM, TWIS, UART, UARTE. Introduced checking of EasyDMA transfers limits.</p></li>
+<li><p>Updated HALs: COMP, NVMC, UART, UARTE, USBD.</p></li>
+<li><p>Updated template files and documentation of configuration options.</p></li>
+</ul>
+</section>
+<section id="id125">
+<h3>Fixed<a class="headerlink" href="#id125" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed TWI and TWIM drivers so that they now support GPIOs from all ports.</p></li>
+<li><p>Fixed definitions related to compare channels in the TIMER HAL.</p></li>
+</ul>
+</section>
+<section id="id126">
+<h3>Removed<a class="headerlink" href="#id126" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removed the possibility of passing NULL instead of configuration to get default settings during drivers initialization.</p></li>
+<li><p>Removed support for UART1 and PRS box #5.</p></li>
+</ul>
+</section>
+</section>
+<section id="id127">
+<h2>[0.7.0] - 2017-10-20<a class="headerlink" href="#id127" title="Permalink to this heading"></a></h2>
+<section id="id128">
+<h3>Added<a class="headerlink" href="#id128" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>This CHANGELOG.md file.</p></li>
+<li><p>README.md file with simple description and explanations.</p></li>
+<li><p>HAL for: ADC, CLOCK, COMP, ECB, EGU, GPIO, GPIOTE, I2S, LPCOMP, NVMC, PDM, POWER, PPI, PWM, QDEC, QSPI, RNG, RTC, SAADC, SPI, SPIM, SPIS, ARM(R) SysTick, TEMP, TIMER, TWI, TWIM, TWIS, UART, UARTE, USBD, WDT.</p></li>
+<li><p>Drivers for: ADC, CLOCK, COMP, GPIOTE, I2S, LPCOMP, PDM, POWER, PWM, QDEC, QSPI, RNG, RTC, SAADC, SPI, SPIM, SPIS, ARM(R) SysTick, TIMER, TWI, TWIM, TWIS, UART, UARTE, WDT.</p></li>
+<li><p>Allocators for: PPI, SWI/EGU.</p></li>
+<li><p>MDK in version 8.14.0.</p></li>
+<li><p>Offline documentation for every added driver and simple integration description.</p></li>
+<li><p>Template integration files.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="drv_supp_matrix.html" class="btn btn-neutral float-right" title="Driver support overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Introduction and configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+
+<table>
+<tr>
+<td>
+    <p>
+        &copy; Copyright 2021, Nordic Semiconductor ASA.
+      Last updated on May 10, 2024.
+
+    </p>
+</td>
+<td id="nordiclogo">
+  <a href="https://www.nordicsemi.com/"><img src="_static/images/nordic-logo.png" border="0"/></a>
+</td>
+</tr>
+</table>
+  </div> 
+
+
+</footer>
+
+<div id="scroll-container">
+  <button type="button" id="scroll-btn" class="btn">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#fff"/></svg>
+  </button>
+</div>
+
+<script>
+  const scrollBtn = document.querySelector("#scroll-btn");
+
+  document.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+          scrollBtn.style.visibility = "visible";
+      } else {
+          scrollBtn.style.visibility = "hidden";
+      }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

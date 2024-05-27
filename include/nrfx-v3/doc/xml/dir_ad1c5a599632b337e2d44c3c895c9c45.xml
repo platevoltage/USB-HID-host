@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_ad1c5a599632b337e2d44c3c895c9c45" kind="dir">
+    <compoundname>soc/interconnect/ipct</compoundname>
+    <innerfile refid="nrfx__interconnect__ipct_8h">nrfx_interconnect_ipct.h</innerfile>
+    <innerfile refid="nrfx__interconnect__ipct__haltium__application_8h">nrfx_interconnect_ipct_haltium_application.h</innerfile>
+    <innerfile refid="nrfx__interconnect__ipct__haltium__ext_8h">nrfx_interconnect_ipct_haltium_ext.h</innerfile>
+    <innerfile refid="nrfx__interconnect__ipct__haltium__flpr_8h">nrfx_interconnect_ipct_haltium_flpr.h</innerfile>
+    <innerfile refid="nrfx__interconnect__ipct__haltium__global_8h">nrfx_interconnect_ipct_haltium_global.h</innerfile>
+    <innerfile refid="nrfx__interconnect__ipct__haltium__ppr_8h">nrfx_interconnect_ipct_haltium_ppr.h</innerfile>
+    <innerfile refid="nrfx__interconnect__ipct__haltium__radiocore_8h">nrfx_interconnect_ipct_haltium_radiocore.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/interconnect/ipct/"/>
+  </compounddef>
+</doxygen>

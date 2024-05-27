@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_545b61743e3291032fe7cde25c2d2bbe" kind="dir">
+    <compoundname>soc/interconnect/dppic_ppib</compoundname>
+    <innerfile refid="nrfx__interconnect__dppic__ppib_8h">nrfx_interconnect_dppic_ppib.h</innerfile>
+    <innerfile refid="nrfx__interconnect__dppic__ppib__lumos_8h">nrfx_interconnect_dppic_ppib_lumos.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="soc/interconnect/dppic_ppib/"/>
+  </compounddef>
+</doxygen>
