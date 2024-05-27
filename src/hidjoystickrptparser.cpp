@@ -10,14 +10,23 @@ oldButtons(0) {
 
 void JoystickReportParser::Parse(USBHID *hid, bool is_rpt_id, uint8_t len, uint8_t *buf) {
         bool match = true;
-        Serial.println(*buf);
+        
 
         // Checking if there are changes in report since the method was last called
-        for (uint8_t i = 0; i < RPT_GEMEPAD_LEN; i++)
-                if (buf[i] != oldPad[i]) {
-                        match = false;
-                        break;
+        for (uint8_t i = 0; i < RPT_GEMEPAD_LEN; i++) {
+                Serial.print("0x");
+                if (buf[i] < 16) {
+                        Serial.print("0"); // Add leading zero if value is less than 16
                 }
+                Serial.print(buf[i], HEX);
+                Serial.print("  ");
+
+                // if (buf[i] != oldPad[i]) {
+                //         match = false;
+                //         break;
+                // }
+        }
+        Serial.println();
 
         // Calling Game Pad event handler
         if (!match && joyEvents) {
