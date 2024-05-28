@@ -7,6 +7,9 @@
 
 #include "hidjoystickrptparser.h"
 
+
+
+
 USB Usb;
 USBHub Hub(&Usb);
 HIDUniversal Hid(&Usb);
@@ -14,10 +17,8 @@ JoystickEvents JoyEvents;
 JoystickReportParser Joy(&JoyEvents);
 
 void setup() {
+
         Serial.begin(115200);
-#if !defined(__MIPSEL__)
-        while (!Serial); // Wait for serial port to connect - used on Leonardo, Teensy and other boards with built-in USB CDC serial connection
-#endif
         Serial.println("Start");
 
         if (Usb.Init() == -1)
@@ -27,9 +28,15 @@ void setup() {
 
         if (!Hid.SetReportParser(0, &Joy))
                 ErrorMessage<uint8_t > (PSTR("SetReportParser"), 1);
+
+
 }
 
+int count = 0;
 void loop() {
-        Usb.Task();
+        // Usb.Task();
+        delay(100);
+        count++;
+
 }
 

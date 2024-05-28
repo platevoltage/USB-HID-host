@@ -8,6 +8,7 @@ oldButtons(0) {
                 oldPad[i] = 0xD;
 }
 
+
 void JoystickReportParser::Parse(USBHID *hid, bool is_rpt_id, uint8_t len, uint8_t *buf) {
         bool match = true;
         
@@ -48,6 +49,12 @@ void JoystickReportParser::Parse(USBHID *hid, bool is_rpt_id, uint8_t len, uint8
         if (brake != oldBrake && joyEvents) {
                 joyEvents->OnBrakeChange(brake);
                 oldBrake = brake;
+        }
+
+        uint8_t wheel = (buf[2]);
+        if (wheel != oldWheel && joyEvents) {
+                joyEvents->OnWheelChange(wheel);
+                oldWheel = wheel;
         }
 
         // uint16_t buttons = (0x0000 | buf[6]);
@@ -144,11 +151,27 @@ void JoystickEvents::OnAcceleratorChange(uint8_t but_id) {
         if (but_id >= 128) but_id -= 128;
         else but_id+=128;
         Serial.println(but_id, DEC); 
+        
 }
 
 void JoystickEvents::OnBrakeChange(uint8_t but_id) {
         Serial.print("Brake: ");
         if (but_id >= 128) but_id -= 128;
         else but_id+=128;
+        Serial.println(but_id, DEC); 
+}
+
+void JoystickEvents::OnWheelChange(uint8_t but_id) {
+        Serial.print("Wheel: ");
+        // if (but_id >= 128) but_id -= 128;
+        // else but_id+=128;
+        // if (but_id >= 128) {
+        //         Serial.print(" (left) ");
+        //         but_id -= 128;
+        //         but_id %= 256;
+        // }
+        // else {
+        //         Serial.print(" (right) ");
+        // }
         Serial.println(but_id, DEC); 
 }
